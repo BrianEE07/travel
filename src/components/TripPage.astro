@@ -67,7 +67,7 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
     <section class="intro-grid" aria-label="旅程摘要">
       <div>
         <p class="section-kicker">The route</p>
-        <h2>八天，沿著九州的<br />城市與山海慢慢走。</h2>
+        <h2>八天，沿著九州的城市與山海慢慢走。</h2>
       </div>
       <div class="intro-copy">
         <p>從博多出發，穿過太宰府與由布院，再把最後幾天留給北九州、高千穗與糸島。這份手帖只放旅途中真正需要快速找到的資訊。</p>
@@ -176,7 +176,7 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
   </footer>
 
   <button id="back-to-top" class="back-to-top" type="button" aria-label="回到最上方" hidden>
-    <span aria-hidden="true">↑</span>
+    <span aria-hidden="true">⌃</span>
   </button>
 
   <dialog id="detail-dialog" aria-labelledby="dialog-title">
@@ -210,6 +210,8 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
     const entityMap = new Map(entities.map((entity: any) => [entity.id, entity]));
     const typeLabels: Record<string, string> = { stay: '住宿', food: '餐廳', place: '景點', transport: '交通' };
     const backToTop = document.querySelector<HTMLButtonElement>('#back-to-top');
+    let dialogReturnScrollY = 0;
+    let previousScrollRestoration: ScrollRestoration = 'auto';
 
     function updateBackToTop() {
       if (backToTop) backToTop.hidden = window.scrollY < 160;
@@ -254,22 +256,59 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
       dialog.dataset.type = entity.type;
     }
 
-    function openEntity(id: string, push = true) {
+    function lockPageScroll(returnScrollY = window.scrollY) {
+      dialogReturnScrollY = returnScrollY;
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      previousScrollRestoration = history.scrollRestoration;
+      history.scrollRestoration = 'manual';
+      document.body.style.top = `-${dialogReturnScrollY}px`;
+      document.body.style.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
+      document.body.classList.add('dialog-open');
+    }
+
+    function unlockPageScroll(returnScrollY = dialogReturnScrollY) {
+      document.body.classList.remove('dialog-open');
+      document.body.style.removeProperty('top');
+      document.body.style.removeProperty('padding-right');
+      window.scrollTo({ top: returnScrollY, left: 0, behavior: 'auto' });
+      updateBackToTop();
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: returnScrollY, left: 0, behavior: 'auto' });
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: returnScrollY, left: 0, behavior: 'auto' });
+          history.scrollRestoration = previousScrollRestoration;
+        });
+      });
+    }
+
+    function finishDialogClose(returnScrollY = dialogReturnScrollY) {
+      if (dialog?.open) dialog.close();
+      unlockPageScroll(returnScrollY);
+    }
+
+    function openEntity(id: string, push = true, returnScrollY?: number) {
       const entity = entityMap.get(id);
       if (!entity || !dialog) return;
       fillDialog(entity);
-      if (!dialog.open) dialog.showModal();
+      if (!dialog.open) {
+        lockPageScroll(returnScrollY);
+        dialog.showModal();
+      }
       if (push && location.hash !== `#detail=${encodeURIComponent(id)}`) {
-        history.pushState({ detail: id }, '', `#detail=${encodeURIComponent(id)}`);
+        history.replaceState({ ...history.state, tripScrollY: dialogReturnScrollY }, '', location.href);
+        history.pushState({ detail: id, dialogEntry: true, tripScrollY: dialogReturnScrollY }, '', `#detail=${encodeURIComponent(id)}`);
       }
     }
 
     function closeDialog(useHistory = true) {
       if (!dialog?.open) return;
-      if (useHistory && location.hash.startsWith('#detail=')) {
+      if (useHistory && location.hash.startsWith('#detail=') && history.state?.dialogEntry) {
         history.back();
       } else {
-        dialog.close();
+        if (location.hash.startsWith('#detail=')) {
+          history.replaceState(null, '', `${location.pathname}${location.search}`);
+        }
+        finishDialogClose();
       }
     }
 
@@ -278,13 +317,18 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
       if (trigger?.dataset.entity) openEntity(trigger.dataset.entity);
     });
     dialog?.querySelector('.dialog-close')?.addEventListener('click', () => closeDialog());
+    dialog?.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      closeDialog();
+    });
     dialog?.addEventListener('click', (event) => {
       if (event.target === dialog) closeDialog();
     });
-    window.addEventListener('popstate', () => {
+    window.addEventListener('popstate', (event) => {
       const id = location.hash.startsWith('#detail=') ? decodeURIComponent(location.hash.slice(8)) : '';
-      if (id) openEntity(id, false);
-      else if (dialog?.open) closeDialog(false);
+      const returnScrollY = Number.isFinite(event.state?.tripScrollY) ? event.state.tripScrollY : dialogReturnScrollY;
+      if (id) openEntity(id, false, returnScrollY);
+      else if (dialog?.open) finishDialogClose(returnScrollY);
     });
     const initialDetail = location.hash.startsWith('#detail=') ? decodeURIComponent(location.hash.slice(8)) : '';
     if (initialDetail) openEntity(initialDetail, false);
