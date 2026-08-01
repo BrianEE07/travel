@@ -51,6 +51,8 @@ async function loadPreview(url) {
 
 const markdown = await fs.readFile(sourcePath, 'utf8');
 const { trip } = parseTrip(markdown);
+const sourceStat = await fs.stat(sourcePath);
+trip.updatedAt = sourceStat.mtime.toISOString();
 const outputDir = path.join(projectRoot, 'src/data/trips');
 const outputPath = path.join(outputDir, `${trip.slug}.json`);
 await fs.mkdir(outputDir, { recursive: true });
