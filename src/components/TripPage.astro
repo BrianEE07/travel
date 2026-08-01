@@ -261,23 +261,25 @@ const description = `${formatDate(trip.start, true)}è‡³${formatDate(trip.end)}ï¼
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       previousScrollRestoration = history.scrollRestoration;
       history.scrollRestoration = 'manual';
-      document.body.style.top = `-${dialogReturnScrollY}px`;
       document.body.style.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
+      document.documentElement.classList.add('dialog-open');
       document.body.classList.add('dialog-open');
     }
 
     function unlockPageScroll(returnScrollY = dialogReturnScrollY) {
+      const root = document.documentElement;
+      const previousInlineScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      root.classList.remove('dialog-open');
       document.body.classList.remove('dialog-open');
-      document.body.style.removeProperty('top');
       document.body.style.removeProperty('padding-right');
-      window.scrollTo({ top: returnScrollY, left: 0, behavior: 'auto' });
+      if (Math.abs(window.scrollY - returnScrollY) > 1) {
+        window.scrollTo({ top: returnScrollY, left: 0, behavior: 'auto' });
+      }
       updateBackToTop();
       requestAnimationFrame(() => {
-        window.scrollTo({ top: returnScrollY, left: 0, behavior: 'auto' });
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: returnScrollY, left: 0, behavior: 'auto' });
-          history.scrollRestoration = previousScrollRestoration;
-        });
+        root.style.scrollBehavior = previousInlineScrollBehavior;
+        history.scrollRestoration = previousScrollRestoration;
       });
     }
 
@@ -294,15 +296,15 @@ const description = `${formatDate(trip.start, true)}è‡³${formatDate(trip.end)}ï¼
         lockPageScroll(returnScrollY);
         dialog.showModal();
       }
-      if (push && location.hash !== `#detail=${encodeURIComponent(id)}`) {
+      if (push) {
         history.replaceState({ ...history.state, tripScrollY: dialogReturnScrollY }, '', location.href);
-        history.pushState({ detail: id, dialogEntry: true, tripScrollY: dialogReturnScrollY }, '', `#detail=${encodeURIComponent(id)}`);
+        history.pushState({ detail: id, dialogEntry: true, tripScrollY: dialogReturnScrollY }, '', location.href);
       }
     }
 
     function closeDialog(useHistory = true) {
       if (!dialog?.open) return;
-      if (useHistory && location.hash.startsWith('#detail=') && history.state?.dialogEntry) {
+      if (useHistory && history.state?.dialogEntry) {
         history.back();
       } else {
         if (location.hash.startsWith('#detail=')) {
@@ -325,7 +327,8 @@ const description = `${formatDate(trip.start, true)}è‡³${formatDate(trip.end)}ï¼
       if (event.target === dialog) closeDialog();
     });
     window.addEventListener('popstate', (event) => {
-      const id = location.hash.startsWith('#detail=') ? decodeURIComponent(location.hash.slice(8)) : '';
+      const legacyDetail = location.hash.startsWith('#detail=') ? decodeURIComponent(location.hash.slice(8)) : '';
+      const id = event.state?.dialogEntry ? event.state.detail : legacyDetail;
       const returnScrollY = Number.isFinite(event.state?.tripScrollY) ? event.state.tripScrollY : dialogReturnScrollY;
       if (id) openEntity(id, false, returnScrollY);
       else if (dialog?.open) finishDialogClose(returnScrollY);
