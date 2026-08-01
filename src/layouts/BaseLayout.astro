@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex = true } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow, noarchive" />}
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests" />
+    <meta name="theme-color" content="#f4efe4" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/hero-fukuoka.png', Astro.site)} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+    --paper: #f4efe4;
+    --paper-raised: #fbf8f0;
+    --ink: #252820;
+    --ink-muted: #66675f;
+    --matcha: #53624b;
+    --matcha-deep: #354032;
+    --vermilion: #b6533d;
+    --blue: #607d8b;
+    --line: rgba(52, 59, 46, 0.18);
+    --shadow: 0 24px 64px rgba(54, 49, 37, 0.12);
+    --serif: "Iowan Old Style", "YuMincho", "Hiragino Mincho ProN", "Noto Serif TC", serif;
+    --sans: Inter, "SF Pro Text", "PingFang TC", "Noto Sans TC", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; background: var(--paper); }
+  body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.65; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  button { font: inherit; }
+  a { color: var(--matcha-deep); text-underline-offset: 0.2em; }
+  :focus-visible { outline: 3px solid rgba(182, 83, 61, 0.38); outline-offset: 3px; }
+  ::selection { background: rgba(182, 83, 61, 0.22); }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+</style>

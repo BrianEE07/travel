@@ -1,0 +1,11 @@
+---
+import TripPage from '../../components/TripPage.astro';
+import { trips } from '../../data/trips';
+
+export function getStaticPaths() {
+  return trips.map((trip) => ({ params: { slug: trip.slug }, props: { trip } }));
+}
+
+const { trip } = Astro.props;
+---
+<TripPage trip={trip} />

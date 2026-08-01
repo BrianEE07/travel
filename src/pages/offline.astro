@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="目前離線｜Wei 的旅行手帖" description="目前無法連線，請回到已快取的行程頁。">
+  <main class="offline">
+    <p>Offline</p>
+    <h1>現在沒有網路，<br />但旅行還在繼續。</h1>
+    <p>回到上一頁即可查看最近快取的行程；重新連線後，網站會提醒你是否有新版。</p>
+    <a href="/">回到行程</a>
+  </main>
+</BaseLayout>
+<style>
+  .offline { min-height: 100svh; display: grid; place-content: center; max-width: 620px; margin: auto; padding: 32px; }
+  .offline > p:first-child { color: var(--vermilion); text-transform: uppercase; letter-spacing: .18em; font-size: 12px; }
+  h1 { font: 500 clamp(38px, 8vw, 68px)/1.25 var(--serif); margin: 16px 0 24px; }
+  .offline > p:not(:first-child) { color: var(--ink-muted); }
+  a { justify-self: start; margin-top: 24px; padding: 12px 20px; border: 1px solid var(--ink); border-radius: 99px; text-decoration: none; }
+</style>

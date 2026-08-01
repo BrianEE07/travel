@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="迷路了｜Wei 的旅行手帖" description="找不到這一頁。">
+  <main class="not-found">
+    <span>404</span><h1>這條小路沒有排進行程。</h1><a href="/">回到旅行手帖</a>
+  </main>
+</BaseLayout>
+<style>
+  .not-found { min-height: 100svh; display: grid; place-content: center; gap: 24px; padding: 32px; text-align: center; }
+  span { color: var(--vermilion); letter-spacing: .2em; }
+  h1 { font: 500 clamp(36px, 7vw, 64px)/1.25 var(--serif); margin: 0; }
+  a { color: var(--matcha-deep); }
+</style>

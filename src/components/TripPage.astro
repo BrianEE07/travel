@@ -1,0 +1,302 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/trip.css';
+import type { Trip } from '../types';
+
+interface Props { trip: Trip; }
+const { trip } = Astro.props;
+
+const formatDate = (date: string, includeYear = false) => {
+  if (!date) return '';
+  const value = new Date(`${date}T12:00:00+08:00`);
+  return new Intl.DateTimeFormat('zh-TW', {
+    ...(includeYear ? { year: 'numeric' as const } : {}),
+    month: 'long',
+    day: 'numeric',
+  }).format(value);
+};
+const weekday = (date: string) => new Intl.DateTimeFormat('zh-TW', { weekday: 'short' }).format(new Date(`${date}T12:00:00+08:00`));
+const updated = new Intl.DateTimeFormat('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Taipei' }).format(new Date(trip.updatedAt));
+const entityTypeLabel: Record<string, string> = { stay: '住宿', food: '餐廳', place: '景點', transport: '交通' };
+const entityJson = JSON.stringify(trip.entities).replaceAll('<', '\\u003c');
+const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}，福岡與北九州八日旅行行程。`;
+---
+
+<BaseLayout title={`${trip.title}｜Wei 的旅行手帖`} description={description} noindex={trip.noindex}>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="旅行手帖首頁">
+      <span class="brand-mark" aria-hidden="true">旅</span>
+      <span>Wei’s Travel Notes</span>
+    </a>
+    <div class="header-meta">
+      <span class="privacy-label"><span aria-hidden="true">◌</span> 分享連結限定</span>
+      <span>更新於 {updated}</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="trip-title">
+      <img src="/hero-fukuoka.png" alt="福岡與北九州旅行意象拼貼" width="1693" height="929" fetchpriority="high" />
+      <div class="hero-overlay"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Late summer · Kyushu</p>
+        <h1 id="trip-title">{trip.title}</h1>
+        <p class="date-range">{formatDate(trip.start, true)} — {formatDate(trip.end, true)}</p>
+        <p class="locations">{trip.locations.join(' · ')}</p>
+        <a class="hero-cta" href={`#day-${trip.days[0]?.date}`}>
+          開始看行程 <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+      <div class="hero-stamp" aria-hidden="true">
+        <span>FUK</span>
+        <small>2026</small>
+      </div>
+    </section>
+
+    <nav class="day-nav" aria-label="日期快速導覽">
+      <div class="day-nav-inner">
+        {trip.days.map((day) => (
+          <a href={`#day-${day.date}`} class:list={[!day.detailed && 'is-planning']}>
+            <span>{formatDate(day.date)}</span>
+            <small>{weekday(day.date)}</small>
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <section class="intro-grid" aria-label="旅程摘要">
+      <div>
+        <p class="section-kicker">The route</p>
+        <h2>八天，沿著九州的<br />城市與山海慢慢走。</h2>
+      </div>
+      <div class="intro-copy">
+        <p>從博多出發，穿過太宰府與由布院，再把最後幾天留給北九州、高千穗與糸島。這份手帖只放旅途中真正需要快速找到的資訊。</p>
+        <div class="legend" aria-label="圖例">
+          <span><i class="dot dot-plan"></i> 完整行程</span>
+          <span><i class="dot dot-draft"></i> 規劃中</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="days" aria-labelledby="days-heading">
+      <div class="section-heading">
+        <p class="section-kicker">Daily itinerary</p>
+        <h2 id="days-heading">每日細流</h2>
+      </div>
+
+      {trip.days.map((day, index) => (
+        <article id={`day-${day.date}`} class:list={['day-card', !day.detailed && 'day-card-planning']}>
+          <div class="day-date">
+            <span class="day-number">{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              <time datetime={day.date}>{formatDate(day.date, true)}</time>
+              <p>{weekday(day.date)} · {day.area}</p>
+            </div>
+            {!day.detailed && <span class="planning-badge">規劃中</span>}
+          </div>
+
+          {day.detailed ? (
+            <div class="day-content">
+              <ol class="timeline">
+                {day.timeline.map((item) => (
+                  <li>
+                    <div class="timeline-time">
+                      <time>{item.time || '彈性'}</time>
+                      {item.group && <small>{item.group}</small>}
+                    </div>
+                    <div class="timeline-body" set:html={item.textHtml}></div>
+                  </li>
+                ))}
+              </ol>
+              <aside class="day-aside">
+                <div class="stay-card">
+                  <span>Stay</span>
+                  <strong>{day.stay}</strong>
+                </div>
+                {day.notes.length > 0 && (
+                  <div class="notes-card">
+                    <span>Travel notes</span>
+                    <ul>
+                      {day.notes.map((note) => <li set:html={note.textHtml}></li>)}
+                    </ul>
+                  </div>
+                )}
+              </aside>
+            </div>
+          ) : (
+            <div class="planning-summary">
+              <div>
+                <span>已確定</span>
+                <p>{day.summaryNote || '日期與住宿已保留，細節會隨筆記更新。'}</p>
+              </div>
+              <div>
+                <span>Stay</span>
+                <p>{day.stay}</p>
+              </div>
+            </div>
+          )}
+        </article>
+      ))}
+    </section>
+
+    <section class="detail-library" aria-labelledby="details-heading">
+      <div class="section-heading detail-heading">
+        <div>
+          <p class="section-kicker">Quick reference</p>
+          <h2 id="details-heading">旅行資料庫</h2>
+        </div>
+        <div class="filter-tabs" role="group" aria-label="篩選資訊">
+          <button type="button" class="is-active" data-filter="all">全部</button>
+          {Object.entries(entityTypeLabel).map(([type, label]) => <button type="button" data-filter={type}>{label}</button>)}
+        </div>
+      </div>
+      <div class="entity-grid">
+        {trip.entities.map((entity) => (
+          <button class={`entity-card entity-${entity.type}`} type="button" data-entity={entity.id} data-type={entity.type}>
+            <span class="entity-type">{entityTypeLabel[entity.type] ?? entity.type}</span>
+            <strong>{entity.title}</strong>
+            <p>{entity.summary}</p>
+            <span class="entity-open">查看資訊 <i aria-hidden="true">↗</i></span>
+          </button>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>旅程會繼續更新，出發前記得重新整理一次。</p>
+    <a href="#trip-title">回到最上方 ↑</a>
+  </footer>
+
+  <dialog id="detail-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-shell">
+      <button class="dialog-close" type="button" aria-label="關閉資訊視窗">×</button>
+      <div class="dialog-visual" aria-hidden="true">
+        <span class="dialog-type"></span>
+        <div class="dialog-pattern"></div>
+      </div>
+      <div class="dialog-content">
+        <img id="dialog-preview" class="dialog-preview" alt="" hidden />
+        <p class="section-kicker dialog-kicker">Quick reference</p>
+        <h2 id="dialog-title"></h2>
+        <div id="dialog-details" class="dialog-details"></div>
+        <div id="dialog-actions" class="dialog-actions"></div>
+        <p class="dialog-hint">點選視窗外、按 Esc 或瀏覽器返回鍵即可回到行程。</p>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="update-toast" id="update-toast" role="status" hidden>
+    <span>行程有新版本</span>
+    <button type="button">立即更新</button>
+  </div>
+
+  <script id="entity-data" type="application/json" is:inline set:html={entityJson}></script>
+  <script>
+    const dialog = document.querySelector<HTMLDialogElement>('#detail-dialog');
+    const entityData = document.querySelector<HTMLScriptElement>('#entity-data');
+    const entities = entityData ? JSON.parse(entityData.textContent || '[]') : [];
+    const entityMap = new Map(entities.map((entity: any) => [entity.id, entity]));
+    const typeLabels: Record<string, string> = { stay: '住宿', food: '餐廳', place: '景點', transport: '交通' };
+
+    function fillDialog(entity: any) {
+      if (!dialog) return;
+      const title = dialog.querySelector<HTMLElement>('#dialog-title');
+      const type = dialog.querySelector<HTMLElement>('.dialog-type');
+      const details = dialog.querySelector<HTMLElement>('#dialog-details');
+      const actions = dialog.querySelector<HTMLElement>('#dialog-actions');
+      const preview = dialog.querySelector<HTMLImageElement>('#dialog-preview');
+      if (title) title.textContent = entity.title;
+      if (type) type.textContent = typeLabels[entity.type] || entity.type;
+      if (details) {
+        details.innerHTML = entity.details.map((item: any) => `
+          <div class="dialog-row">
+            ${item.label ? `<span>${item.label}</span>` : ''}
+            <div>${item.valueHtml}</div>
+          </div>`).join('');
+      }
+      if (actions) {
+        actions.innerHTML = entity.actions.map((action: any) => `
+          <a href="${action.url}" target="_blank" rel="noopener noreferrer">
+            ${action.label}<span aria-hidden="true">↗</span>
+          </a>`).join('');
+      }
+      if (preview) {
+        const image = entity.preview?.image;
+        preview.hidden = !image;
+        preview.src = image || '';
+        preview.alt = image ? `${entity.title} 網站預覽` : '';
+        preview.onerror = () => { preview.hidden = true; };
+      }
+      dialog.dataset.type = entity.type;
+    }
+
+    function openEntity(id: string, push = true) {
+      const entity = entityMap.get(id);
+      if (!entity || !dialog) return;
+      fillDialog(entity);
+      if (!dialog.open) dialog.showModal();
+      if (push && location.hash !== `#detail=${encodeURIComponent(id)}`) {
+        history.pushState({ detail: id }, '', `#detail=${encodeURIComponent(id)}`);
+      }
+    }
+
+    function closeDialog(useHistory = true) {
+      if (!dialog?.open) return;
+      if (useHistory && location.hash.startsWith('#detail=')) {
+        history.back();
+      } else {
+        dialog.close();
+      }
+    }
+
+    document.addEventListener('click', (event) => {
+      const trigger = (event.target as HTMLElement).closest<HTMLElement>('[data-entity]');
+      if (trigger?.dataset.entity) openEntity(trigger.dataset.entity);
+    });
+    dialog?.querySelector('.dialog-close')?.addEventListener('click', () => closeDialog());
+    dialog?.addEventListener('click', (event) => {
+      if (event.target === dialog) closeDialog();
+    });
+    window.addEventListener('popstate', () => {
+      const id = location.hash.startsWith('#detail=') ? decodeURIComponent(location.hash.slice(8)) : '';
+      if (id) openEntity(id, false);
+      else if (dialog?.open) closeDialog(false);
+    });
+    const initialDetail = location.hash.startsWith('#detail=') ? decodeURIComponent(location.hash.slice(8)) : '';
+    if (initialDetail) openEntity(initialDetail, false);
+
+    document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        document.querySelectorAll('[data-filter]').forEach((item) => item.classList.toggle('is-active', item === button));
+        document.querySelectorAll<HTMLElement>('.entity-card').forEach((card) => {
+          card.hidden = filter !== 'all' && card.dataset.type !== filter;
+        });
+      });
+    });
+
+    const updateToast = document.querySelector<HTMLElement>('#update-toast');
+    let waitingWorker: ServiceWorker | null = null;
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+        const registration = await navigator.serviceWorker.register('/sw.js');
+        if (registration.waiting) {
+          waitingWorker = registration.waiting;
+          if (updateToast) updateToast.hidden = false;
+        }
+        registration.addEventListener('updatefound', () => {
+          const worker = registration.installing;
+          worker?.addEventListener('statechange', () => {
+            if (worker.state === 'installed' && navigator.serviceWorker.controller) {
+              waitingWorker = worker;
+              if (updateToast) updateToast.hidden = false;
+            }
+          });
+        });
+      });
+      navigator.serviceWorker.addEventListener('controllerchange', () => location.reload());
+    }
+    updateToast?.querySelector('button')?.addEventListener('click', () => waitingWorker?.postMessage({ type: 'SKIP_WAITING' }));
+  </script>
+</BaseLayout>

@@ -1,0 +1,1768 @@
+{
+  "schemaVersion": 1,
+  "slug": "fukuoka-2026",
+  "title": "福岡之旅",
+  "start": "2026-08-27",
+  "end": "2026-09-03",
+  "publishThrough": "2026-08-30",
+  "status": "active",
+  "noindex": true,
+  "updatedAt": "2026-08-01T14:47:10.131Z",
+  "sourceHash": "ab0bf24bd44e332d",
+  "locations": [
+    "福岡",
+    "太宰府",
+    "由布院",
+    "小倉",
+    "門司港",
+    "高千穗",
+    "糸島"
+  ],
+  "days": [
+    {
+      "date": "2026-08-27",
+      "weekday": "Thu",
+      "area": "抵達福岡、博多",
+      "stay": "西鐵 CROOM",
+      "summaryNote": "BR102；大東園已訂位",
+      "detailed": true,
+      "timeline": [
+        {
+          "time": "12:00",
+          "group": "",
+          "text": "前往桃園機場 T2",
+          "textHtml": "前往桃園機場 T2"
+        },
+        {
+          "time": "",
+          "group": "",
+          "text": "15:10-18:20 TPE → FUK（BR102）",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-eva-air-來回機票\">15:10-18:20 TPE → FUK（BR102）</button>"
+        },
+        {
+          "time": "18:20-19:10",
+          "group": "",
+          "text": "入境、領行李",
+          "textHtml": "入境、領行李"
+        },
+        {
+          "time": "",
+          "group": "",
+          "text": "19:10-19:40 前往飯店",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-fuk-airport-西鐵-croom-博多祇園\">19:10-19:40 前往飯店</button>"
+        },
+        {
+          "time": "19:40-20:00",
+          "group": "",
+          "text": "Check in / 放行李 / 前往大東園",
+          "textHtml": "Check in / 放行李 / 前往大東園"
+        },
+        {
+          "time": "20:00",
+          "group": "",
+          "text": "大東園燒肉（本店）",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-大東園-本店-8-27\">大東園燒肉（本店）</button>"
+        }
+      ],
+      "notes": [
+        {
+          "text": "Visit Japan Web 前一天完成",
+          "textHtml": "Visit Japan Web 前一天完成"
+        },
+        {
+          "text": "大東園已訂位；若可能遲到先聯絡店家",
+          "textHtml": "大東園已訂位；若可能遲到先聯絡店家"
+        },
+        {
+          "text": "博多運河城商店到 21:00，餐廳到 23:00；吃完晚餐後以超商補給、回飯店為主",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-博多運河城-8-27\">博多運河城</button>商店到 21:00，餐廳到 23:00；吃完晚餐後以超商補給、回飯店為主"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-28",
+      "weekday": "Fri",
+      "area": "太宰府、Lalaport",
+      "stay": "西鐵 CROOM",
+      "summaryNote": "",
+      "detailed": true,
+      "timeline": [
+        {
+          "time": "08:00",
+          "group": "",
+          "text": "パンとエスプレッソと博多っと",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-パンとエスプレッソと博多っと-8-28\">パンとエスプレッソと博多っと</button>"
+        },
+        {
+          "time": "",
+          "group": "",
+          "text": "08:50-09:40 前往太宰府",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-28-西鐵-croom-太宰府\">08:50-09:40 前往太宰府</button>"
+        },
+        {
+          "time": "09:40-10:00",
+          "group": "",
+          "text": "太宰府參道 / 星巴克",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-太宰府星巴克-8-28\">太宰府參道 / 星巴克</button>"
+        },
+        {
+          "time": "10:00-11:45",
+          "group": "",
+          "text": "九州國立博物館",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-九州國立博物館-8-28\">九州國立博物館</button>"
+        },
+        {
+          "time": "11:45-12:30",
+          "group": "",
+          "text": "太宰府天滿宮",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-太宰府天滿宮-8-28\">太宰府天滿宮</button>"
+        },
+        {
+          "time": "12:30-13:20",
+          "group": "",
+          "text": "參道午餐 / 一蘭 太宰府参道店 / 梅枝餅",
+          "textHtml": "參道午餐 / <button class=\"inline-detail\" type=\"button\" data-entity=\"place-一蘭-太宰府参道店-8-28\">一蘭 太宰府参道店</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"place-梅枝餅-太宰府參道-8-28\">梅枝餅</button>"
+        },
+        {
+          "time": "13:20-13:45",
+          "group": "",
+          "text": "光明禪寺 / 參道備案",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-光明禪寺-8-28\">光明禪寺</button> / 參道備案"
+        },
+        {
+          "time": "",
+          "group": "",
+          "text": "13:45-15:00 前往 LaLaport",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-28-太宰府-lalaport-前田屋\">13:45-15:00 前往 LaLaport</button>"
+        },
+        {
+          "time": "15:00-18:30",
+          "group": "",
+          "text": "福岡 LaLaport / 鋼彈",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-lalaport-fukuoka-gundam-park-8-28\">福岡 LaLaport / 鋼彈</button>"
+        },
+        {
+          "time": "",
+          "group": "",
+          "text": "18:35-19:15 前往前田屋",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-28-太宰府-lalaport-前田屋\">18:35-19:15 前往前田屋</button>"
+        },
+        {
+          "time": "19:30",
+          "group": "",
+          "text": "博多もつ鍋前田屋 博多店",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-博多もつ鍋前田屋-博多店-8-28\">博多もつ鍋前田屋 博多店</button>"
+        }
+      ],
+      "notes": [
+        {
+          "text": "前田屋已訂位；4 人、桌席、當日付款",
+          "textHtml": "前田屋已訂位；4 人、桌席、當日付款"
+        },
+        {
+          "text": "Lalaport 以鋼彈立像、GUNDAM SIDE-F 為主；18:00 是晚餐前最後比較穩的立像演出",
+          "textHtml": "Lalaport 以鋼彈立像、GUNDAM SIDE-F 為主；18:00 是晚餐前最後比較穩的立像演出"
+        },
+        {
+          "text": "光明禪寺不當主行程，開放狀態需現場確認",
+          "textHtml": "光明禪寺不當主行程，開放狀態需現場確認"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-29",
+      "weekday": "Sat",
+      "area": "由布院",
+      "stay": "西鐵 CROOM",
+      "summaryNote": "JR 已訂",
+      "detailed": true,
+      "timeline": [
+        {
+          "time": "07:15",
+          "group": "",
+          "text": "博多站集合 / 買車上早餐",
+          "textHtml": "博多站集合 / 買車上早餐"
+        },
+        {
+          "time": "",
+          "group": "",
+          "text": "07:43-10:02 HAKATA → YUFUIN（Yufu 1）",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-jr-kyushu-由布院\">07:43-10:02 HAKATA → YUFUIN（Yufu 1）</button>"
+        },
+        {
+          "time": "10:02-10:20",
+          "group": "",
+          "text": "由布院站 / 拍照 / 洗手間",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-由布院-8-29\">由布院站</button> / 拍照 / 洗手間"
+        },
+        {
+          "time": "10:20-11:30",
+          "group": "",
+          "text": "湯之坪街道",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-湯之坪街道-8-29\">湯之坪街道</button>"
+        },
+        {
+          "time": "11:30-12:15",
+          "group": "",
+          "text": "金鱗湖",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-金鱗湖-8-29\">金鱗湖</button>"
+        },
+        {
+          "time": "12:15-13:30",
+          "group": "",
+          "text": "花野そば蕎麥麵 / 午餐備案",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-花野そば-8-29\">花野そば蕎麥麵</button> / 午餐備案"
+        },
+        {
+          "time": "13:30-15:30",
+          "group": "",
+          "text": "湯之坪街道 / YUFUIN FLORAL VILLAGE",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-湯之坪街道-8-29\">湯之坪街道</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"place-yufuin-floral-village-8-29\">YUFUIN FLORAL VILLAGE</button>"
+        },
+        {
+          "time": "15:30-16:30",
+          "group": "",
+          "text": "由布院站周邊咖啡 / 伴手禮",
+          "textHtml": "由布院站周邊咖啡 / 伴手禮"
+        },
+        {
+          "time": "16:30-17:00",
+          "group": "",
+          "text": "回由布院站 / 買伴手禮",
+          "textHtml": "回由布院站 / 買伴手禮"
+        },
+        {
+          "time": "",
+          "group": "",
+          "text": "17:17-19:27 YUFUIN → HAKATA（Yufuin-no-Mori 6）",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-jr-kyushu-由布院\">17:17-19:27 YUFUIN → HAKATA（Yufuin-no-Mori 6）</button>"
+        },
+        {
+          "time": "20:00",
+          "group": "",
+          "text": "屋台 / 回飯店休息",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-屋台-8-29\">屋台</button> / 回飯店休息"
+        }
+      ],
+      "notes": [
+        {
+          "text": "JR 車票已訂",
+          "textHtml": "JR 車票已訂"
+        },
+        {
+          "text": "花野そば不定休且售完為止，午餐要有備案",
+          "textHtml": "花野そば不定休且售完為止，午餐要有備案"
+        },
+        {
+          "text": "15:30 後不要排遠點，保留回程車站緩衝",
+          "textHtml": "15:30 後不要排遠點，保留回程車站緩衝"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-30",
+      "weekday": "Sun",
+      "area": "博多、天神",
+      "stay": "西鐵 CROOM",
+      "summaryNote": "鳥田",
+      "detailed": true,
+      "timeline": [
+        {
+          "time": "09:30",
+          "group": "",
+          "text": "FUK COFFEE / 飯店附近慢慢開始",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-fuk-coffee-8-30\">FUK COFFEE</button> / 飯店附近慢慢開始"
+        },
+        {
+          "time": "10:15",
+          "group": "",
+          "text": "櫛田神社",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-櫛田神社-8-30\">櫛田神社</button>"
+        },
+        {
+          "time": "10:45",
+          "group": "",
+          "text": "川端通商店街",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-川端通商店街-8-30\">川端通商店街</button>"
+        },
+        {
+          "time": "11:30",
+          "group": "",
+          "text": "博多一双 祇園店 / 午餐",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-博多一双-祇園店-8-30\">博多一双 祇園店</button> / 午餐"
+        },
+        {
+          "time": "12:30",
+          "group": "",
+          "text": "THE FULL FULL HAKATA / 點心或外帶",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-the-full-full-hakata-8-30\">THE FULL FULL HAKATA</button> / 點心或外帶"
+        },
+        {
+          "time": "",
+          "group": "",
+          "text": "13:00-13:20 前往天神",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-30-博多-天神-鳥田\">13:00-13:20 前往天神</button>"
+        },
+        {
+          "time": "13:30",
+          "group": "",
+          "text": "天神地下街 / 天神逛街",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-天神地下街-8-30\">天神地下街</button> / 天神逛街"
+        },
+        {
+          "time": "15:30",
+          "group": "",
+          "text": "警固神社 / Blue Bottle Coffee 福岡天神",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-警固神社-8-30\">警固神社</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"place-blue-bottle-coffee-福岡天神-8-30\">Blue Bottle Coffee 福岡天神</button>"
+        },
+        {
+          "time": "",
+          "group": "",
+          "text": "18:30-19:10 前往鳥田",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-30-博多-天神-鳥田\">18:30-19:10 前往鳥田</button>"
+        },
+        {
+          "time": "19:30",
+          "group": "",
+          "text": "博多水炊き とり田 博多本店",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-博多水炊き-とり田-博多本店-8-30\">博多水炊き とり田 博多本店</button>"
+        }
+      ],
+      "notes": [
+        {
+          "text": "鳥田已訂位；4 人、桌席、博多コース",
+          "textHtml": "鳥田已訂位；4 人、桌席、博多コース"
+        },
+        {
+          "text": "這天主軸是輕鬆逛街；若前兩天太累，上午可直接延後到 10:30 開始",
+          "textHtml": "這天主軸是輕鬆逛街；若前兩天太累，上午可直接延後到 10:30 開始"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-31",
+      "weekday": "Mon",
+      "area": "小倉、門司港、皿倉山",
+      "stay": "西鐵 CROOM 續住",
+      "summaryNote": "三人組 BR105 返台；為續住",
+      "detailed": false,
+      "timeline": [],
+      "notes": []
+    },
+    {
+      "date": "2026-09-01",
+      "weekday": "Tue",
+      "area": "高千穗",
+      "stay": "CROSS Life",
+      "summaryNote": "KKday 一日行程",
+      "detailed": false,
+      "timeline": [],
+      "notes": []
+    },
+    {
+      "date": "2026-09-02",
+      "weekday": "Wed",
+      "area": "糸島",
+      "stay": "CROSS Life",
+      "summaryNote": "早上加購早餐",
+      "detailed": false,
+      "timeline": [],
+      "notes": []
+    },
+    {
+      "date": "2026-09-03",
+      "weekday": "Thu",
+      "area": "咖啡廳、逛街、返台",
+      "stay": "溫暖的家",
+      "summaryNote": "BR101 返台",
+      "detailed": false,
+      "timeline": [],
+      "notes": []
+    }
+  ],
+  "entities": [
+    {
+      "id": "stay-西鐵-croom-飯店-博多祇園-櫛田神社前-8-27-8-31",
+      "title": "西鐵 CROOM 飯店 博多祇園 櫛田神社前｜8/27-8/31",
+      "type": "stay",
+      "summary": "一休.com",
+      "details": [
+        {
+          "label": "平台",
+          "value": "一休.com",
+          "valueHtml": "一休.com"
+        },
+        {
+          "label": "入住",
+          "value": "2026-08-27 15:00-26:00，預計 19:30 抵達",
+          "valueHtml": "2026-08-27 15:00-26:00，預計 19:30 抵達"
+        },
+        {
+          "label": "退房",
+          "value": "2026-08-31 11:00",
+          "valueHtml": "2026-08-31 11:00"
+        },
+        {
+          "label": "房型",
+          "value": "Raised double bed x 2，4 人，無早餐",
+          "valueHtml": "Raised double bed x 2，4 人，無早餐"
+        },
+        {
+          "label": "地址",
+          "value": "6-30 Gion-machi, Hakata-ku, Fukuoka City",
+          "valueHtml": "6-30 Gion-machi, Hakata-ku, Fukuoka City"
+        },
+        {
+          "label": "聯絡",
+          "value": "+81-92-235-5050 / croom-gion@hotels.nnr.co.jp",
+          "valueHtml": "+81-92-235-5050 / croom-gion@hotels.nnr.co.jp"
+        },
+        {
+          "label": "交通",
+          "value": "地下鐵七隈線 櫛田神社前駅 出口步行 1 分鐘",
+          "valueHtml": "地下鐵七隈線 <code>櫛田神社前駅</code> 出口步行 1 分鐘"
+        },
+        {
+          "label": "取消",
+          "value": "2 天前免費；前日 50%，當日 80%，未入住 100%",
+          "valueHtml": "2 天前免費；前日 50%，當日 80%，未入住 100%"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Nishitetsu%20Hotel%20Croom%20Hakata%20Gion%20Kushida%20Shrine%20Mae%206-30%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "stay-西鐵-croom-飯店-博多祇園-櫛田神社前-8-31-續住",
+      "title": "西鐵 CROOM 飯店 博多祇園 櫛田神社前｜8/31 續住",
+      "type": "stay",
+      "summary": "一休.com（ゲスト予約）",
+      "details": [
+        {
+          "label": "平台",
+          "value": "一休.com（ゲスト予約）",
+          "valueHtml": "一休.com（ゲスト予約）"
+        },
+        {
+          "label": "入住",
+          "value": "2026-08-31 15:00-26:00，預計抵達未定",
+          "valueHtml": "2026-08-31 15:00-26:00，預計抵達未定"
+        },
+        {
+          "label": "退房",
+          "value": "2026-09-01 11:00",
+          "valueHtml": "2026-09-01 11:00"
+        },
+        {
+          "label": "房型",
+          "value": "Double，1 人，無早餐",
+          "valueHtml": "Double，1 人，無早餐"
+        },
+        {
+          "label": "地址",
+          "value": "福岡県福岡市博多区祗園町6-30",
+          "valueHtml": "福岡県福岡市博多区祗園町6-30"
+        },
+        {
+          "label": "聯絡",
+          "value": "092-235-5050 / croom-gion@hotels.nnr.co.jp",
+          "valueHtml": "092-235-5050 / croom-gion@hotels.nnr.co.jp"
+        },
+        {
+          "label": "交通",
+          "value": "地下鐵七隈線 櫛田神社前駅 出口步行 1 分鐘",
+          "valueHtml": "地下鐵七隈線 <code>櫛田神社前駅</code> 出口步行 1 分鐘"
+        },
+        {
+          "label": "取消",
+          "value": "2 天前免費；前日 50%，當日 80%，未入住 100%",
+          "valueHtml": "2 天前免費；前日 50%，當日 80%，未入住 100%"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Nishitetsu%20Hotel%20Croom%20Hakata%20Gion%20Kushida%20Shrine%20Mae%206-30%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "stay-cross-life-博多天神-9-1-9-3",
+      "title": "CROSS Life 博多天神｜9/1-9/3",
+      "type": "stay",
+      "summary": "JTB Book & Pay",
+      "details": [
+        {
+          "label": "平台",
+          "value": "JTB Book & Pay",
+          "valueHtml": "JTB Book &amp; Pay"
+        },
+        {
+          "label": "入住",
+          "value": "2026-09-01 15:00 後，預計 18:00 抵達",
+          "valueHtml": "2026-09-01 15:00 後，預計 18:00 抵達"
+        },
+        {
+          "label": "退房",
+          "value": "2026-09-03 11:00",
+          "valueHtml": "2026-09-03 11:00"
+        },
+        {
+          "label": "房型",
+          "value": "Comfort double room，1 人，無早餐，附 drink ticket",
+          "valueHtml": "Comfort double room，1 人，無早餐，附 drink ticket"
+        },
+        {
+          "label": "地址",
+          "value": "未記錄",
+          "valueHtml": "未記錄"
+        },
+        {
+          "label": "聯絡",
+          "value": "092-733-0130",
+          "valueHtml": "092-733-0130"
+        },
+        {
+          "label": "交通",
+          "value": "未記錄",
+          "valueHtml": "未記錄"
+        },
+        {
+          "label": "登入密碼",
+          "value": "訂房時填寫的電話號碼",
+          "valueHtml": "訂房時填寫的電話號碼"
+        },
+        {
+          "label": "取消",
+          "value": "不可退款方案",
+          "valueHtml": "不可退款方案"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=CROSS%20Life%20Hakata%20Tenjin%203-26-30%20Haruyoshi%20Chuo%20Ward%20Fukuoka",
+          "kind": "map"
+        },
+        {
+          "label": "官網",
+          "url": "https://crosslife-hakatatenjin.orixhotelsandresorts.com/",
+          "kind": "official"
+        }
+      ],
+      "preview": {
+        "title": "クロスライフ博多天神［公式・最安］",
+        "description": "博多と天神の間にあり、幻想的な大浴場が魅力のライフスタイルホテル、クロスライフ博多天神の クロスライフ博多天神｜福岡市でホテルをお探しなら [公式サイト・最安値] のページです。中洲や屋台にも徒歩圏内で、スタイリッシュな客室とアートで彩られた空間で居心地の良い滞在を提供します。「自分らしくいられる お気に入りの場所」をコンセプトに皆様を”おかえりなさい”でお迎えします。",
+        "image": "https://crosslife-hakatatenjin.orixhotelsandresorts.com/_assets/images/common/noImage-crosslife.jpg"
+      }
+    },
+    {
+      "id": "food-大東園-本店-8-27",
+      "title": "大東園 本店｜8/27",
+      "type": "food",
+      "summary": "ebica",
+      "details": [
+        {
+          "label": "平台",
+          "value": "ebica",
+          "valueHtml": "ebica"
+        },
+        {
+          "label": "時間",
+          "value": "2026-08-27 20:00",
+          "valueHtml": "2026-08-27 20:00"
+        },
+        {
+          "label": "人數",
+          "value": "4 人",
+          "valueHtml": "4 人"
+        },
+        {
+          "label": "座位",
+          "value": "非包廂",
+          "valueHtml": "非包廂"
+        },
+        {
+          "label": "內容",
+          "value": "只訂位，現場點餐",
+          "valueHtml": "只訂位，現場點餐"
+        },
+        {
+          "label": "地址",
+          "value": "〒812-0039 福岡県福岡市博多区上川端町1-1-1 大東園ビル 5F",
+          "valueHtml": "〒812-0039 福岡県福岡市博多区上川端町1-1-1 大東園ビル 5F"
+        },
+        {
+          "label": "聯絡",
+          "value": "092-282-0055",
+          "valueHtml": "092-282-0055"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/27 Thu 可；平日 16:00-23:00，LO 22:30，無定休",
+          "valueHtml": "8/27 Thu 可；平日 16:00-23:00，LO 22:30，無定休"
+        },
+        {
+          "label": "注意",
+          "value": "平日晚餐座位 120 分鐘；無聯絡超過 10 分鐘可能取消",
+          "valueHtml": "平日晚餐座位 120 分鐘；無聯絡超過 10 分鐘可能取消"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%9D%B1%E5%9C%92%20%E6%9C%AC%E5%BA%97%201-1-1%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "food-博多もつ鍋前田屋-博多店-8-28",
+      "title": "博多もつ鍋前田屋 博多店｜8/28",
+      "type": "food",
+      "summary": "食べログ",
+      "details": [
+        {
+          "label": "平台",
+          "value": "食べログ",
+          "valueHtml": "食べログ"
+        },
+        {
+          "label": "時間",
+          "value": "2026-08-28 19:30",
+          "valueHtml": "2026-08-28 19:30"
+        },
+        {
+          "label": "人數",
+          "value": "4 人",
+          "valueHtml": "4 人"
+        },
+        {
+          "label": "座位",
+          "value": "桌席、禁煙",
+          "valueHtml": "桌席、禁煙"
+        },
+        {
+          "label": "內容",
+          "value": "未指定套餐，當日付款",
+          "valueHtml": "未指定套餐，當日付款"
+        },
+        {
+          "label": "地址",
+          "value": "福岡県福岡市博多区博多駅前3-26-5 Mビル 1F",
+          "valueHtml": "福岡県福岡市博多区博多駅前3-26-5 Mビル 1F"
+        },
+        {
+          "label": "聯絡",
+          "value": "092-482-8558",
+          "valueHtml": "092-482-8558"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/28 Fri 可；17:00-24:00，食物 LO 23:00",
+          "valueHtml": "8/28 Fri 可；17:00-24:00，食物 LO 23:00"
+        },
+        {
+          "label": "注意",
+          "value": "可停留 2 小時；遲到 15 分鐘可能取消",
+          "valueHtml": "可停留 2 小時；遲到 15 分鐘可能取消"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E9%8D%8B%E5%89%8D%E7%94%B0%E5%B1%8B%20%E5%8D%9A%E5%A4%9A%E5%BA%97%203-26-5%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "food-博多水炊き-とり田-博多本店-8-30",
+      "title": "博多水炊き とり田 博多本店｜8/30",
+      "type": "food",
+      "summary": "2026-08-30 19:30",
+      "details": [
+        {
+          "label": "時間",
+          "value": "2026-08-30 19:30",
+          "valueHtml": "2026-08-30 19:30"
+        },
+        {
+          "label": "人數",
+          "value": "4 人",
+          "valueHtml": "4 人"
+        },
+        {
+          "label": "座位",
+          "value": "桌席",
+          "valueHtml": "桌席"
+        },
+        {
+          "label": "內容",
+          "value": "博多コース",
+          "valueHtml": "博多コース"
+        },
+        {
+          "label": "地址",
+          "value": "〒812-0027 福岡県福岡市博多区下川端町10-5 博多麹屋番ビル",
+          "valueHtml": "〒812-0027 福岡県福岡市博多区下川端町10-5 博多麹屋番ビル"
+        },
+        {
+          "label": "聯絡",
+          "value": "092-272-0920",
+          "valueHtml": "092-272-0920"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/30 Sun 可；土日祝 11:30-23:00，LO 22:00",
+          "valueHtml": "8/30 Sun 可；土日祝 11:30-23:00，LO 22:00"
+        },
+        {
+          "label": "注意",
+          "value": "用餐 120 分鐘；24 小時內取消 / 人數變更收 100%；無聯絡遲到 15 分鐘可能自動取消",
+          "valueHtml": "用餐 120 分鐘；24 小時內取消 / 人數變更收 100%；無聯絡遲到 15 分鐘可能自動取消"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%20%E3%81%A8%E3%82%8A%E7%94%B0%20%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97%2010-5%20Shimokawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-博多運河城-8-27",
+      "title": "博多運河城｜8/27",
+      "type": "place",
+      "summary": "飯店附近的大型商場，適合第一晚備案。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "飯店附近的大型商場，適合第一晚備案。",
+          "valueHtml": "飯店附近的大型商場，適合第一晚備案。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/27 Thu 可；商店約 10:00-21:00，餐廳約 11:00-23:00，無定休",
+          "valueHtml": "8/27 Thu 可；商店約 10:00-21:00，餐廳約 11:00-23:00，無定休"
+        },
+        {
+          "label": "注意",
+          "value": "8/27 吃完大東園後商店大多已關，實際以超商補給、回飯店為主。",
+          "valueHtml": "8/27 吃完大東園後商店大多已關，實際以超商補給、回飯店為主。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Canal%20City%20Hakata%201-2%20Sumiyoshi%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-パンとエスプレッソと博多っと-8-28",
+      "title": "パンとエスプレッソと博多っと｜8/28",
+      "type": "place",
+      "summary": "福岡市博多区博多駅前2-8-12 THE BLOSSOM HAKATA Premier 1F",
+      "details": [
+        {
+          "label": "地址",
+          "value": "福岡市博多区博多駅前2-8-12 THE BLOSSOM HAKATA Premier 1F",
+          "valueHtml": "福岡市博多区博多駅前2-8-12 THE BLOSSOM HAKATA Premier 1F"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/28 Fri 可；08:00-19:00，無固定店休",
+          "valueHtml": "8/28 Fri 可；08:00-19:00，無固定店休"
+        },
+        {
+          "label": "注意",
+          "value": "不定休且熱門，若排隊過長就外帶或改便利商店，不影響太宰府出發時間",
+          "valueHtml": "不定休且熱門，若排隊過長就外帶或改便利商店，不影響太宰府出發時間"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%83%B3%E3%81%A8%E3%82%A8%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%82%BD%E3%81%A8%E5%8D%9A%E5%A4%9A%E3%81%A3%E3%81%A8%202-8-12%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-九州國立博物館-8-28",
+      "title": "九州國立博物館｜8/28",
+      "type": "place",
+      "summary": "8/28 Fri 可；09:30-17:00，最晚入館 16:30",
+      "details": [
+        {
+          "label": "表定營業",
+          "value": "8/28 Fri 可；09:30-17:00，最晚入館 16:30",
+          "valueHtml": "8/28 Fri 可；09:30-17:00，最晚入館 16:30"
+        },
+        {
+          "label": "休館",
+          "value": "週一；遇假日順延",
+          "valueHtml": "週一；遇假日順延"
+        },
+        {
+          "label": "交通",
+          "value": "太宰府站步行約 10 分鐘，太宰府天滿宮步行約 5 分鐘",
+          "valueHtml": "太宰府站步行約 10 分鐘，太宰府天滿宮步行約 5 分鐘"
+        },
+        {
+          "label": "注意",
+          "value": "這天放在上午，避免下午趕去 Lalaport 時壓縮參觀時間",
+          "valueHtml": "這天放在上午，避免下午趕去 Lalaport 時壓縮參觀時間"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Kyushu%20National%20Museum%204-7-2%20Ishizaka%20Dazaifu%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-太宰府天滿宮-8-28",
+      "title": "太宰府天滿宮｜8/28",
+      "type": "place",
+      "summary": "免費",
+      "details": [
+        {
+          "label": "參拜",
+          "value": "免費",
+          "valueHtml": "免費"
+        },
+        {
+          "label": "表定開放",
+          "value": "8/28 Fri 可；6-8 月閉門 19:30",
+          "valueHtml": "8/28 Fri 可；6-8 月閉門 19:30"
+        },
+        {
+          "label": "交通",
+          "value": "太宰府站步行約 5 分鐘",
+          "valueHtml": "太宰府站步行約 5 分鐘"
+        },
+        {
+          "label": "注意",
+          "value": "主軸是參道、太鼓橋、御本殿周邊；不要排太久，下午要移動到 Lalaport",
+          "valueHtml": "主軸是參道、太鼓橋、御本殿周邊；不要排太久，下午要移動到 Lalaport"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Dazaifu%20Tenmangu%204-7-1%20Saifu%20Dazaifu%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-太宰府星巴克-8-28",
+      "title": "太宰府星巴克｜8/28",
+      "type": "place",
+      "summary": "隈研吾設計，木構室內很適合拍照",
+      "details": [
+        {
+          "label": "位置",
+          "value": "太宰府天滿宮表參道",
+          "valueHtml": "太宰府天滿宮表參道"
+        },
+        {
+          "label": "重點",
+          "value": "隈研吾設計，木構室內很適合拍照",
+          "valueHtml": "隈研吾設計，木構室內很適合拍照"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/28 Fri 可；08:00-20:00",
+          "valueHtml": "8/28 Fri 可；08:00-20:00"
+        },
+        {
+          "label": "注意",
+          "value": "人多時以拍外觀 / 快速外帶為主，不把它當長時間咖啡停留",
+          "valueHtml": "人多時以拍外觀 / 快速外帶為主，不把它當長時間咖啡停留"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Starbucks%20Coffee%20Dazaifutenmangu%20Omotesando%203-2-43%20Saifu%20Dazaifu%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-光明禪寺-8-28",
+      "title": "光明禪寺｜8/28",
+      "type": "place",
+      "summary": "枯山水、苔庭",
+      "details": [
+        {
+          "label": "位置",
+          "value": "太宰府天滿宮旁，太宰府站步行約 5 分鐘",
+          "valueHtml": "太宰府天滿宮旁，太宰府站步行約 5 分鐘"
+        },
+        {
+          "label": "重點",
+          "value": "枯山水、苔庭",
+          "valueHtml": "枯山水、苔庭"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/28 Fri 不確定",
+          "valueHtml": "8/28 Fri 不確定"
+        },
+        {
+          "label": "注意",
+          "value": "目前非固定開放，現場若無法參拜就跳過",
+          "valueHtml": "目前非固定開放，現場若無法參拜就跳過"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=%E5%85%89%E6%98%8E%E7%A6%85%E5%AF%BA%202-16-1%20Saifu%20Dazaifu%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-一蘭-太宰府参道店-8-28",
+      "title": "一蘭 太宰府参道店｜8/28",
+      "type": "place",
+      "summary": "太宰府参道店限定感的 合格ラーメン，使用五角 合格どんぶり。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "太宰府参道店限定感的 合格ラーメン，使用五角 合格どんぶり。",
+          "valueHtml": "太宰府参道店限定感的 <code>合格ラーメン</code>，使用五角 <code>合格どんぶり</code>。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/28 Fri 可；09:00-19:00，LO 18:45。",
+          "valueHtml": "8/28 Fri 可；09:00-19:00，LO 18:45。"
+        },
+        {
+          "label": "位置",
+          "value": "太宰府站步行約 1 分鐘。",
+          "valueHtml": "太宰府站步行約 1 分鐘。"
+        },
+        {
+          "label": "注意",
+          "value": "座位 16 席，若排隊太久就改梅枝餅 / 參道小吃，不拖到 13:45 離開太宰府。",
+          "valueHtml": "座位 16 席，若排隊太久就改梅枝餅 / 參道小吃，不拖到 13:45 離開太宰府。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/place/%E4%B8%80%E8%98%AD+%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%8F%83%E9%81%93%E5%BA%97/@33.5193161,130.5229165,15z/data=!4m10!1m2!2m1!1z5LiA6JitIOWkquWusOW6nOWPgumBk-W6lyDnpo_lsqHnnIzlpKrlrrDlupzluILlrrDlupwyLTYtMg!3m6!1s0x35419ba2ed157ce9:0x10e3410a156b881b!8m2!3d33.5193161!4d130.5316712!15sCjrkuIDomK0g5aSq5a6w5bqc5Y-C6YGT5bqXIOemj-WyoeecjOWkquWusOW6nOW4guWusOW6nDItNi0yIgOIAQFaRCJC5LiAIOiYrSDlpKrlrrDlupwg5Y-C6YGTIOW6lyDnpo_lsqEg55yMIOWkquWusOW6nCDluIIg5a6w5bqcIDIgNiAykgEQcmFtZW5fcmVzdGF1cmFudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQydEtkRTV1WkZGaE1FWXdVMFpCTW1GR1RYbFBWemw2WkRGT2VtSklZeEFC4AEA-gEECAAQEA!16s%2Fg%2F1ptx_tt47?entry=ttu&g_ep=EgoyMDI2MDcyOS4wIKXMDSoASAFQAw%3D%3D",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-梅枝餅-太宰府參道-8-28",
+      "title": "梅枝餅 / 太宰府參道｜8/28",
+      "type": "place",
+      "summary": "太宰府參道代表小吃，適合排隊不久時邊走邊吃。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "太宰府參道代表小吃，適合排隊不久時邊走邊吃。",
+          "valueHtml": "太宰府參道代表小吃，適合排隊不久時邊走邊吃。"
+        },
+        {
+          "label": "位置",
+          "value": "太宰府站到太宰府天滿宮之間。",
+          "valueHtml": "太宰府站到太宰府天滿宮之間。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/28 Fri 可；參道多數店約 08:30/09:00-18:00，部分不定休",
+          "valueHtml": "8/28 Fri 可；參道多數店約 08:30/09:00-18:00，部分不定休"
+        },
+        {
+          "label": "注意",
+          "value": "當作午餐或等一蘭排隊的彈性補位，不額外拉長停留時間。",
+          "valueHtml": "當作午餐或等一蘭排隊的彈性補位，不額外拉長停留時間。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BA%80%E5%AE%AE%20%E8%A1%A8%E5%8F%82%E9%81%93%20Saifu%20Dazaifu%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-lalaport-fukuoka-gundam-park-8-28",
+      "title": "LaLaport Fukuoka / Gundam Park｜8/28",
+      "type": "place",
+      "summary": "8/28 Fri 可；商店 10:00-21:00，餐廳 / 美食街 11:00-22:00",
+      "details": [
+        {
+          "label": "表定營業",
+          "value": "8/28 Fri 可；商店 10:00-21:00，餐廳 / 美食街 11:00-22:00",
+          "valueHtml": "8/28 Fri 可；商店 10:00-21:00，餐廳 / 美食街 11:00-22:00"
+        },
+        {
+          "label": "鋼彈",
+          "value": "實物大 RX-93ff ν Gundam 立像在 Forest Park；GUNDAM SIDE-F 在 4F",
+          "valueHtml": "實物大 RX-93ff ν Gundam 立像在 Forest Park；GUNDAM SIDE-F 在 4F"
+        },
+        {
+          "label": "立像演出",
+          "value": "白天 10:00-18:00 每小時；夜間 19:00 / 19:30 / 20:00 / 20:30 / 21:00",
+          "valueHtml": "白天 10:00-18:00 每小時；夜間 19:00 / 19:30 / 20:00 / 20:30 / 21:00"
+        },
+        {
+          "label": "注意",
+          "value": "19:30 前田屋在博多站前，這天以 18:00 白天演出為最後可看的鋼彈演出",
+          "valueHtml": "19:30 前田屋在博多站前，這天以 18:00 白天演出為最後可看的鋼彈演出"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Mitsui%20Shopping%20Park%20LaLaport%20Fukuoka%206-23-1%20Naka%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-由布院-8-29",
+      "title": "由布院｜8/29",
+      "type": "place",
+      "summary": "由布岳山景、湯之坪街道、金鱗湖一帶散步。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "由布岳山景、湯之坪街道、金鱗湖一帶散步。",
+          "valueHtml": "由布岳山景、湯之坪街道、金鱗湖一帶散步。"
+        },
+        {
+          "label": "時間",
+          "value": "10:02 抵達、17:17 回程，現地約 7 小時。",
+          "valueHtml": "10:02 抵達、17:17 回程，現地約 7 小時。"
+        },
+        {
+          "label": "注意",
+          "value": "時間足夠逛主線；下午後段留給車站周邊咖啡 / 伴手禮，避免影響 17:17 回程。",
+          "valueHtml": "時間足夠逛主線；下午後段留給車站周邊咖啡 / 伴手禮，避免影響 17:17 回程。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Yufuin%20Station%20Yufuincho%20Kawakita%20Yufu%20Oita",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-湯之坪街道-8-29",
+      "title": "湯之坪街道｜8/29",
+      "type": "place",
+      "summary": "由布院主街，伴手禮、咖啡、小吃一路接到金鱗湖。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "由布院主街，伴手禮、咖啡、小吃一路接到金鱗湖。",
+          "valueHtml": "由布院主街，伴手禮、咖啡、小吃一路接到金鱗湖。"
+        },
+        {
+          "label": "表定營業",
+          "value": "街道本身開放；店家多約 10:00-17:00 / 18:00，依店家而定。",
+          "valueHtml": "街道本身開放；店家多約 10:00-17:00 / 18:00，依店家而定。"
+        },
+        {
+          "label": "注意",
+          "value": "週六人潮多，當作散步購物主線，不要把單店排死。",
+          "valueHtml": "週六人潮多，當作散步購物主線，不要把單店排死。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Yunotsubo%20Kaido%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-金鱗湖-8-29",
+      "title": "金鱗湖｜8/29",
+      "type": "place",
+      "summary": "由布院代表湖景，湖邊步道適合拍照。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "由布院代表湖景，湖邊步道適合拍照。",
+          "valueHtml": "由布院代表湖景，湖邊步道適合拍照。"
+        },
+        {
+          "label": "表定開放",
+          "value": "戶外景點，全天；周邊店家另計。",
+          "valueHtml": "戶外景點，全天；周邊店家另計。"
+        },
+        {
+          "label": "交通",
+          "value": "由布院站步行約 30 分鐘；從湯之坪街道過去順路。",
+          "valueHtml": "由布院站步行約 30 分鐘；從湯之坪街道過去順路。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Kinrin%20Lake%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-花野そば-8-29",
+      "title": "花野そば｜8/29",
+      "type": "place",
+      "summary": "由布院蕎麥麵小店，靠近湯之坪街道 / 金鱗湖方向。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "由布院蕎麥麵小店，靠近湯之坪街道 / 金鱗湖方向。",
+          "valueHtml": "由布院蕎麥麵小店，靠近湯之坪街道 / 金鱗湖方向。"
+        },
+        {
+          "label": "地址",
+          "value": "大分県由布市湯布院町川上2715-4。",
+          "valueHtml": "大分県由布市湯布院町川上2715-4。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/29 Sat 可但有風險；11:00 開始，售完為止；不定休。",
+          "valueHtml": "8/29 Sat 可但有風險；11:00 開始，售完為止；不定休。"
+        },
+        {
+          "label": "注意",
+          "value": "座位少，若排太久就改由布院主街午餐，不影響回程。",
+          "valueHtml": "座位少，若排太久就改由布院主街午餐，不影響回程。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=%E8%8A%B1%E9%87%8E%E3%81%9D%E3%81%B0%202715-4%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-yufuin-floral-village-8-29",
+      "title": "YUFUIN FLORAL VILLAGE｜8/29",
+      "type": "place",
+      "summary": "小型拍照 / 商店點，適合接在湯之坪街道後段。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "小型拍照 / 商店點，適合接在湯之坪街道後段。",
+          "valueHtml": "小型拍照 / 商店點，適合接在湯之坪街道後段。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/29 Sat 可；09:30-17:30。",
+          "valueHtml": "8/29 Sat 可；09:30-17:30。"
+        },
+        {
+          "label": "注意",
+          "value": "放 30-45 分鐘即可，不要壓縮回程緩衝。",
+          "valueHtml": "放 30-45 分鐘即可，不要壓縮回程緩衝。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=YUFUIN%20FLORAL%20VILLAGE%201503-3%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-屋台-8-29",
+      "title": "屋台｜8/29",
+      "type": "place",
+      "summary": "回博多後的宵夜備案，中洲最觀光，天神選擇也多。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "回博多後的宵夜備案，中洲最觀光，天神選擇也多。",
+          "valueHtml": "回博多後的宵夜備案，中洲最觀光，天神選擇也多。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/29 Sat 可但受天氣 / 店主狀態影響；多數 18:00 後開始，18:30-19:00 後比較穩。",
+          "valueHtml": "8/29 Sat 可但受天氣 / 店主狀態影響；多數 18:00 後開始，18:30-19:00 後比較穩。"
+        },
+        {
+          "label": "注意",
+          "value": "19:27 到博多後，20:00 去中洲屋台可行；若下雨或太累就回飯店休息。",
+          "valueHtml": "19:27 到博多後，20:00 去中洲屋台可行；若下雨或太累就回飯店休息。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B4%B2%20%E5%B1%8B%E5%8F%B0%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-fuk-coffee-8-30",
+      "title": "FUK COFFEE｜8/30",
+      "type": "place",
+      "summary": "飯店旁的咖啡店，適合 8/30 慢慢開始。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "飯店旁的咖啡店，適合 8/30 慢慢開始。",
+          "valueHtml": "飯店旁的咖啡店，適合 8/30 慢慢開始。"
+        },
+        {
+          "label": "地址",
+          "value": "福岡市博多区祇園町6-22。",
+          "valueHtml": "福岡市博多区祇園町6-22。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/30 Sun 可；08:00-20:00。",
+          "valueHtml": "8/30 Sun 可；08:00-20:00。"
+        },
+        {
+          "label": "注意",
+          "value": "離飯店很近，不需要特別排交通時間。",
+          "valueHtml": "離飯店很近，不需要特別排交通時間。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=FUK%20COFFEE%206-22%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-櫛田神社-8-30",
+      "title": "櫛田神社｜8/30",
+      "type": "place",
+      "summary": "博多總鎮守，飯店附近最順路的神社。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "博多總鎮守，飯店附近最順路的神社。",
+          "valueHtml": "博多總鎮守，飯店附近最順路的神社。"
+        },
+        {
+          "label": "表定開放",
+          "value": "8/30 Sun 可；開門 04:00-22:00，社務 09:00-17:00。",
+          "valueHtml": "8/30 Sun 可；開門 04:00-22:00，社務 09:00-17:00。"
+        },
+        {
+          "label": "交通",
+          "value": "櫛田神社前站步行約 2 分鐘；從飯店步行可到。",
+          "valueHtml": "櫛田神社前站步行約 2 分鐘；從飯店步行可到。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Kushida%20Shrine%201-41%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-川端通商店街-8-30",
+      "title": "川端通商店街｜8/30",
+      "type": "place",
+      "summary": "連接博多運河城與博多 Riverain 的老商店街，適合接在櫛田神社後散步。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "連接博多運河城與博多 Riverain 的老商店街，適合接在櫛田神社後散步。",
+          "valueHtml": "連接博多運河城與博多 Riverain 的老商店街，適合接在櫛田神社後散步。"
+        },
+        {
+          "label": "表定營業",
+          "value": "商店街本身可通行；各店營業時間不同，多數接近 10:00 後較穩。",
+          "valueHtml": "商店街本身可通行；各店營業時間不同，多數接近 10:00 後較穩。"
+        },
+        {
+          "label": "注意",
+          "value": "當作散步 / 小買主線，不把單店排死。",
+          "valueHtml": "當作散步 / 小買主線，不把單店排死。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Kawabata%20Shopping%20Arcade%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-the-full-full-hakata-8-30",
+      "title": "THE FULL FULL HAKATA｜8/30",
+      "type": "place",
+      "summary": "明太法國麵包系的麵包店，離飯店與運河城近。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "明太法國麵包系的麵包店，離飯店與運河城近。",
+          "valueHtml": "明太法國麵包系的麵包店，離飯店與運河城近。"
+        },
+        {
+          "label": "地址",
+          "value": "福岡市博多区祇園町9-3。",
+          "valueHtml": "福岡市博多区祇園町9-3。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/30 Sun 可；10:00-19:00，週二休。",
+          "valueHtml": "8/30 Sun 可；10:00-19:00，週二休。"
+        },
+        {
+          "label": "注意",
+          "value": "這天已有一双當午餐，FULL FULL 比較適合當點心或外帶。",
+          "valueHtml": "這天已有一双當午餐，FULL FULL 比較適合當點心或外帶。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=The%20Full%20Full%20Hakata%209-3%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-博多一双-祇園店-8-30",
+      "title": "博多一双 祇園店｜8/30",
+      "type": "place",
+      "summary": "豚骨拉麵，祇園店比博多駅東本店更順路。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "豚骨拉麵，祇園店比博多駅東本店更順路。",
+          "valueHtml": "豚骨拉麵，祇園店比博多駅東本店更順路。"
+        },
+        {
+          "label": "地址",
+          "value": "福岡市博多区祇園町3-2。",
+          "valueHtml": "福岡市博多区祇園町3-2。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/30 Sun 可；11:00-24:00，不定休；湯賣完可能提早結束。",
+          "valueHtml": "8/30 Sun 可；11:00-24:00，不定休；湯賣完可能提早結束。"
+        },
+        {
+          "label": "注意",
+          "value": "不可預約，午餐尖峰可能排隊；若排太久就改 FULL FULL / 天神地下街午餐。",
+          "valueHtml": "不可預約，午餐尖峰可能排隊；若排太久就改 FULL FULL / 天神地下街午餐。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=%E5%8D%9A%E5%A4%9A%E4%B8%80%E5%8F%8C%20%E7%A5%87%E5%9C%92%E5%BA%97%203-2%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-天神地下街-8-30",
+      "title": "天神地下街｜8/30",
+      "type": "place",
+      "summary": "天神主逛街動線，天氣不好也舒服。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "天神主逛街動線，天氣不好也舒服。",
+          "valueHtml": "天神主逛街動線，天氣不好也舒服。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/30 Sun 可；商店 10:00-20:00，餐廳多到 21:00。",
+          "valueHtml": "8/30 Sun 可；商店 10:00-20:00，餐廳多到 21:00。"
+        },
+        {
+          "label": "交通",
+          "value": "地下鐵空港線天神站、七隈線天神南站直結。",
+          "valueHtml": "地下鐵空港線天神站、七隈線天神南站直結。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Tenjin%20Underground%20Mall%20Tenjin%20Chuo%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-警固神社-8-30",
+      "title": "警固神社｜8/30",
+      "type": "place",
+      "summary": "天神市中心的神社，和 Blue Bottle 在同一棟社務所區域，很順路。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "天神市中心的神社，和 Blue Bottle 在同一棟社務所區域，很順路。",
+          "valueHtml": "天神市中心的神社，和 Blue Bottle 在同一棟社務所區域，很順路。"
+        },
+        {
+          "label": "表定開放",
+          "value": "8/30 Sun 可；開門 06:00-18:00，御朱印 / 授與所約 09:00-16:30。",
+          "valueHtml": "8/30 Sun 可；開門 06:00-18:00，御朱印 / 授與所約 09:00-16:30。"
+        },
+        {
+          "label": "交通",
+          "value": "天神南站步行約 1 分鐘，西鐵福岡（天神）站步行約 1 分鐘。",
+          "valueHtml": "天神南站步行約 1 分鐘，西鐵福岡（天神）站步行約 1 分鐘。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Kego%20Shrine%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "place-blue-bottle-coffee-福岡天神-8-30",
+      "title": "Blue Bottle Coffee 福岡天神｜8/30",
+      "type": "place",
+      "summary": "警固神社社務所ビル 1F，適合作為天神逛街中段休息。",
+      "details": [
+        {
+          "label": "重點",
+          "value": "警固神社社務所ビル 1F，適合作為天神逛街中段休息。",
+          "valueHtml": "警固神社社務所ビル 1F，適合作為天神逛街中段休息。"
+        },
+        {
+          "label": "表定營業",
+          "value": "8/30 Sun 可；08:00-20:00。",
+          "valueHtml": "8/30 Sun 可；08:00-20:00。"
+        },
+        {
+          "label": "注意",
+          "value": "座位比小店友善，適合當下午固定休息點。",
+          "valueHtml": "座位比小店友善，適合當下午固定休息點。"
+        }
+      ],
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps/search/?api=1&query=Blue%20Bottle%20Coffee%20Fukuoka%20Tenjin%20Cafe%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "preview": null
+    },
+    {
+      "id": "transport-eva-air-來回機票",
+      "title": "EVA Air｜來回機票",
+      "type": "transport",
+      "summary": "2026-08-27 BR102 15:10-18:20 TPE Terminal 2 → FUK Terminal I",
+      "details": [
+        {
+          "label": "去程",
+          "value": "2026-08-27 BR102 15:10-18:20 TPE Terminal 2 → FUK Terminal I",
+          "valueHtml": "2026-08-27 BR102 15:10-18:20 TPE Terminal 2 → FUK Terminal I"
+        },
+        {
+          "label": "三人組回程",
+          "value": "2026-08-31 BR105 12:20-13:45 FUK Terminal I → TPE Terminal 2",
+          "valueHtml": "2026-08-31 BR105 12:20-13:45 FUK Terminal I → TPE Terminal 2"
+        },
+        {
+          "label": "為回程",
+          "value": "2026-09-03 BR101 19:20-20:45 FUK Terminal I → TPE Terminal 2",
+          "valueHtml": "2026-09-03 BR101 19:20-20:45 FUK Terminal I → TPE Terminal 2"
+        },
+        {
+          "label": "去程託運",
+          "value": "1PC，每件 23 kg",
+          "valueHtml": "1PC，每件 23 kg"
+        },
+        {
+          "label": "回程託運",
+          "value": "2PC，每件 23 kg",
+          "valueHtml": "2PC，每件 23 kg"
+        },
+        {
+          "label": "手提",
+          "value": "1 件，7 kg",
+          "valueHtml": "1 件，7 kg"
+        }
+      ],
+      "actions": [],
+      "preview": null
+    },
+    {
+      "id": "transport-fuk-airport-西鐵-croom-博多祇園",
+      "title": "FUK Airport → 西鐵 CROOM 博多祇園",
+      "type": "transport",
+      "summary": "國際線航廈 → 博多站，約 18 分鐘；再轉地鐵 / 計程車 / 步行到飯店",
+      "details": [
+        {
+          "label": "巴士",
+          "value": "國際線航廈 → 博多站，約 18 分鐘；再轉地鐵 / 計程車 / 步行到飯店",
+          "valueHtml": "國際線航廈 → 博多站，約 18 分鐘；再轉地鐵 / 計程車 / 步行到飯店"
+        },
+        {
+          "label": "地鐵",
+          "value": "國際線航廈 → 免費接駁巴士約 10 分鐘到國內線航廈 → 地鐵到祇園 / 博多；便宜但轉乘較多",
+          "valueHtml": "國際線航廈 → 免費接駁巴士約 10 分鐘到國內線航廈 → 地鐵到祇園 / 博多；便宜但轉乘較多"
+        },
+        {
+          "label": "計程車",
+          "value": "國際線航廈 → 飯店；最快、最適合四人加行李，但費用較高",
+          "valueHtml": "國際線航廈 → 飯店；最快、最適合四人加行李，但費用較高"
+        },
+        {
+          "label": "8/27 建議",
+          "value": "若 19:10 後才出關，優先計程車；若 19:00 前完成入境領行李，可考慮巴士或地鐵",
+          "valueHtml": "若 19:10 後才出關，優先計程車；若 19:00 前完成入境領行李，可考慮巴士或地鐵"
+        }
+      ],
+      "actions": [],
+      "preview": null
+    },
+    {
+      "id": "transport-8-28-西鐵-croom-太宰府",
+      "title": "8/28 西鐵 CROOM → 太宰府",
+      "type": "transport",
+      "summary": "櫛田神社前 → 薬院 → 西鉄二日市 → 太宰府，約 45-50 分鐘，約",
+      "details": [
+        {
+          "label": "推薦",
+          "value": "櫛田神社前 → 薬院 → 西鉄二日市 → 太宰府，約 45-50 分鐘，約",
+          "valueHtml": "櫛田神社前 → 薬院 → 西鉄二日市 → 太宰府，約 45-50 分鐘，約"
+        },
+        {
+          "label": "備案",
+          "value": "飯店 → 博多バスターミナル → 太宰府ライナーバス「旅人」，博多到太宰府約 40 分鐘，約 -800",
+          "valueHtml": "飯店 → 博多バスターミナル → 太宰府ライナーバス「旅人」，博多到太宰府約 40 分鐘，約 -800"
+        },
+        {
+          "label": "判斷",
+          "value": "早上要準時進太宰府，優先搭電車；如果想少轉乘再考慮巴士",
+          "valueHtml": "早上要準時進太宰府，優先搭電車；如果想少轉乘再考慮巴士"
+        }
+      ],
+      "actions": [],
+      "preview": null
+    },
+    {
+      "id": "transport-8-28-太宰府-lalaport-前田屋",
+      "title": "8/28 太宰府 → LaLaport → 前田屋",
+      "type": "transport",
+      "summary": "太宰府 → 西鉄二日市，轉 JR 二日市 → 竹下，竹下站步行約 9 分鐘到 LaLaport；抓 60-75 分鐘",
+      "details": [
+        {
+          "label": "太宰府 → LaLaport",
+          "value": "太宰府 → 西鉄二日市，轉 JR 二日市 → 竹下，竹下站步行約 9 分鐘到 LaLaport；抓 60-75 分鐘",
+          "valueHtml": "太宰府 → 西鉄二日市，轉 JR 二日市 → 竹下，竹下站步行約 9 分鐘到 LaLaport；抓 60-75 分鐘"
+        },
+        {
+          "label": "LaLaport → 前田屋",
+          "value": "LaLaport → 竹下站 → 博多站 → 前田屋；抓 35-45 分鐘",
+          "valueHtml": "LaLaport → 竹下站 → 博多站 → 前田屋；抓 35-45 分鐘"
+        },
+        {
+          "label": "判斷",
+          "value": "18:00 看完鋼彈立像演出後就要收尾，18:35 前離開 LaLaport 比較穩",
+          "valueHtml": "18:00 看完鋼彈立像演出後就要收尾，18:35 前離開 LaLaport 比較穩"
+        }
+      ],
+      "actions": [],
+      "preview": null
+    },
+    {
+      "id": "transport-8-29-由布院現地移動",
+      "title": "8/29 由布院現地移動",
+      "type": "transport",
+      "summary": "由布院站 → 湯之坪街道 → 金鱗湖 → 花野そば / Floral Village → 由布院站。",
+      "details": [
+        {
+          "label": "主線步行",
+          "value": "由布院站 → 湯之坪街道 → 金鱗湖 → 花野そば / Floral Village → 由布院站。",
+          "valueHtml": "由布院站 → 湯之坪街道 → 金鱗湖 → 花野そば / Floral Village → 由布院站。"
+        },
+        {
+          "label": "判斷",
+          "value": "這天不排遠點；15:30 後往由布院站方向收斂，留回程緩衝。",
+          "valueHtml": "這天不排遠點；15:30 後往由布院站方向收斂，留回程緩衝。"
+        }
+      ],
+      "actions": [],
+      "preview": null
+    },
+    {
+      "id": "transport-8-30-博多-天神-鳥田",
+      "title": "8/30 博多 → 天神 → 鳥田",
+      "type": "transport",
+      "summary": "FUK COFFEE、櫛田神社、川端通商店街、博多一双 祇園店、THE FULL FULL HAKATA 都可步行。",
+      "details": [
+        {
+          "label": "飯店周邊",
+          "value": "FUK COFFEE、櫛田神社、川端通商店街、博多一双 祇園店、THE FULL FULL HAKATA 都可步行。",
+          "valueHtml": "FUK COFFEE、櫛田神社、川端通商店街、博多一双 祇園店、THE FULL FULL HAKATA 都可步行。"
+        },
+        {
+          "label": "博多 / 櫛田神社前 → 天神",
+          "value": "地下鐵七隈線到天神南最順，抓 15-20 分鐘含進出站。",
+          "valueHtml": "地下鐵七隈線到天神南最順，抓 15-20 分鐘含進出站。"
+        },
+        {
+          "label": "天神 → 鳥田",
+          "value": "天神地下街 / 警固神社一帶 → 中洲川端，地鐵或計程車都可；晚餐前抓 30-40 分鐘比較穩。",
+          "valueHtml": "天神地下街 / 警固神社一帶 → 中洲川端，地鐵或計程車都可；晚餐前抓 30-40 分鐘比較穩。"
+        },
+        {
+          "label": "判斷",
+          "value": "18:30 左右離開天神，19:10 前到鳥田附近，避免 19:30 訂位壓線。",
+          "valueHtml": "18:30 左右離開天神，19:10 前到鳥田附近，避免 19:30 訂位壓線。"
+        }
+      ],
+      "actions": [],
+      "preview": null
+    },
+    {
+      "id": "transport-jr-kyushu-由布院",
+      "title": "JR Kyushu｜由布院",
+      "type": "transport",
+      "summary": "2026-07-29",
+      "details": [
+        {
+          "label": "預訂申請日期",
+          "value": "2026-07-29",
+          "valueHtml": "2026-07-29"
+        },
+        {
+          "label": "人數",
+          "value": "成人 4 名",
+          "valueHtml": "成人 4 名"
+        },
+        {
+          "label": "",
+          "value": "2026-08-29 07:43-10:02 HAKATA → YUFUIN",
+          "valueHtml": "2026-08-29 07:43-10:02 HAKATA → YUFUIN"
+        },
+        {
+          "label": "",
+          "value": "Yufu 1",
+          "valueHtml": "Yufu 1"
+        },
+        {
+          "label": "",
+          "value": "禁菸席、指定席",
+          "valueHtml": "禁菸席、指定席"
+        },
+        {
+          "label": "",
+          "value": "2 號車 3 號 AB、4 號 AB",
+          "valueHtml": "2 號車 3 號 AB、4 號 AB"
+        },
+        {
+          "label": "",
+          "value": "2026-08-29 17:17-19:27 YUFUIN → HAKATA",
+          "valueHtml": "2026-08-29 17:17-19:27 YUFUIN → HAKATA"
+        },
+        {
+          "label": "",
+          "value": "Yufuin-no-Mori 6",
+          "valueHtml": "Yufuin-no-Mori 6"
+        },
+        {
+          "label": "",
+          "value": "禁菸席、指定席",
+          "valueHtml": "禁菸席、指定席"
+        },
+        {
+          "label": "",
+          "value": "4 號車 12 號 AB、13 號 AB",
+          "valueHtml": "4 號車 12 號 AB、13 號 AB"
+        },
+        {
+          "label": "",
+          "value": "JR-KYUSHU 主要車站取票",
+          "valueHtml": "JR-KYUSHU 主要車站取票"
+        },
+        {
+          "label": "取票時間",
+          "value": "04:30-23:30；指定席售票機到 23:20",
+          "valueHtml": "04:30-23:30；指定席售票機到 23:20"
+        },
+        {
+          "label": "",
+          "value": "乘車前務必取票，沒有實體車票不能上車",
+          "valueHtml": "乘車前務必取票，沒有實體車票不能上車"
+        }
+      ],
+      "actions": [
+        {
+          "label": "取票說明",
+          "url": "https://www.jrkyushu.co.jp/chinese/train_reservation/receive/",
+          "kind": "link"
+        }
+      ],
+      "preview": {
+        "title": "Receipt of tickets | JR-KYUSHU Train Reservation | JR-KYUSHU",
+        "description": "インターネット列車予約でのきっぷの受取方法に関するページです。",
+        "image": ""
+      }
+    }
+  ]
+}
