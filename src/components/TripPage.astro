@@ -89,7 +89,7 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
           <div class="day-date">
             <span class="day-number">{String(index + 1).padStart(2, '0')}</span>
             <div>
-              <time datetime={day.date}>{formatDate(day.date, true)}</time>
+              <time datetime={day.date}>{formatDate(day.date)}</time>
               <p>{weekday(day.date)} · {day.area}</p>
             </div>
             {!day.detailed && <span class="planning-badge">規劃中</span>}
@@ -111,7 +111,11 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
               <aside class="day-aside">
                 <div class="stay-card">
                   <span>Stay</span>
-                  <strong>{day.stay}</strong>
+                  {day.stayEntityId ? (
+                    <button class="inline-detail stay-link" type="button" data-entity={day.stayEntityId}>{day.stay}</button>
+                  ) : (
+                    <strong>{day.stay}</strong>
+                  )}
                 </div>
                 {day.notes.length > 0 && (
                   <div class="notes-card">
@@ -131,7 +135,11 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
               </div>
               <div>
                 <span>Stay</span>
-                <p>{day.stay}</p>
+                {day.stayEntityId ? (
+                  <button class="inline-detail stay-link" type="button" data-entity={day.stayEntityId}>{day.stay}</button>
+                ) : (
+                  <p>{day.stay}</p>
+                )}
               </div>
             </div>
           )}
@@ -165,8 +173,11 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
 
   <footer>
     <p>旅程會繼續更新，出發前記得重新整理一次。</p>
-    <a href="#trip-title">回到最上方 ↑</a>
   </footer>
+
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="回到最上方" hidden>
+    <span aria-hidden="true">↑</span>
+  </button>
 
   <dialog id="detail-dialog" aria-labelledby="dialog-title">
     <div class="dialog-shell">
@@ -198,6 +209,18 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
     const entities = entityData ? JSON.parse(entityData.textContent || '[]') : [];
     const entityMap = new Map(entities.map((entity: any) => [entity.id, entity]));
     const typeLabels: Record<string, string> = { stay: '住宿', food: '餐廳', place: '景點', transport: '交通' };
+    const backToTop = document.querySelector<HTMLButtonElement>('#back-to-top');
+
+    function updateBackToTop() {
+      if (backToTop) backToTop.hidden = window.scrollY < 160;
+    }
+
+    window.addEventListener('scroll', updateBackToTop, { passive: true });
+    updateBackToTop();
+    backToTop?.addEventListener('click', () => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
 
     function fillDialog(entity: any) {
       if (!dialog) return;

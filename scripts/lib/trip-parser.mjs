@@ -217,7 +217,7 @@ function parseEntity(title, content, type, entityIds, references, secrets) {
   };
 }
 
-function parseItinerary(section = '') {
+function parseItinerary(section = '', entityIds = new Map()) {
   const rows = [];
   for (const line of section.split('\n')) {
     if (!line.trim().startsWith('|')) continue;
@@ -225,10 +225,12 @@ function parseItinerary(section = '') {
     if (cells.length < 4 || /^-+$/.test(cells[0].replace(/\s/g, '')) || cells[0] === 'Date') continue;
     const date = cells[0].match(/\d{4}-\d{2}-\d{2}/)?.[0];
     if (!date) continue;
+    const stayTarget = cells[2].match(/\[[^\]]+\]\((<#[^)]+>)\)/)?.[1];
     rows.push({
       date,
       area: stripLinks(cells[1]),
       stay: stripLinks(cells[2]),
+      stayEntityId: stayTarget ? entityIds.get(normalizeFragment(stayTarget)) ?? '' : '',
       notes: stripLinks(cells[3]),
     });
   }
@@ -239,7 +241,7 @@ function parseDaily(section, itinerary, publishThrough, entityIds, references) {
   const itineraryByDate = new Map(itinerary.map((item) => [item.date, item]));
   return splitSubsections(section ?? '').map(({ title, content }) => {
     const date = title.match(/^\d{4}-\d{2}-\d{2}/)?.[0];
-    const summary = itineraryByDate.get(date) ?? { date, area: '', stay: '', notes: '' };
+    const summary = itineraryByDate.get(date) ?? { date, area: '', stay: '', stayEntityId: '', notes: '' };
     const lines = content.split('\n');
     const stayIndex = lines.findIndex((line) => /^Stay：/.test(line.trim()));
     const notesIndex = lines.findIndex((line) => /^Notes：/.test(line.trim()));
@@ -278,6 +280,7 @@ function parseDaily(section, itinerary, publishThrough, entityIds, references) {
       weekday: title.replace(date, '').trim(),
       area: summary.area,
       stay: summary.stay,
+      stayEntityId: summary.stayEntityId,
       summaryNote: summary.notes,
       detailed: Boolean(date && date <= publishThrough),
       timeline: date && date <= publishThrough ? timeline : [],
@@ -329,7 +332,7 @@ export function parseTrip(markdown) {
     }
   }
 
-  const itinerary = parseItinerary(sections.get('Itinerary'));
+  const itinerary = parseItinerary(sections.get('Itinerary'), entityIds);
   const title = data.trip_title ?? body.match(/^# (.+)$/m)?.[1] ?? '旅行手帖';
   const start = String(data.trip_start ?? itinerary[0]?.date ?? '');
   const end = String(data.trip_end ?? itinerary.at(-1)?.date ?? '');

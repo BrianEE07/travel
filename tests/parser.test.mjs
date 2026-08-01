@@ -79,6 +79,7 @@ test('parses a single Obsidian trip into public entities and day states', () => 
   assert.equal(trip.days[0].detailed, true);
   assert.equal(trip.days[0].timeline.length, 1);
   assert.match(trip.days[0].timeline[0].textHtml, /data-entity="place-/);
+  assert.match(trip.days[0].stayEntityId, /^stay-/);
   assert.equal(trip.days[1].detailed, false);
   assert.deepEqual(trip.days[1].timeline, []);
   assert.ok(trip.entities.some((entity) => entity.type === 'stay'));

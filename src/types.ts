@@ -43,6 +43,7 @@ export interface TripDay {
   weekday: string;
   area: string;
   stay: string;
+  stayEntityId: string;
   summaryNote: string;
   detailed: boolean;
   timeline: TimelineItem[];

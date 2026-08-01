@@ -24,6 +24,7 @@
       "weekday": "Thu",
       "area": "抵達福岡、博多",
       "stay": "西鐵 CROOM",
+      "stayEntityId": "stay-西鐵-croom-飯店-博多祇園-櫛田神社前-8-27-8-31",
       "summaryNote": "BR102；大東園已訂位",
       "detailed": true,
       "timeline": [
@@ -84,6 +85,7 @@
       "weekday": "Fri",
       "area": "太宰府、Lalaport",
       "stay": "西鐵 CROOM",
+      "stayEntityId": "stay-西鐵-croom-飯店-博多祇園-櫛田神社前-8-27-8-31",
       "summaryNote": "",
       "detailed": true,
       "timeline": [
@@ -174,6 +176,7 @@
       "weekday": "Sat",
       "area": "由布院",
       "stay": "西鐵 CROOM",
+      "stayEntityId": "stay-西鐵-croom-飯店-博多祇園-櫛田神社前-8-27-8-31",
       "summaryNote": "JR 已訂",
       "detailed": true,
       "timeline": [
@@ -264,6 +267,7 @@
       "weekday": "Sun",
       "area": "博多、天神",
       "stay": "西鐵 CROOM",
+      "stayEntityId": "stay-西鐵-croom-飯店-博多祇園-櫛田神社前-8-27-8-31",
       "summaryNote": "鳥田",
       "detailed": true,
       "timeline": [
@@ -344,6 +348,7 @@
       "weekday": "Mon",
       "area": "小倉、門司港、皿倉山",
       "stay": "西鐵 CROOM 續住",
+      "stayEntityId": "stay-西鐵-croom-飯店-博多祇園-櫛田神社前-8-31-續住",
       "summaryNote": "三人組 BR105 返台；為續住",
       "detailed": false,
       "timeline": [],
@@ -354,6 +359,7 @@
       "weekday": "Tue",
       "area": "高千穗",
       "stay": "CROSS Life",
+      "stayEntityId": "stay-cross-life-博多天神-9-1-9-3",
       "summaryNote": "KKday 一日行程",
       "detailed": false,
       "timeline": [],
@@ -364,6 +370,7 @@
       "weekday": "Wed",
       "area": "糸島",
       "stay": "CROSS Life",
+      "stayEntityId": "stay-cross-life-博多天神-9-1-9-3",
       "summaryNote": "早上加購早餐",
       "detailed": false,
       "timeline": [],
@@ -374,6 +381,7 @@
       "weekday": "Thu",
       "area": "咖啡廳、逛街、返台",
       "stay": "溫暖的家",
+      "stayEntityId": "",
       "summaryNote": "BR101 返台",
       "detailed": false,
       "timeline": [],
