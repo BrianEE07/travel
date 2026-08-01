@@ -1,0 +1,40 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = 'Wei 的旅行手帖' } = Astro.props;
+---
+
+<a class="brand" href="/" aria-label="旅行手帖首頁">
+  <span class="brand-mark" aria-hidden="true">旅</span>
+  <span class="brand-label">{label}</span>
+</a>
+
+<style>
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    text-decoration: none;
+    font: 600 13px/1 var(--serif);
+    letter-spacing: .08em;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border: 1px solid var(--vermilion);
+    border-radius: 50%;
+    color: var(--vermilion);
+    font-size: 16px;
+  }
+
+  @media (max-width: 620px) {
+    .brand-label { display: none; }
+  }
+</style>

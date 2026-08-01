@@ -5,6 +5,12 @@ import { parseTrip, scanPublicPayload } from '../scripts/lib/trip-parser.mjs';
 const fixture = `---
 trip_slug: test-trip
 trip_title: 測試之旅
+trip_kicker: Early autumn · Test
+trip_summary: 兩天的測試旅行。
+trip_intro: 測試旅行公開內容。
+trip_code: TST
+trip_cover: /test-cover.png
+trip_cover_alt: 測試旅行封面
 trip_start: 2026-08-27
 trip_end: 2026-08-28
 publish_through: 2026-08-27
@@ -75,6 +81,9 @@ Map：[Google Maps][cafe]
 test('parses a single Obsidian trip into public entities and day states', () => {
   const { trip } = parseTrip(fixture);
   assert.equal(trip.slug, 'test-trip');
+  assert.equal(trip.code, 'TST');
+  assert.equal(trip.coverImage, '/test-cover.png');
+  assert.match(trip.summary, /兩天/);
   assert.equal(trip.days.length, 2);
   assert.equal(trip.days[0].detailed, true);
   assert.equal(trip.days[0].timeline.length, 1);

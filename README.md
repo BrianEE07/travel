@@ -1,6 +1,6 @@
 # Wei 的旅行手帖
 
-以單一 Obsidian Markdown 筆記產生的靜態旅遊行程網站。原始筆記留在 private vault；repository 只保存通過遮罩與安全掃描的公開 JSON。輸出依 `trip_slug` 放進 `src/data/trips/`，網站會自動建立 `/trips/{trip_slug}/`。
+以單一 Obsidian Markdown 筆記產生的靜態旅遊行程網站。原始筆記留在 private vault；repository 只保存通過遮罩與安全掃描的公開 JSON。輸出依 `trip_slug` 放進 `src/data/trips/`，首頁會自動建立旅程卡片，行程網址為 `/{trip_slug}/`。
 
 ## Local workflow
 
@@ -18,12 +18,20 @@
 ```yaml
 trip_slug: fukuoka-2026
 trip_title: 福岡之旅
+trip_kicker: Late summer · Kyushu
+trip_summary: 八天，沿著九州的城市與山海慢慢走。
+trip_intro: 從博多出發，穿過太宰府與由布院，再把最後幾天留給北九州、高千穗與糸島。
+trip_code: FUK
+trip_cover: /hero-fukuoka.png
+trip_cover_alt: 福岡與北九州旅行意象拼貼
 trip_start: 2026-08-27
 trip_end: 2026-09-03
 publish_through: 2026-08-30
 trip_status: active
 noindex: true
 ```
+
+`trip_cover` 使用專案 `public/` 下的根路徑圖片；首頁卡片與行程主圖共用。`trip_summary` 同時用於首頁卡片與行程導言，`trip_intro` 則是行程頁的說明段落。
 
 固定二級段落：
 

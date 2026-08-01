@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Brand from './Brand.astro';
+import ServiceWorkerUpdate from './ServiceWorkerUpdate.astro';
+import '../styles/home.css';
+import type { Trip } from '../types';
+
+interface Props { trips: Trip[]; }
+const sortedTrips = [...Astro.props.trips].sort((a, b) => b.start.localeCompare(a.start));
+
+const dateValue = (date: string) => new Date(`${date}T12:00:00+08:00`);
+const formatStart = (date: string) => new Intl.DateTimeFormat('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(dateValue(date));
+const formatEnd = (date: string) => new Intl.DateTimeFormat('zh-TW', { month: '2-digit', day: '2-digit' }).format(dateValue(date));
+const formatUpdated = (date: string) => new Intl.DateTimeFormat('zh-TW', { month: 'long', day: 'numeric', timeZone: 'Asia/Taipei' }).format(new Date(date));
+const dayCount = (trip: Trip) => Math.round((dateValue(trip.end).getTime() - dateValue(trip.start).getTime()) / 86_400_000) + 1;
+const phaseLabel = (trip: Trip) => trip.publishThrough >= trip.end ? '行程完整' : '規劃中';
+const locationLabel = (trip: Trip) => {
+  const visible = trip.locations.slice(0, 4).join(' · ');
+  return trip.locations.length > 4 ? `${visible} · +${trip.locations.length - 4}` : visible;
+};
+
+const description = '把每一次出發，收進一頁手帖。從路線、住宿到沿途想記住的地方，所有旅程都從這裡開始。';
+---
+
+<BaseLayout title="Wei 的旅行手帖" description={description} noindex={true} image="/home-travel-map.jpg">
+  <div class="home-intro is-playing" id="home-intro" aria-hidden="true">
+    <div class="intro-brand">
+      <span class="intro-mark">旅</span>
+      <span>Wei 的旅行手帖</span>
+    </div>
+  </div>
+
+  <div class="home-stage is-revealing" id="home-stage">
+    <img class="home-background" src="/home-travel-map.jpg" alt="" width="1536" height="1024" fetchpriority="high" />
+    <div class="home-wash" aria-hidden="true"></div>
+
+    <header class="home-header">
+      <Brand />
+      <div class="home-header-meta">
+        <span>{sortedTrips.length} {sortedTrips.length === 1 ? 'journey' : 'journeys'}</span>
+        <span class="privacy-label"><i aria-hidden="true">◌</i> 分享連結限定</span>
+      </div>
+    </header>
+
+    <main class="home-main">
+      <section class="home-hero" aria-labelledby="home-title">
+        <p class="home-kicker">Travel archive</p>
+        <h1 id="home-title">把每一次出發，收進一頁手帖。</h1>
+        <p class="home-lead">從路線、住宿到沿途想記住的地方，所有旅程都從這裡開始。</p>
+      </section>
+
+      <section class="journeys" aria-labelledby="journeys-title">
+        <div class="journeys-heading">
+          <div>
+            <p>Journeys</p>
+            <h2 id="journeys-title">旅程</h2>
+          </div>
+          <span>{String(sortedTrips.length).padStart(2, '0')}</span>
+        </div>
+
+        <div class="journey-grid">
+          {sortedTrips.map((trip, index) => (
+            <a class="journey-card" href={`/${trip.slug}/`} aria-label={`打開${trip.title}`}>
+              <div class="journey-image">
+                <img src={trip.coverImage} alt={trip.coverAlt} width="1693" height="929" loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : 'auto'} />
+                <span class="journey-index">{String(index + 1).padStart(2, '0')}</span>
+                <span class="journey-status">{phaseLabel(trip)}</span>
+              </div>
+              <div class="journey-copy">
+                <p class="journey-date">{formatStart(trip.start)} — {formatEnd(trip.end)} · {dayCount(trip)} DAYS</p>
+                <h3>{trip.title}</h3>
+                <p class="journey-summary">{trip.summary}</p>
+                <p class="journey-locations">{locationLabel(trip)}</p>
+                <div class="journey-footer">
+                  <span>更新於 {formatUpdated(trip.updatedAt)}</span>
+                  <strong>打開手帖 <i aria-hidden="true">↗</i></strong>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <footer class="home-footer">
+      <span>Wei’s Travel Notes</span>
+      <span>Routes · stays · places · small memories</span>
+    </footer>
+  </div>
+
+  <ServiceWorkerUpdate />
+
+  <script>
+    const homeIntro = document.querySelector<HTMLElement>('#home-intro');
+    const homeStage = document.querySelector<HTMLElement>('#home-stage');
+
+    function replayHomeIntro() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      homeIntro?.classList.remove('is-playing');
+      homeStage?.classList.remove('is-revealing');
+      void homeIntro?.offsetWidth;
+      homeIntro?.classList.add('is-playing');
+      homeStage?.classList.add('is-revealing');
+    }
+
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted) replayHomeIntro();
+    });
+
+    homeIntro?.addEventListener('animationend', (event) => {
+      if (event.animationName === 'intro-curtain') homeIntro.classList.remove('is-playing');
+    });
+    homeStage?.addEventListener('animationend', (event) => {
+      if (event.animationName === 'home-reveal') homeStage.classList.remove('is-revealing');
+    });
+  </script>
+</BaseLayout>

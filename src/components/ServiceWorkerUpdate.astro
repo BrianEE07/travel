@@ -1,0 +1,60 @@
+---
+interface Props {
+  raised?: boolean;
+}
+
+const { raised = false } = Astro.props;
+---
+
+<div class:list={['update-toast', raised && 'is-raised']} data-update-toast role="status" hidden>
+  <span>行程有新版本</span>
+  <button type="button">立即更新</button>
+</div>
+
+<script>
+  const updateToast = document.querySelector<HTMLElement>('[data-update-toast]');
+  let waitingWorker: ServiceWorker | null = null;
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+      const registration = await navigator.serviceWorker.register('/sw.js');
+      if (registration.waiting) {
+        waitingWorker = registration.waiting;
+        if (updateToast) updateToast.hidden = false;
+      }
+      registration.addEventListener('updatefound', () => {
+        const worker = registration.installing;
+        worker?.addEventListener('statechange', () => {
+          if (worker.state === 'installed' && navigator.serviceWorker.controller) {
+            waitingWorker = worker;
+            if (updateToast) updateToast.hidden = false;
+          }
+        });
+      });
+    });
+    navigator.serviceWorker.addEventListener('controllerchange', () => location.reload());
+  }
+
+  updateToast?.querySelector('button')?.addEventListener('click', () => waitingWorker?.postMessage({ type: 'SKIP_WAITING' }));
+</script>
+
+<style>
+  .update-toast {
+    position: fixed;
+    z-index: 50;
+    right: 20px;
+    bottom: max(20px, env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 16px;
+    color: #fff;
+    background: var(--ink);
+    box-shadow: var(--shadow);
+    font-size: 12px;
+  }
+
+  .update-toast.is-raised { bottom: max(82px, calc(env(safe-area-inset-bottom) + 82px)); }
+  .update-toast[hidden] { display: none; }
+  .update-toast button { padding: 7px 11px; color: var(--ink); border: 0; background: var(--paper); cursor: pointer; font-size: 11px; }
+</style>

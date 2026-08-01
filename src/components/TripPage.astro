@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Brand from './Brand.astro';
+import ServiceWorkerUpdate from './ServiceWorkerUpdate.astro';
 import '../styles/trip.css';
 import type { Trip } from '../types';
 
@@ -19,15 +21,12 @@ const weekday = (date: string) => new Intl.DateTimeFormat('zh-TW', { weekday: 's
 const updated = new Intl.DateTimeFormat('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Taipei' }).format(new Date(trip.updatedAt));
 const entityTypeLabel: Record<string, string> = { stay: '住宿', food: '餐廳', place: '景點', transport: '交通' };
 const entityJson = JSON.stringify(trip.entities).replaceAll('<', '\\u003c');
-const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}，福岡與北九州八日旅行行程。`;
+const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatDate(trip.end)}。`;
 ---
 
-<BaseLayout title={`${trip.title}｜Wei 的旅行手帖`} description={description} noindex={trip.noindex}>
+<BaseLayout title={`${trip.title}｜Wei 的旅行手帖`} description={description} noindex={trip.noindex} image={trip.coverImage}>
   <header class="site-header">
-    <a class="brand" href="/" aria-label="旅行手帖首頁">
-      <span class="brand-mark" aria-hidden="true">旅</span>
-      <span>Wei’s Travel Notes</span>
-    </a>
+    <Brand />
     <div class="header-meta">
       <span class="privacy-label"><span aria-hidden="true">◌</span> 分享連結限定</span>
       <span>更新於 {updated}</span>
@@ -36,10 +35,10 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
 
   <main>
     <section class="hero" aria-labelledby="trip-title">
-      <img src="/hero-fukuoka.png" alt="福岡與北九州旅行意象拼貼" width="1693" height="929" fetchpriority="high" />
+      <img src={trip.coverImage} alt={trip.coverAlt} width="1693" height="929" fetchpriority="high" />
       <div class="hero-overlay"></div>
       <div class="hero-copy">
-        <p class="eyebrow">Late summer · Kyushu</p>
+        <p class="eyebrow">{trip.kicker}</p>
         <h1 id="trip-title">{trip.title}</h1>
         <p class="date-range">{formatDate(trip.start, true)} — {formatDate(trip.end, true)}</p>
         <p class="locations">{trip.locations.join(' · ')}</p>
@@ -48,8 +47,8 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
         </a>
       </div>
       <div class="hero-stamp" aria-hidden="true">
-        <span>FUK</span>
-        <small>2026</small>
+        <span>{trip.code}</span>
+        <small>{trip.start.slice(0, 4)}</small>
       </div>
     </section>
 
@@ -67,10 +66,10 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
     <section class="intro-grid" aria-label="旅程摘要">
       <div>
         <p class="section-kicker">The route</p>
-        <h2>八天，沿著九州的城市與山海慢慢走。</h2>
+        <h2>{trip.summary}</h2>
       </div>
       <div class="intro-copy">
-        <p>從博多出發，穿過太宰府與由布院，再把最後幾天留給北九州、高千穗與糸島。這份手帖只放旅途中真正需要快速找到的資訊。</p>
+        <p>{trip.intro}</p>
         <div class="legend" aria-label="圖例">
           <span><i class="dot dot-plan"></i> 完整行程</span>
           <span><i class="dot dot-draft"></i> 規劃中</span>
@@ -197,10 +196,7 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
     </div>
   </dialog>
 
-  <div class="update-toast" id="update-toast" role="status" hidden>
-    <span>行程有新版本</span>
-    <button type="button">立即更新</button>
-  </div>
+  <ServiceWorkerUpdate raised={true} />
 
   <script id="entity-data" type="application/json" is:inline set:html={entityJson}></script>
   <script>
@@ -346,27 +342,5 @@ const description = `${formatDate(trip.start, true)}至${formatDate(trip.end)}�
       });
     });
 
-    const updateToast = document.querySelector<HTMLElement>('#update-toast');
-    let waitingWorker: ServiceWorker | null = null;
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', async () => {
-        const registration = await navigator.serviceWorker.register('/sw.js');
-        if (registration.waiting) {
-          waitingWorker = registration.waiting;
-          if (updateToast) updateToast.hidden = false;
-        }
-        registration.addEventListener('updatefound', () => {
-          const worker = registration.installing;
-          worker?.addEventListener('statechange', () => {
-            if (worker.state === 'installed' && navigator.serviceWorker.controller) {
-              waitingWorker = worker;
-              if (updateToast) updateToast.hidden = false;
-            }
-          });
-        });
-      });
-      navigator.serviceWorker.addEventListener('controllerchange', () => location.reload());
-    }
-    updateToast?.querySelector('button')?.addEventListener('click', () => waitingWorker?.postMessage({ type: 'SKIP_WAITING' }));
   </script>
 </BaseLayout>

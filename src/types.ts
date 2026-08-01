@@ -54,6 +54,12 @@ export interface Trip {
   schemaVersion: number;
   slug: string;
   title: string;
+  kicker: string;
+  summary: string;
+  intro: string;
+  code: string;
+  coverImage: string;
+  coverAlt: string;
   start: string;
   end: string;
   publishThrough: string;

@@ -1,11 +1,35 @@
 ---
-import TripPage from '../../components/TripPage.astro';
 import { trips } from '../../data/trips';
 
 export function getStaticPaths() {
-  return trips.map((trip) => ({ params: { slug: trip.slug }, props: { trip } }));
+  return trips.map((trip) => ({ params: { slug: trip.slug }, props: { target: `/${trip.slug}/`, title: trip.title } }));
 }
 
-const { trip } = Astro.props;
+const { target, title } = Astro.props;
+const canonical = new URL(target, Astro.site);
 ---
-<TripPage trip={trip} />
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={canonical} />
+    <title>{title}｜網址已更新</title>
+  </head>
+  <body>
+    <main>
+      <p>行程網址已更新。</p>
+      <a href={target}>前往 {title}</a>
+    </main>
+    <script is:inline define:vars={{ target }}>location.replace(target);</script>
+  </body>
+</html>
+
+<style>
+  body { min-height: 100svh; margin: 0; display: grid; place-items: center; color: #252820; background: #f4efe4; font-family: system-ui, sans-serif; }
+  main { text-align: center; }
+  a { color: #354032; text-underline-offset: .2em; }
+</style>
