@@ -152,6 +152,10 @@ function richText(value, entityIds, references) {
   return { text: stripLinks(value), html: inlineHtml(value, entityIds, references) };
 }
 
+function isBackToTop(line) {
+  return /^\[Back to top\]\(<#[^)]+>\)$/.test(line.trim());
+}
+
 function rememberSecret(raw, secrets) {
   const clean = stripLinks(raw.replace(/^[-*]\s*/, '').replace(/^[^：]+：\s*/, '')).trim();
   if (clean.length >= 4) secrets.add(clean);
@@ -206,7 +210,7 @@ function validatePublicLinks(publicSections, headings, references, entitySection
 
   const overview = publicSections.get('Overview') ?? '';
   const transportBlock = overview.match(/^Transport：\s*\n([\s\S]*?)(?=^Stay：)/m)?.[1] ?? '';
-  const stayBlock = overview.match(/^Stay：\s*\n([\s\S]*?)(?=^Status：)/m)?.[1] ?? '';
+  const stayBlock = overview.match(/^Stay：\s*\n([\s\S]*?)(?=^- Status：)/m)?.[1] ?? '';
   for (const match of transportBlock.matchAll(/\(<#([^)]+)>\)/g)) {
     if (entitySectionsByTitle.get(match[1]) !== 'transport') errors.push(`Overview Transport 必須連到 Transportation：${match[1]}`);
   }
@@ -223,17 +227,37 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   const privateMarker = privateMarkers[0] ?? -1;
   const publicContent = privateMarker >= 0 ? contentLines.slice(0, privateMarker).join('\n') : content;
   const privateContent = privateMarker >= 0 ? contentLines.slice(privateMarker + 1) : [];
+  let privateNavigationSeen = false;
   for (const line of privateContent) {
     if (!line.trim()) continue;
-    if (!line.trim().startsWith('- ')) errors.push(`${title} 的 Private 內容必須使用 bullet，且 Private 必須是最後一個 block`);
+    if (isBackToTop(line)) {
+      if (privateNavigationSeen) errors.push(`${title} 的 Back to top 不可重複`);
+      privateNavigationSeen = true;
+      continue;
+    }
+    if (privateNavigationSeen || !line.trim().startsWith('- ')) {
+      errors.push(`${title} 的 Private 內容必須使用 bullet，且 Private 後只允許最後一個 Back to top`);
+      continue;
+    }
     rememberSecret(line, secrets);
   }
 
   const fields = new Map();
+  let publicNavigationSeen = false;
   for (const rawLine of publicContent.split('\n')) {
     const line = rawLine.trim();
     if (!line) continue;
-    const match = line.match(/^([A-Za-z]+)：\s*(.+)$/);
+    if (isBackToTop(line)) {
+      if (publicNavigationSeen) errors.push(`${title} 的 Back to top 不可重複`);
+      if (privateMarker >= 0) errors.push(`${title} 的 Back to top 必須放在 Private block 之後`);
+      publicNavigationSeen = true;
+      continue;
+    }
+    if (publicNavigationSeen) {
+      errors.push(`${title} 的 Back to top 必須是最後一行`);
+      continue;
+    }
+    const match = line.match(/^- ([A-Za-z]+)：\s*(.+)$/);
     if (!match) {
       errors.push(`${title} 含無法辨識的公開內容：${line}`);
       continue;
@@ -276,18 +300,28 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
 
 function parseOverview(section, entityIds, references, frontmatter, errors) {
   const allowed = new Set(['Date', 'Places', 'People', 'Transport', 'Stay', 'Status']);
+  const scalarFields = new Set(['Date', 'Places', 'People', 'Status']);
+  const blockFields = new Set(['Transport', 'Stay']);
   const fields = new Map();
   let current = '';
   for (const rawLine of section.split('\n')) {
     const line = rawLine.trim();
     if (!line) continue;
-    const field = line.match(/^([A-Za-z]+)：\s*(.*)$/);
-    if (field) {
-      current = field[1];
+    const scalar = line.match(/^- ([A-Za-z]+)：\s*(.+)$/);
+    const block = line.match(/^([A-Za-z]+)：\s*$/);
+    if (scalar) {
+      current = scalar[1];
       if (!allowed.has(current)) errors.push(`Overview 使用未知欄位：${current}`);
+      if (!scalarFields.has(current)) errors.push(`Overview 的 ${current} 必須是 block heading`);
       if (fields.has(current)) errors.push(`Overview 有重複欄位：${current}`);
-      fields.set(current, field[2] ? [field[2]] : []);
-    } else if (line.startsWith('- ') && current && ['Transport', 'Stay'].includes(current)) {
+      fields.set(current, [scalar[2]]);
+    } else if (block) {
+      current = block[1];
+      if (!allowed.has(current)) errors.push(`Overview 使用未知欄位：${current}`);
+      if (!blockFields.has(current)) errors.push(`Overview 的 ${current} 必須使用 list field`);
+      if (fields.has(current)) errors.push(`Overview 有重複欄位：${current}`);
+      fields.set(current, []);
+    } else if (line.startsWith('- ') && blockFields.has(current)) {
       fields.get(current).push(line.slice(2));
     } else {
       errors.push(`Overview 含無法辨識的內容：${line}`);

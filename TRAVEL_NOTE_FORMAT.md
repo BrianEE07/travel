@@ -81,9 +81,9 @@ Use Overview for the trip facts a traveler wants to scan quickly: dates, places,
 ```md
 ## Overview
 
-Date：2026-08-27 Thu ～ 2026-09-03 Thu
-Places：福岡、太宰府、由布院
-People：4 人同行；8/31 後 Wei 獨排行程
+- Date：2026-08-27 Thu ～ 2026-09-03 Thu
+- Places：福岡、太宰府、由布院
+- People：4 人同行；8/31 後 Wei 獨排行程
 
 Transport：
 - [2026-08-27 BR102 15:10-18:20 TPE → FUK](<#EVA Air｜來回機票>)
@@ -92,11 +92,12 @@ Transport：
 Stay：
 - 2026-08-27 ～ 2026-09-01：[西鐵 CROOM](<#西鐵 CROOM 飯店 博多祇園 櫛田神社前｜8/27-8/31>)
 
-Status：8/27-8/30 已完整規劃；8/31-9/3 仍在摘要規劃。
+- Status：8/27-8/30 已完整規劃；8/31-9/3 仍在摘要規劃。
 ```
 
 Rules:
 
+- `Date`, `Places`, `People`, and `Status` should be list items in the form `- Field：value` for readable Obsidian preview.
 - `Date` is display text, but must match `trip_start` and `trip_end`.
 - `Places` is display text for the public overview.
 - `People` only lives in Overview.
@@ -169,18 +170,22 @@ Every public entity should use these common fields when applicable:
 ```md
 ### Entity Title
 
-Area：博多 / 祇園
-Summary：One short public summary.
-Map：[Google Maps][map-key]
-Official：https://example.com/
+- Area：博多 / 祇園
+- Summary：One short public summary.
+- Map：[Google Maps][map-key]
+- Official：https://example.com/
+
+[Back to top](<#Trip Title>)
 ```
 
 Rules:
 
+- Entity fields must be list items in the form `- Field：value`. Do not use bare `Field：value` lines in public entity sections, because Obsidian preview may merge bare consecutive lines into one paragraph.
 - `Area`, `Summary`, and `Map` are required unless the entity is a route-only transportation entity.
 - `Official` is optional.
 - Entity titles must be globally unique.
 - Unknown public fields must fail the build.
+- Every entity should end with `[Back to top](<#Trip Title>)` for note navigation. The website parser should ignore this navigation link.
 
 ## Accommodation
 
@@ -195,21 +200,23 @@ Example:
 ```md
 ### 西鐵 CROOM 飯店 博多祇園 櫛田神社前｜8/27-8/31
 
-Area：博多 / 祇園
-Summary：前半段住宿，地下鐵七隈線櫛田神社前站步行 1 分鐘。
-Map：[Google Maps][stay-croom]
-CheckIn：2026-08-27 15:00-26:00，預計 19:30 抵達
-CheckOut：2026-08-31 11:00
-Room：Raised double bed x 2，4 人，無早餐
-Access：地下鐵七隈線 `櫛田神社前駅` 出口步行 1 分鐘。
-Contact：+81-92-235-5050 / croom-gion@hotels.nnr.co.jp
-Policy：2 天前免費；前日 50%，當日 80%，未入住 100%。
+- Area：博多 / 祇園
+- Summary：前半段住宿，地下鐵七隈線櫛田神社前站步行 1 分鐘。
+- Map：[Google Maps][stay-croom]
+- CheckIn：2026-08-27 15:00-26:00，預計 19:30 抵達
+- CheckOut：2026-08-31 11:00
+- Room：Raised double bed x 2，4 人，無早餐
+- Access：地下鐵七隈線 `櫛田神社前駅` 出口步行 1 分鐘。
+- Contact：+81-92-235-5050 / croom-gion@hotels.nnr.co.jp
+- Policy：2 天前免費；前日 50%，當日 80%，未入住 100%。
 
 Private：
 - 訂房編號：...
+
+[Back to top](<#福岡之旅 20260827~0903>)
 ```
 
-`Private：` must be the last block in the entity.
+`Private：` must be the last data block in the entity. A final `[Back to top](<#Trip Title>)` navigation link is allowed after it.
 
 ## Food
 
@@ -250,7 +257,7 @@ Use `Private：` inside an entity for private entity-specific data.
 
 Rules:
 
-- `Private：` must be the last block in its entity.
+- `Private：` must be the last data block in its entity; only the final Back to top navigation link may follow it.
 - Parser must completely omit private contents from public output.
 - Parser must fingerprint private values and verify that none of them appear in the public payload.
 
