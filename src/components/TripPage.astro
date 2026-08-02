@@ -33,7 +33,6 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
   <header class="site-header">
     <Brand />
     <div class="header-meta">
-      <span class="privacy-label"><span aria-hidden="true">◌</span> 分享連結限定</span>
       <span>更新於 {updated}</span>
     </div>
   </header>
@@ -59,8 +58,12 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
 
     <nav class="day-nav" aria-label="日期快速導覽">
       <div class="day-nav-inner">
+        <a class="day-nav-home" href="/" aria-label="回到旅行手帖首頁">
+          <span aria-hidden="true">旅</span>
+          <small>首頁</small>
+        </a>
         {trip.days.map((day) => (
-          <a href={`#day-${day.date}`} class:list={[!day.detailed && 'is-planning']}>
+          <a href={`#day-${day.date}`} class:list={[day.detailed ? 'is-complete' : 'is-planning']}>
             <span>{formatDate(day.date)}</span>
             <small>{weekday(day.date)}</small>
           </a>
