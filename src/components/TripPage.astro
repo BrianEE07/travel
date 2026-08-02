@@ -33,7 +33,11 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
   <header class="site-header">
     <Brand />
     <div class="header-meta">
-      <span>更新於 {updated}</span>
+      <span class="updated-at">更新於 {updated}</span>
+      <button id="copy-trip-link" class="share-link" type="button" aria-label="複製行程連結" title="複製行程連結" data-feedback="">
+        <span class="share-symbol" aria-hidden="true"></span>
+        <span class="share-live" aria-live="polite"></span>
+      </button>
     </div>
   </header>
 
@@ -255,6 +259,7 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
     };
     const reservationLabels: Record<string, string> = { done: '已完成', none: '免訂位', needed: '需要訂位', tbd: '待確認' };
     const backToTop = document.querySelector<HTMLButtonElement>('#back-to-top');
+    const shareButton = document.querySelector<HTMLButtonElement>('#copy-trip-link');
     let dialogReturnScrollY = 0;
     let previousScrollRestoration: ScrollRestoration = 'auto';
 
@@ -268,6 +273,41 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     });
+
+    async function copyTripLink() {
+      if (!shareButton) return;
+      const cleanUrl = new URL(window.location.href);
+      cleanUrl.hash = '';
+      cleanUrl.search = '';
+      let copied = false;
+      try {
+        await navigator.clipboard.writeText(cleanUrl.href);
+        copied = true;
+      } catch {
+        const field = document.createElement('textarea');
+        field.value = cleanUrl.href;
+        field.setAttribute('readonly', '');
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.append(field);
+        field.select();
+        const legacyDocument = document as unknown as { execCommand: (command: string) => boolean };
+        copied = legacyDocument.execCommand('copy');
+        field.remove();
+      }
+      const feedback = copied ? '已複製' : '請再試一次';
+      shareButton.dataset.feedback = feedback;
+      shareButton.classList.toggle('is-copied', copied);
+      const live = shareButton.querySelector<HTMLElement>('.share-live');
+      if (live) live.textContent = feedback;
+      window.setTimeout(() => {
+        shareButton.classList.remove('is-copied');
+        shareButton.dataset.feedback = '';
+        if (live) live.textContent = '';
+      }, 1800);
+    }
+
+    shareButton?.addEventListener('click', copyTripLink);
 
     function fillDialog(entity: any) {
       if (!dialog) return;

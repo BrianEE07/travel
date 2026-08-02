@@ -56,8 +56,8 @@ const socialImage = new URL(image, Astro.site);
 
   * { box-sizing: border-box; scrollbar-width: none; -ms-overflow-style: none; }
   *::-webkit-scrollbar { width: 0; height: 0; display: none; }
-  html { scroll-behavior: smooth; background: var(--paper); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-  body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.65; }
+  html { scroll-behavior: smooth; background: var(--paper); -webkit-text-size-adjust: none; text-size-adjust: none; }
+  body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.65; -webkit-text-size-adjust: none; text-size-adjust: none; }
   button, a { -webkit-tap-highlight-color: transparent; }
   button { font: inherit; }
   a { color: var(--matcha-deep); text-underline-offset: 0.2em; }
