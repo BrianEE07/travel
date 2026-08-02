@@ -34,10 +34,6 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
     <Brand />
     <div class="header-meta">
       <span class="updated-at">更新於 {updated}</span>
-      <button id="copy-trip-link" class="share-link" type="button" aria-label="複製行程連結" title="複製行程連結" data-feedback="">
-        <span class="share-symbol" aria-hidden="true"></span>
-        <span class="share-live" aria-live="polite"></span>
-      </button>
     </div>
   </header>
 
@@ -47,7 +43,13 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
       <div class="hero-overlay"></div>
       <div class="hero-copy">
         <p class="eyebrow">{trip.kicker}</p>
-        <h1 id="trip-title">{trip.title}</h1>
+        <div class="hero-title-row">
+          <h1 id="trip-title">{trip.title}</h1>
+          <button id="copy-trip-link" class="share-link" type="button" aria-label="複製行程連結" title="複製行程連結" data-feedback="">
+            <span class="link-symbol" aria-hidden="true"></span>
+            <span class="share-live" aria-live="polite"></span>
+          </button>
+        </div>
         <p class="date-range">{formatDate(trip.start, true)} — {formatDate(trip.end, true)}</p>
         <p class="locations">{trip.locations.join(' · ')}</p>
         <a class="hero-cta" href={`#day-${trip.days[0]?.date}`}>
