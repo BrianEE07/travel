@@ -1,0 +1,16 @@
+---
+import type { FoodEntity } from '../../types';
+interface Props { entity: FoodEntity; }
+const { entity } = Astro.props;
+const reservation = { done: '已訂位', none: '免訂位', needed: '需訂位', tbd: '待確認' }[entity.reservation.text] ?? entity.reservation.text;
+---
+<button class="entity-card entity-food" type="button" data-entity={entity.id} data-type="food">
+  <span class="entity-type">餐飲</span>
+  <strong>{entity.title}</strong>
+  <span class="entity-summary">{entity.summary.text}</span>
+  <span class="entity-card-facts">
+    <span class="entity-fact"><i>訂位</i><b>{reservation}</b></span>
+    <span class="entity-fact"><i>區域</i><b>{entity.area.text}</b></span>
+  </span>
+  <span class="entity-open">查看餐飲資訊 <i aria-hidden="true">↗</i></span>
+</button>

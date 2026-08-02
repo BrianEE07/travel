@@ -10,30 +10,74 @@ export interface LinkPreview {
   image: string;
 }
 
-export interface EntityDetail {
-  label: string;
-  value: string;
-  valueHtml: string;
+export interface RichText {
+  text: string;
+  html: string;
 }
 
-export interface Entity {
+interface BaseEntity {
   id: string;
   title: string;
   type: 'stay' | 'food' | 'place' | 'transport';
-  summary: string;
-  details: EntityDetail[];
+  area: RichText;
+  summary: RichText;
   actions: ExternalAction[];
   preview?: LinkPreview | null;
 }
 
-export interface TimelineItem {
-  time: string;
-  group: string;
-  text: string;
-  textHtml: string;
+export interface StayEntity extends BaseEntity {
+  type: 'stay';
+  checkIn: RichText;
+  checkOut: RichText;
+  room: RichText;
+  access: RichText;
+  contact: RichText;
+  policy: RichText;
 }
 
-export interface DayNote {
+export interface FoodEntity extends BaseEntity {
+  type: 'food';
+  hours: RichText;
+  reservation: RichText;
+  reservationTime: RichText;
+  party: RichText;
+  why: RichText;
+  risk: RichText;
+  backup: RichText;
+}
+
+export interface PlaceEntity extends BaseEntity {
+  type: 'place';
+  hours: RichText;
+  why: RichText;
+  bestFor: RichText;
+  nearby: RichText;
+  risk: RichText;
+}
+
+export interface TransportEntity extends BaseEntity {
+  type: 'transport';
+  operator: RichText;
+  route: RichText;
+  duration: RichText;
+  decision: RichText;
+  buffer: RichText;
+}
+
+export type Entity = StayEntity | FoodEntity | PlaceEntity | TransportEntity;
+
+export interface TripOverview {
+  date: string;
+  places: string[];
+  people: string;
+  transports: RichText[];
+  stays: RichText[];
+  status: string;
+}
+
+export interface TimelineItem {
+  time: string;
+  kind: 'move' | 'food' | 'place' | 'shopping' | 'activity' | 'rest' | 'buffer';
   text: string;
   textHtml: string;
 }
@@ -44,14 +88,16 @@ export interface TripDay {
   area: string;
   stay: string;
   stayEntityId: string;
-  summaryNote: string;
+  itineraryNote: string;
+  publish: 'full' | 'summary';
+  summary: string;
   detailed: boolean;
   timeline: TimelineItem[];
-  notes: DayNote[];
+  notes: RichText[];
 }
 
 export interface Trip {
-  schemaVersion: number;
+  schemaVersion: 2;
   slug: string;
   title: string;
   kicker: string;
@@ -62,12 +108,12 @@ export interface Trip {
   coverAlt: string;
   start: string;
   end: string;
-  publishThrough: string;
-  status: string;
+  status: 'draft' | 'active' | 'archived';
   noindex: boolean;
   updatedAt: string;
   sourceHash: string;
   locations: string[];
+  overview: TripOverview;
   days: TripDay[];
   entities: Entity[];
 }

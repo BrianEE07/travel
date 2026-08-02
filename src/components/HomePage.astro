@@ -13,7 +13,7 @@ const formatStart = (date: string) => new Intl.DateTimeFormat('zh-TW', { year: '
 const formatEnd = (date: string) => new Intl.DateTimeFormat('zh-TW', { month: '2-digit', day: '2-digit' }).format(dateValue(date));
 const formatUpdated = (date: string) => new Intl.DateTimeFormat('zh-TW', { month: 'long', day: 'numeric', timeZone: 'Asia/Taipei' }).format(new Date(date));
 const dayCount = (trip: Trip) => Math.round((dateValue(trip.end).getTime() - dateValue(trip.start).getTime()) / 86_400_000) + 1;
-const phaseLabel = (trip: Trip) => trip.publishThrough >= trip.end ? '行程完整' : '規劃中';
+const phaseLabel = (trip: Trip) => trip.days.every((day) => day.publish === 'full') ? '行程完整' : '規劃中';
 const locationLabel = (trip: Trip) => {
   const visible = trip.locations.slice(0, 4).join(' · ');
   return trip.locations.length > 4 ? `${visible} · +${trip.locations.length - 4}` : visible;

@@ -51,11 +51,16 @@ async function loadPreview(url) {
 
 const markdown = await fs.readFile(sourcePath, 'utf8');
 const { trip } = parseTrip(markdown);
-const sourceStat = await fs.stat(sourcePath);
-trip.updatedAt = sourceStat.mtime.toISOString();
 const outputDir = path.join(projectRoot, 'src/data/trips');
 const outputPath = path.join(outputDir, `${trip.slug}.json`);
 await fs.mkdir(outputDir, { recursive: true });
+if (trip.status === 'draft') {
+  await fs.rm(outputPath, { force: true });
+  console.log(`Draft trip removed from public data: ${trip.title}`);
+  process.exit(0);
+}
+const sourceStat = await fs.stat(sourcePath);
+trip.updatedAt = sourceStat.mtime.toISOString();
 let previous = null;
 try { previous = JSON.parse(await fs.readFile(outputPath, 'utf8')); } catch { /* first sync */ }
 const previousPreviews = new Map((previous?.entities ?? []).map((entity) => [entity.id, entity.preview]).filter(([, preview]) => preview));

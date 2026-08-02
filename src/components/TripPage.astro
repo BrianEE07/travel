@@ -2,6 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Brand from './Brand.astro';
 import ServiceWorkerUpdate from './ServiceWorkerUpdate.astro';
+import StayCard from './entities/StayCard.astro';
+import FoodCard from './entities/FoodCard.astro';
+import PlaceCard from './entities/PlaceCard.astro';
+import TransportCard from './entities/TransportCard.astro';
 import '../styles/trip.css';
 import type { Trip } from '../types';
 
@@ -19,7 +23,8 @@ const formatDate = (date: string, includeYear = false) => {
 };
 const weekday = (date: string) => new Intl.DateTimeFormat('zh-TW', { weekday: 'short' }).format(new Date(`${date}T12:00:00+08:00`));
 const updated = new Intl.DateTimeFormat('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Taipei' }).format(new Date(trip.updatedAt));
-const entityTypeLabel: Record<string, string> = { stay: '住宿', food: '餐廳', place: '景點', transport: '交通' };
+const entityTypeLabel: Record<string, string> = { stay: '住宿', food: '餐飲', place: '景點', transport: '交通' };
+const timelineKindLabel: Record<string, string> = { move: '移動', food: '餐飲', place: '景點', shopping: '逛街', activity: '活動', rest: '休息', buffer: '緩衝' };
 const entityJson = JSON.stringify(trip.entities).replaceAll('<', '\\u003c');
 const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatDate(trip.end)}。`;
 ---
@@ -77,6 +82,33 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
       </div>
     </section>
 
+    <section class="trip-briefing" aria-labelledby="briefing-heading">
+      <div class="briefing-heading">
+        <div>
+          <p class="section-kicker">Travel briefing</p>
+          <h2 id="briefing-heading">旅程總覽</h2>
+        </div>
+        <p>{trip.overview.status}</p>
+      </div>
+      <div class="briefing-grid">
+        <dl class="briefing-facts">
+          <div><dt>日期</dt><dd>{trip.overview.date}</dd></div>
+          <div><dt>地點</dt><dd>{trip.overview.places.join('、')}</dd></div>
+          <div><dt>同行</dt><dd>{trip.overview.people}</dd></div>
+        </dl>
+        <div class="briefing-routes">
+          <section>
+            <h3>主要交通</h3>
+            <ul>{trip.overview.transports.map((item) => <li set:html={item.html}></li>)}</ul>
+          </section>
+          <section>
+            <h3>住宿安排</h3>
+            <ul>{trip.overview.stays.map((item) => <li set:html={item.html}></li>)}</ul>
+          </section>
+        </div>
+      </div>
+    </section>
+
     <section class="days" aria-labelledby="days-heading">
       <div class="section-heading">
         <p class="section-kicker">Daily itinerary</p>
@@ -101,9 +133,11 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
                   <li>
                     <div class="timeline-time">
                       <time>{item.time || '彈性'}</time>
-                      {item.group && <small>{item.group}</small>}
                     </div>
-                    <div class="timeline-body" set:html={item.textHtml}></div>
+                    <div class="timeline-body">
+                      <span class={`timeline-kind kind-${item.kind}`}>{timelineKindLabel[item.kind]}</span>
+                      <div set:html={item.textHtml}></div>
+                    </div>
                   </li>
                 ))}
               </ol>
@@ -120,7 +154,7 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
                   <div class="notes-card">
                     <span>Travel notes</span>
                     <ul>
-                      {day.notes.map((note) => <li set:html={note.textHtml}></li>)}
+                      {day.notes.map((note) => <li set:html={note.html}></li>)}
                     </ul>
                   </div>
                 )}
@@ -130,7 +164,7 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
             <div class="planning-summary">
               <div>
                 <span>已確定</span>
-                <p>{day.summaryNote || '日期與住宿已保留，細節會隨筆記更新。'}</p>
+                <p>{day.summary || day.itineraryNote || '日期與住宿已保留，細節會隨筆記更新。'}</p>
               </div>
               <div>
                 <span>Stay</span>
@@ -140,6 +174,12 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
                   <p>{day.stay}</p>
                 )}
               </div>
+              {day.notes.length > 0 && (
+                <div class="planning-notes">
+                  <span>目前想法</span>
+                  <ul>{day.notes.map((note) => <li set:html={note.html}></li>)}</ul>
+                </div>
+              )}
             </div>
           )}
         </article>
@@ -159,12 +199,10 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
       </div>
       <div class="entity-grid">
         {trip.entities.map((entity) => (
-          <button class={`entity-card entity-${entity.type}`} type="button" data-entity={entity.id} data-type={entity.type}>
-            <span class="entity-type">{entityTypeLabel[entity.type] ?? entity.type}</span>
-            <strong>{entity.title}</strong>
-            <p>{entity.summary}</p>
-            <span class="entity-open">查看資訊 <i aria-hidden="true">↗</i></span>
-          </button>
+          entity.type === 'stay' ? <StayCard entity={entity} />
+          : entity.type === 'food' ? <FoodCard entity={entity} />
+          : entity.type === 'place' ? <PlaceCard entity={entity} />
+          : <TransportCard entity={entity} />
         ))}
       </div>
     </section>
@@ -189,6 +227,7 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
         <img id="dialog-preview" class="dialog-preview" alt="" hidden />
         <p class="section-kicker dialog-kicker">Quick reference</p>
         <h2 id="dialog-title"></h2>
+        <div id="dialog-summary" class="dialog-summary"></div>
         <div id="dialog-details" class="dialog-details"></div>
         <div id="dialog-actions" class="dialog-actions"></div>
         <p class="dialog-hint">點選視窗外、按 Esc 或瀏覽器返回鍵即可回到行程。</p>
@@ -204,7 +243,14 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
     const entityData = document.querySelector<HTMLScriptElement>('#entity-data');
     const entities = entityData ? JSON.parse(entityData.textContent || '[]') : [];
     const entityMap = new Map(entities.map((entity: any) => [entity.id, entity]));
-    const typeLabels: Record<string, string> = { stay: '住宿', food: '餐廳', place: '景點', transport: '交通' };
+    const typeLabels: Record<string, string> = { stay: '住宿', food: '餐飲', place: '景點', transport: '交通' };
+    const detailFields: Record<string, Array<[string, string]>> = {
+      stay: [['area', '區域'], ['checkIn', '入住'], ['checkOut', '退房'], ['room', '房型'], ['access', '交通'], ['contact', '聯絡'], ['policy', '取消政策']],
+      food: [['area', '區域'], ['hours', '營業'], ['reservation', '訂位'], ['reservationTime', '時間'], ['party', '人數'], ['why', '安排原因'], ['risk', '留意'], ['backup', '備案']],
+      place: [['area', '區域'], ['hours', '開放'], ['why', '安排原因'], ['bestFor', '適合'], ['nearby', '附近'], ['risk', '留意']],
+      transport: [['area', '區域'], ['operator', '營運'], ['route', '路線'], ['duration', '時間'], ['decision', '方案'], ['buffer', '緩衝']],
+    };
+    const reservationLabels: Record<string, string> = { done: '已完成', none: '免訂位', needed: '需要訂位', tbd: '待確認' };
     const backToTop = document.querySelector<HTMLButtonElement>('#back-to-top');
     let dialogReturnScrollY = 0;
     let previousScrollRestoration: ScrollRestoration = 'auto';
@@ -224,17 +270,24 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
       if (!dialog) return;
       const title = dialog.querySelector<HTMLElement>('#dialog-title');
       const type = dialog.querySelector<HTMLElement>('.dialog-type');
+      const summary = dialog.querySelector<HTMLElement>('#dialog-summary');
       const details = dialog.querySelector<HTMLElement>('#dialog-details');
       const actions = dialog.querySelector<HTMLElement>('#dialog-actions');
       const preview = dialog.querySelector<HTMLImageElement>('#dialog-preview');
       if (title) title.textContent = entity.title;
       if (type) type.textContent = typeLabels[entity.type] || entity.type;
+      if (summary) summary.innerHTML = entity.summary?.html || '';
       if (details) {
-        details.innerHTML = entity.details.map((item: any) => `
+        details.innerHTML = (detailFields[entity.type] || []).map(([key, label]) => {
+          const value = entity[key];
+          if (!value) return '';
+          const html = key === 'reservation' ? (reservationLabels[value.text] || value.html) : value.html;
+          return `
           <div class="dialog-row">
-            ${item.label ? `<span>${item.label}</span>` : ''}
-            <div>${item.valueHtml}</div>
-          </div>`).join('');
+            <span>${label}</span>
+            <div>${html}</div>
+          </div>`;
+        }).join('');
       }
       if (actions) {
         actions.innerHTML = entity.actions.map((action: any) => `

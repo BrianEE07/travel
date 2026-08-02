@@ -1,18 +1,56 @@
 import crypto from 'node:crypto';
 import YAML from 'yaml';
 
-const PUBLIC_SECTIONS = new Map([
+const PUBLIC_SECTION_NAMES = [
+  'Overview',
+  'Itinerary',
+  'Daily Plan',
+  'Accommodation',
+  'Food',
+  'Places',
+  'Transportation',
+  'References',
+];
+
+const ENTITY_SECTIONS = new Map([
   ['Accommodation', 'stay'],
-  ['Restaurant Reservations', 'food'],
-  ['Place Notes', 'place'],
+  ['Food', 'food'],
+  ['Places', 'place'],
   ['Transportation', 'transport'],
 ]);
 
-const FORBIDDEN_FIELD = /^(?:訂房人|訂位人|旅客|姓名|訂房編號|訂位編號|預訂編號|認證碼|認證編號|Login ID|交易編號|票號|座位號|支付|付款|費用|價格|總額|訂房日期|訂位日期|開票日期)$/i;
-const OMIT_SUBSECTION = /^(?:訂位|費用)$/;
-const MANAGEMENT_LABEL = /(?:確認|變更|取消|收據|登入|管理)/;
+const ENTITY_FIELDS = {
+  stay: {
+    allowed: ['Area', 'Summary', 'Map', 'Official', 'CheckIn', 'CheckOut', 'Room', 'Access', 'Contact', 'Policy'],
+    required: ['Area', 'Summary', 'Map', 'CheckIn', 'CheckOut', 'Room', 'Access', 'Contact', 'Policy'],
+    properties: { Area: 'area', Summary: 'summary', CheckIn: 'checkIn', CheckOut: 'checkOut', Room: 'room', Access: 'access', Contact: 'contact', Policy: 'policy' },
+  },
+  food: {
+    allowed: ['Area', 'Summary', 'Map', 'Official', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Why', 'Risk', 'Backup'],
+    required: ['Area', 'Summary', 'Map', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Why', 'Risk', 'Backup'],
+    properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party', Why: 'why', Risk: 'risk', Backup: 'backup' },
+  },
+  place: {
+    allowed: ['Area', 'Summary', 'Map', 'Official', 'Hours', 'Why', 'BestFor', 'Nearby', 'Risk'],
+    required: ['Area', 'Summary', 'Map', 'Hours', 'Why', 'BestFor', 'Nearby', 'Risk'],
+    properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Why: 'why', BestFor: 'bestFor', Nearby: 'nearby', Risk: 'risk' },
+  },
+  transport: {
+    allowed: ['Area', 'Summary', 'Official', 'Operator', 'Route', 'Duration', 'Decision', 'Buffer'],
+    required: ['Area', 'Summary', 'Operator', 'Route', 'Duration', 'Decision', 'Buffer'],
+    properties: { Area: 'area', Summary: 'summary', Operator: 'operator', Route: 'route', Duration: 'duration', Decision: 'decision', Buffer: 'buffer' },
+  },
+};
+
+const FRONTMATTER_REQUIRED = [
+  'travel_schema', 'trip_slug', 'trip_title', 'trip_kicker', 'trip_summary', 'trip_intro',
+  'trip_code', 'trip_cover', 'trip_cover_alt', 'trip_start', 'trip_end', 'trip_status', 'noindex',
+];
+const TRIP_STATUSES = new Set(['draft', 'active', 'archived']);
+const TIMELINE_TAGS = new Set(['move', 'food', 'place', 'shopping', 'activity', 'rest', 'buffer']);
+const RESERVATION_VALUES = new Set(['done', 'none', 'needed', 'tbd']);
 const MANAGEMENT_PARAM = /[?&](?:auth(?:_key)?|token|code|bok|booking|reservation|login|transaction)(?:=|%3D)/i;
-const CURRENCY = /(?:JPY|TWD|NTD|USD|EUR)\s*[\d,.]+(?:\s*[×x]\s*\d+\s*=\s*(?:JPY|TWD|NTD|USD|EUR)?\s*[\d,.]+)?/gi;
+const SENSITIVE_LABEL = /(?:訂房編號|訂位編號|預訂編號|認證碼|認證編號|Login ID|交易編號|票號)/i;
 
 export function parseFrontmatter(markdown) {
   if (!markdown.startsWith('---\n')) return { data: {}, body: markdown };
@@ -24,30 +62,22 @@ export function parseFrontmatter(markdown) {
   };
 }
 
-function splitSections(body, level = 2) {
+function sectionList(body, level) {
   const marker = '#'.repeat(level);
-  const pattern = new RegExp(`^${marker} (.+)$`, 'gm');
-  const matches = [...body.matchAll(pattern)];
+  const matches = [...body.matchAll(new RegExp(`^${marker} (.+)$`, 'gm'))];
+  return matches.map((match, index) => ({
+    title: match[1].trim(),
+    content: body.slice(match.index + match[0].length, matches[index + 1]?.index ?? body.length).trim(),
+  }));
+}
+
+function sectionMap(items, context, errors) {
   const result = new Map();
-  for (let index = 0; index < matches.length; index += 1) {
-    const title = matches[index][1].trim();
-    const start = matches[index].index + matches[index][0].length;
-    const end = matches[index + 1]?.index ?? body.length;
-    result.set(title, body.slice(start, end).trim());
+  for (const item of items) {
+    if (result.has(item.title)) errors.push(`${context} 有重複標題：${item.title}`);
+    else result.set(item.title, item.content);
   }
   return result;
-}
-
-function splitSubsections(section) {
-  return [...splitSections(section, 3)].map(([title, content]) => ({ title, content }));
-}
-
-function parseReferences(section = '') {
-  const references = new Map();
-  for (const match of section.matchAll(/^\[([^\]]+)\]:\s*(https?:\/\/\S+)$/gm)) {
-    references.set(match[1], match[2]);
-  }
-  return references;
 }
 
 function slugify(value) {
@@ -60,7 +90,7 @@ function slugify(value) {
     .slice(0, 80);
 }
 
-function stripLinks(value) {
+function stripLinks(value = '') {
   return value
     .replace(/\[([^\]]+)\]\(<#.*?>\)/g, '$1')
     .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '$1')
@@ -69,7 +99,7 @@ function stripLinks(value) {
     .trim();
 }
 
-function escapeHtml(value) {
+function escapeHtml(value = '') {
   return value
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
@@ -78,22 +108,17 @@ function escapeHtml(value) {
     .replaceAll("'", '&#039;');
 }
 
+function normalizeFragment(target) {
+  const raw = target.replace(/^<#/, '').replace(/>$/, '');
+  try { return decodeURIComponent(raw); } catch { return raw; }
+}
+
 function isSafePublicUrl(value) {
   try {
     const url = new URL(value);
-    if (url.protocol !== 'https:') return false;
-    if (MANAGEMENT_PARAM.test(url.href)) return false;
-    return true;
+    return url.protocol === 'https:' && !MANAGEMENT_PARAM.test(url.href);
   } catch {
     return false;
-  }
-}
-
-function normalizeFragment(target) {
-  try {
-    return decodeURIComponent(target.replace(/^<#/, '').replace(/>$/, ''));
-  } catch {
-    return target.replace(/^<#/, '').replace(/>$/, '');
   }
 }
 
@@ -108,14 +133,10 @@ function inlineHtml(value, entityIds, references) {
     if (rawTarget?.startsWith('<#')) {
       const title = normalizeFragment(rawTarget);
       const entityId = entityIds.get(title);
-      const dateMatch = title.match(/^(\d{4}-\d{2}-\d{2})/);
-      if (entityId) {
-        html += `<button class="inline-detail" type="button" data-entity="${escapeHtml(entityId)}">${escapeHtml(label)}</button>`;
-      } else if (dateMatch) {
-        html += `<a href="#day-${dateMatch[1]}">${escapeHtml(label)}</a>`;
-      } else {
-        html += escapeHtml(label);
-      }
+      const date = title.match(/^(\d{4}-\d{2}-\d{2})/)?.[1];
+      if (entityId) html += `<button class="inline-detail" type="button" data-entity="${escapeHtml(entityId)}">${escapeHtml(label)}</button>`;
+      else if (date) html += `<a href="#day-${date}">${escapeHtml(label)}</a>`;
+      else html += escapeHtml(label);
     } else if (rawTarget && isSafePublicUrl(rawTarget)) {
       html += `<a href="${escapeHtml(rawTarget)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
     } else {
@@ -127,171 +148,313 @@ function inlineHtml(value, entityIds, references) {
   return html.replace(/`([^`]+)`/g, '<code>$1</code>');
 }
 
-function rememberSecret(value, secrets) {
-  const plain = stripLinks(value).trim();
-  if (plain.length >= 4) secrets.add(plain);
-  for (const token of plain.matchAll(/[A-Z0-9][A-Z0-9-]{5,}/gi)) {
-    if (/\d/.test(token[0])) secrets.add(token[0]);
+function richText(value, entityIds, references) {
+  return { text: stripLinks(value), html: inlineHtml(value, entityIds, references) };
+}
+
+function rememberSecret(raw, secrets) {
+  const clean = stripLinks(raw.replace(/^[-*]\s*/, '').replace(/^[^：]+：\s*/, '')).trim();
+  if (clean.length >= 4) secrets.add(clean);
+  for (const match of clean.matchAll(/[A-Z0-9][A-Z0-9-]{5,}/gi)) {
+    if (/\d/.test(match[0])) secrets.add(match[0]);
   }
 }
 
-function sanitizeValue(value) {
-  let clean = value;
-  clean = clean.replace(CURRENCY, '').replace(/\s*（\s*）/g, '');
-  clean = clean.replace(/[，、]\s*(?=[，、。；]|$)/g, '');
-  clean = clean.replace(/\s{2,}/g, ' ').trim();
-  return clean.replace(/^[，、；]\s*|\s*[，、；]$/g, '').trim();
-}
-
-function parseActions(line, references) {
-  const actions = [];
-  const referenceMatch = line.match(/^(?:Map|地圖)：\[([^\]]+)\]\[([^\]]+)\]/i);
-  if (referenceMatch) {
-    const url = references.get(referenceMatch[2]);
-    if (url && isSafePublicUrl(url)) actions.push({ label: 'Google Maps', url, kind: 'map' });
-  }
-  const directMatch = line.match(/^([^：]+)：\s*(https?:\/\/\S+)/);
-  if (directMatch && !MANAGEMENT_LABEL.test(directMatch[1]) && isSafePublicUrl(directMatch[2])) {
-    const kind = /官網|official/i.test(directMatch[1]) ? 'official' : 'link';
-    actions.push({ label: stripLinks(directMatch[1]), url: directMatch[2], kind });
-  }
-  return actions;
-}
-
-function parseEntity(title, content, type, entityIds, references, secrets) {
-  const details = [];
-  const actions = [];
-  let omitMode = false;
-  for (const rawLine of content.split('\n')) {
+function parseReferences(section, errors) {
+  const references = new Map();
+  const seen = new Set();
+  for (const rawLine of section.split('\n')) {
     const line = rawLine.trim();
-    if (!line || /^\[Back to top\]/.test(line)) continue;
-
-    const subsection = line.match(/^([^：]{1,16})：$/);
-    if (subsection) {
-      omitMode = OMIT_SUBSECTION.test(subsection[1]);
+    if (!line) continue;
+    const match = line.match(/^\[([^\]]+)\]:\s*(\S+)$/);
+    if (!match) {
+      errors.push(`References 含無法辨識的內容：${line}`);
       continue;
     }
+    const [, key, url] = match;
+    if (seen.has(key)) errors.push(`References 有重複 key：${key}`);
+    seen.add(key);
+    if (!isSafePublicUrl(url)) errors.push(`References 的網址不安全或不是 HTTPS：${key}`);
+    references.set(key, url);
+  }
+  return references;
+}
 
-    if (omitMode) {
-      rememberSecret(line, secrets);
-      continue;
+function collectHeadings(body, publicSections) {
+  const headings = new Set(sectionList(body, 1).map((item) => item.title));
+  for (const name of PUBLIC_SECTION_NAMES) {
+    headings.add(name);
+    for (const item of sectionList(publicSections.get(name) ?? '', 3)) headings.add(item.title);
+  }
+  return headings;
+}
+
+function validatePublicLinks(publicSections, headings, references, entitySectionsByTitle, errors) {
+  for (const sectionName of PUBLIC_SECTION_NAMES.filter((name) => name !== 'References')) {
+    const rawContent = publicSections.get(sectionName) ?? '';
+    const content = ENTITY_SECTIONS.has(sectionName)
+      ? sectionList(rawContent, 3).map((item) => item.content.split(/^Private：$/m)[0]).join('\n')
+      : rawContent;
+    for (const match of content.matchAll(/\[[^\]]+\]\((<#[^)]+>)\)/g)) {
+      const target = normalizeFragment(match[1]);
+      if (!headings.has(target)) errors.push(`${sectionName} 的內部連結找不到標題：${target}`);
     }
-
-    const field = line.match(/^-?\s*([^：]+)：\s*(.*)$/);
-    if (field) {
-      const label = stripLinks(field[1]);
-      const value = field[2].trim();
-      if (FORBIDDEN_FIELD.test(label) || (MANAGEMENT_LABEL.test(label) && /https?:\/\//.test(value))) {
-        rememberSecret(value, secrets);
-        continue;
-      }
-      const foundActions = parseActions(line.replace(/^[-\s]+/, ''), references);
-      if (foundActions.length) {
-        actions.push(...foundActions);
-        continue;
-      }
-      const clean = sanitizeValue(value);
-      if (clean) details.push({ label, value: stripLinks(clean), valueHtml: inlineHtml(clean, entityIds, references) });
-      continue;
-    }
-
-    if (omitMode || /票號|訂位編號|訂房編號|認證(?:碼|編號)|Login ID|交易編號/.test(line)) {
-      rememberSecret(line, secrets);
-      continue;
-    }
-
-    const clean = sanitizeValue(line.replace(/^[-*]\s*/, ''));
-    if (clean && !/^#+\s/.test(clean)) {
-      details.push({ label: '', value: stripLinks(clean), valueHtml: inlineHtml(clean, entityIds, references) });
+    for (const match of content.matchAll(/\[[^\]]+\]\[([^\]]+)\]/g)) {
+      if (!references.has(match[1])) errors.push(`${sectionName} 使用未定義的 reference：${match[1]}`);
     }
   }
 
-  const uniqueActions = [...new Map(actions.map((action) => [action.url, action])).values()];
+  const overview = publicSections.get('Overview') ?? '';
+  const transportBlock = overview.match(/^Transport：\s*\n([\s\S]*?)(?=^Stay：)/m)?.[1] ?? '';
+  const stayBlock = overview.match(/^Stay：\s*\n([\s\S]*?)(?=^Status：)/m)?.[1] ?? '';
+  for (const match of transportBlock.matchAll(/\(<#([^)]+)>\)/g)) {
+    if (entitySectionsByTitle.get(match[1]) !== 'transport') errors.push(`Overview Transport 必須連到 Transportation：${match[1]}`);
+  }
+  for (const match of stayBlock.matchAll(/\(<#([^)]+)>\)/g)) {
+    if (entitySectionsByTitle.get(match[1]) !== 'stay') errors.push(`Overview Stay 必須連到 Accommodation：${match[1]}`);
+  }
+}
+
+function parseEntity(title, content, type, entityIds, references, secrets, errors) {
+  const config = ENTITY_FIELDS[type];
+  const contentLines = content.split('\n');
+  const privateMarkers = contentLines.map((line, index) => line.trim() === 'Private：' ? index : -1).filter((index) => index >= 0);
+  if (privateMarkers.length > 1) errors.push(`${title} 只能有一個 Private block`);
+  const privateMarker = privateMarkers[0] ?? -1;
+  const publicContent = privateMarker >= 0 ? contentLines.slice(0, privateMarker).join('\n') : content;
+  const privateContent = privateMarker >= 0 ? contentLines.slice(privateMarker + 1) : [];
+  for (const line of privateContent) {
+    if (!line.trim()) continue;
+    if (!line.trim().startsWith('- ')) errors.push(`${title} 的 Private 內容必須使用 bullet，且 Private 必須是最後一個 block`);
+    rememberSecret(line, secrets);
+  }
+
+  const fields = new Map();
+  for (const rawLine of publicContent.split('\n')) {
+    const line = rawLine.trim();
+    if (!line) continue;
+    const match = line.match(/^([A-Za-z]+)：\s*(.+)$/);
+    if (!match) {
+      errors.push(`${title} 含無法辨識的公開內容：${line}`);
+      continue;
+    }
+    const [, label, value] = match;
+    if (!config.allowed.includes(label)) errors.push(`${title} 使用未知欄位：${label}`);
+    if (fields.has(label)) errors.push(`${title} 有重複欄位：${label}`);
+    fields.set(label, value.trim());
+  }
+  for (const field of config.required) {
+    if (!fields.get(field)) errors.push(`${title} 缺少必要欄位：${field}`);
+  }
+  if (type === 'food' && fields.has('Reservation') && !RESERVATION_VALUES.has(fields.get('Reservation'))) {
+    errors.push(`${title} 的 Reservation 必須是 done / none / needed / tbd`);
+  }
+
+  const actions = [];
+  const mapValue = fields.get('Map');
+  if (mapValue) {
+    const match = mapValue.match(/^\[([^\]]+)\]\[([^\]]+)\]$/);
+    if (!match) errors.push(`${title} 的 Map 必須使用 reference link`);
+    else {
+      const url = references.get(match[2]);
+      if (!url) errors.push(`${title} 的 Map reference 未定義：${match[2]}`);
+      else actions.push({ label: match[1], url, kind: 'map' });
+    }
+  }
+  const official = fields.get('Official');
+  if (official) {
+    if (!isSafePublicUrl(official)) errors.push(`${title} 的 Official 必須是安全的 HTTPS 網址`);
+    else actions.push({ label: '官方網站', url: official, kind: 'official' });
+  }
+
+  const entity = { id: entityIds.get(title), title, type, actions };
+  for (const [field, property] of Object.entries(config.properties)) {
+    if (fields.has(field)) entity[property] = richText(fields.get(field), entityIds, references);
+  }
+  return entity;
+}
+
+function parseOverview(section, entityIds, references, frontmatter, errors) {
+  const allowed = new Set(['Date', 'Places', 'People', 'Transport', 'Stay', 'Status']);
+  const fields = new Map();
+  let current = '';
+  for (const rawLine of section.split('\n')) {
+    const line = rawLine.trim();
+    if (!line) continue;
+    const field = line.match(/^([A-Za-z]+)：\s*(.*)$/);
+    if (field) {
+      current = field[1];
+      if (!allowed.has(current)) errors.push(`Overview 使用未知欄位：${current}`);
+      if (fields.has(current)) errors.push(`Overview 有重複欄位：${current}`);
+      fields.set(current, field[2] ? [field[2]] : []);
+    } else if (line.startsWith('- ') && current && ['Transport', 'Stay'].includes(current)) {
+      fields.get(current).push(line.slice(2));
+    } else {
+      errors.push(`Overview 含無法辨識的內容：${line}`);
+    }
+  }
+  for (const field of allowed) if (!fields.has(field) || fields.get(field).length === 0) errors.push(`Overview 缺少必要欄位：${field}`);
+
+  const displayDate = fields.get('Date')?.[0] ?? '';
+  const dates = [...displayDate.matchAll(/\d{4}-\d{2}-\d{2}/g)].map((match) => match[0]);
+  if (dates.length !== 2 || dates[0] !== String(frontmatter.trip_start) || dates[1] !== String(frontmatter.trip_end)) {
+    errors.push('Overview Date 必須與 trip_start / trip_end 完全一致');
+  }
+  const placesText = fields.get('Places')?.[0] ?? '';
   return {
-    id: entityIds.get(title),
-    title,
-    type,
-    summary: details.find((item) => item.label === '重點')?.value ?? details[0]?.value ?? '',
-    details,
-    actions: uniqueActions,
+    date: displayDate,
+    places: placesText.split(/[、,]/).map((item) => item.trim()).filter(Boolean),
+    people: fields.get('People')?.[0] ?? '',
+    transports: (fields.get('Transport') ?? []).map((value) => richText(value, entityIds, references)),
+    stays: (fields.get('Stay') ?? []).map((value) => richText(value, entityIds, references)),
+    status: fields.get('Status')?.[0] ?? '',
   };
 }
 
-function parseItinerary(section = '', entityIds = new Map()) {
+function parseItinerary(section, entityIds, entityTypes, errors) {
   const rows = [];
-  for (const line of section.split('\n')) {
-    if (!line.trim().startsWith('|')) continue;
+  let headerSeen = false;
+  for (const rawLine of section.split('\n')) {
+    const line = rawLine.trim();
+    if (!line) continue;
+    if (!line.startsWith('|')) {
+      errors.push(`Itinerary 含表格以外的公開內容：${line}`);
+      continue;
+    }
     const cells = line.split('|').slice(1, -1).map((cell) => cell.trim());
-    if (cells.length < 4 || /^-+$/.test(cells[0].replace(/\s/g, '')) || cells[0] === 'Date') continue;
+    if (!headerSeen) {
+      headerSeen = true;
+      if (cells.join('|') !== 'Date|Area|Stay|Notes') errors.push('Itinerary 表頭必須是 Date / Area / Stay / Notes');
+      continue;
+    }
+    if (cells.every((cell) => /^:?-{3,}:?$/.test(cell.replace(/\s/g, '')))) continue;
+    if (cells.length !== 4) {
+      errors.push(`Itinerary 每列必須有四欄：${line}`);
+      continue;
+    }
     const date = cells[0].match(/\d{4}-\d{2}-\d{2}/)?.[0];
-    if (!date) continue;
-    const stayTarget = cells[2].match(/\[[^\]]+\]\((<#[^)]+>)\)/)?.[1];
+    if (!date) {
+      errors.push(`Itinerary 日期無法辨識：${cells[0]}`);
+      continue;
+    }
+    const stayTarget = cells[2].match(/\[[^\]]+\]\(<#([^)]+)>\)/)?.[1] ?? '';
+    if (stayTarget && entityTypes.get(stayTarget) !== 'stay') errors.push(`Itinerary Stay 必須連到 Accommodation：${stayTarget}`);
     rows.push({
       date,
       area: stripLinks(cells[1]),
       stay: stripLinks(cells[2]),
-      stayEntityId: stayTarget ? entityIds.get(normalizeFragment(stayTarget)) ?? '' : '',
+      stayTarget,
+      stayEntityId: stayTarget ? entityIds.get(stayTarget) ?? '' : '',
       notes: stripLinks(cells[3]),
     });
   }
   return rows;
 }
 
-function parseDaily(section, itinerary, publishThrough, entityIds, references) {
-  const itineraryByDate = new Map(itinerary.map((item) => [item.date, item]));
-  return splitSubsections(section ?? '').map(({ title, content }) => {
-    const date = title.match(/^\d{4}-\d{2}-\d{2}/)?.[0];
-    const summary = itineraryByDate.get(date) ?? { date, area: '', stay: '', stayEntityId: '', notes: '' };
+function weekdayFor(date) {
+  return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(`${date}T12:00:00Z`).getUTCDay()];
+}
+
+function parseDays(section, itinerary, entityIds, references, errors) {
+  const itineraryByDate = new Map(itinerary.map((row) => [row.date, row]));
+  return sectionList(section, 3).map(({ title, content }) => {
+    const titleMatch = title.match(/^(\d{4}-\d{2}-\d{2})\s+(Sun|Mon|Tue|Wed|Thu|Fri|Sat)$/);
+    if (!titleMatch) errors.push(`Daily Plan 標題格式錯誤：${title}`);
+    const date = titleMatch?.[1] ?? title.match(/^\d{4}-\d{2}-\d{2}/)?.[0] ?? '';
+    if (date && titleMatch?.[2] !== weekdayFor(date)) errors.push(`Daily Plan 星期錯誤：${title}`);
+    const itineraryRow = itineraryByDate.get(date) ?? { area: '', stay: '', stayTarget: '', stayEntityId: '', notes: '' };
     const lines = content.split('\n');
-    const stayIndex = lines.findIndex((line) => /^Stay：/.test(line.trim()));
-    const notesIndex = lines.findIndex((line) => /^Notes：/.test(line.trim()));
-    const endTimeline = stayIndex >= 0 ? stayIndex : notesIndex >= 0 ? notesIndex : lines.length;
+    const meaningful = lines.map((line) => line.trim()).filter(Boolean);
+    const publishMatch = meaningful[0]?.match(/^Publish：(full|summary)$/);
+    if (!publishMatch) errors.push(`${title} 第一個欄位必須是 Publish：full 或 Publish：summary`);
+    const publish = publishMatch?.[1] ?? 'summary';
     const timeline = [];
-    let group = '';
-    for (const rawLine of lines.slice(0, endTimeline)) {
+    const notes = [];
+    let summary = '';
+    let dailyStay = '';
+    let dailyStayTarget = '';
+    let mode = 'timeline';
+
+    for (const rawLine of lines) {
       const line = rawLine.trim();
-      if (!line) continue;
-      if (/^[^：]{1,12}：$/.test(line)) {
-        group = line.slice(0, -1);
+      if (!line || /^\[Back to top\]/.test(line) || /^Publish：/.test(line)) continue;
+      const field = line.match(/^(Summary|Stay|Notes)：\s*(.*)$/);
+      if (field) {
+        const [, name, value] = field;
+        if (name === 'Summary') summary = stripLinks(value);
+        if (name === 'Stay') {
+          dailyStay = stripLinks(value);
+          dailyStayTarget = value.match(/\[[^\]]+\]\(<#([^)]+)>\)/)?.[1] ?? '';
+        }
+        if (name === 'Notes') mode = 'notes';
+        else mode = 'fields';
         continue;
       }
-      if (!line.startsWith('- ')) continue;
-      const item = line.slice(2);
-      const timeMatch = item.match(/^(\d{2}:\d{2}(?:-\d{2}:\d{2})?)\s*(.*)$/);
-      timeline.push({
-        time: timeMatch?.[1] ?? '',
-        group,
-        text: stripLinks(timeMatch?.[2] || item),
-        textHtml: inlineHtml(timeMatch?.[2] || item, entityIds, references),
-      });
-    }
-    const notes = [];
-    if (notesIndex >= 0) {
-      for (const rawLine of lines.slice(notesIndex + 1)) {
-        const line = rawLine.trim();
-        if (line.startsWith('- ')) {
-          const clean = sanitizeValue(line.slice(2));
-          if (clean) notes.push({ text: stripLinks(clean), textHtml: inlineHtml(clean, entityIds, references) });
-        }
+      if (line.startsWith('- ') && mode === 'notes') {
+        const value = line.slice(2).trim();
+        notes.push(richText(value, entityIds, references));
+        continue;
       }
+      if (line.startsWith('- ') && mode === 'timeline') {
+        const value = line.slice(2).trim();
+        const timeMatch = value.match(/^(\d{2}:\d{2}(?:[-–]\d{2}:\d{2})?)\s+(.+)$/);
+        if (!timeMatch) {
+          errors.push(`${title} 的時間軸時間必須放在連結外：${value}`);
+          continue;
+        }
+        const tags = [...value.matchAll(/#travel\/([a-z]+)/g)].map((match) => match[1]);
+        if (tags.length !== 1) errors.push(`${title} 的 full 時間軸每項必須恰好有一個 travel tag：${value}`);
+        const kind = tags[0] ?? '';
+        if (kind && !TIMELINE_TAGS.has(kind)) errors.push(`${title} 使用未知 timeline tag：#travel/${kind}`);
+        const visible = timeMatch[2].replace(/\s*#travel\/[a-z]+\s*/g, ' ').replace(/\s{2,}/g, ' ').trim();
+        timeline.push({ time: timeMatch[1].replace('–', '-'), kind, text: stripLinks(visible), textHtml: inlineHtml(visible, entityIds, references) });
+        continue;
+      }
+      errors.push(`${title} 含無法辨識的公開內容：${line}`);
     }
+
+    if (publish === 'full' && timeline.length === 0) errors.push(`${title} 設為 full 但沒有時間軸`);
+    if (publish === 'summary' && !summary) errors.push(`${title} 設為 summary 時必須有 Summary`);
+    if (publish === 'summary' && timeline.length) errors.push(`${title} 設為 summary 時不可放完整時間軸`);
+    if (!dailyStay) errors.push(`${title} 缺少 Stay`);
+    if (dailyStay && dailyStay !== itineraryRow.stay) errors.push(`${title} 的 Stay 與 Itinerary 不一致`);
+    if (dailyStayTarget !== itineraryRow.stayTarget) errors.push(`${title} 的 Stay 連結與 Itinerary 不一致`);
+
     return {
       date,
-      weekday: title.replace(date, '').trim(),
-      area: summary.area,
-      stay: summary.stay,
-      stayEntityId: summary.stayEntityId,
-      summaryNote: summary.notes,
-      detailed: Boolean(date && date <= publishThrough),
-      timeline: date && date <= publishThrough ? timeline : [],
-      notes: date && date <= publishThrough ? notes : [],
+      weekday: titleMatch?.[2] ?? '',
+      area: itineraryRow.area,
+      stay: itineraryRow.stay,
+      stayEntityId: itineraryRow.stayEntityId,
+      itineraryNote: itineraryRow.notes,
+      publish,
+      summary,
+      detailed: publish === 'full',
+      timeline: publish === 'full' ? timeline : [],
+      notes,
     };
   });
 }
 
-function parseLocations(overview = '') {
-  const match = overview.match(/^- 地點：(.+)$/m);
-  return match ? match[1].split(/[、,]/).map((item) => item.trim()).filter(Boolean) : [];
+function inclusiveDates(start, end, errors) {
+  const dates = [];
+  const first = new Date(`${start}T12:00:00Z`);
+  const last = new Date(`${end}T12:00:00Z`);
+  if (Number.isNaN(first.getTime()) || Number.isNaN(last.getTime()) || first > last) {
+    errors.push('trip_start / trip_end 必須是有效且由早到晚的日期');
+    return dates;
+  }
+  for (let date = first; date <= last; date = new Date(date.getTime() + 86_400_000)) dates.push(date.toISOString().slice(0, 10));
+  return dates;
+}
+
+function validateDateSets(expected, itinerary, days, errors) {
+  const check = (label, values) => {
+    if (new Set(values).size !== values.length) errors.push(`${label} 含重複日期`);
+    if (values.join('|') !== expected.join('|')) errors.push(`${label} 日期必須完整且依序等於 trip_start ～ trip_end`);
+  };
+  check('Itinerary', itinerary.map((row) => row.date));
+  check('Daily Plan', days.map((day) => day.date));
 }
 
 export function scanPublicPayload(payload, secrets = []) {
@@ -303,65 +466,81 @@ export function scanPublicPayload(payload, secrets = []) {
     ['air ticket number', /\b\d{3}[ -]?\d{10}\b/g],
     ['visible price', /\b(?:JPY|TWD|NTD|USD|EUR)\s*[\d,.]+/gi],
   ];
-  for (const [name, pattern] of patterns) {
-    if (pattern.test(serialized)) findings.push(name);
-  }
-  for (const secret of secrets) {
-    if (secret.length >= 4 && serialized.includes(secret)) findings.push(`source secret fingerprint: ${secret.slice(0, 2)}…`);
-  }
+  for (const [name, pattern] of patterns) if (pattern.test(serialized)) findings.push(name);
+  for (const secret of secrets) if (secret.length >= 4 && serialized.includes(secret)) findings.push(`source secret fingerprint: ${secret.slice(0, 2)}…`);
   return [...new Set(findings)];
 }
 
 export function parseTrip(markdown) {
-  const { data, body } = parseFrontmatter(markdown);
-  const sections = splitSections(body, 2);
-  const references = parseReferences(sections.get('References'));
+  const errors = [];
   const secrets = new Set();
-  const entityIds = new Map();
+  const { data, body } = parseFrontmatter(markdown);
+  for (const key of FRONTMATTER_REQUIRED) if (data[key] === undefined || data[key] === '') errors.push(`frontmatter 缺少：${key}`);
+  if (Number(data.travel_schema) !== 2) errors.push('travel_schema 必須是 2');
+  if ('publish_through' in data) errors.push('schema 2 不可使用 publish_through');
+  if (!TRIP_STATUSES.has(String(data.trip_status))) errors.push('trip_status 必須是 draft / active / archived');
 
-  for (const [sectionName] of PUBLIC_SECTIONS) {
-    for (const { title } of splitSubsections(sections.get(sectionName) ?? '')) {
-      entityIds.set(title, `${PUBLIC_SECTIONS.get(sectionName)}-${slugify(title)}`);
+  const sectionItems = sectionList(body, 2);
+  const sections = sectionMap(sectionItems, '二級 section', errors);
+  for (const name of PUBLIC_SECTION_NAMES) if (!sections.has(name)) errors.push(`缺少必要 public section：${name}`);
+
+  const references = parseReferences(sections.get('References') ?? '', errors);
+  const entityIds = new Map();
+  const entityTypes = new Map();
+  const entitySubsections = new Map();
+  for (const [sectionName, type] of ENTITY_SECTIONS) {
+    const items = sectionList(sections.get(sectionName) ?? '', 3);
+    entitySubsections.set(sectionName, items);
+    for (const { title } of items) {
+      if (entityIds.has(title)) errors.push(`Entity 標題必須全站唯一：${title}`);
+      entityIds.set(title, `${type}-${slugify(title)}`);
+      entityTypes.set(title, type);
     }
   }
+
+  const headings = collectHeadings(body, sections);
+  validatePublicLinks(sections, headings, references, entityTypes, errors);
 
   const entities = [];
-  for (const [sectionName, type] of PUBLIC_SECTIONS) {
-    for (const { title, content } of splitSubsections(sections.get(sectionName) ?? '')) {
-      entities.push(parseEntity(title, content, type, entityIds, references, secrets));
+  for (const [sectionName, type] of ENTITY_SECTIONS) {
+    for (const { title, content } of entitySubsections.get(sectionName)) {
+      entities.push(parseEntity(title, content, type, entityIds, references, secrets, errors));
     }
   }
 
-  const itinerary = parseItinerary(sections.get('Itinerary'), entityIds);
-  const title = data.trip_title ?? body.match(/^# (.+)$/m)?.[1] ?? '旅行手帖';
-  const start = String(data.trip_start ?? itinerary[0]?.date ?? '');
-  const end = String(data.trip_end ?? itinerary.at(-1)?.date ?? '');
-  const publishThrough = String(data.publish_through ?? start);
+  for (const match of markdown.matchAll(new RegExp(`^.*${SENSITIVE_LABEL.source}.*$`, 'gim'))) rememberSecret(match[0], secrets);
+  const overview = parseOverview(sections.get('Overview') ?? '', entityIds, references, data, errors);
+  const itinerary = parseItinerary(sections.get('Itinerary') ?? '', entityIds, entityTypes, errors);
+  const days = parseDays(sections.get('Daily Plan') ?? '', itinerary, entityIds, references, errors);
+  const start = String(data.trip_start ?? '');
+  const end = String(data.trip_end ?? '');
+  validateDateSets(inclusiveDates(start, end, errors), itinerary, days, errors);
+
+  const title = String(data.trip_title ?? body.match(/^# (.+)$/m)?.[1] ?? '旅行手帖');
   const trip = {
-    schemaVersion: 1,
-    slug: data.trip_slug ?? slugify(title),
+    schemaVersion: 2,
+    slug: String(data.trip_slug ?? slugify(title)),
     title,
-    kicker: String(data.trip_kicker ?? 'Travel journal'),
-    summary: String(data.trip_summary ?? `${title}旅行手帖。`),
-    intro: String(data.trip_intro ?? '這份手帖收錄旅途中需要快速找到的行程與資訊。'),
-    code: String(data.trip_code ?? 'TRIP').toUpperCase().slice(0, 6),
+    kicker: String(data.trip_kicker ?? ''),
+    summary: String(data.trip_summary ?? ''),
+    intro: String(data.trip_intro ?? ''),
+    code: String(data.trip_code ?? '').toUpperCase().slice(0, 6),
     coverImage: /^\/[\w\-/.]+\.(?:png|jpe?g|webp|avif)$/i.test(String(data.trip_cover ?? '')) ? String(data.trip_cover) : '/icons/icon-512.png',
-    coverAlt: String(data.trip_cover_alt ?? `${title}旅行意象`),
+    coverAlt: String(data.trip_cover_alt ?? ''),
     start,
     end,
-    publishThrough,
-    status: data.trip_status ?? 'active',
+    status: String(data.trip_status ?? ''),
     noindex: data.noindex !== false,
     updatedAt: new Date().toISOString(),
     sourceHash: crypto.createHash('sha256').update(markdown).digest('hex').slice(0, 16),
-    locations: parseLocations(sections.get('Overview')),
-    days: parseDaily(sections.get('Daily Plan'), itinerary, publishThrough, entityIds, references),
+    locations: overview.places,
+    overview,
+    days,
     entities,
   };
 
   const findings = scanPublicPayload(trip, secrets);
-  if (findings.length) {
-    throw new Error(`Public payload rejected:\n- ${findings.join('\n- ')}`);
-  }
+  for (const finding of findings) errors.push(`公開資料安全檢查：${finding}`);
+  if (errors.length) throw new Error(`Travel schema 2 validation failed:\n- ${[...new Set(errors)].join('\n- ')}`);
   return { trip, secrets: [...secrets] };
 }

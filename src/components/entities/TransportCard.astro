@@ -1,0 +1,15 @@
+---
+import type { TransportEntity } from '../../types';
+interface Props { entity: TransportEntity; }
+const { entity } = Astro.props;
+---
+<button class="entity-card entity-transport" type="button" data-entity={entity.id} data-type="transport">
+  <span class="entity-type">交通</span>
+  <strong>{entity.title}</strong>
+  <span class="entity-summary">{entity.summary.text}</span>
+  <span class="entity-card-facts">
+    <span class="entity-fact"><i>方式</i><b>{entity.operator.text}</b></span>
+    <span class="entity-fact"><i>時間</i><b>{entity.duration.text}</b></span>
+  </span>
+  <span class="entity-open">查看交通資訊 <i aria-hidden="true">↗</i></span>
+</button>
