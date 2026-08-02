@@ -64,7 +64,11 @@
 .intro-mark { width: clamp(60px, 8vw, 100px); height: clamp(60px, 8vw, 100px); display: grid; place-items: center; border: 1px solid var(--vermilion); border-radius: 50%; color: var(--vermilion); font-size: .55em; letter-spacing: 0; }
 .home-intro.is-playing { animation: intro-curtain 1.05s cubic-bezier(.58,.01,.35,1) both; }
 .home-intro.is-playing .intro-brand { animation: intro-brand 1.05s cubic-bezier(.58,.01,.35,1) both; }
-.home-stage.is-revealing { animation: home-reveal 1.05s cubic-bezier(.58,.01,.35,1) both; }
+.home-stage.is-revealing .home-background { animation: home-background-reveal 1.05s cubic-bezier(.58,.01,.35,1) both; }
+.home-stage.is-revealing .home-wash { animation: home-wash-reveal 1.05s cubic-bezier(.58,.01,.35,1) both; }
+.home-stage.is-revealing .home-header,
+.home-stage.is-revealing .home-main,
+.home-stage.is-revealing .home-footer { animation: home-content-reveal 1.05s cubic-bezier(.58,.01,.35,1) both; }
 
 @keyframes intro-curtain {
   0% { visibility: visible; opacity: 1; }
@@ -80,9 +84,19 @@
   100% { opacity: 0; transform: scale(.72); }
 }
 
-@keyframes home-reveal {
-  0%, 45% { opacity: .2; transform: scale(1.025); }
-  100% { opacity: 1; transform: scale(1); }
+@keyframes home-background-reveal {
+  0%, 45% { opacity: .16; transform: scale(1.025); }
+  100% { opacity: .8; transform: scale(1); }
+}
+
+@keyframes home-wash-reveal {
+  0%, 45% { opacity: .42; }
+  100% { opacity: 1; }
+}
+
+@keyframes home-content-reveal {
+  0%, 45% { opacity: .18; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 760px) {
@@ -108,6 +122,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .home-intro { display: none; }
-  .home-stage.is-revealing { animation: none; }
+  .home-stage.is-revealing .home-background,
+  .home-stage.is-revealing .home-wash,
+  .home-stage.is-revealing .home-header,
+  .home-stage.is-revealing .home-main,
+  .home-stage.is-revealing .home-footer { animation: none; }
   .journey-card, .journey-image img { transition: none; }
 }

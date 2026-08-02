@@ -110,8 +110,8 @@ const description = '把每一次出發，收進一頁手帖。從路線、住�
     homeIntro?.addEventListener('animationend', (event) => {
       if (event.animationName === 'intro-curtain') homeIntro.classList.remove('is-playing');
     });
-    homeStage?.addEventListener('animationend', (event) => {
-      if (event.animationName === 'home-reveal') homeStage.classList.remove('is-revealing');
+    homeStage?.querySelector('.home-background')?.addEventListener('animationend', (event) => {
+      if ((event as AnimationEvent).animationName === 'home-background-reveal') homeStage.classList.remove('is-revealing');
     });
   </script>
 </BaseLayout>
