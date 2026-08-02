@@ -27,6 +27,7 @@ const entityTypeLabel: Record<string, string> = { stay: '住宿', food: '餐飲'
 const timelineKindLabel: Record<string, string> = { move: '移動', food: '餐飲', place: '景點', shopping: '逛街', activity: '活動', rest: '休息', buffer: '緩衝' };
 const entityJson = JSON.stringify(trip.entities).replaceAll('<', '\\u003c');
 const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatDate(trip.end)}。`;
+const hasPlanningDays = trip.days.some((day) => !day.detailed);
 ---
 
 <BaseLayout title={`${trip.title}｜Wei 的旅行手帖`} description={description} noindex={trip.noindex} image={trip.coverImage}>
@@ -63,17 +64,46 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
     </section>
 
     <nav class="day-nav" aria-label="日期快速導覽">
-      <div class="day-nav-inner">
-        <a class="day-nav-home" href="/" aria-label="回到旅行手帖首頁">
-          <span aria-hidden="true">旅</span>
-          <small>首頁</small>
-        </a>
-        {trip.days.map((day) => (
-          <a href={`#day-${day.date}`} class:list={[day.detailed ? 'is-complete' : 'is-planning']}>
-            <span>{formatDate(day.date)}</span>
-            <small>{weekday(day.date)}</small>
+      <div class="day-nav-shell">
+        <div class="day-nav-group day-nav-left">
+          <a class="nav-shortcut day-nav-home" href="/" aria-label="回到旅行手帖首頁">
+            <span aria-hidden="true">旅</span>
+            <small>首頁</small>
           </a>
-        ))}
+          <a class="nav-shortcut desktop-nav-shortcut" href="#trip-overview">
+            <span aria-hidden="true">覽</span>
+            <small>總覽</small>
+          </a>
+        </div>
+        <div class="day-nav-scroll">
+          <div class="day-nav-days">
+            {trip.days.map((day) => (
+              <a href={`#day-${day.date}`} class:list={['day-nav-date', day.detailed ? 'is-complete' : 'is-planning']}>
+                <span>{formatDate(day.date)}</span>
+                <small>{weekday(day.date)}</small>
+              </a>
+            ))}
+          </div>
+        </div>
+        <div class="day-nav-group day-nav-right">
+          <a class="nav-shortcut" href="#detail-library">
+            <span aria-hidden="true">冊</span>
+            <small>資料</small>
+          </a>
+          <button class="nav-shortcut" type="button" data-scroll-top aria-label="回到最上方">
+            <span aria-hidden="true">⌃</span>
+            <small>頂端</small>
+          </button>
+        </div>
+        <button id="quick-nav-toggle" class="nav-shortcut mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="quick-nav-menu">
+          <span aria-hidden="true">目</span>
+          <small>目錄</small>
+        </button>
+        <div id="quick-nav-menu" class="mobile-nav-menu" hidden>
+          <a href="#trip-overview"><span aria-hidden="true">覽</span><small>旅程總覽</small></a>
+          <a href="#detail-library"><span aria-hidden="true">冊</span><small>旅行資料庫</small></a>
+          <button type="button" data-scroll-top><span aria-hidden="true">⌃</span><small>回到最上方</small></button>
+        </div>
       </div>
     </nav>
 
@@ -86,12 +116,13 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
         <p>{trip.intro}</p>
         <div class="legend" aria-label="圖例">
           <span><i class="dot dot-plan"></i> 完整行程</span>
-          <span><i class="dot dot-draft"></i> 規劃中</span>
+          {hasPlanningDays && <span><i class="dot dot-draft"></i> 規劃中</span>}
         </div>
       </div>
     </section>
 
-    <section class="trip-briefing" aria-labelledby="briefing-heading">
+    <section id="trip-overview" class="trip-briefing" aria-labelledby="briefing-heading">
+      <img class="briefing-art" src={trip.briefingImage} alt="" width="1693" height="929" loading="lazy" decoding="async" />
       <div class="briefing-heading">
         <div>
           <p class="section-kicker">Travel briefing</p>
@@ -195,7 +226,7 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
       ))}
     </section>
 
-    <section class="detail-library" aria-labelledby="details-heading">
+    <section id="detail-library" class="detail-library" aria-labelledby="details-heading">
       <div class="section-heading detail-heading">
         <div>
           <p class="section-kicker">Quick reference</p>
@@ -262,6 +293,8 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
     const reservationLabels: Record<string, string> = { done: '已完成', none: '免訂位', needed: '需要訂位', tbd: '待確認' };
     const backToTop = document.querySelector<HTMLButtonElement>('#back-to-top');
     const shareButton = document.querySelector<HTMLButtonElement>('#copy-trip-link');
+    const quickNavToggle = document.querySelector<HTMLButtonElement>('#quick-nav-toggle');
+    const quickNavMenu = document.querySelector<HTMLElement>('#quick-nav-menu');
     let dialogReturnScrollY = 0;
     let previousScrollRestoration: ScrollRestoration = 'auto';
 
@@ -271,10 +304,43 @@ const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatD
 
     window.addEventListener('scroll', updateBackToTop, { passive: true });
     updateBackToTop();
-    backToTop?.addEventListener('click', () => {
+    function scrollToTop() {
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+
+    backToTop?.addEventListener('click', scrollToTop);
+    document.querySelectorAll<HTMLElement>('[data-scroll-top]').forEach((button) => button.addEventListener('click', () => {
+      closeQuickNav();
+      scrollToTop();
+    }));
+
+    function closeQuickNav() {
+      if (!quickNavMenu || !quickNavToggle) return;
+      quickNavMenu.hidden = true;
+      quickNavToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    quickNavToggle?.addEventListener('click', () => {
+      if (!quickNavMenu) return;
+      const opening = quickNavMenu.hidden;
+      quickNavMenu.hidden = !opening;
+      quickNavToggle.setAttribute('aria-expanded', String(opening));
     });
+    quickNavMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeQuickNav));
+    document.addEventListener('click', (event) => {
+      const target = event.target as Node;
+      if (!quickNavMenu?.hidden && !quickNavMenu?.contains(target) && !quickNavToggle?.contains(target)) closeQuickNav();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !quickNavMenu?.hidden) {
+        closeQuickNav();
+        quickNavToggle?.focus();
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1180) closeQuickNav();
+    }, { passive: true });
 
     async function copyTripLink() {
       if (!shareButton) return;

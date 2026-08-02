@@ -134,6 +134,7 @@ test('parses schema 2 into structured public trip data', () => {
   const { trip } = parseTrip(fixture);
   assert.equal(trip.schemaVersion, 2);
   assert.equal(trip.slug, 'test-trip');
+  assert.equal(trip.briefingImage, '/home-travel-map.jpg');
   assert.deepEqual(trip.locations, ['福岡', '太宰府']);
   assert.equal(trip.overview.transports.length, 1);
   assert.equal(trip.days.length, 2);
@@ -182,6 +183,27 @@ test('requires list-style Overview scalar fields', () => {
 
 test('rejects private fingerprints reintroduced into public output', () => {
   assert.throws(() => parseTrip(fixture.replace('- Summary：安靜的小旅店。', '- Summary：AB12345678')), /source secret fingerprint/);
+});
+
+test('keeps public operational fares readable without exposing a private payment value', () => {
+  assert.doesNotThrow(() => parseTrip(fixture.replace('- Buffer：提早 3 小時抵達', '- Buffer：機場巴士單程約 1,150 日圓')));
+  assert.throws(() => parseTrip(fixture.replace('- Summary：安靜的小旅店。', '- Summary：房價 JPY 12,345')), /visible price|source secret fingerprint/);
+});
+
+test('does not fingerprint generic private dates', () => {
+  assert.doesNotThrow(() => parseTrip(fixture.replace('Private：\n- 訂房人', 'Private：\n- 入住日期：2026-08-27\n- 訂房人')));
+});
+
+test('accepts a local briefing image and rejects unsafe image paths', () => {
+  const withImage = fixture.replace('trip_cover_alt: 測試旅行封面', 'trip_cover_alt: 測試旅行封面\ntrip_briefing_image: /briefing-test.webp');
+  assert.equal(parseTrip(withImage).trip.briefingImage, '/briefing-test.webp');
+  assert.throws(() => parseTrip(withImage.replace('/briefing-test.webp', 'https://example.com/briefing.webp')), /trip_briefing_image/);
+  assert.throws(() => parseTrip(withImage.replace('/briefing-test.webp', '/../briefing-test.webp')), /trip_briefing_image/);
+});
+
+test('rejects non-HTTPS official URLs', () => {
+  const withOfficial = fixture.replace('- Hours：08:00-18:00', '- Official：http://example.com/\n- Hours：08:00-18:00');
+  assert.throws(() => parseTrip(withOfficial), /Official 必須是安全的 HTTPS/);
 });
 
 test('fails a public scan when a secret-shaped value is reintroduced', () => {

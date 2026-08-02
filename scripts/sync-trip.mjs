@@ -51,6 +51,14 @@ async function loadPreview(url) {
 
 const markdown = await fs.readFile(sourcePath, 'utf8');
 const { trip } = parseTrip(markdown);
+for (const [label, asset] of [['trip_cover', trip.coverImage], ['trip_briefing_image', trip.briefingImage]]) {
+  const assetPath = path.join(projectRoot, 'public', asset.slice(1));
+  try {
+    await fs.access(assetPath);
+  } catch {
+    throw new Error(`${label} 找不到 public asset：${asset}`);
+  }
+}
 const outputDir = path.join(projectRoot, 'src/data/trips');
 const outputPath = path.join(outputDir, `${trip.slug}.json`);
 await fs.mkdir(outputDir, { recursive: true });

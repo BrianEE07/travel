@@ -106,6 +106,7 @@ export interface Trip {
   code: string;
   coverImage: string;
   coverAlt: string;
+  briefingImage: string;
   start: string;
   end: string;
   status: 'draft' | 'active' | 'archived';

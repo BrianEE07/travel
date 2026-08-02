@@ -51,6 +51,13 @@ const TIMELINE_TAGS = new Set(['move', 'food', 'place', 'shopping', 'activity', 
 const RESERVATION_VALUES = new Set(['done', 'none', 'needed', 'tbd']);
 const MANAGEMENT_PARAM = /[?&](?:auth(?:_key)?|token|code|bok|booking|reservation|login|transaction)(?:=|%3D)/i;
 const SENSITIVE_LABEL = /(?:訂房編號|訂位編號|預訂編號|認證碼|認證編號|Login ID|交易編號|票號)/i;
+const PRIVATE_VALUE_LABEL = /(?:訂房人|訂位人|預訂人|旅客姓名|乘客姓名|姓名|訂房編號|訂位編號|預訂編號|認證碼|認證編號|Login ID|交易編號|票號|付款|支付|總額|金額|價格|費用|確認|取消|管理|登入|auth)/i;
+const PRIVATE_FIELD_LABEL = /^(?:訂房人|訂位人|預訂人|旅客姓名|乘客姓名|姓名|訂房編號|訂位編號|預訂編號|認證碼|認證編號|Login ID|交易編號|票號|付款|支付|總額|金額|價格|費用|確認|取消|管理|登入|auth|電話|日期|入住日期|退房日期|時間|人數|內容|備註|航班|座位|平台)$/i;
+const LOCAL_IMAGE_PATH = /^\/[\w\-/.]+\.(?:png|jpe?g|webp|avif)$/i;
+
+function isSafeLocalImagePath(value) {
+  return LOCAL_IMAGE_PATH.test(value) && value.split('/').every((segment) => segment !== '.' && segment !== '..');
+}
 
 export function parseFrontmatter(markdown) {
   if (!markdown.startsWith('---\n')) return { data: {}, body: markdown };
@@ -156,12 +163,25 @@ function isBackToTop(line) {
   return /^\[Back to top\]\(<#[^)]+>\)$/.test(line.trim());
 }
 
-function rememberSecret(raw, secrets) {
-  const clean = stripLinks(raw.replace(/^[-*]\s*/, '').replace(/^[^：]+：\s*/, '')).trim();
-  if (clean.length >= 4) secrets.add(clean);
-  for (const match of clean.matchAll(/[A-Z0-9][A-Z0-9-]{5,}/gi)) {
-    if (/\d/.test(match[0])) secrets.add(match[0]);
+function rememberPrivateLine(raw, secrets) {
+  const line = raw.replace(/^[-*]\s*/, '').trim();
+  const separator = line.indexOf('：');
+  const label = separator >= 0 ? line.slice(0, separator).trim() : '';
+  const rawValue = separator >= 0 ? line.slice(separator + 1).trim() : line;
+  const value = stripLinks(rawValue).trim();
+
+  if (PRIVATE_VALUE_LABEL.test(label) && value.length >= 4) secrets.add(value);
+  if (!PRIVATE_FIELD_LABEL.test(label) && (/^[A-Za-z]+(?:\s+[A-Za-z]+){1,3}$/.test(label) || /^\p{Script=Han}{2,4}$/u.test(label))) {
+    secrets.add(label);
   }
+  for (const match of raw.matchAll(/https?:\/\/[^\s)>]+/gi)) {
+    if (MANAGEMENT_PARAM.test(match[0])) secrets.add(match[0]);
+  }
+  for (const match of rawValue.matchAll(/\b(?=[A-Z0-9-]*[A-Z])(?=[A-Z0-9-]*\d)[A-Z0-9][A-Z0-9-]{5,}\b/gi)) {
+    secrets.add(match[0]);
+  }
+  for (const match of rawValue.matchAll(/\b\d{3}[ -]?\d{10}\b/g)) secrets.add(match[0]);
+  for (const match of rawValue.matchAll(/\b(?:JPY|TWD|NTD|USD|EUR)\s*[\d,.]+/gi)) secrets.add(match[0]);
 }
 
 function parseReferences(section, errors) {
@@ -239,7 +259,7 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
       errors.push(`${title} 的 Private 內容必須使用 bullet，且 Private 後只允許最後一個 Back to top`);
       continue;
     }
-    rememberSecret(line, secrets);
+    rememberPrivateLine(line, secrets);
   }
 
   const fields = new Map();
@@ -542,7 +562,12 @@ export function parseTrip(markdown) {
     }
   }
 
-  for (const match of markdown.matchAll(new RegExp(`^.*${SENSITIVE_LABEL.source}.*$`, 'gim'))) rememberSecret(match[0], secrets);
+  for (const line of markdown.split('\n')) {
+    const label = line.replace(/^[-*]\s*/, '').split('：', 1)[0];
+    if (PRIVATE_VALUE_LABEL.test(label) || SENSITIVE_LABEL.test(line) || MANAGEMENT_PARAM.test(line)) {
+      rememberPrivateLine(line, secrets);
+    }
+  }
   const overview = parseOverview(sections.get('Overview') ?? '', entityIds, references, data, errors);
   const itinerary = parseItinerary(sections.get('Itinerary') ?? '', entityIds, entityTypes, errors);
   const days = parseDays(sections.get('Daily Plan') ?? '', itinerary, entityIds, references, errors);
@@ -551,6 +576,10 @@ export function parseTrip(markdown) {
   validateDateSets(inclusiveDates(start, end, errors), itinerary, days, errors);
 
   const title = String(data.trip_title ?? body.match(/^# (.+)$/m)?.[1] ?? '旅行手帖');
+  const briefingImageValue = String(data.trip_briefing_image ?? '');
+  if (briefingImageValue && !isSafeLocalImagePath(briefingImageValue)) {
+    errors.push('trip_briefing_image 必須是 public 目錄內的安全本機圖片路徑');
+  }
   const trip = {
     schemaVersion: 2,
     slug: String(data.trip_slug ?? slugify(title)),
@@ -561,6 +590,7 @@ export function parseTrip(markdown) {
     code: String(data.trip_code ?? '').toUpperCase().slice(0, 6),
     coverImage: /^\/[\w\-/.]+\.(?:png|jpe?g|webp|avif)$/i.test(String(data.trip_cover ?? '')) ? String(data.trip_cover) : '/icons/icon-512.png',
     coverAlt: String(data.trip_cover_alt ?? ''),
+    briefingImage: briefingImageValue && isSafeLocalImagePath(briefingImageValue) ? briefingImageValue : '/home-travel-map.jpg',
     start,
     end,
     status: String(data.trip_status ?? ''),

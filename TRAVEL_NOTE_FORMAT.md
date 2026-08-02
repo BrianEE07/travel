@@ -35,6 +35,7 @@ trip_intro: 從博多出發，穿過太宰府與由布院，再把最後幾天�
 trip_code: FUK
 trip_cover: /hero-fukuoka.png
 trip_cover_alt: 福岡與北九州旅行意象拼貼
+trip_briefing_image: /briefing-fukuoka.jpg
 trip_start: 2026-08-27
 trip_end: 2026-09-03
 trip_status: active
@@ -47,6 +48,7 @@ Rules:
 - `travel_schema` must be `2`.
 - `trip_start` and `trip_end` must match the first and last dates in `Itinerary` and `Daily Plan`.
 - Do not use `publish_through`; each day controls its own visibility with `Publish：full` or `Publish：summary`.
+- `trip_briefing_image` is optional. It must be a safe local image path under the website `public` directory. When omitted, the website uses its shared travel-map fallback.
 
 ## Public Sections
 
@@ -271,6 +273,8 @@ Private data includes:
 - management links
 - auth URLs
 - payment details
+
+Public operational prices that are useful during the trip, such as fares or admission fees, may remain in public fields. Write them as natural display text such as `約 1,150 日圓`. Private booking totals, paid amounts, room prices, flight prices, and order totals must stay in `Private：` and remain blocked by the build fingerprint scan.
 
 ## Parser Requirements
 
