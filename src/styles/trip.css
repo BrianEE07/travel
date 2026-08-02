@@ -101,8 +101,9 @@ footer {
 .timeline-time { padding-right: 32px; display: flex; flex-direction: column; gap: 2px; }
 .timeline-time time { font: 600 13px/1.4 var(--serif); }
 .timeline-time small { color: var(--vermilion); font-size: 10px; }
-.timeline-body { padding: 0 0 28px 28px; color: var(--ink); font-size: 14px; }
-.timeline-kind { display: inline-block; margin: 0 0 6px; padding: 3px 7px; color: var(--matcha-deep); border: 1px solid rgba(83,98,75,.24); border-radius: 99px; background: rgba(83,98,75,.06); font-size: 9px; font-weight: 700; letter-spacing: .1em; }
+.timeline-body { min-width: 0; display: flex; align-items: flex-start; gap: 10px; padding: 0 0 24px 28px; color: var(--ink); font-size: 14px; }
+.timeline-body > div { min-width: 0; line-height: 1.65; }
+.timeline-kind { flex: 0 0 auto; min-width: 32px; margin-top: 2px; padding: 2px 6px; color: var(--matcha-deep); border: 1px solid rgba(83,98,75,.24); border-radius: 99px; background: rgba(83,98,75,.06); font-size: 9px; font-weight: 700; line-height: 1.45; letter-spacing: .08em; text-align: center; white-space: nowrap; }
 .timeline-kind.kind-food { color: #8d503e; border-color: rgba(155,90,69,.24); background: rgba(155,90,69,.06); }
 .timeline-kind.kind-move { color: #526d79; border-color: rgba(98,122,135,.26); background: rgba(98,122,135,.06); }
 .inline-detail { appearance: none; padding: 1px 2px; color: var(--matcha-deep); background: none; border: 0; border-bottom: 1px dashed rgba(53,64,50,.55); cursor: pointer; font-weight: 650; }
@@ -219,7 +220,7 @@ dialog[data-type="transport"] .dialog-visual { background: #627a87; }
   .timeline li::after { left: 70px; }
   .timeline-time { padding-right: 16px; }
   .timeline-time time { font-size: 11px; }
-  .timeline-body { padding-left: 18px; font-size: 13px; }
+  .timeline-body { gap: 7px; padding-left: 18px; font-size: 13px; }
   .planning-summary { grid-template-columns: 1fr; }
   .detail-library { padding: 90px 0 110px; }
   .detail-heading { align-items: flex-start; flex-direction: column; }

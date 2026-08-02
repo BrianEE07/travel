@@ -62,40 +62,41 @@
 .home-intro::before { content: ''; position: absolute; inset: 0; opacity: .26; background: url('/home-travel-map.jpg') center / cover; }
 .intro-brand { position: relative; display: flex; align-items: center; gap: clamp(16px, 2vw, 26px); font: 500 clamp(30px, 5vw, 66px)/1 var(--serif); letter-spacing: -.04em; white-space: nowrap; }
 .intro-mark { width: clamp(60px, 8vw, 100px); height: clamp(60px, 8vw, 100px); display: grid; place-items: center; border: 1px solid var(--vermilion); border-radius: 50%; color: var(--vermilion); font-size: .55em; letter-spacing: 0; }
-.home-intro.is-playing { animation: intro-curtain 1.05s cubic-bezier(.58,.01,.35,1) both; }
-.home-intro.is-playing .intro-brand { animation: intro-brand 1.05s cubic-bezier(.58,.01,.35,1) both; }
-.home-stage.is-revealing .home-background { animation: home-background-reveal 1.05s cubic-bezier(.58,.01,.35,1) both; }
-.home-stage.is-revealing .home-wash { animation: home-wash-reveal 1.05s cubic-bezier(.58,.01,.35,1) both; }
+.home-intro, .home-stage { --intro-duration: 1.65s; --intro-ease: cubic-bezier(.4,0,.2,1); }
+.home-intro.is-playing { animation: intro-curtain var(--intro-duration) var(--intro-ease) both; }
+.home-intro.is-playing .intro-brand { animation: intro-brand var(--intro-duration) var(--intro-ease) both; }
+.home-stage.is-revealing .home-background { animation: home-background-reveal var(--intro-duration) var(--intro-ease) both; }
+.home-stage.is-revealing .home-wash { animation: home-wash-reveal var(--intro-duration) var(--intro-ease) both; }
 .home-stage.is-revealing .home-header,
 .home-stage.is-revealing .home-main,
-.home-stage.is-revealing .home-footer { animation: home-content-reveal 1.05s cubic-bezier(.58,.01,.35,1) both; }
+.home-stage.is-revealing .home-footer { animation: home-content-reveal var(--intro-duration) var(--intro-ease) both; }
 
 @keyframes intro-curtain {
   0% { visibility: visible; opacity: 1; }
-  58% { visibility: visible; opacity: 1; }
+  55% { visibility: visible; opacity: 1; }
   99% { visibility: visible; opacity: 0; }
   100% { visibility: hidden; opacity: 0; pointer-events: none; }
 }
 
 @keyframes intro-brand {
   0% { opacity: 0; transform: scale(1.08); }
-  18% { opacity: 1; transform: scale(1); }
-  48% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(.72); }
+  20% { opacity: 1; transform: scale(1); }
+  52% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(.8); }
 }
 
 @keyframes home-background-reveal {
-  0%, 45% { opacity: .16; transform: scale(1.025); }
+  0%, 55% { opacity: .16; transform: scale(1.02); }
   100% { opacity: .8; transform: scale(1); }
 }
 
 @keyframes home-wash-reveal {
-  0%, 45% { opacity: .42; }
+  0%, 55% { opacity: .42; }
   100% { opacity: 1; }
 }
 
 @keyframes home-content-reveal {
-  0%, 45% { opacity: .18; transform: translateY(5px); }
+  0%, 55% { opacity: .18; transform: translateY(5px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
