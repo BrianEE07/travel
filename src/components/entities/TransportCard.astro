@@ -6,10 +6,9 @@ const { entity } = Astro.props;
 <button class="entity-card entity-transport" type="button" data-entity={entity.id} data-type="transport">
   <span class="entity-type">交通</span>
   <strong>{entity.title}</strong>
-  <span class="entity-summary">{entity.summary.text}</span>
-  <span class="entity-card-facts">
-    <span class="entity-fact"><i>方式</i><b>{entity.operator.text}</b></span>
-    <span class="entity-fact"><i>時間</i><b>{entity.duration.text}</b></span>
+  <span class="entity-card-facts entity-transport-facts">
+    <span class="entity-fact"><i>時間</i><b>{entity.time.text}</b></span>
+    <span class="entity-fact entity-plan-fact"><i>行動</i><b>{entity.plan.text}</b></span>
   </span>
   <span class="entity-open">查看交通資訊 <i class="external-arrow" aria-hidden="true"></i></span>
 </button>

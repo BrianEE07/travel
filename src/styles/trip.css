@@ -167,9 +167,12 @@ footer {
 .entity-summary { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin: 12px 0 28px; color: var(--ink-muted); font-size: 12px; }
 .entity-card-facts { width: 100%; display: grid; gap: 6px; margin: 0 0 24px; }
 .entity-stay .entity-card-facts { margin-top: 22px; }
+.entity-transport-facts { gap: 12px; margin-top: 22px; }
 .entity-fact { display: grid; grid-template-columns: 44px 1fr; gap: 10px; min-width: 0; }
 .entity-fact i { color: var(--vermilion); font-size: 10px; font-weight: 700; font-style: normal; letter-spacing: .08em; }
 .entity-fact b { min-width: 0; overflow: hidden; color: var(--ink-muted); font-size: 11px; font-weight: 400; line-height: 1.5; text-overflow: ellipsis; white-space: nowrap; }
+.entity-transport-facts .entity-fact b { white-space: normal; }
+.entity-plan-fact b { display: -webkit-box; color: var(--ink); font-size: 12px; font-weight: 650; line-height: 1.65; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
 .entity-open { margin-top: auto; font-size: 11px; font-weight: 700; }
 .entity-open i { margin-left: 6px; color: var(--vermilion); }
 
@@ -198,6 +201,15 @@ dialog[data-type="transport"] .dialog-visual { background: #627a87; }
 .dialog-row { display: grid; grid-template-columns: 104px 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
 .dialog-row > span { color: var(--ink-muted); font-size: 11px; }
 .dialog-row:has(> div:only-child) { grid-template-columns: 1fr; }
+.dialog-row-plan { margin: 0 -12px; padding: 17px 12px; background: rgba(98,122,135,.09); }
+.dialog-row-plan > span { color: #526d7a; font-weight: 700; }
+.dialog-row-plan > div { color: var(--ink); font-weight: 650; line-height: 1.65; }
+.dialog-row-secondary > div { color: var(--ink-muted); font-size: 12px; line-height: 1.65; }
+.transport-time-list { display: flex; flex-wrap: wrap; gap: 7px; }
+.transport-time-list span { padding: 5px 9px; border: 1px solid rgba(98,122,135,.3); border-radius: 99px; background: rgba(98,122,135,.07); color: #526d7a; font-size: 11px; line-height: 1.4; }
+.transport-route-list { display: grid; gap: 10px; }
+.transport-route-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; line-height: 1.55; }
+.transport-route-line i { color: #718792; font-style: normal; }
 .dialog-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
 .dialog-actions a { display: inline-flex; align-items: center; gap: 16px; padding: 11px 16px; color: #fff; background: var(--matcha-deep); text-decoration: none; font-size: 12px; }
 .dialog-actions .external-arrow { color: #d7a18e; }

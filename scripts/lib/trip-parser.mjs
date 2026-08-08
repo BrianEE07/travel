@@ -36,9 +36,9 @@ const ENTITY_FIELDS = {
     properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Why: 'why', BestFor: 'bestFor', Nearby: 'nearby', Risk: 'risk' },
   },
   transport: {
-    allowed: ['Area', 'Summary', 'Official', 'Operator', 'Route', 'Duration', 'Decision', 'Buffer', 'Price'],
-    required: ['Area', 'Summary', 'Operator', 'Route', 'Duration', 'Decision', 'Buffer'],
-    properties: { Area: 'area', Summary: 'summary', Operator: 'operator', Route: 'route', Duration: 'duration', Decision: 'decision', Buffer: 'buffer', Price: 'price' },
+    allowed: ['Area', 'Summary', 'Official', 'Operator', 'Price', 'Time', 'Route', 'Plan', 'Duration', 'Decision', 'Buffer'],
+    required: ['Area', 'Summary', 'Operator', 'Time', 'Route', 'Plan', 'Duration', 'Decision', 'Buffer'],
+    properties: { Area: 'area', Summary: 'summary', Operator: 'operator', Price: 'price', Time: 'time', Route: 'route', Plan: 'plan', Duration: 'duration', Decision: 'decision', Buffer: 'buffer' },
   },
 };
 

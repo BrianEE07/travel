@@ -292,7 +292,7 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       stay: [['area', '區域'], ['checkIn', '入住'], ['checkOut', '退房'], ['room', '房型'], ['price', '價格'], ['access', '交通'], ['contact', '聯絡'], ['policy', '取消政策']],
       food: [['area', '區域'], ['hours', '營業'], ['reservation', '訂位'], ['reservationTime', '時間'], ['party', '人數'], ['why', '安排原因'], ['risk', '留意'], ['backup', '備案']],
       place: [['area', '區域'], ['hours', '開放'], ['why', '安排原因'], ['bestFor', '適合'], ['nearby', '附近'], ['risk', '留意']],
-      transport: [['area', '區域'], ['operator', '營運'], ['route', '路線'], ['duration', '時間'], ['price', '價格'], ['decision', '方案'], ['buffer', '緩衝']],
+      transport: [['time', '時間'], ['plan', '現場行動'], ['route', '路線'], ['price', '價格'], ['decision', '判斷'], ['buffer', '緩衝'], ['duration', '所需時間'], ['operator', '營運'], ['area', '區域']],
     };
     const reservationLabels: Record<string, string> = { done: '已完成', none: '免訂位', needed: '需要訂位', tbd: '待確認' };
     const shareButton = document.querySelector<HTMLButtonElement>('#copy-trip-link');
@@ -477,12 +477,37 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       if (type) type.textContent = typeLabels[entity.type] || entity.type;
       if (summary) summary.innerHTML = entity.summary?.html || '';
       if (details) {
+        const escapeDialogText = (text: string) => text
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#039;');
+        const renderTransportField = (key: string, value: any) => {
+          if (key === 'time') {
+            const segments = value.text.split('；').map((part: string) => part.trim().replace(/[。.]$/, '')).filter(Boolean);
+            return `<div class="transport-time-list">${segments.map((part: string) => `<span>${escapeDialogText(part)}</span>`).join('')}</div>`;
+          }
+          if (key === 'route') {
+            const routes = value.text.split('；').map((part: string) => part.trim().replace(/[。.]$/, '')).filter(Boolean);
+            return `<div class="transport-route-list">${routes.map((route: string) => {
+              const nodes = route.split('→').map((node: string) => node.trim()).filter(Boolean);
+              return `<div class="transport-route-line">${nodes.map((node: string, index: number) => `${index ? '<i aria-hidden="true">→</i>' : ''}<span>${escapeDialogText(node)}</span>`).join('')}</div>`;
+            }).join('')}</div>`;
+          }
+          return value.html;
+        };
         details.innerHTML = (detailFields[entity.type] || []).map(([key, label]) => {
           const value = entity[key];
           if (!value) return '';
-          const html = key === 'reservation' ? (reservationLabels[value.text] || value.html) : value.html;
+          const html = entity.type === 'transport'
+            ? renderTransportField(key, value)
+            : key === 'reservation' ? (reservationLabels[value.text] || value.html) : value.html;
+          const rowClass = entity.type === 'transport'
+            ? ` dialog-row-${key}${['decision', 'buffer', 'duration', 'operator', 'area'].includes(key) ? ' dialog-row-secondary' : ''}`
+            : '';
           return `
-          <div class="dialog-row">
+          <div class="dialog-row${rowClass}">
             <span>${label}</span>
             <div>${html}</div>
           </div>`;

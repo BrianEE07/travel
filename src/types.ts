@@ -59,7 +59,9 @@ export interface PlaceEntity extends BaseEntity {
 export interface TransportEntity extends BaseEntity {
   type: 'transport';
   operator: RichText;
+  time: RichText;
   route: RichText;
+  plan: RichText;
   duration: RichText;
   decision: RichText;
   buffer: RichText;

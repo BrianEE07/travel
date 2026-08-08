@@ -110,6 +110,8 @@ Private：
 - Summary：測試去程航班。
 - Operator：EVA Air
 - Route：2026-08-27 BR102 TPE → FUK
+- Time：BR102 15:10-18:20
+- Plan：12:00 前往桃園機場 T2，搭 BR102 前往福岡。
 - Duration：2 小時
 - Price：TWD 12,000（2 人合計，已付）
 - Decision：託運 1PC
@@ -151,6 +153,8 @@ test('parses schema 2 into structured public trip data', () => {
   assert.equal(stay.price.text, 'JPY 8,800（2 人 / 1 晚，已付）');
   const transport = trip.entities.find((entity) => entity.type === 'transport');
   assert.equal(transport.price.text, 'TWD 12,000（2 人合計，已付）');
+  assert.equal(transport.time.text, 'BR102 15:10-18:20');
+  assert.equal(transport.plan.text, '12:00 前往桃園機場 T2，搭 BR102 前往福岡。');
   assert.equal('details' in stay, false);
 });
 
@@ -174,6 +178,11 @@ test('rejects full timeline entries without a canonical tag', () => {
 test('rejects unknown entity fields and broken public links', () => {
   assert.throws(() => parseTrip(fixture.replace('- Risk：可能客滿', '- Mood：安靜')), /未知欄位：Mood/);
   assert.throws(() => parseTrip(fixture.replace('<#測試咖啡｜8\/27>', '<#不存在的咖啡>')), /找不到標題/);
+});
+
+test('requires Time and Plan for every transportation entity', () => {
+  assert.throws(() => parseTrip(fixture.replace('- Plan：12:00 前往桃園機場 T2，搭 BR102 前往福岡。\n', '')), /缺少必要欄位：Plan/);
+  assert.throws(() => parseTrip(fixture.replace('- Time：BR102 15:10-18:20\n', '')), /缺少必要欄位：Time/);
 });
 
 test('requires list-style entity fields and only allows navigation after Private', () => {
@@ -219,7 +228,7 @@ test('fails a public scan when a secret-shaped value is reintroduced', () => {
   assert.ok(findings.includes('visible price'));
 });
 
-test('allows only an explicitly allowlisted accommodation price through the public scan', () => {
+test('allows only an explicitly allowlisted entity price through the public scan', () => {
   assert.deepEqual(scanPublicPayload('住宿價格 JPY 8,800（2 人 / 1 晚，已付）', [], ['JPY 8,800（2 人 / 1 晚，已付）']), []);
   assert.ok(scanPublicPayload('其他金額 JPY 9,999', [], ['JPY 8,800（2 人 / 1 晚，已付）']).includes('visible price'));
 });

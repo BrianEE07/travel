@@ -198,23 +198,35 @@ Allowed fields:
 - Type fields: `CheckIn`, `CheckOut`, `Room`, `Price`, `Access`, `Contact`, `Policy`
 - Private block: `Private：`
 
+Rules:
+
+- Title format: `### Accommodation Name｜Date Range`, for example `### 西鐵 CROOM 飯店 博多祇園 櫛田神社前｜8/27-8/31`.
+- Split separate reservations or stay ranges into separate accommodation entities, even when they are the same hotel.
+- `Summary` should describe the stay's character or main reason to choose it. Do not use it for administrative notes such as continuation stay, expected arrival, booking owner, or booking platform.
+- `CheckIn` and `CheckOut` should contain hotel rule times only. Put expected arrival in `Private：`.
+- `Room` should be written in readable Chinese when possible.
+- `Access` is required and must not be `未記錄`; include at least the nearest station, exit, bus stop, or walking time.
+- `Price` may be public when it is useful reference information. Keep payment method, booking links, verification codes, and booking numbers private.
+
 Example:
 
 ```md
 ### 西鐵 CROOM 飯店 博多祇園 櫛田神社前｜8/27-8/31
 
 - Area：博多 / 祇園
-- Summary：前半段住宿，地下鐵七隈線櫛田神社前站步行 1 分鐘。
+- Summary：櫛田神社前站旁，半露天大浴場和社交空間讓市區住宿也能好好休息。
 - Map：[Google Maps][stay-croom]
-- CheckIn：2026-08-27 15:00-26:00，預計 19:30 抵達
-- CheckOut：2026-08-31 11:00
-- Room：Raised double bed x 2，4 人，無早餐
+- Official：https://croom-hakatagion.nnr-h.com/
+- CheckIn：15:00-26:00
+- CheckOut：11:00
+- Room：地台雙人房 × 2 間，4 人，無早餐
 - Price：JPY 118,426（4 人 / 4 晚，已付）
 - Access：地下鐵七隈線 `櫛田神社前駅` 出口步行 1 分鐘。
 - Contact：+81-92-235-5050 / croom-gion@hotels.nnr.co.jp
 - Policy：2 天前免費；前日 50%，當日 80%，未入住 100%。
 
 Private：
+- 預計抵達：2026-08-27 19:30
 - 訂房編號：...
 
 [Back to top](<#福岡之旅 20260827~0903>)
@@ -250,10 +262,21 @@ Allowed fields:
 Allowed fields:
 
 - Common fields: `Area`, `Summary`, `Official`
-- Type fields: `Route`, `Duration`, `Decision`, `Buffer`, `Operator`, `Price`
+- Type fields: `Operator`, `Price`, `Time`, `Route`, `Plan`, `Duration`, `Decision`, `Buffer`
 - Private block: `Private：`
 
 Map is optional for transportation.
+
+Rules:
+
+- Title format: `### Transport Name｜Date` or `### Transport Name｜Date Range`.
+- Keep a round-trip transportation entity together when both legs share the same booking, ticket pickup, baggage rules, or operational notes. Split into outbound / inbound entities only when the ticket, decision, risk, or user action is materially different.
+- Put confirmed or useful prices in `Price` using currency prefixes, for example `JPY 47,040（4 人來回，已付）` or `TWD 1,433（1 人，已付）`.
+- Use `Time` for confirmed schedules, planned movement windows, and identifying service names such as flight numbers or train names. Keep time outside Markdown links in Daily Plan, but use plain text in transportation entities.
+- Keep `Route` focused on the path only. Do not repeat dates, times, or service names in `Route` when they already appear in `Time`.
+- Keep alternatives, backup routes, candidate times, last departures, and meetup details in `Decision` or `Buffer`, not in `Route`.
+- Use `Plan` for the main on-site action in one short instruction. It should answer "what should I do now?" without analysis.
+- Keep booking references, ticket numbers, voucher numbers, verification codes, and management URLs in `Private：`.
 
 ## Private Blocks
 
