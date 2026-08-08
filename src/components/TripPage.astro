@@ -65,43 +65,46 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
 
     <nav class="day-nav" aria-label="日期快速導覽">
       <div class="day-nav-shell">
-        <div class="day-nav-group day-nav-left">
-          <a class="nav-shortcut day-nav-home" href="/" aria-label="回到旅行手帖首頁">
-            <span aria-hidden="true">旅</span>
-            <small>首頁</small>
-          </a>
+        <a class="nav-shortcut day-nav-home" href="/" aria-label="回到旅行手帖首頁">
+          <span aria-hidden="true">旅</span>
+          <small>首頁</small>
+        </a>
+        <div class="day-nav-route">
           <a class="nav-shortcut desktop-nav-shortcut" href="#trip-overview">
             <span aria-hidden="true">覽</span>
             <small>總覽</small>
           </a>
-        </div>
-        <div class="day-nav-scroll">
-          <div class="day-nav-days">
-            {trip.days.map((day) => (
-              <a href={`#day-${day.date}`} class:list={['day-nav-date', day.detailed ? 'is-complete' : 'is-planning']}>
-                <span>{formatDate(day.date)}</span>
-                <small>{weekday(day.date)}</small>
-              </a>
-            ))}
+          <div class="day-nav-scroll">
+            <div class="day-nav-days">
+              {trip.days.map((day, index) => (
+                <a
+                  href={`#day-${day.date}`}
+                  data-day={day.date}
+                  aria-current={index === 0 ? 'step' : undefined}
+                  class:list={['day-nav-date', index === 0 && 'is-current', day.detailed ? 'is-complete' : 'is-planning']}
+                >
+                  <span>{formatDate(day.date)}</span>
+                  <small>{weekday(day.date)}</small>
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
-        <div class="day-nav-group day-nav-right">
-          <a class="nav-shortcut" href="#detail-library">
+          <a class="nav-shortcut desktop-nav-shortcut" href="#detail-library" data-open-database>
             <span aria-hidden="true">冊</span>
             <small>資料</small>
           </a>
-          <button class="nav-shortcut" type="button" data-scroll-top aria-label="回到最上方">
-            <span aria-hidden="true">⌃</span>
-            <small>頂端</small>
-          </button>
         </div>
+        <button class="nav-shortcut desktop-nav-top" type="button" data-scroll-top aria-label="回到最上方">
+          <span aria-hidden="true">⌃</span>
+          <small>頂端</small>
+        </button>
         <button id="quick-nav-toggle" class="nav-shortcut mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="quick-nav-menu">
           <span aria-hidden="true">目</span>
           <small>目錄</small>
         </button>
         <div id="quick-nav-menu" class="mobile-nav-menu" hidden>
           <a href="#trip-overview"><span aria-hidden="true">覽</span><small>旅程總覽</small></a>
-          <a href="#detail-library"><span aria-hidden="true">冊</span><small>旅行資料庫</small></a>
+          <a href="#detail-library" data-open-database><span aria-hidden="true">冊</span><small>旅行資料庫</small></a>
           <button type="button" data-scroll-top><span aria-hidden="true">⌃</span><small>回到最上方</small></button>
         </div>
       </div>
@@ -226,18 +229,23 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       ))}
     </section>
 
-    <section id="detail-library" class="detail-library" aria-labelledby="details-heading">
+    <section id="detail-library" class="detail-library is-collapsed" aria-labelledby="details-heading">
       <div class="section-heading detail-heading">
         <div>
           <p class="section-kicker">Quick reference</p>
           <h2 id="details-heading">旅行資料庫</h2>
         </div>
-        <div class="filter-tabs" role="group" aria-label="篩選資訊">
-          <button type="button" class="is-active" data-filter="all">全部</button>
-          {Object.entries(entityTypeLabel).map(([type, label]) => <button type="button" data-filter={type}>{label}</button>)}
+        <div class="detail-controls">
+          <button id="database-toggle" class="database-toggle" type="button" aria-expanded="false" aria-controls="database-grid">
+            <span>展開資料</span><i aria-hidden="true">＋</i>
+          </button>
+          <div class="filter-tabs" role="group" aria-label="篩選資訊">
+            <button type="button" class="is-active" data-filter="all">全部</button>
+            {Object.entries(entityTypeLabel).map(([type, label]) => <button type="button" data-filter={type}>{label}</button>)}
+          </div>
         </div>
       </div>
-      <div class="entity-grid">
+      <div id="database-grid" class="entity-grid">
         {trip.entities.map((entity) => (
           entity.type === 'stay' ? <StayCard entity={entity} />
           : entity.type === 'food' ? <FoodCard entity={entity} />
@@ -251,10 +259,6 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
   <footer>
     <p>旅程會繼續更新，出發前記得重新整理一次。</p>
   </footer>
-
-  <button id="back-to-top" class="back-to-top" type="button" aria-label="回到最上方" hidden>
-    <span aria-hidden="true">⌃</span>
-  </button>
 
   <dialog id="detail-dialog" aria-labelledby="dialog-title">
     <div class="dialog-shell">
@@ -275,7 +279,7 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
     </div>
   </dialog>
 
-  <ServiceWorkerUpdate raised={true} />
+  <ServiceWorkerUpdate />
 
   <script id="entity-data" type="application/json" is:inline set:html={entityJson}></script>
   <script>
@@ -291,25 +295,25 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       transport: [['area', '區域'], ['operator', '營運'], ['route', '路線'], ['duration', '時間'], ['decision', '方案'], ['buffer', '緩衝']],
     };
     const reservationLabels: Record<string, string> = { done: '已完成', none: '免訂位', needed: '需要訂位', tbd: '待確認' };
-    const backToTop = document.querySelector<HTMLButtonElement>('#back-to-top');
     const shareButton = document.querySelector<HTMLButtonElement>('#copy-trip-link');
     const quickNavToggle = document.querySelector<HTMLButtonElement>('#quick-nav-toggle');
     const quickNavMenu = document.querySelector<HTMLElement>('#quick-nav-menu');
+    const databaseSection = document.querySelector<HTMLElement>('#detail-library');
+    const databaseToggle = document.querySelector<HTMLButtonElement>('#database-toggle');
+    const dayNav = document.querySelector<HTMLElement>('.day-nav');
+    const dayNavScroll = document.querySelector<HTMLElement>('.day-nav-scroll');
+    const dayLinks = [...document.querySelectorAll<HTMLAnchorElement>('.day-nav-date[data-day]')];
+    const dayCards = [...document.querySelectorAll<HTMLElement>('.day-card[id^="day-"]')];
     let dialogReturnScrollY = 0;
     let previousScrollRestoration: ScrollRestoration = 'auto';
+    let activeDay = dayLinks[0]?.dataset.day || '';
+    let scrollFrame = 0;
 
-    function updateBackToTop() {
-      if (backToTop) backToTop.hidden = window.scrollY < 160;
-    }
-
-    window.addEventListener('scroll', updateBackToTop, { passive: true });
-    updateBackToTop();
     function scrollToTop() {
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     }
 
-    backToTop?.addEventListener('click', scrollToTop);
     document.querySelectorAll<HTMLElement>('[data-scroll-top]').forEach((button) => button.addEventListener('click', () => {
       closeQuickNav();
       scrollToTop();
@@ -320,6 +324,60 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       quickNavMenu.hidden = true;
       quickNavToggle.setAttribute('aria-expanded', 'false');
     }
+
+    function setDatabaseExpanded(expanded: boolean) {
+      if (!databaseSection || !databaseToggle) return;
+      databaseSection.classList.toggle('is-collapsed', !expanded);
+      databaseToggle.setAttribute('aria-expanded', String(expanded));
+      const label = databaseToggle.querySelector('span');
+      const icon = databaseToggle.querySelector('i');
+      if (label) label.textContent = expanded ? '收合資料' : '展開資料';
+      if (icon) icon.textContent = expanded ? '−' : '＋';
+    }
+
+    databaseToggle?.addEventListener('click', () => setDatabaseExpanded(databaseSection?.classList.contains('is-collapsed') ?? true));
+    document.querySelectorAll<HTMLElement>('[data-open-database]').forEach((link) => link.addEventListener('click', () => setDatabaseExpanded(true)));
+
+    function centerDayLink(link: HTMLAnchorElement, smooth = true) {
+      if (!dayNavScroll) return;
+      const left = link.offsetLeft + link.offsetWidth / 2 - dayNavScroll.clientWidth / 2;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      dayNavScroll.scrollTo({ left: Math.max(0, left), behavior: smooth && !reduceMotion ? 'smooth' : 'auto' });
+    }
+
+    function setActiveDay(date: string, smooth = true) {
+      if (!date || date === activeDay) return;
+      activeDay = date;
+      let current: HTMLAnchorElement | undefined;
+      for (const link of dayLinks) {
+        const selected = link.dataset.day === date;
+        link.classList.toggle('is-current', selected);
+        if (selected) {
+          link.setAttribute('aria-current', 'step');
+          current = link;
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      }
+      if (current) centerDayLink(current, smooth);
+    }
+
+    function updateActiveDay() {
+      scrollFrame = 0;
+      if (!dayCards.length) return;
+      const threshold = (dayNav?.offsetHeight || 0) + Math.min(190, window.innerHeight * .26);
+      let current = dayCards[0];
+      for (const card of dayCards) {
+        if (card.getBoundingClientRect().top <= threshold) current = card;
+        else break;
+      }
+      setActiveDay(current.id.replace(/^day-/, ''));
+    }
+
+    dayLinks.forEach((link) => link.addEventListener('click', () => setActiveDay(link.dataset.day || '')));
+    window.addEventListener('scroll', () => {
+      if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateActiveDay);
+    }, { passive: true });
 
     quickNavToggle?.addEventListener('click', () => {
       if (!quickNavMenu) return;
@@ -340,7 +398,10 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
     });
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 1180) closeQuickNav();
+      const current = dayLinks.find((link) => link.dataset.day === activeDay);
+      if (current) centerDayLink(current, false);
     }, { passive: true });
+    window.requestAnimationFrame(updateActiveDay);
 
     async function copyTripLink() {
       if (!shareButton) return;
@@ -436,7 +497,6 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       if (Math.abs(window.scrollY - returnScrollY) > 1) {
         window.scrollTo({ top: returnScrollY, left: 0, behavior: 'auto' });
       }
-      updateBackToTop();
       requestAnimationFrame(() => {
         root.style.scrollBehavior = previousInlineScrollBehavior;
         history.scrollRestoration = previousScrollRestoration;
