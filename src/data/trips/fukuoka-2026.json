@@ -13,8 +13,8 @@
   "end": "2026-09-03",
   "status": "active",
   "noindex": true,
-  "updatedAt": "2026-08-02T15:06:37.460Z",
-  "sourceHash": "b174e5ff3172d1fd",
+  "updatedAt": "2026-08-08T14:08:23.825Z",
+  "sourceHash": "87e875ec1fe3721c",
   "locations": [
     "福岡",
     "太宰府",
@@ -862,7 +862,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Nishitetsu%20Hotel%20Croom%20Hakata%20Gion%20Kushida%20Shrine%20Mae%206-30%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Nishitetsu%20Hotel%20Croom%20Hakata%20Gion%20Kushida%20Shrine%20Mae%206-30%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -907,7 +907,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Nishitetsu%20Hotel%20Croom%20Hakata%20Gion%20Kushida%20Shrine%20Mae%206-30%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Nishitetsu%20Hotel%20Croom%20Hakata%20Gion%20Kushida%20Shrine%20Mae%206-30%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -952,7 +952,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=CROSS%20Life%20Hakata%20Tenjin%203-26-30%20Haruyoshi%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/CROSS%20Life%20Hakata%20Tenjin%203-26-30%20Haruyoshi%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1006,7 +1006,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%9D%B1%E5%9C%92%20%E6%9C%AC%E5%BA%97%201-1-1%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E5%A4%A7%E6%9D%B1%E5%9C%92%20%E6%9C%AC%E5%BA%97%201-1-1%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1055,7 +1055,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%83%B3%E3%81%A8%E3%82%A8%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%82%BD%E3%81%A8%E5%8D%9A%E5%A4%9A%E3%81%A3%E3%81%A8%202-8-12%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E3%83%91%E3%83%B3%E3%81%A8%E3%82%A8%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%82%BD%E3%81%A8%E5%8D%9A%E5%A4%9A%E3%81%A3%E3%81%A8%202-8-12%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1153,7 +1153,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BA%80%E5%AE%AE%20%E8%A1%A8%E5%8F%82%E9%81%93%20Saifu%20Dazaifu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BA%80%E5%AE%AE%20%E8%A1%A8%E5%8F%82%E9%81%93%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1202,7 +1202,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E9%8D%8B%E5%89%8D%E7%94%B0%E5%B1%8B%20%E5%8D%9A%E5%A4%9A%E5%BA%97%203-26-5%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E9%8D%8B%E5%89%8D%E7%94%B0%E5%B1%8B%20%E5%8D%9A%E5%A4%9A%E5%BA%97%203-26-5%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1251,7 +1251,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E8%8A%B1%E9%87%8E%E3%81%9D%E3%81%B0%202715-4%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "url": "https://www.google.com/maps/place/%E8%8A%B1%E9%87%8E%E3%81%9D%E3%81%B0%202715-4%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
       ],
@@ -1300,7 +1300,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B4%B2%20%E5%B1%8B%E5%8F%B0%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E4%B8%AD%E6%B4%B2%20%E5%B1%8B%E5%8F%B0%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1349,7 +1349,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=FUK%20COFFEE%206-22%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/FUK%20COFFEE%206-22%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1398,7 +1398,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E5%8D%9A%E5%A4%9A%E4%B8%80%E5%8F%8C%20%E7%A5%87%E5%9C%92%E5%BA%97%203-2%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E4%B8%80%E5%8F%8C%20%E7%A5%87%E5%9C%92%E5%BA%97%203-2%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1447,7 +1447,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=The%20Full%20Full%20Hakata%209-3%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/The%20Full%20Full%20Hakata%209-3%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1496,7 +1496,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Blue%20Bottle%20Coffee%20Fukuoka%20Tenjin%20Cafe%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Blue%20Bottle%20Coffee%20Fukuoka%20Tenjin%20Cafe%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1545,7 +1545,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%20%E3%81%A8%E3%82%8A%E7%94%B0%20%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97%2010-5%20Shimokawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%20%E3%81%A8%E3%82%8A%E7%94%B0%20%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97%2010-5%20Shimokawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1594,7 +1594,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=BEAR%20FRUITS%201-4-7%20Nishikaigan%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/BEAR%20FRUITS%201-4-7%20Nishikaigan%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1643,7 +1643,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E4%BC%BD%E5%93%A9%E6%9C%AC%E8%88%97%20%E9%96%80%E5%8F%B8%E6%B8%AF%E3%83%AC%E3%83%88%E3%83%AD%E5%BA%97%209-2%20Minatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E4%BC%BD%E5%93%A9%E6%9C%AC%E8%88%97%20%E9%96%80%E5%8F%B8%E6%B8%AF%E3%83%AC%E3%83%88%E3%83%AD%E5%BA%97%209-2%20Minatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1697,7 +1697,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BB%E3%82%B9%E3%83%94%E3%83%94%20%E9%96%80%E5%8F%B8%E6%B8%AF%201-4-7%20Nishikaigan%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BB%E3%82%B9%E3%83%94%E3%83%94%20%E9%96%80%E5%8F%B8%E6%B8%AF%201-4-7%20Nishikaigan%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1751,7 +1751,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Chiho%20no%20Ie%20809-1%20Mitai%20Takachiho%20Miyazaki",
+          "url": "https://www.google.com/maps/place/Chiho%20no%20Ie%20809-1%20Mitai%20Takachiho%20Miyazaki",
           "kind": "map"
         },
         {
@@ -1805,7 +1805,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Menya%20Kanetora%20Hakata%20Deitos%201-1%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Menya%20Kanetora%20Hakata%20Deitos%201-1%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1859,7 +1859,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Tsukamoto%20Sengyoten%202-2-3%20Kafuri%20Itoshima%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Tsukamoto%20Sengyoten%202-2-3%20Kafuri%20Itoshima%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1913,7 +1913,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=REC%20COFFEE%20Yakuin%201-1-26%20Shirogane%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/REC%20COFFEE%20Yakuin%201-1-26%20Shirogane%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1967,7 +1967,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=COFFEE%20COUNTY%20Fukuoka%201-21-21%20Takasago%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/COFFEE%20COUNTY%20Fukuoka%201-21-21%20Takasago%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -2021,7 +2021,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Ganso%20Hakata%20Mentaiju%206-15%20Nishinakasu%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Ganso%20Hakata%20Mentaiju%206-15%20Nishinakasu%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -2075,7 +2075,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=FUGLEN%20FUKUOKA%201-18-33%20Hakataeki%20Higashi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/FUGLEN%20FUKUOKA%201-18-33%20Hakataeki%20Higashi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -2129,7 +2129,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Yumeyumedori%20Ming%20Hakata%20Station%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Yumeyumedori%20Ming%20Hakata%20Station%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2178,7 +2178,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Canal%20City%20Hakata%201-2%20Sumiyoshi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Canal%20City%20Hakata%201-2%20Sumiyoshi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2219,7 +2219,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Kyushu%20National%20Museum%204-7-2%20Ishizaka%20Dazaifu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Kyushu%20National%20Museum%204-7-2%20Ishizaka%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2260,7 +2260,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Dazaifu%20Tenmangu%204-7-1%20Saifu%20Dazaifu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Dazaifu%20Tenmangu%204-7-1%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2301,7 +2301,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Starbucks%20Coffee%20Dazaifutenmangu%20Omotesando%203-2-43%20Saifu%20Dazaifu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Starbucks%20Coffee%20Dazaifutenmangu%20Omotesando%203-2-43%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2342,7 +2342,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=%E5%85%89%E6%98%8E%E7%A6%85%E5%AF%BA%202-16-1%20Saifu%20Dazaifu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E5%85%89%E6%98%8E%E7%A6%85%E5%AF%BA%202-16-1%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2383,7 +2383,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Mitsui%20Shopping%20Park%20LaLaport%20Fukuoka%206-23-1%20Naka%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Mitsui%20Shopping%20Park%20LaLaport%20Fukuoka%206-23-1%20Naka%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2424,7 +2424,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Yufuin%20Station%20Yufuincho%20Kawakita%20Yufu%20Oita",
+          "url": "https://www.google.com/maps/place/Yufuin%20Station%20Yufuincho%20Kawakita%20Yufu%20Oita",
           "kind": "map"
         }
       ],
@@ -2465,7 +2465,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Yunotsubo%20Kaido%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "url": "https://www.google.com/maps/place/Yunotsubo%20Kaido%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
       ],
@@ -2506,7 +2506,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Kinrin%20Lake%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "url": "https://www.google.com/maps/place/Kinrin%20Lake%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
       ],
@@ -2547,7 +2547,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=YUFUIN%20FLORAL%20VILLAGE%201503-3%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "url": "https://www.google.com/maps/place/YUFUIN%20FLORAL%20VILLAGE%201503-3%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
       ],
@@ -2588,7 +2588,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Kushida%20Shrine%201-41%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Kushida%20Shrine%201-41%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2629,7 +2629,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Kawabata%20Shopping%20Arcade%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Kawabata%20Shopping%20Arcade%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2670,7 +2670,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Tenjin%20Underground%20Mall%20Tenjin%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Tenjin%20Underground%20Mall%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2711,7 +2711,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Kego%20Shrine%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Kego%20Shrine%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2752,7 +2752,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Kokura%20Castle%202-1%20Jonai%20Kokurakita%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Kokura%20Castle%202-1%20Jonai%20Kokurakita%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2793,7 +2793,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Mojiko%20Retro%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Mojiko%20Retro%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2834,7 +2834,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Former%20Moji%20Customs%201-24%20Higashiminatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Former%20Moji%20Customs%201-24%20Higashiminatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2875,7 +2875,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Blue%20Wing%20Moji%204-1%20Minatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Blue%20Wing%20Moji%204-1%20Minatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2916,7 +2916,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Mojiko%20Retro%20Observation%20Room%201-32%20Higashiminatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Mojiko%20Retro%20Observation%20Room%201-32%20Higashiminatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2957,7 +2957,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Sarakurayama%20Observatory%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Sarakurayama%20Observatory%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2998,7 +2998,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Hakata%20Station%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Hakata%20Station%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -3039,7 +3039,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Kamishikimi%20Kumanoimasu%20Shrine%202611%20Kamishikimi%20Takamori%20Kumamoto",
+          "url": "https://www.google.com/maps/place/Kamishikimi%20Kumanoimasu%20Shrine%202611%20Kamishikimi%20Takamori%20Kumamoto",
           "kind": "map"
         }
       ],
@@ -3080,7 +3080,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Takachiho%20Gorge%20Mukoyama%20Takachiho%20Miyazaki",
+          "url": "https://www.google.com/maps/place/Takachiho%20Gorge%20Mukoyama%20Takachiho%20Miyazaki",
           "kind": "map"
         }
       ],
@@ -3121,7 +3121,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Amanoiwato%20Shrine%20107%20Iwato%20Takachiho%20Miyazaki",
+          "url": "https://www.google.com/maps/place/Amanoiwato%20Shrine%20107%20Iwato%20Takachiho%20Miyazaki",
           "kind": "map"
         }
       ],
@@ -3162,7 +3162,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Iki%20Shrine%201-9-3%20Ikinomatsubara%20Nishi%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Iki%20Shrine%201-9-3%20Ikinomatsubara%20Nishi%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -3203,7 +3203,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Hakoshima%20Shrine%2086%20Nijo%20Hamakubo%20Itoshima%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Hakoshima%20Shrine%2086%20Nijo%20Hamakubo%20Itoshima%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3249,7 +3249,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Sakurai%20Futamigaura%20Meotoiwa%20Shima%20Sakurai%20Itoshima%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Sakurai%20Futamigaura%20Meotoiwa%20Shima%20Sakurai%20Itoshima%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -3290,7 +3290,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Palm%20Beach%20The%20Gardens%20Nishinoura%20Nishi%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Palm%20Beach%20The%20Gardens%20Nishinoura%20Nishi%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3336,7 +3336,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Tenjin%20Shopping%20Area%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Tenjin%20Shopping%20Area%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3382,7 +3382,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Ming%20Hakata%20Station%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Ming%20Hakata%20Station%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3428,7 +3428,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Yodobashi%20Camera%20Multimedia%20Hakata%206-12%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Yodobashi%20Camera%20Multimedia%20Hakata%206-12%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3474,7 +3474,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/search/?api=1&query=Fukuoka%20Airport%20International%20Terminal",
+          "url": "https://www.google.com/maps/place/Fukuoka%20Airport%20International%20Terminal",
           "kind": "map"
         },
         {

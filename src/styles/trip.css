@@ -95,7 +95,7 @@ footer {
 .trip-briefing { position: relative; isolation: isolate; overflow: hidden; scroll-margin-top: 94px; margin-bottom: clamp(100px, 13vw, 170px); padding: clamp(34px, 5vw, 58px); border: 1px solid var(--line); background: #f8f3e9; }
 .trip-briefing::after { content: ''; position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(251,248,240,.52), rgba(251,248,240,.24) 62%, rgba(251,248,240,.42)); pointer-events: none; }
 .trip-briefing > :not(.briefing-art) { position: relative; z-index: 2; }
-.briefing-art { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .39; filter: saturate(.76) contrast(.92); pointer-events: none; }
+.briefing-art { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .58; filter: saturate(.76) contrast(.92); pointer-events: none; }
 .briefing-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
 .briefing-heading h2 { margin: 0; font: 500 clamp(32px, 4vw, 48px)/1.2 var(--serif); letter-spacing: -.04em; }
 .briefing-heading > p { max-width: 390px; margin: 0; color: var(--ink-muted); font-size: 12px; line-height: 1.7; text-align: right; }
@@ -170,7 +170,7 @@ footer {
 .entity-fact i { color: var(--vermilion); font-size: 10px; font-weight: 700; font-style: normal; letter-spacing: .08em; }
 .entity-fact b { min-width: 0; overflow: hidden; color: var(--ink-muted); font-size: 11px; font-weight: 400; line-height: 1.5; text-overflow: ellipsis; white-space: nowrap; }
 .entity-open { margin-top: auto; font-size: 11px; font-weight: 700; }
-.entity-open i { margin-left: 6px; color: var(--vermilion); font-style: normal; }
+.entity-open i { margin-left: 6px; color: var(--vermilion); }
 
 footer { min-height: 180px; display: flex; align-items: center; gap: 24px; padding: 48px var(--content-gutter); color: rgba(255,255,255,.65); background: var(--matcha-deep); font-size: 12px; }
 
@@ -199,7 +199,7 @@ dialog[data-type="transport"] .dialog-visual { background: #627a87; }
 .dialog-row:has(> div:only-child) { grid-template-columns: 1fr; }
 .dialog-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
 .dialog-actions a { display: inline-flex; align-items: center; gap: 16px; padding: 11px 16px; color: #fff; background: var(--matcha-deep); text-decoration: none; font-size: 12px; }
-.dialog-actions span { color: #d7a18e; }
+.dialog-actions .external-arrow { color: #d7a18e; }
 .dialog-hint { margin: 28px 0 0; color: var(--ink-muted); font-size: 11px; }
 
 @media (max-width: 880px) {
@@ -244,7 +244,7 @@ dialog[data-type="transport"] .dialog-visual { background: #627a87; }
   .intro-grid, .trip-briefing, .days, .detail-library { --content-gutter: 20px; width: min(1180px, calc(100% - var(--content-gutter) - var(--content-gutter))); }
   .intro-grid { padding: 90px 0; }
   .trip-briefing { margin-bottom: 90px; padding: 28px 22px; }
-  .briefing-art { object-position: 64% center; opacity: .32; }
+  .briefing-art { object-position: 64% center; opacity: .48; }
   .briefing-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
   .briefing-heading > p { text-align: left; }
   .intro-grid h2, .section-heading h2 { font-size: 38px; }

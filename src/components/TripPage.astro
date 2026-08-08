@@ -308,6 +308,8 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
     let previousScrollRestoration: ScrollRestoration = 'auto';
     let activeDay = dayLinks[0]?.dataset.day || '';
     let scrollFrame = 0;
+    let pendingNavigationDay = '';
+    let navigationSettleTimer = 0;
 
     function scrollToTop() {
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -369,7 +371,7 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
 
     function updateActiveDay() {
       scrollFrame = 0;
-      if (!dayCards.length) return;
+      if (!dayCards.length || pendingNavigationDay) return;
       const threshold = (dayNav?.offsetHeight || 0) + Math.min(190, window.innerHeight * .26);
       let current = dayCards[0];
       for (const card of dayCards) {
@@ -379,8 +381,28 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       setActiveDay(current.id.replace(/^day-/, ''));
     }
 
-    dayLinks.forEach((link) => link.addEventListener('click', () => setActiveDay(link.dataset.day || '')));
+    function finishDayNavigation() {
+      window.clearTimeout(navigationSettleTimer);
+      navigationSettleTimer = 0;
+      pendingNavigationDay = '';
+      updateActiveDay();
+    }
+
+    function scheduleDayNavigationFinish(delay = 160) {
+      window.clearTimeout(navigationSettleTimer);
+      navigationSettleTimer = window.setTimeout(finishDayNavigation, delay);
+    }
+
+    dayLinks.forEach((link) => link.addEventListener('click', () => {
+      pendingNavigationDay = link.dataset.day || '';
+      setActiveDay(pendingNavigationDay);
+      scheduleDayNavigationFinish(1200);
+    }));
     window.addEventListener('scroll', () => {
+      if (pendingNavigationDay) {
+        scheduleDayNavigationFinish();
+        return;
+      }
       if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateActiveDay);
     }, { passive: true });
 
@@ -469,7 +491,7 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       if (actions) {
         actions.innerHTML = entity.actions.map((action: any) => `
           <a href="${action.url}" target="_blank" rel="noopener noreferrer">
-            ${action.label}<span aria-hidden="true">↗</span>
+            ${action.label}<i class="external-arrow" aria-hidden="true"></i>
           </a>`).join('');
       }
       if (preview) {
