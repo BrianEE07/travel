@@ -6,10 +6,9 @@ const { entity } = Astro.props;
 <button class="entity-card entity-stay" type="button" data-entity={entity.id} data-type="stay">
   <span class="entity-type">住宿</span>
   <strong>{entity.title}</strong>
-  <span class="entity-summary">{entity.summary.text}</span>
   <span class="entity-card-facts">
-    <span class="entity-fact"><i>入住</i><b>{entity.checkIn.text}</b></span>
-    <span class="entity-fact"><i>區域</i><b>{entity.area.text}</b></span>
+    <span class="entity-fact"><i>時間</i><b>入住 {entity.checkIn.text} · 退房 {entity.checkOut.text}</b></span>
+    <span class="entity-fact"><i>交通</i><b>{entity.access.text}</b></span>
   </span>
   <span class="entity-open">查看住宿資訊 <i class="external-arrow" aria-hidden="true"></i></span>
 </button>
