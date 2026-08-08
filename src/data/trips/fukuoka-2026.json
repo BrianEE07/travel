@@ -13,8 +13,8 @@
   "end": "2026-09-03",
   "status": "active",
   "noindex": true,
-  "updatedAt": "2026-08-08T14:14:37.781Z",
-  "sourceHash": "d7316953d0302ff7",
+  "updatedAt": "2026-08-08T14:53:41.560Z",
+  "sourceHash": "1da590c7f61442e0",
   "locations": [
     "福岡",
     "太宰府",
@@ -200,8 +200,8 @@
         {
           "time": "19:30",
           "kind": "food",
-          "text": "博多もつ鍋前田屋 博多店",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-博多もつ鍋前田屋-博多店-8-28\">博多もつ鍋前田屋 博多店</button>"
+          "text": "博多牛腸鍋前田屋 博多店",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-博多牛腸鍋前田屋-博多店-8-28\">博多牛腸鍋前田屋 博多店</button>"
         }
       ],
       "notes": [
@@ -293,8 +293,8 @@
         {
           "time": "20:00",
           "kind": "food",
-          "text": "屋台 / 回飯店休息",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-屋台-8-29\">屋台</button> / 回飯店休息"
+          "text": "中洲屋台 / 路邊攤 / 回飯店休息",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-中洲屋台-路邊攤-8-29\">中洲屋台 / 路邊攤</button> / 回飯店休息"
         }
       ],
       "notes": [
@@ -380,14 +380,14 @@
         {
           "time": "19:30",
           "kind": "food",
-          "text": "博多水炊き とり田 博多本店",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-博多水炊き-とり田-博多本店-8-30\">博多水炊き とり田 博多本店</button>"
+          "text": "博多水炊雞鍋 鳥田 博多本店",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-博多水炊雞鍋-鳥田-博多本店-8-30\">博多水炊雞鍋 鳥田 博多本店</button>"
         }
       ],
       "notes": [
         {
-          "text": "鳥田已訂位；4 人、桌席、博多コース",
-          "html": "鳥田已訂位；4 人、桌席、博多コース"
+          "text": "鳥田已訂位；4 人、桌席、博多套餐",
+          "html": "鳥田已訂位；4 人、桌席、博多套餐"
         },
         {
           "text": "這天主軸是輕鬆逛街；若前兩天太累，上午可直接延後到 10:30 開始",
@@ -445,26 +445,26 @@
         {
           "time": "13:45",
           "kind": "food",
-          "text": "BEAR FRUITS / 伽哩本舗 / プリンセスピピ 三選一",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-bear-fruits-8-31\">BEAR FRUITS</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"food-伽哩本舗-門司港レトロ店-8-31\">伽哩本舗</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"food-プリンセスピピ門司港-8-31\">プリンセスピピ</button> 三選一"
+          "text": "BEAR FRUITS / 伽哩本舖 / Princess Phi Phi 三選一",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-bear-fruits-8-31\">BEAR FRUITS</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"food-伽哩本舖-門司港復古店-8-31\">伽哩本舖</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"food-princess-phi-phi-門司港-8-31\">Princess Phi Phi</button> 三選一"
         },
         {
           "time": "14:45",
           "kind": "place",
-          "text": "門司港レトロ",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-門司港レトロ-8-31\">門司港レトロ</button>"
+          "text": "門司港復古區",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-門司港復古區-8-31\">門司港復古區</button>"
         },
         {
           "time": "15:20",
           "kind": "place",
-          "text": "旧門司税関",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-旧門司税関-8-31\">旧門司税関</button>"
+          "text": "舊門司海關",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-舊門司海關-8-31\">舊門司海關</button>"
         },
         {
           "time": "15:50-16:20",
           "kind": "place",
-          "text": "ブルーウィングもじ",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-ブルーウィングもじ-8-31\">ブルーウィングもじ</button>"
+          "text": "藍翼門司吊橋",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-藍翼門司吊橋-8-31\">藍翼門司吊橋</button>"
         },
         {
           "time": "16:20-17:05",
@@ -620,8 +620,8 @@
           "html": "出行前一天 19:00 左右會寄導遊與行前資訊，若有多封信以最新一封為準。"
         },
         {
-          "text": "博多站有寄物櫃；早上用 locker，不用 10:30 才開始的一時預かり。",
-          "html": "博多站有寄物櫃；早上用 locker，不用 10:30 才開始的一時預かり。"
+          "text": "博多站有寄物櫃；早上用 locker，不用 10:30 才開始的臨時寄物櫃台。",
+          "html": "博多站有寄物櫃；早上用 locker，不用 10:30 才開始的臨時寄物櫃台。"
         },
         {
           "text": "若回程延誤，兼虎 22:00 前排隊即可；太累就改博多站內便當 / 努努鶏。",
@@ -715,8 +715,8 @@
         {
           "time": "16:32-17:35",
           "kind": "move",
-          "text": "West Coast Liner 回天神 / 博多",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-2-二見浦-天神-博多-west-coast-liner\">West Coast Liner 回天神 / 博多</button>"
+          "text": "西海岸巴士回天神 / 博多",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-2-二見浦-天神-博多-西海岸巴士\">西海岸巴士回天神 / 博多</button>"
         },
         {
           "time": "18:30",
@@ -743,12 +743,12 @@
           "html": "若箱島叫不到車，箱島 → 塚本鮮魚店可步行約 20-30 分鐘當備案；塚本 → 二見浦仍建議計程車。"
         },
         {
-          "text": "West Coast Liner 是昭和巴士直達線，從二見浦海岸回天神 / 博多，不是 JR。",
-          "html": "West Coast Liner 是昭和巴士直達線，從二見浦海岸回天神 / 博多，不是 JR。"
+          "text": "West Coast Liner（西海岸巴士）是昭和巴士直達線，從二見浦海岸回天神 / 博多，不是 JR。",
+          "html": "West Coast Liner（西海岸巴士）是昭和巴士直達線，從二見浦海岸回天神 / 博多，不是 JR。"
         },
         {
-          "text": "若要看完 18:43 櫻井二見浦夕陽，West Coast Liner 末班 18:37 來不及；改叫計程車到 JR 站再回天神 / 博多。",
-          "html": "若要看完 18:43 櫻井二見浦夕陽，West Coast Liner 末班 18:37 來不及；改叫計程車到 JR 站再回天神 / 博多。"
+          "text": "若要看完 18:43 櫻井二見浦夕陽，西海岸巴士末班 18:37 來不及；改叫計程車到 JR 站再回天神 / 博多。",
+          "html": "若要看完 18:43 櫻井二見浦夕陽，西海岸巴士末班 18:37 來不及；改叫計程車到 JR 站再回天神 / 博多。"
         }
       ]
     },
@@ -790,8 +790,8 @@
         {
           "time": "12:30-13:30",
           "kind": "food",
-          "text": "元祖博多めんたい重 / 若排隊太長改天神地下街或 PARCO 午餐",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-元祖博多めんたい重-9-3\">元祖博多めんたい重</button> / 若排隊太長改天神地下街或 PARCO 午餐"
+          "text": "元祖博多明太重 / 若排隊太長改天神地下街或 PARCO 午餐",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-元祖博多明太重-9-3\">元祖博多明太重</button> / 若排隊太長改天神地下街或 PARCO 午餐"
         },
         {
           "time": "13:30-14:00",
@@ -808,8 +808,8 @@
         {
           "time": "14:45-16:10",
           "kind": "shopping",
-          "text": "博多站伴手禮 / ヨドバシ博多",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-博多站伴手禮-9-3\">博多站伴手禮</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"place-ヨドバシ博多-9-3\">ヨドバシ博多</button>"
+          "text": "博多站伴手禮 / Yodobashi 博多",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-博多站伴手禮-9-3\">博多站伴手禮</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"place-yodobashi-博多-9-3\">Yodobashi 博多</button>"
         },
         {
           "time": "16:10-16:40",
@@ -821,7 +821,7 @@
           "time": "17:00",
           "kind": "move",
           "text": "前往福岡機場國際線",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-3-cross-life-福岡空港国際線\">前往福岡機場國際線</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-3-cross-life-福岡機場國際線\">前往福岡機場國際線</button>"
         },
         {
           "time": "19:20-20:45",
@@ -840,12 +840,12 @@
           "html": "天神買衣服以 PARCO、天神地下街、大丸 / 岩田屋周邊為主；電子產品先看 BicCamera 天神，若下午到博多再補 Yodobashi。"
         },
         {
-          "text": "午餐想吃福岡名物可選元祖博多めんたい重；若排隊太長，不要硬等，改天神地下街或 PARCO。",
-          "html": "午餐想吃福岡名物可選元祖博多めんたい重；若排隊太長，不要硬等，改天神地下街或 PARCO。"
+          "text": "午餐想吃福岡名物可選元祖博多明太重；若排隊太長，不要硬等，改天神地下街或 PARCO。",
+          "html": "午餐想吃福岡名物可選元祖博多明太重；若排隊太長，不要硬等，改天神地下街或 PARCO。"
         },
         {
-          "text": "伴手禮主力放博多站マイング / 博多デイトス，機場當保底；努努鶏、博多通りもん、明太子系都可在博多站處理。",
-          "html": "伴手禮主力放博多站マイング / 博多デイトス，機場當保底；努努鶏、博多通りもん、明太子系都可在博多站處理。"
+          "text": "伴手禮主力放博多站 Ming / 博多 Deitos，機場當保底；努努鶏、博多通りもん、明太子系都可在博多站處理。",
+          "html": "伴手禮主力放博多站 Ming / 博多 Deitos，機場當保底；努努鶏、博多通りもん、明太子系都可在博多站處理。"
         },
         {
           "text": "17:00 必須回飯店拿行李出發機場；帶行李建議直接計程車去國際線。",
@@ -862,7 +862,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Nishitetsu%20Hotel%20Croom%20Hakata%20Gion%20Kushida%20Shrine%20Mae%206-30%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Nishitetsu%20Hotel%20Croom%20Hakata%20Gion%20Kushida%20Shrine%20Mae%206-30%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -907,7 +907,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Nishitetsu%20Hotel%20Croom%20Hakata%20Gion%20Kushida%20Shrine%20Mae%206-30%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Nishitetsu%20Hotel%20Croom%20Hakata%20Gion%20Kushida%20Shrine%20Mae%206-30%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -952,7 +952,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/CROSS%20Life%20Hakata%20Tenjin%203-26-30%20Haruyoshi%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=CROSS%20Life%20Hakata%20Tenjin%203-26-30%20Haruyoshi%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1006,7 +1006,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E5%A4%A7%E6%9D%B1%E5%9C%92%20%E6%9C%AC%E5%BA%97%201-1-1%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E5%A4%A7%E6%9D%B1%E5%9C%92%20%E6%9C%AC%E5%BA%97%201-1-1%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1055,7 +1055,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E3%83%91%E3%83%B3%E3%81%A8%E3%82%A8%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%82%BD%E3%81%A8%E5%8D%9A%E5%A4%9A%E3%81%A3%E3%81%A8%202-8-12%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E3%83%91%E3%83%B3%E3%81%A8%E3%82%A8%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%82%BD%E3%81%A8%E5%8D%9A%E5%A4%9A%E3%81%A3%E3%81%A8%202-8-12%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1153,7 +1153,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BA%80%E5%AE%AE%20%E8%A1%A8%E5%8F%82%E9%81%93%20Saifu%20Dazaifu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BA%80%E5%AE%AE%20%E8%A1%A8%E5%8F%82%E9%81%93%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1196,13 +1196,13 @@
       "preview": null
     },
     {
-      "id": "food-博多もつ鍋前田屋-博多店-8-28",
-      "title": "博多もつ鍋前田屋 博多店｜8/28",
+      "id": "food-博多牛腸鍋前田屋-博多店-8-28",
+      "title": "博多牛腸鍋前田屋 博多店｜8/28",
       "type": "food",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E9%8D%8B%E5%89%8D%E7%94%B0%E5%B1%8B%20%E5%8D%9A%E5%A4%9A%E5%BA%97%203-26-5%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E9%8D%8B%E5%89%8D%E7%94%B0%E5%B1%8B%20%E5%8D%9A%E5%A4%9A%E5%BA%97%203-26-5%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1251,7 +1251,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E8%8A%B1%E9%87%8E%E3%81%9D%E3%81%B0%202715-4%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "url": "https://www.google.com/maps?q=%E8%8A%B1%E9%87%8E%E3%81%9D%E3%81%B0%202715-4%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
       ],
@@ -1294,13 +1294,13 @@
       "preview": null
     },
     {
-      "id": "food-屋台-8-29",
-      "title": "屋台｜8/29",
+      "id": "food-中洲屋台-路邊攤-8-29",
+      "title": "中洲屋台 / 路邊攤｜8/29",
       "type": "food",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E4%B8%AD%E6%B4%B2%E5%B1%8B%E5%8F%B0%201%20Chome-7%20Nakasu%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E4%B8%AD%E6%B4%B2%E5%B1%8B%E5%8F%B0%201%20Chome-7%20Nakasu%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1329,8 +1329,8 @@
         "html": "4 人"
       },
       "why": {
-        "text": "19:27 到博多後，20:00 去中洲屋台可行。",
-        "html": "19:27 到博多後，20:00 去中洲屋台可行。"
+        "text": "19:27 到博多後，20:00 去中洲屋台 / 路邊攤可行。",
+        "html": "19:27 到博多後，20:00 去中洲屋台 / 路邊攤可行。"
       },
       "risk": {
         "text": "下雨、天氣差或店主狀態會影響營業。",
@@ -1349,7 +1349,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/FUK%20COFFEE%206-22%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=FUK%20COFFEE%206-22%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1398,7 +1398,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E4%B8%80%E5%8F%8C%20%E7%A5%87%E5%9C%92%E5%BA%97%203-2%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E5%8D%9A%E5%A4%9A%E4%B8%80%E5%8F%8C%20%E7%A5%87%E5%9C%92%E5%BA%97%203-2%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1447,7 +1447,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/The%20Full%20Full%20Hakata%209-3%20Gionmachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=The%20Full%20Full%20Hakata%209-3%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1496,7 +1496,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Blue%20Bottle%20Coffee%20Fukuoka%20Tenjin%20Cafe%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Blue%20Bottle%20Coffee%20Fukuoka%20Tenjin%20Cafe%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1505,8 +1505,8 @@
         "html": "天神"
       },
       "summary": {
-        "text": "警固神社社務所ビル 1F，適合作為天神逛街中段休息。",
-        "html": "警固神社社務所ビル 1F，適合作為天神逛街中段休息。"
+        "text": "警固神社社務所大樓 1F，適合作為天神逛街中段休息。",
+        "html": "警固神社社務所大樓 1F，適合作為天神逛街中段休息。"
       },
       "hours": {
         "text": "8/30 Sun 可；08:00-20:00。",
@@ -1539,13 +1539,13 @@
       "preview": null
     },
     {
-      "id": "food-博多水炊き-とり田-博多本店-8-30",
-      "title": "博多水炊き とり田 博多本店｜8/30",
+      "id": "food-博多水炊雞鍋-鳥田-博多本店-8-30",
+      "title": "博多水炊雞鍋 鳥田 博多本店｜8/30",
       "type": "food",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%20%E3%81%A8%E3%82%8A%E7%94%B0%20%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97%2010-5%20Shimokawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%20%E3%81%A8%E3%82%8A%E7%94%B0%20%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97%2010-5%20Shimokawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1554,8 +1554,8 @@
         "html": "博多 / 中洲川端"
       },
       "summary": {
-        "text": "8/30 晚餐，已訂位的博多水炊き。",
-        "html": "8/30 晚餐，已訂位的博多水炊き。"
+        "text": "8/30 晚餐，已訂位的博多水炊雞鍋。",
+        "html": "8/30 晚餐，已訂位的博多水炊雞鍋。"
       },
       "hours": {
         "text": "8/30 Sun 可；土日祝 11:30-23:00，LO 22:00。",
@@ -1594,7 +1594,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/BEAR%20FRUITS%201-4-7%20Nishikaigan%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=BEAR%20FRUITS%201-4-7%20Nishikaigan%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -1631,19 +1631,19 @@
         "html": "不可預約，熱門時段可能排隊；一人行程可接受排隊但不要拖過 14:30。"
       },
       "backup": {
-        "text": "海峡プラザ內也有多家燒咖喱店，若排隊太久就改附近店。",
-        "html": "海峡プラザ內也有多家燒咖喱店，若排隊太久就改附近店。"
+        "text": "海峽廣場內也有多家燒咖喱店，若排隊太久就改附近店。",
+        "html": "海峽廣場內也有多家燒咖喱店，若排隊太久就改附近店。"
       },
       "preview": null
     },
     {
-      "id": "food-伽哩本舗-門司港レトロ店-8-31",
-      "title": "伽哩本舗 門司港レトロ店｜8/31",
+      "id": "food-伽哩本舖-門司港復古店-8-31",
+      "title": "伽哩本舖 門司港復古店｜8/31",
       "type": "food",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E4%BC%BD%E5%93%A9%E6%9C%AC%E8%88%97%20%E9%96%80%E5%8F%B8%E6%B8%AF%E3%83%AC%E3%83%88%E3%83%AD%E5%BA%97%209-2%20Minatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E4%BC%BD%E5%93%A9%E6%9C%AC%E8%88%97%20%E9%96%80%E5%8F%B8%E6%B8%AF%E3%83%AC%E3%83%88%E3%83%AD%E5%BA%97%209-2%20Minatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1685,19 +1685,19 @@
         "html": "不可預約，熱門時段可能排隊；部分平台時間寫法不同，以當日店頭 / 官方為準。"
       },
       "backup": {
-        "text": "排太久就改 BEAR FRUITS 或 プリンセスピピ。",
-        "html": "排太久就改 BEAR FRUITS 或 プリンセスピピ。"
+        "text": "排太久就改 BEAR FRUITS 或 Princess Phi Phi。",
+        "html": "排太久就改 BEAR FRUITS 或 Princess Phi Phi。"
       },
       "preview": null
     },
     {
-      "id": "food-プリンセスピピ門司港-8-31",
-      "title": "プリンセスピピ門司港｜8/31",
+      "id": "food-princess-phi-phi-門司港-8-31",
+      "title": "Princess Phi Phi 門司港｜8/31",
       "type": "food",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BB%E3%82%B9%E3%83%94%E3%83%94%20%E9%96%80%E5%8F%B8%E6%B8%AF%201-4-7%20Nishikaigan%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BB%E3%82%B9%E3%83%94%E3%83%94%20%E9%96%80%E5%8F%B8%E6%B8%AF%201-4-7%20Nishikaigan%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1751,7 +1751,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Chiho%20no%20Ie%20809-1%20Mitai%20Takachiho%20Miyazaki",
+          "url": "https://www.google.com/maps?q=Chiho%20no%20Ie%20809-1%20Mitai%20Takachiho%20Miyazaki",
           "kind": "map"
         },
         {
@@ -1805,7 +1805,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Menya%20Kanetora%20Hakata%20Deitos%201-1%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Menya%20Kanetora%20Hakata%20Deitos%201-1%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1819,8 +1819,8 @@
         "html": "博多站"
       },
       "summary": {
-        "text": "博多站有名沾麵店，位於博多デイトス 2F 博多めん街道。",
-        "html": "博多站有名沾麵店，位於博多デイトス 2F 博多めん街道。"
+        "text": "博多站有名沾麵店，位於博多 Deitos 2F 博多麵街道。",
+        "html": "博多站有名沾麵店，位於博多 Deitos 2F 博多麵街道。"
       },
       "hours": {
         "text": "9/1 Tue 可；09:30-22:30，LO 22:00。",
@@ -1839,8 +1839,8 @@
         "html": "1 人"
       },
       "why": {
-        "text": "高千穗回博多後順路，主打濃厚つけ麺 / 辛辛つけ麺。",
-        "html": "高千穗回博多後順路，主打濃厚つけ麺 / 辛辛つけ麺。"
+        "text": "高千穗回博多後順路，主打濃厚沾麵 / 辛辣沾麵。",
+        "html": "高千穗回博多後順路，主打濃厚沾麵 / 辛辣沾麵。"
       },
       "risk": {
         "text": "人氣店可能排隊；若太累或排太久，直接改站內便當。",
@@ -1859,7 +1859,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Tsukamoto%20Sengyoten%202-2-3%20Kafuri%20Itoshima%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Tsukamoto%20Sengyoten%202-2-3%20Kafuri%20Itoshima%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1913,7 +1913,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/REC%20COFFEE%20Yakuin%201-1-26%20Shirogane%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=REC%20COFFEE%20Yakuin%201-1-26%20Shirogane%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -1967,7 +1967,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/COFFEE%20COUNTY%20Fukuoka%201-21-21%20Takasago%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=COFFEE%20COUNTY%20Fukuoka%201-21-21%20Takasago%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -2015,13 +2015,13 @@
       "preview": null
     },
     {
-      "id": "food-元祖博多めんたい重-9-3",
-      "title": "元祖博多めんたい重｜9/3",
+      "id": "food-元祖博多明太重-9-3",
+      "title": "元祖博多明太重｜9/3",
       "type": "food",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Ganso%20Hakata%20Mentaiju%206-15%20Nishinakasu%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Ganso%20Hakata%20Mentaiju%206-15%20Nishinakasu%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -2075,7 +2075,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/FUGLEN%20FUKUOKA%201-18-33%20Hakataeki%20Higashi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=FUGLEN%20FUKUOKA%201-18-33%20Hakataeki%20Higashi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -2129,21 +2129,21 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E5%8A%AA%E5%8A%AA%E9%B6%8F%20%E5%8D%9A%E5%A4%9A%E3%83%9E%E3%82%A4%E3%83%B3%E3%82%B0%E5%BA%97%201-1%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E5%8A%AA%E5%8A%AA%E9%B6%8F%20%E5%8D%9A%E5%A4%9A%E3%83%9E%E3%82%A4%E3%83%B3%E3%82%B0%E5%BA%97%201-1%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
       "area": {
-        "text": "博多站 / マイング",
-        "html": "博多站 / マイング"
+        "text": "博多站 / Ming",
+        "html": "博多站 / Ming"
       },
       "summary": {
-        "text": "冷食唐揚げ伴手禮，可在博多站マイング處理。",
-        "html": "冷食唐揚げ伴手禮，可在博多站マイング處理。"
+        "text": "冷食炸雞伴手禮，可在博多站 Ming 處理。",
+        "html": "冷食炸雞伴手禮，可在博多站 Ming 處理。"
       },
       "hours": {
-        "text": "9/3 Thu 可；依マイング約 09:00-21:00。",
-        "html": "9/3 Thu 可；依マイング約 09:00-21:00。"
+        "text": "9/3 Thu 可；依 Ming 約 09:00-21:00。",
+        "html": "9/3 Thu 可；依 Ming 約 09:00-21:00。"
       },
       "reservation": {
         "text": "none",
@@ -2178,7 +2178,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Canal%20City%20Hakata%201-2%20Sumiyoshi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Canal%20City%20Hakata%201-2%20Sumiyoshi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2219,7 +2219,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Kyushu%20National%20Museum%204-7-2%20Ishizaka%20Dazaifu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Kyushu%20National%20Museum%204-7-2%20Ishizaka%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2260,7 +2260,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Dazaifu%20Tenmangu%204-7-1%20Saifu%20Dazaifu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Dazaifu%20Tenmangu%204-7-1%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2301,7 +2301,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Starbucks%20Coffee%20Dazaifutenmangu%20Omotesando%203-2-43%20Saifu%20Dazaifu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Starbucks%20Coffee%20Dazaifutenmangu%20Omotesando%203-2-43%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2342,7 +2342,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E5%85%89%E6%98%8E%E7%A6%85%E5%AF%BA%202-16-1%20Saifu%20Dazaifu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=%E5%85%89%E6%98%8E%E7%A6%85%E5%AF%BA%202-16-1%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2383,7 +2383,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Mitsui%20Shopping%20Park%20LaLaport%20Fukuoka%206-23-1%20Naka%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Mitsui%20Shopping%20Park%20LaLaport%20Fukuoka%206-23-1%20Naka%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2424,7 +2424,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Yufuin%20Station%20Yufuincho%20Kawakita%20Yufu%20Oita",
+          "url": "https://www.google.com/maps?q=Yufuin%20Station%20Yufuincho%20Kawakita%20Yufu%20Oita",
           "kind": "map"
         }
       ],
@@ -2465,7 +2465,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Yunotsubo%20Kaido%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "url": "https://www.google.com/maps?q=Yunotsubo%20Kaido%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
       ],
@@ -2506,7 +2506,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Kinrin%20Lake%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "url": "https://www.google.com/maps?q=Kinrin%20Lake%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
       ],
@@ -2547,7 +2547,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/YUFUIN%20FLORAL%20VILLAGE%201503-3%20Yufuincho%20Kawakami%20Yufu%20Oita",
+          "url": "https://www.google.com/maps?q=YUFUIN%20FLORAL%20VILLAGE%201503-3%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
       ],
@@ -2588,7 +2588,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Kushida%20Shrine%201-41%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Kushida%20Shrine%201-41%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2629,7 +2629,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Kawabata%20Shopping%20Arcade%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Kawabata%20Shopping%20Arcade%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2670,7 +2670,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Tenjin%20Underground%20Mall%20Tenjin%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Tenjin%20Underground%20Mall%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2711,7 +2711,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Kego%20Shrine%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Kego%20Shrine%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2752,7 +2752,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Kokura%20Castle%202-1%20Jonai%20Kokurakita%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Kokura%20Castle%202-1%20Jonai%20Kokurakita%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2787,13 +2787,13 @@
       "preview": null
     },
     {
-      "id": "place-門司港レトロ-8-31",
-      "title": "門司港レトロ｜8/31",
+      "id": "place-門司港復古區-8-31",
+      "title": "門司港復古區｜8/31",
       "type": "place",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Mojiko%20Retro%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Mojiko%20Retro%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2802,12 +2802,12 @@
         "html": "門司港"
       },
       "summary": {
-        "text": "門司港站周邊的港町散步區，可串接洋館、海峡プラザ與藍翼橋。",
-        "html": "門司港站周邊的港町散步區，可串接洋館、海峡プラザ與藍翼橋。"
+        "text": "門司港站周邊的港町散步區，可串接洋館、海峽廣場與藍翼橋。",
+        "html": "門司港站周邊的港町散步區，可串接洋館、海峽廣場與藍翼橋。"
       },
       "hours": {
-        "text": "戶外街區全天；海峡プラザ物販約 10:00-20:00，餐飲約 11:00-20:00。",
-        "html": "戶外街區全天；海峡プラザ物販約 10:00-20:00，餐飲約 11:00-20:00。"
+        "text": "戶外街區全天；海峽廣場物販約 10:00-20:00，餐飲約 11:00-20:00。",
+        "html": "戶外街區全天；海峽廣場物販約 10:00-20:00，餐飲約 11:00-20:00。"
       },
       "why": {
         "text": "燒咖喱後用 1.5-2 小時慢慢散步，節奏剛好。",
@@ -2818,8 +2818,8 @@
         "html": "港景、洋館、伴手禮、短咖啡休息。"
       },
       "nearby": {
-        "text": "BEAR FRUITS、旧門司税関、ブルーウィングもじ、門司港レトロ展望室。",
-        "html": "BEAR FRUITS、旧門司税関、ブルーウィングもじ、門司港レトロ展望室。"
+        "text": "BEAR FRUITS、舊門司海關、藍翼門司吊橋、門司港復古展望室。",
+        "html": "BEAR FRUITS、舊門司海關、藍翼門司吊橋、門司港復古展望室。"
       },
       "risk": {
         "text": "要在 16:20 後收束往門司港站，否則會壓到皿倉山日落。",
@@ -2828,13 +2828,13 @@
       "preview": null
     },
     {
-      "id": "place-旧門司税関-8-31",
-      "title": "旧門司税関｜8/31",
+      "id": "place-舊門司海關-8-31",
+      "title": "舊門司海關｜8/31",
       "type": "place",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Former%20Moji%20Customs%201-24%20Higashiminatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Former%20Moji%20Customs%201-24%20Higashiminatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2851,16 +2851,16 @@
         "html": "8/31 Mon 可；09:00-17:00，無休。"
       },
       "why": {
-        "text": "門司港レトロ裡最輕量、成本低、很適合順路看的室內點。",
-        "html": "門司港レトロ裡最輕量、成本低、很適合順路看的室內點。"
+        "text": "門司港復古區裡最輕量、成本低、很適合順路看的室內點。",
+        "html": "門司港復古區裡最輕量、成本低、很適合順路看的室內點。"
       },
       "bestFor": {
         "text": "建築、短暫避暑、關門海峽視角。",
         "html": "建築、短暫避暑、關門海峽視角。"
       },
       "nearby": {
-        "text": "ブルーウィングもじ、海峡プラザ、門司港レトロ展望室。",
-        "html": "ブルーウィングもじ、海峡プラザ、門司港レトロ展望室。"
+        "text": "藍翼門司吊橋、海峽廣場、門司港復古展望室。",
+        "html": "藍翼門司吊橋、海峽廣場、門司港復古展望室。"
       },
       "risk": {
         "text": "17:00 關門，需放在皿倉山前。",
@@ -2869,13 +2869,13 @@
       "preview": null
     },
     {
-      "id": "place-ブルーウィングもじ-8-31",
-      "title": "ブルーウィングもじ｜8/31",
+      "id": "place-藍翼門司吊橋-8-31",
+      "title": "藍翼門司吊橋｜8/31",
       "type": "place",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Blue%20Wing%20Moji%204-1%20Minatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Blue%20Wing%20Moji%204-1%20Minatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2900,8 +2900,8 @@
         "html": "港景、橋梁開合、短影片素材。"
       },
       "nearby": {
-        "text": "門司港レトロ、旧門司税関、海峡プラザ。",
-        "html": "門司港レトロ、旧門司税関、海峡プラザ。"
+        "text": "門司港復古區、舊門司海關、海峽廣場。",
+        "html": "門司港復古區、舊門司海關、海峽廣場。"
       },
       "risk": {
         "text": "錯過 16:00 就不等下一輪，直接去皿倉山。",
@@ -2910,13 +2910,13 @@
       "preview": null
     },
     {
-      "id": "place-門司港レトロ展望室-8-31",
-      "title": "門司港レトロ展望室｜8/31",
+      "id": "place-門司港復古展望室-8-31",
+      "title": "門司港復古展望室｜8/31",
       "type": "place",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Mojiko%20Retro%20Observation%20Room%201-32%20Higashiminatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Mojiko%20Retro%20Observation%20Room%201-32%20Higashiminatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2941,8 +2941,8 @@
         "html": "室內展望、夕景、天氣不好時保底。"
       },
       "nearby": {
-        "text": "門司港レトロ、旧門司税関、ブルーウィングもじ。",
-        "html": "門司港レトロ、旧門司税関、ブルーウィングもじ。"
+        "text": "門司港復古區、舊門司海關、藍翼門司吊橋。",
+        "html": "門司港復古區、舊門司海關、藍翼門司吊橋。"
       },
       "risk": {
         "text": "若皿倉山能見度好，這裡不必特別上去，避免壓縮上山時間。",
@@ -2957,7 +2957,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Sarakurayama%20Observatory%20Kitakyushu%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Sarakurayama%20Observatory%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2982,8 +2982,8 @@
         "html": "日落、藍調、夜景、Vlog ending。"
       },
       "nearby": {
-        "text": "JR 八幡站、皿倉山ケーブルカー山麓駅。",
-        "html": "JR 八幡站、皿倉山ケーブルカー山麓駅。"
+        "text": "JR 八幡站、皿倉山纜車山麓站。",
+        "html": "JR 八幡站、皿倉山纜車山麓站。"
       },
       "risk": {
         "text": "能見度比營業時間更重要；上山前看 live camera / 天氣，差就不要硬上。",
@@ -2998,7 +2998,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Hakata%20Station%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Hakata%20Station%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -3023,12 +3023,12 @@
         "html": "大行李寄放、回程領行李、轉往飯店。"
       },
       "nearby": {
-        "text": "博多站筑紫口、Oriental Hotel、地下鐵七隈線 / 空港線。",
-        "html": "博多站筑紫口、Oriental Hotel、地下鐵七隈線 / 空港線。"
+        "text": "博多站筑紫口、Oriental Hotel、地下鐵七隈線 / 機場線。",
+        "html": "博多站筑紫口、Oriental Hotel、地下鐵七隈線 / 機場線。"
       },
       "risk": {
-        "text": "大型 locker 可能滿；早上優先找 AMU Plaza B1F / 3F / DEITOS B1F / DEITOS Annex 1F。JR 一時預かり 10:30 才開始，不適合 07:50 集合。",
-        "html": "大型 locker 可能滿；早上優先找 AMU Plaza B1F / 3F / DEITOS B1F / DEITOS Annex 1F。JR 一時預かり 10:30 才開始，不適合 07:50 集合。"
+        "text": "大型 locker 可能滿；早上優先找 AMU Plaza B1F / 3F / Deitos B1F / Deitos Annex 1F。JR 臨時寄物櫃台 10:30 才開始，不適合 07:50 集合。",
+        "html": "大型 locker 可能滿；早上優先找 AMU Plaza B1F / 3F / Deitos B1F / Deitos Annex 1F。JR 臨時寄物櫃台 10:30 才開始，不適合 07:50 集合。"
       },
       "preview": null
     },
@@ -3039,7 +3039,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Kamishikimi%20Kumanoimasu%20Shrine%202611%20Kamishikimi%20Takamori%20Kumamoto",
+          "url": "https://www.google.com/maps?q=Kamishikimi%20Kumanoimasu%20Shrine%202611%20Kamishikimi%20Takamori%20Kumamoto",
           "kind": "map"
         }
       ],
@@ -3080,7 +3080,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Takachiho%20Gorge%20Mukoyama%20Takachiho%20Miyazaki",
+          "url": "https://www.google.com/maps?q=Takachiho%20Gorge%20Mukoyama%20Takachiho%20Miyazaki",
           "kind": "map"
         }
       ],
@@ -3121,7 +3121,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Amanoiwato%20Shrine%20107%20Iwato%20Takachiho%20Miyazaki",
+          "url": "https://www.google.com/maps?q=Amanoiwato%20Shrine%20107%20Iwato%20Takachiho%20Miyazaki",
           "kind": "map"
         }
       ],
@@ -3162,7 +3162,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Iki%20Shrine%201-9-3%20Ikinomatsubara%20Nishi%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Iki%20Shrine%201-9-3%20Ikinomatsubara%20Nishi%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -3203,7 +3203,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Hakoshima%20Shrine%2086%20Nijo%20Hamakubo%20Itoshima%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Hakoshima%20Shrine%2086%20Nijo%20Hamakubo%20Itoshima%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3249,7 +3249,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Sakurai%20Futamigaura%20Meotoiwa%20Shima%20Sakurai%20Itoshima%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Sakurai%20Futamigaura%20Meotoiwa%20Shima%20Sakurai%20Itoshima%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -3290,7 +3290,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/PALM%20BEACH%20THE%20GARDENS%20285%20Nishiura%20Nishi%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=PALM%20BEACH%20THE%20GARDENS%20285%20Nishiura%20Nishi%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3336,7 +3336,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Fukuoka%20PARCO%202-11-1%20Tenjin%20Chuo%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Fukuoka%20PARCO%202-11-1%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3366,8 +3366,8 @@
         "html": "衣服、百貨、地下街、BicCamera 電子產品初看。"
       },
       "nearby": {
-        "text": "元祖博多めんたい重、REC COFFEE、COFFEE COUNTY、CROSS Life。",
-        "html": "元祖博多めんたい重、REC COFFEE、COFFEE COUNTY、CROSS Life。"
+        "text": "元祖博多明太重、REC COFFEE、COFFEE COUNTY、CROSS Life。",
+        "html": "元祖博多明太重、REC COFFEE、COFFEE COUNTY、CROSS Life。"
       },
       "risk": {
         "text": "天神好逛但容易失控，12:20 要收束去午餐或博多站。",
@@ -3382,7 +3382,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Ming%20Hakata%20Station%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Ming%20Hakata%20Station%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3396,12 +3396,12 @@
         "html": "博多站"
       },
       "summary": {
-        "text": "最後採買主力放博多站マイング / 博多デイトス，機場只當補買。",
-        "html": "最後採買主力放博多站マイング / 博多デイトス，機場只當補買。"
+        "text": "最後採買主力放博多站 Ming / 博多 Deitos，機場只當補買。",
+        "html": "最後採買主力放博多站 Ming / 博多 Deitos，機場只當補買。"
       },
       "hours": {
-        "text": "9/3 Thu 可；マイング 09:00-21:00，博多通りもん博多デイトス店 08:00-21:00。",
-        "html": "9/3 Thu 可；マイング 09:00-21:00，博多通りもん博多デイトス店 08:00-21:00。"
+        "text": "9/3 Thu 可；Ming 09:00-21:00，博多通りもん博多 Deitos 店 08:00-21:00。",
+        "html": "9/3 Thu 可；Ming 09:00-21:00，博多通りもん博多 Deitos 店 08:00-21:00。"
       },
       "why": {
         "text": "比機場選擇多，且買完可以回 CROSS Life 領行李。",
@@ -3412,8 +3412,8 @@
         "html": "努努鶏、博多通りもん、明太子系、車站伴手禮。"
       },
       "nearby": {
-        "text": "FUGLEN FUKUOKA、ヨドバシ博多、博多站。",
-        "html": "FUGLEN FUKUOKA、ヨドバシ博多、博多站。"
+        "text": "FUGLEN FUKUOKA、Yodobashi 博多、博多站。",
+        "html": "FUGLEN FUKUOKA、Yodobashi 博多、博多站。"
       },
       "risk": {
         "text": "買太多要考慮行李重量；冷藏 / 冷凍品要確認攜帶方式。",
@@ -3422,13 +3422,13 @@
       "preview": null
     },
     {
-      "id": "place-ヨドバシ博多-9-3",
-      "title": "ヨドバシ博多｜9/3",
+      "id": "place-yodobashi-博多-9-3",
+      "title": "Yodobashi 博多｜9/3",
       "type": "place",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Yodobashi%20Camera%20Multimedia%20Hakata%206-12%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps?q=Yodobashi%20Camera%20Multimedia%20Hakata%206-12%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3446,8 +3446,8 @@
         "html": "博多站筑紫口旁大型電器店，下午買電子產品的保底點。"
       },
       "hours": {
-        "text": "9/3 Thu 可；ヨドバシカメラ 09:30-22:00。",
-        "html": "9/3 Thu 可；ヨドバシカメラ 09:30-22:00。"
+        "text": "9/3 Thu 可；Yodobashi Camera 09:30-22:00。",
+        "html": "9/3 Thu 可；Yodobashi Camera 09:30-22:00。"
       },
       "why": {
         "text": "若天神 BicCamera 沒買齊，轉博多站後還有時間補電子產品。",
@@ -3458,8 +3458,8 @@
         "html": "電子產品、相機周邊、刮鬍刀、耗材。"
       },
       "nearby": {
-        "text": "博多站、FUGLEN FUKUOKA、マイング。",
-        "html": "博多站、FUGLEN FUKUOKA、マイング。"
+        "text": "博多站、FUGLEN FUKUOKA、Ming。",
+        "html": "博多站、FUGLEN FUKUOKA、Ming。"
       },
       "risk": {
         "text": "16:10 後要回飯店領行李，不能在退稅 / 結帳拖太久。",
@@ -3468,13 +3468,13 @@
       "preview": null
     },
     {
-      "id": "place-福岡空港国際線ショッピング-9-3",
-      "title": "福岡空港国際線ショッピング｜9/3",
+      "id": "place-福岡機場國際線購物-9-3",
+      "title": "福岡機場國際線購物｜9/3",
       "type": "place",
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Fukuoka%20Airport%20International%20Terminal",
+          "url": "https://www.google.com/maps?q=Fukuoka%20Airport%20International%20Terminal",
           "kind": "map"
         },
         {
@@ -3484,8 +3484,8 @@
         }
       ],
       "area": {
-        "text": "福岡空港国際線",
-        "html": "福岡空港国際線"
+        "text": "福岡機場國際線",
+        "html": "福岡機場國際線"
       },
       "summary": {
         "text": "機場最後補買與免稅保底，不當主力採買。",
@@ -3609,8 +3609,8 @@
         "html": "約 45-50 分鐘。"
       },
       "decision": {
-        "text": "早上要準時進太宰府，優先搭電車；想少轉乘再考慮博多バスターミナル到太宰府ライナーバス「旅人」。",
-        "html": "早上要準時進太宰府，優先搭電車；想少轉乘再考慮博多バスターミナル到太宰府ライナーバス「旅人」。"
+        "text": "早上要準時進太宰府，優先搭電車；想少轉乘再考慮博多巴士總站到太宰府直達巴士「旅人」。",
+        "html": "早上要準時進太宰府，優先搭電車；想少轉乘再考慮博多巴士總站到太宰府直達巴士「旅人」。"
       },
       "buffer": {
         "text": "08:50 出發，09:40 抵達太宰府。",
@@ -3654,8 +3654,8 @@
       "preview": null
     },
     {
-      "id": "transport-8-29-由布院現地移動",
-      "title": "8/29 由布院現地移動",
+      "id": "transport-8-29-由布院當地移動",
+      "title": "8/29 由布院當地移動",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3675,8 +3675,8 @@
         "html": "由布院站 → 湯之坪街道 → 金鱗湖 → 花野そば / Floral Village → 由布院站。"
       },
       "duration": {
-        "text": "現地約 7 小時。",
-        "html": "現地約 7 小時。"
+        "text": "當地約 7 小時。",
+        "html": "當地約 7 小時。"
       },
       "decision": {
         "text": "不排遠點，下午往車站方向收斂。",
@@ -3772,16 +3772,16 @@
         "html": "門司港下午收尾後前往皿倉山，看 18:44 日落後的夜景再回博多。"
       },
       "operator": {
-        "text": "JR 九州 / 皿倉山ケーブルカー / 免費接駁巴士",
-        "html": "JR 九州 / 皿倉山ケーブルカー / 免費接駁巴士"
+        "text": "JR 九州 / 皿倉山纜車 / 免費接駁巴士",
+        "html": "JR 九州 / 皿倉山纜車 / 免費接駁巴士"
       },
       "route": {
-        "text": "門司港 → 八幡；JR 八幡站搭免費接駁到皿倉山ケーブルカー山麓駅；纜車 + 坡車上山；下山後八幡 → 博多。",
-        "html": "門司港 → 八幡；JR 八幡站搭免費接駁到皿倉山ケーブルカー山麓駅；纜車 + 坡車上山；下山後八幡 → 博多。"
+        "text": "門司港 → 八幡；JR 八幡站搭免費接駁到皿倉山纜車山麓站；纜車 + 坡道車上山；下山後八幡 → 博多。",
+        "html": "門司港 → 八幡；JR 八幡站搭免費接駁到皿倉山纜車山麓站；纜車 + 坡道車上山；下山後八幡 → 博多。"
       },
       "duration": {
-        "text": "門司港到八幡約 30 分鐘；八幡站到山麓駅接駁約 10 分鐘；纜車 + 坡車約 10 分鐘；八幡回博多約 40-75 分鐘依是否轉小倉新幹線。",
-        "html": "門司港到八幡約 30 分鐘；八幡站到山麓駅接駁約 10 分鐘；纜車 + 坡車約 10 分鐘；八幡回博多約 40-75 分鐘依是否轉小倉新幹線。"
+        "text": "門司港到八幡約 30 分鐘；八幡站到山麓站接駁約 10 分鐘；纜車 + 坡道車約 10 分鐘；八幡回博多約 40-75 分鐘依是否轉小倉新幹線。",
+        "html": "門司港到八幡約 30 分鐘；八幡站到山麓站接駁約 10 分鐘；纜車 + 坡道車約 10 分鐘；八幡回博多約 40-75 分鐘依是否轉小倉新幹線。"
       },
       "decision": {
         "text": "17:05 或 17:25 接駁都可；建議抓 17:05，比較從容等日落。回程累的話用八幡 → 小倉 → 博多快線，想省錢就 JR 直達。",
@@ -3844,8 +3844,8 @@
         "html": "福岡市區 / 下山門 / 筑前前原"
       },
       "summary": {
-        "text": "9/2 糸島日前半用地下鐵空港線直通 JR 筑肥線，先停下山門，再到筑前前原叫計程車。",
-        "html": "9/2 糸島日前半用地下鐵空港線直通 JR 筑肥線，先停下山門，再到筑前前原叫計程車。"
+        "text": "9/2 糸島日前半用地下鐵機場線直通 JR 筑肥線，先停下山門，再到筑前前原叫計程車。",
+        "html": "9/2 糸島日前半用地下鐵機場線直通 JR 筑肥線，先停下山門，再到筑前前原叫計程車。"
       },
       "operator": {
         "text": "福岡市地下鐵 / JR 筑肥線",
@@ -3883,8 +3883,8 @@
         "html": "9/2 真正需要計程車補點的是筑前前原到箱島、箱島到塚本鮮魚店、塚本到櫻井二見浦。"
       },
       "operator": {
-        "text": "西日本タクシー / 昭和タクシー / Uber Taxi",
-        "html": "西日本タクシー / 昭和タクシー / Uber Taxi"
+        "text": "西日本計程車 / 昭和計程車 / Uber Taxi",
+        "html": "西日本計程車 / 昭和計程車 / Uber Taxi"
       },
       "route": {
         "text": "筑前前原北口 → 箱島神社 → 塚本鮮魚店 本店 → 櫻井二見浦。",
@@ -3905,8 +3905,8 @@
       "preview": null
     },
     {
-      "id": "transport-9-2-二見浦-天神-博多-west-coast-liner",
-      "title": "9/2 二見浦 → 天神 / 博多 West Coast Liner",
+      "id": "transport-9-2-二見浦-天神-博多-西海岸巴士",
+      "title": "9/2 二見浦 → 天神 / 博多 西海岸巴士",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3914,16 +3914,16 @@
         "html": "糸島 / 二見浦 / 天神 / 博多"
       },
       "summary": {
-        "text": "West Coast Liner 是昭和巴士從二見浦海岸直回天神 / 博多的高速巴士，不是火車。",
-        "html": "West Coast Liner 是昭和巴士從二見浦海岸直回天神 / 博多的高速巴士，不是火車。"
+        "text": "West Coast Liner（西海岸巴士）是昭和巴士從二見浦海岸直回天神 / 博多的高速巴士，不是火車。",
+        "html": "West Coast Liner（西海岸巴士）是昭和巴士從二見浦海岸直回天神 / 博多的高速巴士，不是火車。"
       },
       "operator": {
-        "text": "昭和バス",
-        "html": "昭和バス"
+        "text": "昭和巴士",
+        "html": "昭和巴士"
       },
       "route": {
-        "text": "二見ヶ浦・PALMBEACH前 → 天神四丁目 / 天神三丁目 → 博多バスターミナル。",
-        "html": "二見ヶ浦・PALMBEACH前 → 天神四丁目 / 天神三丁目 → 博多バスターミナル。"
+        "text": "二見ヶ浦・PALMBEACH前 → 天神四丁目 / 天神三丁目 → 博多巴士總站。",
+        "html": "二見ヶ浦・PALMBEACH前 → 天神四丁目 / 天神三丁目 → 博多巴士總站。"
       },
       "duration": {
         "text": "二見浦到天神約 55 分鐘，到博多約 70 分鐘。",
@@ -3940,25 +3940,25 @@
       "preview": null
     },
     {
-      "id": "transport-9-3-cross-life-福岡空港国際線",
-      "title": "9/3 CROSS Life → 福岡空港国際線",
+      "id": "transport-9-3-cross-life-福岡機場國際線",
+      "title": "9/3 CROSS Life → 福岡機場國際線",
       "type": "transport",
       "actions": [],
       "area": {
-        "text": "春吉 / 福岡空港国際線",
-        "html": "春吉 / 福岡空港国際線"
+        "text": "春吉 / 福岡機場國際線",
+        "html": "春吉 / 福岡機場國際線"
       },
       "summary": {
         "text": "最後一天 17:00 從 CROSS Life 領行李後前往福岡機場國際線。",
         "html": "最後一天 17:00 從 CROSS Life 領行李後前往福岡機場國際線。"
       },
       "operator": {
-        "text": "計程車 / 福岡市地下鐵 / 福岡空港連絡バス",
-        "html": "計程車 / 福岡市地下鐵 / 福岡空港連絡バス"
+        "text": "計程車 / 福岡市地下鐵 / 福岡機場接駁巴士",
+        "html": "計程車 / 福岡市地下鐵 / 福岡機場接駁巴士"
       },
       "route": {
-        "text": "首選計程車直接到國際線；省錢版為地下鐵到福岡空港國內線，再搭免費接駁到國際線；博多站也有往國際線巴士。",
-        "html": "首選計程車直接到國際線；省錢版為地下鐵到福岡空港國內線，再搭免費接駁到國際線；博多站也有往國際線巴士。"
+        "text": "首選計程車直接到國際線；省錢版為地下鐵到福岡機場國內線，再搭免費接駁到國際線；博多站也有往國際線巴士。",
+        "html": "首選計程車直接到國際線；省錢版為地下鐵到福岡機場國內線，再搭免費接駁到國際線；博多站也有往國際線巴士。"
       },
       "duration": {
         "text": "計程車約 15-25 分鐘；地鐵加航廈接駁抓 35-50 分鐘；博多站巴士到國際線約 18 分鐘但需先到博多站。",

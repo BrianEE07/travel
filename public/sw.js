@@ -1,4 +1,4 @@
-const VERSION = 'wei-travel-v16';
+const VERSION = 'wei-travel-v17';
 const PAGE_CACHE = `${VERSION}-pages`;
 const ASSET_CACHE = `${VERSION}-assets`;
 const CORE = ['/', '/fukuoka-2026/', '/offline/', '/home-travel-map.jpg', '/hero-fukuoka.png', '/briefing-fukuoka.jpg', '/icons/icon-192.png', '/icons/icon-512.png', '/icons/arrow-up-right.svg', '/manifest.webmanifest'];
