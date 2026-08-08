@@ -1,7 +1,7 @@
-const VERSION = 'wei-travel-v15';
+const VERSION = 'wei-travel-v16';
 const PAGE_CACHE = `${VERSION}-pages`;
 const ASSET_CACHE = `${VERSION}-assets`;
-const CORE = ['/', '/fukuoka-2026/', '/offline/', '/home-travel-map.jpg', '/hero-fukuoka.png', '/briefing-fukuoka.jpg', '/icons/icon-192.png', '/icons/icon-512.png', '/manifest.webmanifest'];
+const CORE = ['/', '/fukuoka-2026/', '/offline/', '/home-travel-map.jpg', '/hero-fukuoka.png', '/briefing-fukuoka.jpg', '/icons/icon-192.png', '/icons/icon-512.png', '/icons/arrow-up-right.svg', '/manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(ASSET_CACHE).then((cache) => cache.addAll(CORE)));

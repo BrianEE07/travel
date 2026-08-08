@@ -62,34 +62,14 @@ const socialImage = new URL(image, Astro.site);
   button { font: inherit; }
   a { color: var(--matcha-deep); text-underline-offset: 0.2em; }
   .external-arrow {
-    position: relative;
-    width: .72em;
-    height: .72em;
+    width: .82em;
+    height: .82em;
     display: inline-block;
     flex: 0 0 auto;
-    color: inherit;
-    font-style: normal;
-  }
-  .external-arrow::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: .48em;
-    height: .48em;
-    border-top: 1px solid currentColor;
-    border-right: 1px solid currentColor;
-  }
-  .external-arrow::after {
-    content: '';
-    position: absolute;
-    top: .08em;
-    right: -.02em;
-    width: .88em;
-    height: 1px;
     background: currentColor;
-    transform: rotate(-45deg);
-    transform-origin: right center;
+    font-style: normal;
+    -webkit-mask: url('/icons/arrow-up-right.svg') center / contain no-repeat;
+    mask: url('/icons/arrow-up-right.svg') center / contain no-repeat;
   }
   :focus-visible { outline: 3px solid rgba(182, 83, 61, 0.38); outline-offset: 3px; }
   ::selection { background: rgba(182, 83, 61, 0.22); }

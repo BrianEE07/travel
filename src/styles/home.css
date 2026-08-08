@@ -113,7 +113,6 @@
   .journeys-heading { margin-bottom: 28px; }
   .journey-copy { padding: 24px 22px; }
   .journey-summary { min-height: 0; }
-  .journey-footer { align-items: flex-start; flex-direction: column; gap: 8px; }
   .intro-brand { --intro-mark-size: 50px; gap: 13px; font-size: 25px; }
 }
 

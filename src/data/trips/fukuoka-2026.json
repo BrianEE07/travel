@@ -13,8 +13,8 @@
   "end": "2026-09-03",
   "status": "active",
   "noindex": true,
-  "updatedAt": "2026-08-08T14:08:23.825Z",
-  "sourceHash": "87e875ec1fe3721c",
+  "updatedAt": "2026-08-08T14:14:37.781Z",
+  "sourceHash": "d7316953d0302ff7",
   "locations": [
     "福岡",
     "太宰府",
@@ -1300,7 +1300,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/%E4%B8%AD%E6%B4%B2%20%E5%B1%8B%E5%8F%B0%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E4%B8%AD%E6%B4%B2%E5%B1%8B%E5%8F%B0%201%20Chome-7%20Nakasu%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -2129,7 +2129,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Yumeyumedori%20Ming%20Hakata%20Station%20Fukuoka",
+          "url": "https://www.google.com/maps/place/%E5%8A%AA%E5%8A%AA%E9%B6%8F%20%E5%8D%9A%E5%A4%9A%E3%83%9E%E3%82%A4%E3%83%B3%E3%82%B0%E5%BA%97%201-1%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
       ],
@@ -3290,7 +3290,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Palm%20Beach%20The%20Gardens%20Nishinoura%20Nishi%20Ward%20Fukuoka",
+          "url": "https://www.google.com/maps/place/PALM%20BEACH%20THE%20GARDENS%20285%20Nishiura%20Nishi%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
@@ -3336,7 +3336,7 @@
       "actions": [
         {
           "label": "Google Maps",
-          "url": "https://www.google.com/maps/place/Tenjin%20Shopping%20Area%20Fukuoka",
+          "url": "https://www.google.com/maps/place/Fukuoka%20PARCO%202-11-1%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         },
         {
