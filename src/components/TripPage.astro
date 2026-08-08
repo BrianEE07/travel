@@ -346,7 +346,8 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
     }
 
     function setActiveDay(date: string, smooth = true) {
-      if (!date || date === activeDay) return;
+      if (!date) return;
+      const changed = date !== activeDay;
       activeDay = date;
       let current: HTMLAnchorElement | undefined;
       for (const link of dayLinks) {
@@ -359,7 +360,11 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
           link.removeAttribute('aria-current');
         }
       }
-      if (current) centerDayLink(current, smooth);
+      const focusedDay = document.activeElement instanceof HTMLAnchorElement && document.activeElement.matches('.day-nav-date')
+        ? document.activeElement
+        : null;
+      if (focusedDay && focusedDay.dataset.day !== date) focusedDay.blur();
+      if (current && changed) centerDayLink(current, smooth);
     }
 
     function updateActiveDay() {

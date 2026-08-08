@@ -58,8 +58,8 @@
 
 .home-intro { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; overflow: hidden; color: var(--ink); background: var(--paper); pointer-events: auto; visibility: hidden; opacity: 0; }
 .home-intro::before { content: ''; position: absolute; inset: 0; opacity: .26; background: url('/home-travel-map.jpg') center / cover; }
-.intro-brand { position: relative; display: flex; align-items: center; gap: clamp(16px, 2vw, 26px); font: 500 clamp(30px, 5vw, 66px)/1 var(--serif); letter-spacing: -.04em; white-space: nowrap; }
-.intro-mark { width: clamp(60px, 8vw, 100px); height: clamp(60px, 8vw, 100px); display: grid; place-items: center; border: 1px solid var(--vermilion); border-radius: 50%; color: var(--vermilion); font-size: .55em; letter-spacing: 0; }
+.intro-brand { --intro-mark-size: clamp(68px, 8vw, 100px); position: relative; display: flex; align-items: center; gap: clamp(16px, 2vw, 26px); font: 500 clamp(30px, 5vw, 66px)/1 var(--serif); letter-spacing: -.04em; white-space: nowrap; }
+.intro-mark { width: var(--intro-mark-size); height: var(--intro-mark-size); display: grid; place-items: center; border: 1px solid var(--vermilion); border-radius: 50%; color: var(--vermilion); font-size: calc(var(--intro-mark-size) * .56); line-height: 1; letter-spacing: 0; }
 .home-intro, .home-stage { --intro-duration: 1.65s; --intro-ease: cubic-bezier(.4,0,.2,1); }
 .home-intro.is-playing { animation: intro-curtain var(--intro-duration) var(--intro-ease) both; }
 .home-intro.is-playing .intro-brand { animation: intro-brand var(--intro-duration) var(--intro-ease) both; }
@@ -114,8 +114,7 @@
   .journey-copy { padding: 24px 22px; }
   .journey-summary { min-height: 0; }
   .journey-footer { align-items: flex-start; flex-direction: column; gap: 8px; }
-  .intro-brand { gap: 13px; font-size: 25px; }
-  .intro-mark { width: 54px; height: 54px; }
+  .intro-brand { --intro-mark-size: 64px; gap: 13px; font-size: 25px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
