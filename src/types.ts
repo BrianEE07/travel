@@ -30,6 +30,7 @@ export interface StayEntity extends BaseEntity {
   checkIn: RichText;
   checkOut: RichText;
   room: RichText;
+  price: RichText;
   access: RichText;
   contact: RichText;
   policy: RichText;
@@ -62,6 +63,7 @@ export interface TransportEntity extends BaseEntity {
   duration: RichText;
   decision: RichText;
   buffer: RichText;
+  price?: RichText;
 }
 
 export type Entity = StayEntity | FoodEntity | PlaceEntity | TransportEntity;

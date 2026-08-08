@@ -40,8 +40,13 @@ async function loadPreview(url) {
     const html = (await response.text()).slice(0, 500_000);
     const title = meta(html, 'og:title') || decodeHtml(html.match(/<title[^>]*>([^<]+)<\/title>/i)?.[1] ?? '');
     const description = meta(html, 'og:description') || meta(html, 'description');
-    const image = meta(html, 'og:image');
-    return title || description || image ? { title, description, image: image.startsWith('https://') ? image : '' } : null;
+    const imageValue = meta(html, 'og:image');
+    let image = '';
+    try {
+      const resolvedImage = new URL(imageValue, response.url);
+      if (resolvedImage.protocol === 'https:') image = resolvedImage.href;
+    } catch { /* no usable preview image */ }
+    return title || description || image ? { title, description, image } : null;
   } catch {
     return null;
   } finally {

@@ -71,6 +71,7 @@ Notes：
 - CheckIn：2026-08-27 15:00
 - CheckOut：2026-08-28 11:00
 - Room：雙人房
+- Price：JPY 8,800（2 人 / 1 晚，已付）
 - Access：車站步行 3 分鐘
 - Contact：+81-92-000-0000
 - Policy：前一天可取消
@@ -110,6 +111,7 @@ Private：
 - Operator：EVA Air
 - Route：2026-08-27 BR102 TPE → FUK
 - Duration：2 小時
+- Price：TWD 12,000（2 人合計，已付）
 - Decision：託運 1PC
 - Buffer：提早 3 小時抵達
 
@@ -146,6 +148,9 @@ test('parses schema 2 into structured public trip data', () => {
   assert.equal(trip.days[1].summary, '前往太宰府散步。');
   const stay = trip.entities.find((entity) => entity.type === 'stay');
   assert.equal(stay.checkIn.text, '2026-08-27 15:00');
+  assert.equal(stay.price.text, 'JPY 8,800（2 人 / 1 晚，已付）');
+  const transport = trip.entities.find((entity) => entity.type === 'transport');
+  assert.equal(transport.price.text, 'TWD 12,000（2 人合計，已付）');
   assert.equal('details' in stay, false);
 });
 
@@ -185,9 +190,10 @@ test('rejects private fingerprints reintroduced into public output', () => {
   assert.throws(() => parseTrip(fixture.replace('- Summary：安靜的小旅店。', '- Summary：AB12345678')), /source secret fingerprint/);
 });
 
-test('keeps public operational fares readable without exposing a private payment value', () => {
+test('keeps explicitly public prices readable without exposing a private payment value', () => {
   assert.doesNotThrow(() => parseTrip(fixture.replace('- Buffer：提早 3 小時抵達', '- Buffer：機場巴士單程約 1,150 日圓')));
-  assert.throws(() => parseTrip(fixture.replace('- Summary：安靜的小旅店。', '- Summary：房價 JPY 12,345')), /visible price|source secret fingerprint/);
+  assert.doesNotThrow(() => parseTrip(fixture.replace('JPY 8,800（2 人 / 1 晚，已付）', 'JPY 9,600（2 人 / 1 晚，現場付款）')));
+  assert.throws(() => parseTrip(fixture.replace('JPY 8,800（2 人 / 1 晚，已付）', 'JPY 12,345（2 人 / 1 晚，已付）')), /source secret fingerprint/);
 });
 
 test('does not fingerprint generic private dates', () => {
@@ -211,4 +217,9 @@ test('fails a public scan when a secret-shaped value is reintroduced', () => {
   assert.ok(findings.includes('sensitive field label'));
   assert.ok(findings.includes('management URL parameter'));
   assert.ok(findings.includes('visible price'));
+});
+
+test('allows only an explicitly allowlisted accommodation price through the public scan', () => {
+  assert.deepEqual(scanPublicPayload('住宿價格 JPY 8,800（2 人 / 1 晚，已付）', [], ['JPY 8,800（2 人 / 1 晚，已付）']), []);
+  assert.ok(scanPublicPayload('其他金額 JPY 9,999', [], ['JPY 8,800（2 人 / 1 晚，已付）']).includes('visible price'));
 });

@@ -289,10 +289,10 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
     const entityMap = new Map(entities.map((entity: any) => [entity.id, entity]));
     const typeLabels: Record<string, string> = { stay: '住宿', food: '餐飲', place: '景點', transport: '交通' };
     const detailFields: Record<string, Array<[string, string]>> = {
-      stay: [['area', '區域'], ['checkIn', '入住'], ['checkOut', '退房'], ['room', '房型'], ['access', '交通'], ['contact', '聯絡'], ['policy', '取消政策']],
+      stay: [['area', '區域'], ['checkIn', '入住'], ['checkOut', '退房'], ['room', '房型'], ['price', '價格'], ['access', '交通'], ['contact', '聯絡'], ['policy', '取消政策']],
       food: [['area', '區域'], ['hours', '營業'], ['reservation', '訂位'], ['reservationTime', '時間'], ['party', '人數'], ['why', '安排原因'], ['risk', '留意'], ['backup', '備案']],
       place: [['area', '區域'], ['hours', '開放'], ['why', '安排原因'], ['bestFor', '適合'], ['nearby', '附近'], ['risk', '留意']],
-      transport: [['area', '區域'], ['operator', '營運'], ['route', '路線'], ['duration', '時間'], ['decision', '方案'], ['buffer', '緩衝']],
+      transport: [['area', '區域'], ['operator', '營運'], ['route', '路線'], ['duration', '時間'], ['price', '價格'], ['decision', '方案'], ['buffer', '緩衝']],
     };
     const reservationLabels: Record<string, string> = { done: '已完成', none: '免訂位', needed: '需要訂位', tbd: '待確認' };
     const shareButton = document.querySelector<HTMLButtonElement>('#copy-trip-link');

@@ -21,9 +21,9 @@ const ENTITY_SECTIONS = new Map([
 
 const ENTITY_FIELDS = {
   stay: {
-    allowed: ['Area', 'Summary', 'Map', 'Official', 'CheckIn', 'CheckOut', 'Room', 'Access', 'Contact', 'Policy'],
-    required: ['Area', 'Summary', 'Map', 'CheckIn', 'CheckOut', 'Room', 'Access', 'Contact', 'Policy'],
-    properties: { Area: 'area', Summary: 'summary', CheckIn: 'checkIn', CheckOut: 'checkOut', Room: 'room', Access: 'access', Contact: 'contact', Policy: 'policy' },
+    allowed: ['Area', 'Summary', 'Map', 'Official', 'CheckIn', 'CheckOut', 'Room', 'Price', 'Access', 'Contact', 'Policy'],
+    required: ['Area', 'Summary', 'Map', 'CheckIn', 'CheckOut', 'Room', 'Price', 'Access', 'Contact', 'Policy'],
+    properties: { Area: 'area', Summary: 'summary', CheckIn: 'checkIn', CheckOut: 'checkOut', Room: 'room', Price: 'price', Access: 'access', Contact: 'contact', Policy: 'policy' },
   },
   food: {
     allowed: ['Area', 'Summary', 'Map', 'Official', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Why', 'Risk', 'Backup'],
@@ -36,9 +36,9 @@ const ENTITY_FIELDS = {
     properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Why: 'why', BestFor: 'bestFor', Nearby: 'nearby', Risk: 'risk' },
   },
   transport: {
-    allowed: ['Area', 'Summary', 'Official', 'Operator', 'Route', 'Duration', 'Decision', 'Buffer'],
+    allowed: ['Area', 'Summary', 'Official', 'Operator', 'Route', 'Duration', 'Decision', 'Buffer', 'Price'],
     required: ['Area', 'Summary', 'Operator', 'Route', 'Duration', 'Decision', 'Buffer'],
-    properties: { Area: 'area', Summary: 'summary', Operator: 'operator', Route: 'route', Duration: 'duration', Decision: 'decision', Buffer: 'buffer' },
+    properties: { Area: 'area', Summary: 'summary', Operator: 'operator', Route: 'route', Duration: 'duration', Decision: 'decision', Buffer: 'buffer', Price: 'price' },
   },
 };
 
@@ -511,8 +511,12 @@ function validateDateSets(expected, itinerary, days, errors) {
   check('Daily Plan', days.map((day) => day.date));
 }
 
-export function scanPublicPayload(payload, secrets = []) {
+export function scanPublicPayload(payload, secrets = [], allowedPrices = []) {
   const serialized = typeof payload === 'string' ? payload : JSON.stringify(payload);
+  let priceScanPayload = serialized;
+  for (const price of allowedPrices) {
+    if (price) priceScanPayload = priceScanPayload.split(price).join('');
+  }
   const findings = [];
   const patterns = [
     ['sensitive field label', /訂房編號|訂位編號|預訂編號|認證碼|認證編號|Login ID|交易編號|票號/gi],
@@ -520,7 +524,10 @@ export function scanPublicPayload(payload, secrets = []) {
     ['air ticket number', /\b\d{3}[ -]?\d{10}\b/g],
     ['visible price', /\b(?:JPY|TWD|NTD|USD|EUR)\s*[\d,.]+/gi],
   ];
-  for (const [name, pattern] of patterns) if (pattern.test(serialized)) findings.push(name);
+  for (const [name, pattern] of patterns) {
+    const target = name === 'visible price' ? priceScanPayload : serialized;
+    if (pattern.test(target)) findings.push(name);
+  }
   for (const secret of secrets) if (secret.length >= 4 && serialized.includes(secret)) findings.push(`source secret fingerprint: ${secret.slice(0, 2)}…`);
   return [...new Set(findings)];
 }
@@ -603,7 +610,8 @@ export function parseTrip(markdown) {
     entities,
   };
 
-  const findings = scanPublicPayload(trip, secrets);
+  const allowedPrices = trip.entities.filter((entity) => entity.type === 'stay' || entity.type === 'transport').map((entity) => entity.price?.text).filter(Boolean);
+  const findings = scanPublicPayload(trip, secrets, allowedPrices);
   for (const finding of findings) errors.push(`公開資料安全檢查：${finding}`);
   if (errors.length) throw new Error(`Travel schema 2 validation failed:\n- ${[...new Set(errors)].join('\n- ')}`);
   return { trip, secrets: [...secrets] };

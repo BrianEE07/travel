@@ -13,8 +13,8 @@
   "end": "2026-09-03",
   "status": "active",
   "noindex": true,
-  "updatedAt": "2026-08-08T15:19:13.282Z",
-  "sourceHash": "d8a5fedf196f65c2",
+  "updatedAt": "2026-08-08T15:41:56.750Z",
+  "sourceHash": "efce3e23521e3062",
   "locations": [
     "福岡",
     "太宰府",
@@ -39,15 +39,15 @@
     "transports": [
       {
         "text": "08-27 BR102 15:10-18:20 TPE → FUK",
-        "html": "08-27 <button class=\"inline-detail\" type=\"button\" data-entity=\"transport-eva-air-來回機票\">BR102 15:10-18:20 TPE → FUK</button>"
+        "html": "08-27 <button class=\"inline-detail\" type=\"button\" data-entity=\"transport-台北福岡來回機票-8-27-9-3\">BR102 15:10-18:20 TPE → FUK</button>"
       },
       {
         "text": "08-31 BR105 12:20-13:45 FUK → TPE（三人組）",
-        "html": "08-31 <button class=\"inline-detail\" type=\"button\" data-entity=\"transport-eva-air-來回機票\">BR105 12:20-13:45 FUK → TPE（三人組）</button>"
+        "html": "08-31 <button class=\"inline-detail\" type=\"button\" data-entity=\"transport-台北福岡來回機票-8-27-9-3\">BR105 12:20-13:45 FUK → TPE（三人組）</button>"
       },
       {
         "text": "09-03 BR101 19:20-20:45 FUK → TPE（Wei）",
-        "html": "09-03 <button class=\"inline-detail\" type=\"button\" data-entity=\"transport-eva-air-來回機票\">BR101 19:20-20:45 FUK → TPE（Wei）</button>"
+        "html": "09-03 <button class=\"inline-detail\" type=\"button\" data-entity=\"transport-台北福岡來回機票-8-27-9-3\">BR101 19:20-20:45 FUK → TPE（Wei）</button>"
       }
     ],
     "stays": [
@@ -88,7 +88,7 @@
           "time": "15:10-18:20",
           "kind": "move",
           "text": "TPE → FUK（BR102）",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-eva-air-來回機票\">TPE → FUK（BR102）</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-台北福岡來回機票-8-27-9-3\">TPE → FUK（BR102）</button>"
         },
         {
           "time": "18:20-19:10",
@@ -100,7 +100,7 @@
           "time": "19:10-19:40",
           "kind": "move",
           "text": "前往飯店",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-fuk-airport-西鐵-croom-博多祇園\">前往飯店</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-福岡機場-西鐵-croom-8-27\">前往飯店</button>"
         },
         {
           "time": "19:40-20:00",
@@ -151,7 +151,7 @@
           "time": "08:50-09:40",
           "kind": "move",
           "text": "前往太宰府",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-28-西鐵-croom-太宰府\">前往太宰府</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-西鐵-croom-太宰府-8-28\">前往太宰府</button>"
         },
         {
           "time": "09:40-10:00",
@@ -187,7 +187,7 @@
           "time": "13:45-15:00",
           "kind": "move",
           "text": "前往 LaLaport",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-28-太宰府-lalaport-前田屋\">前往 LaLaport</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-太宰府-lalaport-前田屋-8-28\">前往 LaLaport</button>"
         },
         {
           "time": "15:00-18:30",
@@ -199,7 +199,7 @@
           "time": "18:35-19:15",
           "kind": "move",
           "text": "前往前田屋",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-28-太宰府-lalaport-前田屋\">前往前田屋</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-太宰府-lalaport-前田屋-8-28\">前往前田屋</button>"
         },
         {
           "time": "19:30",
@@ -244,7 +244,7 @@
           "time": "07:43-10:02",
           "kind": "move",
           "text": "HAKATA → YUFUIN（Yufu 1）",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-jr-kyushu-由布院\">HAKATA → YUFUIN（Yufu 1）</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-由布院來回車票-8-29\">HAKATA → YUFUIN（Yufu 1）</button>"
         },
         {
           "time": "10:02-10:20",
@@ -292,7 +292,7 @@
           "time": "17:17-19:27",
           "kind": "move",
           "text": "YUFUIN → HAKATA（Yufuin-no-Mori 6）",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-jr-kyushu-由布院\">YUFUIN → HAKATA（Yufuin-no-Mori 6）</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-由布院來回車票-8-29\">YUFUIN → HAKATA（Yufuin-no-Mori 6）</button>"
         },
         {
           "time": "20:00",
@@ -361,7 +361,7 @@
           "time": "13:00-13:20",
           "kind": "move",
           "text": "前往天神",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-30-博多-天神-鳥田\">前往天神</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-博多-天神-鳥田-8-30\">前往天神</button>"
         },
         {
           "time": "13:30",
@@ -379,7 +379,7 @@
           "time": "18:30-19:10",
           "kind": "move",
           "text": "前往鳥田",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-30-博多-天神-鳥田\">前往鳥田</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-博多-天神-鳥田-8-30\">前往鳥田</button>"
         },
         {
           "time": "19:30",
@@ -420,13 +420,13 @@
           "time": "10:00-10:30",
           "kind": "move",
           "text": "三人組 前往福岡機場 / BR105 返台；Wei checkout / 大行李寄放飯店",
-          "textHtml": "三人組 <button class=\"inline-detail\" type=\"button\" data-entity=\"transport-eva-air-來回機票\">前往福岡機場 / BR105 返台</button>；Wei checkout / 大行李寄放飯店"
+          "textHtml": "三人組 <button class=\"inline-detail\" type=\"button\" data-entity=\"transport-台北福岡來回機票-8-27-9-3\">前往福岡機場 / BR105 返台</button>；Wei checkout / 大行李寄放飯店"
         },
         {
           "time": "10:30-11:10",
           "kind": "move",
           "text": "前往小倉",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-31-博多-小倉-門司港\">前往小倉</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-博多-小倉-門司港-8-31\">前往小倉</button>"
         },
         {
           "time": "11:15-12:30",
@@ -444,7 +444,7 @@
           "time": "13:10-13:35",
           "kind": "move",
           "text": "前往門司港",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-31-博多-小倉-門司港\">前往門司港</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-博多-小倉-門司港-8-31\">前往門司港</button>"
         },
         {
           "time": "13:45",
@@ -474,13 +474,13 @@
           "time": "16:20-17:05",
           "kind": "move",
           "text": "前往皿倉山",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-31-門司港-皿倉山-博多\">前往皿倉山</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-門司港-皿倉山-博多-8-31\">前往皿倉山</button>"
         },
         {
           "time": "17:05-17:50",
           "kind": "move",
           "text": "八幡站免費接駁 / 纜車 / 坡車上山",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-31-門司港-皿倉山-博多\">八幡站免費接駁 / 纜車 / 坡車上山</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-門司港-皿倉山-博多-8-31\">八幡站免費接駁 / 纜車 / 坡車上山</button>"
         },
         {
           "time": "17:50-19:30",
@@ -492,7 +492,7 @@
           "time": "19:30-21:45",
           "kind": "move",
           "text": "下山 / 回博多",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-8-31-門司港-皿倉山-博多\">下山 / 回博多</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-門司港-皿倉山-博多-8-31\">下山 / 回博多</button>"
         },
         {
           "time": "22:00",
@@ -543,7 +543,7 @@
           "time": "07:30-07:50",
           "kind": "move",
           "text": "前往博多站筑紫口集合點",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-1-博多-高千穗一日團\">前往博多站筑紫口集合點</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-高千穗一日團-9-1\">前往博多站筑紫口集合點</button>"
         },
         {
           "time": "07:50",
@@ -555,7 +555,7 @@
           "time": "08:00-10:20",
           "kind": "move",
           "text": "前往上色見熊野座神社",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-1-博多-高千穗一日團\">前往上色見熊野座神社</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-高千穗一日團-9-1\">前往上色見熊野座神社</button>"
         },
         {
           "time": "10:20-11:00",
@@ -567,7 +567,7 @@
           "time": "11:00-11:50",
           "kind": "move",
           "text": "前往高千穗峽",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-1-博多-高千穗一日團\">前往高千穗峽</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-高千穗一日團-9-1\">前往高千穗峽</button>"
         },
         {
           "time": "11:50-13:40",
@@ -585,7 +585,7 @@
           "time": "15:00-18:00",
           "kind": "move",
           "text": "返回博多",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-1-博多-高千穗一日團\">返回博多</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-高千穗一日團-9-1\">返回博多</button>"
         },
         {
           "time": "18:00-18:20",
@@ -654,7 +654,7 @@
           "time": "08:36-08:54",
           "kind": "move",
           "text": "天神 → 下山門",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-2-福岡市區-糸島-天神-博多\">天神 → 下山門</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-福岡市區-糸島-9-2\">天神 → 下山門</button>"
         },
         {
           "time": "09:00-09:25",
@@ -672,13 +672,13 @@
           "time": "09:43-10:00",
           "kind": "move",
           "text": "下山門 → 筑前前原",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-2-福岡市區-糸島-天神-博多\">下山門 → 筑前前原</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-福岡市區-糸島-9-2\">下山門 → 筑前前原</button>"
         },
         {
           "time": "10:05-10:30",
           "kind": "move",
           "text": "筑前前原 → 箱島神社",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-2-糸島計程車移動\">筑前前原 → 箱島神社</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-糸島計程車移動-9-2\">筑前前原 → 箱島神社</button>"
         },
         {
           "time": "10:30-11:15",
@@ -690,7 +690,7 @@
           "time": "11:15-11:35",
           "kind": "move",
           "text": "箱島神社 → 塚本鮮魚店",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-2-糸島計程車移動\">箱島神社 → 塚本鮮魚店</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-糸島計程車移動-9-2\">箱島神社 → 塚本鮮魚店</button>"
         },
         {
           "time": "11:35-13:00",
@@ -702,7 +702,7 @@
           "time": "13:00-13:30",
           "kind": "move",
           "text": "塚本鮮魚店 → 櫻井二見浦",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-2-糸島計程車移動\">塚本鮮魚店 → 櫻井二見浦</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-糸島計程車移動-9-2\">塚本鮮魚店 → 櫻井二見浦</button>"
         },
         {
           "time": "13:30-15:30",
@@ -720,7 +720,7 @@
           "time": "16:32-17:35",
           "kind": "move",
           "text": "西海岸巴士回天神 / 博多",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-2-二見浦-天神-博多-西海岸巴士\">西海岸巴士回天神 / 博多</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-二見浦-天神-博多-西海岸巴士-9-2\">西海岸巴士回天神 / 博多</button>"
         },
         {
           "time": "18:30",
@@ -825,13 +825,13 @@
           "time": "17:00",
           "kind": "move",
           "text": "前往福岡機場國際線",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-9-3-cross-life-福岡機場國際線\">前往福岡機場國際線</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-cross-life-福岡機場國際線-9-3\">前往福岡機場國際線</button>"
         },
         {
           "time": "19:20-20:45",
           "kind": "move",
           "text": "BR101 FUK → TPE",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-eva-air-來回機票\">BR101 FUK → TPE</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"transport-台北福岡來回機票-8-27-9-3\">BR101 FUK → TPE</button>"
         }
       ],
       "notes": [
@@ -892,8 +892,12 @@
         "html": "11:00"
       },
       "room": {
-        "text": "Raised double bed x 2，4 人，無早餐",
-        "html": "Raised double bed x 2，4 人，無早餐"
+        "text": "地台雙人房 × 2 間，4 人，無早餐",
+        "html": "地台雙人房 × 2 間，4 人，無早餐"
+      },
+      "price": {
+        "text": "JPY 118,426（4 人 / 4 晚，已付）",
+        "html": "JPY 118,426（4 人 / 4 晚，已付）"
       },
       "access": {
         "text": "地下鐵七隈線 櫛田神社前駅 出口步行 1 分鐘。",
@@ -907,7 +911,11 @@
         "text": "2 天前免費；前日 50%，當日 80%，未入住 100%。",
         "html": "2 天前免費；前日 50%，當日 80%，未入住 100%。"
       },
-      "preview": null
+      "preview": {
+        "title": "【公式】西鉄ホテル クルーム 博多祇園",
+        "description": "【ご予約は当公式サイトが一番お得です。】ビジネスホテル・西鉄ホテルクルーム博多祇園櫛田神社前の公式WEBサイト。地下鉄七隈線「櫛田神社前駅」から徒歩2分。福岡の食材が楽しめる朝食ビュッフェ、半露天風呂付き大浴場で、「旅先の家」としての寛ぎを提供いたします。",
+        "image": "https://storage.googleapis.com/production-os-assets/assets/47032718-9d60-42fd-bdae-df0c7f247b72"
+      }
     },
     {
       "id": "stay-西鐵-croom-飯店-博多祇園-櫛田神社前-8-31-9-1",
@@ -942,22 +950,30 @@
         "html": "11:00"
       },
       "room": {
-        "text": "Double，1 人，無早餐",
-        "html": "Double，1 人，無早餐"
+        "text": "雙人房，1 人，無早餐",
+        "html": "雙人房，1 人，無早餐"
+      },
+      "price": {
+        "text": "JPY 11,912（1 人 / 1 晚，已付）",
+        "html": "JPY 11,912（1 人 / 1 晚，已付）"
       },
       "access": {
         "text": "地下鐵七隈線 櫛田神社前駅 出口步行 1 分鐘。",
         "html": "地下鐵七隈線 <code>櫛田神社前駅</code> 出口步行 1 分鐘。"
       },
       "contact": {
-        "text": "092-235-5050 / croom-gion@hotels.nnr.co.jp",
-        "html": "092-235-5050 / croom-gion@hotels.nnr.co.jp"
+        "text": "+81-92-235-5050 / croom-gion@hotels.nnr.co.jp",
+        "html": "+81-92-235-5050 / croom-gion@hotels.nnr.co.jp"
       },
       "policy": {
         "text": "2 天前免費；前日 50%，當日 80%，未入住 100%。",
         "html": "2 天前免費；前日 50%，當日 80%，未入住 100%。"
       },
-      "preview": null
+      "preview": {
+        "title": "【公式】西鉄ホテル クルーム 博多祇園",
+        "description": "【ご予約は当公式サイトが一番お得です。】ビジネスホテル・西鉄ホテルクルーム博多祇園櫛田神社前の公式WEBサイト。地下鉄七隈線「櫛田神社前駅」から徒歩2分。福岡の食材が楽しめる朝食ビュッフェ、半露天風呂付き大浴場で、「旅先の家」としての寛ぎを提供いたします。",
+        "image": "https://storage.googleapis.com/production-os-assets/assets/47032718-9d60-42fd-bdae-df0c7f247b72"
+      }
     },
     {
       "id": "stay-cross-life-博多天神-9-1-9-3",
@@ -992,16 +1008,20 @@
         "html": "11:00"
       },
       "room": {
-        "text": "Comfort double room，1 人，無早餐，附 drink ticket",
-        "html": "Comfort double room，1 人，無早餐，附 drink ticket"
+        "text": "舒適雙人房，1 人，無早餐，附飲料券",
+        "html": "舒適雙人房，1 人，無早餐，附飲料券"
+      },
+      "price": {
+        "text": "JPY 27,000（1 人 / 2 晚，已付）",
+        "html": "JPY 27,000（1 人 / 2 晚，已付）"
       },
       "access": {
-        "text": "未記錄",
-        "html": "未記錄"
+        "text": "地下鐵七隈線 天神南駅 6 號出口步行約 7 分鐘；從博多站可搭西鐵巴士到 春吉，再步行約 4 分鐘。",
+        "html": "地下鐵七隈線 <code>天神南駅</code> 6 號出口步行約 7 分鐘；從博多站可搭西鐵巴士到 <code>春吉</code>，再步行約 4 分鐘。"
       },
       "contact": {
-        "text": "092-733-0130",
-        "html": "092-733-0130"
+        "text": "+81-92-733-0130",
+        "html": "+81-92-733-0130"
       },
       "policy": {
         "text": "不可退款方案。",
@@ -1702,7 +1722,11 @@
         "text": "排太久就改 BEAR FRUITS 或 Princess Phi Phi。",
         "html": "排太久就改 BEAR FRUITS 或 Princess Phi Phi。"
       },
-      "preview": null
+      "preview": {
+        "title": "��i�`���g���Ă��J���[MAP�@�₫�J���[�@���������Ă��J���[�@�����i�J���C�j�{�� ��i�`���g���X��",
+        "description": "��i�`�Ă��J���[�̔����������X�A�Ă��J���[�̂����n�J���[��̔�������T�C�g�B",
+        "image": "https://www.curry-honpo.com/mojikou-retro.html"
+      }
     },
     {
       "id": "food-princess-phi-phi-門司港-8-31",
@@ -1756,7 +1780,11 @@
         "text": "若時間壓線，改 BEAR FRUITS 或 伽哩本舗。",
         "html": "若時間壓線，改 BEAR FRUITS 或 伽哩本舗。"
       },
-      "preview": null
+      "preview": {
+        "title": "世界にひとつだけの焼きカレー プリンセスピピ門司港｜その他エスニック料理",
+        "description": "その他エスニック料理 世界にひとつだけの焼きカレー プリンセスピピ門司港のお店情報。[住所]福岡県北九州市門司区西海岸1-4-7 [TEL]0933210303 メニューや地図など詳細情報が充実。",
+        "image": "https://favy-tokyo.s3.ap-northeast-1.amazonaws.com/uploads/shop/background_image/246751/retina_003__200327_133.jpg"
+      }
     },
     {
       "id": "food-千穂の家-9-1",
@@ -1810,7 +1838,11 @@
         "text": "高千穗峽周邊小吃 / 便利補給；重點仍是步道、真名井瀑布與準時回集合點。",
         "html": "高千穗峽周邊小吃 / 便利補給；重點仍是步道、真名井瀑布與準時回集合點。"
       },
-      "preview": null
+      "preview": {
+        "title": "千穂の家｜高千穂のお食事とお土産",
+        "description": "九州の中心、神話と伝説のまち高千穂町の食事処・土産処。",
+        "image": "https://chihonoie.jp/og.jpg"
+      }
     },
     {
       "id": "food-麺や兼虎-博多デイトス店-9-1",
@@ -1864,7 +1896,11 @@
         "text": "博多站便當、努努鶏、飯店附近簡單晚餐。",
         "html": "博多站便當、努努鶏、飯店附近簡單晚餐。"
       },
-      "preview": null
+      "preview": {
+        "title": "麺や兼虎｜運営店舗のご案内",
+        "description": "福岡県福岡市内に3店舗を運営している「麺や兼虎」です。こちらでは各店舗の営業情報について絵掲載しております。各店舗でこだわりのつけ麺をご用意しております。お近くにお越しの際は、是非お気軽にお立ち寄りください。",
+        "image": "https://www.kanetora.co.jp/wp-content/uploads/logo_ogp.jpg"
+      }
     },
     {
       "id": "food-塚本鮮魚店-本店-9-2",
@@ -1918,7 +1954,11 @@
         "text": "箱島對面的和海 離れ、加布里周邊簡單午餐，或延後到二見浦海岸店家。",
         "html": "箱島對面的和海 離れ、加布里周邊簡單午餐，或延後到二見浦海岸店家。"
       },
-      "preview": null
+      "preview": {
+        "title": "店舗紹介｜有限会社塚本鮮魚店",
+        "description": "有限会社塚本鮮魚店で運営している「塚本鮮魚店本店」と「にぎり塚本鮮魚店」の店舗情報を掲載しております。営業時間や住所、設備についてご紹介しているので、ご来店前に店舗に関わる情報はチェックしてください。",
+        "image": "https://tsukamoto-sengyo.co.jp/system_panel/uploads/images/tukamoto_ogp_2.jpg"
+      }
     },
     {
       "id": "food-rec-coffee-薬院駅前店-9-3",
@@ -1972,7 +2012,11 @@
         "text": "直接跳到 COFFEE COUNTY 或天神購物。",
         "html": "直接跳到 COFFEE COUNTY 或天神購物。"
       },
-      "preview": null
+      "preview": {
+        "title": "レックコーヒー薬院駅前店 | 福岡 | REC COFFEE",
+        "description": "住所 福岡県福岡市中央区白金1-1-26 電話番号 092-524-2280 営業時間 月〜木 8:00〜24:00 金 8:00〜25:00 土 10:00〜25:00 日祝 10:00〜24:00 席数 50席 ペット同伴に関して 店内利用：盲導犬の利用可能 / 小型犬を抱っこしての利用可能(5～6kg目安、暴れない、吠えない、店内床に下ろさない場合)テラス利用：サイズ問わず可能",
+        "image": ""
+      }
     },
     {
       "id": "food-coffee-county-fukuoka-9-3",
@@ -2026,7 +2070,11 @@
         "text": "改直接前往天神購物。",
         "html": "改直接前往天神購物。"
       },
-      "preview": null
+      "preview": {
+        "title": "Fukuoka | COFFEE COUNTY",
+        "description": "Coffee Bar & Shop. コーヒーカウンティの焙煎豆を液体としてどう表現していくのか、というコンセ … 続きを読む Fukuoka →",
+        "image": "https://coffeecounty.cc/coffeecounty/wp-content/uploads/2021/06/cc.jpg"
+      }
     },
     {
       "id": "food-元祖博多明太重-9-3",
@@ -2080,7 +2128,11 @@
         "text": "天神地下街、PARCO 餐廳，或回博多站吃。",
         "html": "天神地下街、PARCO 餐廳，或回博多站吃。"
       },
-      "preview": null
+      "preview": {
+        "title": "元祖博多めんたい重 [公式サイト]",
+        "description": "めんたい重発祥の店「元祖博多めんたい重」 公式WEBサイト。明太子料理専門店。めんたい重・つけ麺。おみやげ・お弁当あり。",
+        "image": "https://www.mentaiju.com/imgs/ogimg.jpg"
+      }
     },
     {
       "id": "food-fuglen-fukuoka-9-3",
@@ -2134,7 +2186,11 @@
         "text": "直接買伴手禮，或到機場再喝。",
         "html": "直接買伴手禮，或到機場再喝。"
       },
-      "preview": null
+      "preview": {
+        "title": "FUGLEN FUKUOKA",
+        "description": "Opening HoursMon - Thu : 7am – 8pm (L.O 7:30pm) Fri : 7am – 10pm (L.O 9:30pm)Sat, Sun &amp; Public Holidays: 8am – 10pm (L.O 9:30pm) DAY TIME MENUMon - Thu: 7am – 8pm Fri: 7am - 10pmSat, Sun &amp; Public Holidays: 8am – 10pmNIGHT TIME MENU Fri-Sun &amp; Public Holidays (6pm – 10pm)FOOD MENUMon-Fri: 7am – 7pmSat, Sun &",
+        "image": ""
+      }
     },
     {
       "id": "food-努努鶏-9-3",
@@ -3254,7 +3310,11 @@
         "text": "不要從一貴山硬走；Google Maps 約 46 分鐘且路肩窄。官方建議從筑前前原搭計程車，或從加布里步行約 32 分鐘。",
         "html": "不要從一貴山硬走；Google Maps 約 46 分鐘且路肩窄。官方建議從筑前前原搭計程車，或從加布里步行約 32 分鐘。"
       },
-      "preview": null
+      "preview": {
+        "title": "公式【箱島神社】ハート御朱印・駐車場・行き方",
+        "description": "福岡県糸島市にある龍宮城を彷彿とさせる小さな島に鎮座する箱島神社の公式サイトです。愛染明王を祀ることから「愛の神様」として信仰され、「恋愛を助け」「美貌になる」と言われています。恋愛成就や耳の病気平癒の祈願に参拝されます。御朱印は本務神社の鎮懐石八幡宮へお越しください。",
+        "image": "https://image.jimcdn.com/app/cms/image/transf/dimension=1920x1024:format=jpg/path/scb8240bb66dd00d0/image/i894ad8268b524982/version/1779950422/%E7%AE%B1%E5%B3%B6%E7%A5%9E%E7%A4%BE.jpg"
+      }
     },
     {
       "id": "place-櫻井二見浦-夫婦岩-9-2",
@@ -3341,7 +3401,11 @@
         "text": "不要錯過 16:32 / 17:32 回程巴士；如果想看夕陽，回市區時間會變晚。",
         "html": "不要錯過 16:32 / 17:32 回程巴士；如果想看夕陽，回市區時間會變晚。"
       },
-      "preview": null
+      "preview": {
+        "title": "《公式》糸島・二見ヶ浦のリゾートモール「パームビーチ・ザ・ガーデンズ」",
+        "description": "糸島・二見ヶ浦のリゾートモール「パームビーチ・ザ・ガーデンズ」では、レストラン・雑貨・カフェなど魅力的な店舗を展開しております。目の前が海の絶好のロケーションで、特に夕陽の眺めは最高です！家族の時間やデートなど、お気軽にご利用ください。",
+        "image": "https://pb-gardens.com/"
+      }
     },
     {
       "id": "place-天神購物-9-3",
@@ -3387,7 +3451,11 @@
         "text": "天神好逛但容易失控，12:20 要收束去午餐或博多站。",
         "html": "天神好逛但容易失控，12:20 要收束去午餐或博多站。"
       },
-      "preview": null
+      "preview": {
+        "title": "アクセス＆施設案内 │ 福岡PARCO-パルコ-",
+        "description": "福岡PARCOのアクセス＆施設案内です。営業時間や館内のサービスの他、PARCOのお買物でオトクになる情報をお届けしています。",
+        "image": "https://parco.jp/assets/images/kakukan/ogp.png?1784769296"
+      }
     },
     {
       "id": "place-博多站伴手禮-9-3",
@@ -3433,7 +3501,11 @@
         "text": "買太多要考慮行李重量；冷藏 / 冷凍品要確認攜帶方式。",
         "html": "買太多要考慮行李重量；冷藏 / 冷凍品要確認攜帶方式。"
       },
-      "preview": null
+      "preview": {
+        "title": "マイング -博多・九州のおみやげ処、全92店舗",
+        "description": "マイングは博多駅構内にあるショッピングモール。お土産から特産品、グルメにファッション、お惣菜までお求め頂けます。",
+        "image": "https://ming.or.jp/ren_2025_common/images/og.png"
+      }
     },
     {
       "id": "place-yodobashi-博多-9-3",
@@ -3479,7 +3551,11 @@
         "text": "16:10 後要回飯店領行李，不能在退稅 / 結帳拖太久。",
         "html": "16:10 後要回飯店領行李，不能在退稅 / 結帳拖太久。"
       },
-      "preview": null
+      "preview": {
+        "title": "ヨドバシ博多｜施設のご案内",
+        "description": "グルメもお買い物も、いつでも楽しいヨドバシ博多",
+        "image": "https://www.yodobashi-hakata.com/information/index.html"
+      }
     },
     {
       "id": "place-福岡機場國際線購物-9-3",
@@ -3525,11 +3601,15 @@
         "text": "國際線航廈部分店在安檢前後位置不同；不要把重要伴手禮全押機場。",
         "html": "國際線航廈部分店在安檢前後位置不同；不要把重要伴手禮全押機場。"
       },
-      "preview": null
+      "preview": {
+        "title": "福岡空港免税店サイト",
+        "description": "福岡空港免税店サイト。おすすめ商品やキャンペーン情報をご案内しています。世界の一流品を豊富に取り揃えておりますので、ご旅行の際には福岡空港免税店を是非ご利用ください！",
+        "image": "https://dfree.fukuoka-airport.jp/"
+      }
     },
     {
-      "id": "transport-eva-air-來回機票",
-      "title": "EVA Air｜來回機票",
+      "id": "transport-台北福岡來回機票-8-27-9-3",
+      "title": "台北福岡來回機票｜8/27-9/3",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3560,11 +3640,15 @@
         "text": "8/27 12:00 前往桃園機場 T2；9/3 17:00 前往福岡機場。",
         "html": "8/27 12:00 前往桃園機場 T2；9/3 17:00 前往福岡機場。"
       },
+      "price": {
+        "text": "TWD 78,074（4 人合計；Wei TWD 20,573，三人組各 TWD 19,167）",
+        "html": "TWD 78,074（4 人合計；Wei TWD 20,573，三人組各 TWD 19,167）"
+      },
       "preview": null
     },
     {
-      "id": "transport-fuk-airport-西鐵-croom-博多祇園",
-      "title": "FUK Airport → 西鐵 CROOM 博多祇園",
+      "id": "transport-福岡機場-西鐵-croom-8-27",
+      "title": "福岡機場 → 西鐵 CROOM｜8/27",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3598,8 +3682,8 @@
       "preview": null
     },
     {
-      "id": "transport-8-28-西鐵-croom-太宰府",
-      "title": "8/28 西鐵 CROOM → 太宰府",
+      "id": "transport-西鐵-croom-太宰府-8-28",
+      "title": "西鐵 CROOM → 太宰府｜8/28",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3633,8 +3717,8 @@
       "preview": null
     },
     {
-      "id": "transport-8-28-太宰府-lalaport-前田屋",
-      "title": "8/28 太宰府 → LaLaport → 前田屋",
+      "id": "transport-太宰府-lalaport-前田屋-8-28",
+      "title": "太宰府 → LaLaport → 前田屋｜8/28",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3668,8 +3752,8 @@
       "preview": null
     },
     {
-      "id": "transport-8-29-由布院當地移動",
-      "title": "8/29 由布院當地移動",
+      "id": "transport-由布院當地移動-8-29",
+      "title": "由布院當地移動｜8/29",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3703,8 +3787,8 @@
       "preview": null
     },
     {
-      "id": "transport-8-30-博多-天神-鳥田",
-      "title": "8/30 博多 → 天神 → 鳥田",
+      "id": "transport-博多-天神-鳥田-8-30",
+      "title": "博多 → 天神 → 鳥田｜8/30",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3738,8 +3822,8 @@
       "preview": null
     },
     {
-      "id": "transport-8-31-博多-小倉-門司港",
-      "title": "8/31 博多 → 小倉 → 門司港",
+      "id": "transport-博多-小倉-門司港-8-31",
+      "title": "博多 → 小倉 → 門司港｜8/31",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3773,8 +3857,8 @@
       "preview": null
     },
     {
-      "id": "transport-8-31-門司港-皿倉山-博多",
-      "title": "8/31 門司港 → 皿倉山 → 博多",
+      "id": "transport-門司港-皿倉山-博多-8-31",
+      "title": "門司港 → 皿倉山 → 博多｜8/31",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3808,8 +3892,8 @@
       "preview": null
     },
     {
-      "id": "transport-9-1-博多-高千穗一日團",
-      "title": "9/1 博多 → 高千穗一日團",
+      "id": "transport-高千穗一日團-9-1",
+      "title": "高千穗一日團｜9/1",
       "type": "transport",
       "actions": [
         {
@@ -3846,11 +3930,15 @@
         "text": "07:40 前到集合點比較穩；不要安排 18:00 後需準時抵達的活動。",
         "html": "07:40 前到集合點比較穩；不要安排 18:00 後需準時抵達的活動。"
       },
+      "price": {
+        "text": "TWD 1,433（1 人，已付）",
+        "html": "TWD 1,433（1 人，已付）"
+      },
       "preview": null
     },
     {
-      "id": "transport-9-2-福岡市區-糸島-天神-博多",
-      "title": "9/2 福岡市區 → 糸島 → 天神 / 博多",
+      "id": "transport-福岡市區-糸島-9-2",
+      "title": "福岡市區 → 糸島｜9/2",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3884,8 +3972,8 @@
       "preview": null
     },
     {
-      "id": "transport-9-2-糸島計程車移動",
-      "title": "9/2 糸島計程車移動",
+      "id": "transport-糸島計程車移動-9-2",
+      "title": "糸島計程車移動｜9/2",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3919,8 +4007,8 @@
       "preview": null
     },
     {
-      "id": "transport-9-2-二見浦-天神-博多-西海岸巴士",
-      "title": "9/2 二見浦 → 天神 / 博多 西海岸巴士",
+      "id": "transport-二見浦-天神-博多-西海岸巴士-9-2",
+      "title": "二見浦 → 天神 / 博多 西海岸巴士｜9/2",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3951,11 +4039,15 @@
         "text": "9/2 福岡日落約 18:43，18:37 末班 West Coast Liner 早於日落，不適合看完夕陽。若要看夕陽，改叫計程車到 JR 站再搭筑肥線回市區。上車取整理券，下車時用現金或交通 IC 付車資；天神 / 博多到二見浦單程約 1,150 日圓。2026/4 後「二見ヶ浦・夫婦岩前」站已廢止，回程用「二見ヶ浦・PALMBEACH前」或「二見ヶ浦・月と太陽糸島茶房前」。",
         "html": "9/2 福岡日落約 18:43，18:37 末班 West Coast Liner 早於日落，不適合看完夕陽。若要看夕陽，改叫計程車到 JR 站再搭筑肥線回市區。上車取整理券，下車時用現金或交通 IC 付車資；天神 / 博多到二見浦單程約 1,150 日圓。2026/4 後「二見ヶ浦・夫婦岩前」站已廢止，回程用「二見ヶ浦・PALMBEACH前」或「二見ヶ浦・月と太陽糸島茶房前」。"
       },
+      "price": {
+        "text": "JPY 1,150（天神 / 博多 ↔ 二見浦單程）",
+        "html": "JPY 1,150（天神 / 博多 ↔ 二見浦單程）"
+      },
       "preview": null
     },
     {
-      "id": "transport-9-3-cross-life-福岡機場國際線",
-      "title": "9/3 CROSS Life → 福岡機場國際線",
+      "id": "transport-cross-life-福岡機場國際線-9-3",
+      "title": "CROSS Life → 福岡機場國際線｜9/3",
       "type": "transport",
       "actions": [],
       "area": {
@@ -3989,8 +4081,8 @@
       "preview": null
     },
     {
-      "id": "transport-jr-kyushu-由布院",
-      "title": "JR Kyushu｜由布院",
+      "id": "transport-由布院來回車票-8-29",
+      "title": "由布院來回車票｜8/29",
       "type": "transport",
       "actions": [
         {
@@ -4027,10 +4119,14 @@
         "text": "取票時間 04:30-23:30；指定席售票機到 23:20。",
         "html": "取票時間 04:30-23:30；指定席售票機到 23:20。"
       },
+      "price": {
+        "text": "JPY 47,040（4 人來回，已付；約 TWD 9,320）",
+        "html": "JPY 47,040（4 人來回，已付；約 TWD 9,320）"
+      },
       "preview": {
         "title": "Receipt of tickets | JR-KYUSHU Train Reservation | JR-KYUSHU",
         "description": "インターネット列車予約でのきっぷの受取方法に関するページです。",
-        "image": ""
+        "image": "https://www.jrkyushu.co.jp/chinese/train_reservation/receive/"
       }
     }
   ]

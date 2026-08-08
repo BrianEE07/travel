@@ -188,13 +188,14 @@ Rules:
 - Entity titles must be globally unique.
 - Unknown public fields must fail the build.
 - Every entity should end with `[Back to top](<#Trip Title>)` for note navigation. The website parser should ignore this navigation link.
+- Google Maps references should prefer a verified Google Maps share URL (`maps.app.goo.gl`) or a full place URL with a place id. If no verified share URL is available, use `https://www.google.com/maps?q=<exact place name + address>` instead of hand-building `/maps/place/<text>` URLs; hand-built place URLs can open as blank `maps/place//@...` pages.
 
 ## Accommodation
 
 Allowed fields:
 
 - Common fields: `Area`, `Summary`, `Map`, `Official`
-- Type fields: `CheckIn`, `CheckOut`, `Room`, `Access`, `Contact`, `Policy`
+- Type fields: `CheckIn`, `CheckOut`, `Room`, `Price`, `Access`, `Contact`, `Policy`
 - Private block: `Private：`
 
 Example:
@@ -208,6 +209,7 @@ Example:
 - CheckIn：2026-08-27 15:00-26:00，預計 19:30 抵達
 - CheckOut：2026-08-31 11:00
 - Room：Raised double bed x 2，4 人，無早餐
+- Price：JPY 118,426（4 人 / 4 晚，已付）
 - Access：地下鐵七隈線 `櫛田神社前駅` 出口步行 1 分鐘。
 - Contact：+81-92-235-5050 / croom-gion@hotels.nnr.co.jp
 - Policy：2 天前免費；前日 50%，當日 80%，未入住 100%。
@@ -248,7 +250,7 @@ Allowed fields:
 Allowed fields:
 
 - Common fields: `Area`, `Summary`, `Official`
-- Type fields: `Route`, `Duration`, `Decision`, `Buffer`, `Operator`
+- Type fields: `Route`, `Duration`, `Decision`, `Buffer`, `Operator`, `Price`
 - Private block: `Private：`
 
 Map is optional for transportation.
@@ -269,12 +271,11 @@ Private data includes:
 - booking numbers
 - verification codes
 - ticket numbers
-- prices
 - management links
 - auth URLs
 - payment details
 
-Public operational prices that are useful during the trip, such as fares or admission fees, may remain in public fields. Write them as natural display text such as `約 1,150 日圓`. Private booking totals, paid amounts, room prices, flight prices, and order totals must stay in `Private：` and remain blocked by the build fingerprint scan.
+Public operational prices that are useful during the trip, such as fares, admission fees, room totals, or public reference prices, may remain in public fields. Use consistent currency prefixes such as `JPY 1,150（單程）` or `TWD 1,433（1 人，已付）`. Booking numbers, verification codes, management links, auth URLs, ticket numbers, and payment-method details must stay in `Private：` and remain blocked by the build fingerprint scan.
 
 ## Parser Requirements
 
