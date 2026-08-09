@@ -96,10 +96,8 @@ Private：
 - Tags：shopping, backup
 - Summary：安靜的早晨咖啡店。
 - Map：[Google Maps][cafe]
-- Image：https://example.com/cafe.jpg
-- ImageSource：https://example.com/cafe
-- ImageCredit：測試來源
-- ImageAlt：咖啡店測試圖片
+- Image：[Image][img-cafe]
+- ImageCredit：[測試來源](https://example.com/cafe)
 - Hours：08:00-18:00
 - Note：適合早上短暫停留，若客滿就直接前往下一站。
 
@@ -125,6 +123,7 @@ Private：
 
 [stay]: https://www.google.com/maps/search/?api=1&query=hotel
 [cafe]: https://www.google.com/maps/search/?api=1&query=cafe
+[img-cafe]: https://example.com/cafe.jpg
 
 ## Booking & Tasks
 - [ ] 不應公開
@@ -155,7 +154,10 @@ test('parses schema 2 into structured public trip data', () => {
   assert.deepEqual(place.tags, ['shopping', 'backup']);
   assert.equal(place.note.text, '適合早上短暫停留，若客滿就直接前往下一站。');
   assert.equal(place.reservation, undefined);
-  assert.equal(place.image, undefined);
+  assert.deepEqual(place.image, {
+    url: 'https://example.com/cafe.jpg',
+    credit: { label: '測試來源', url: 'https://example.com/cafe' },
+  });
   const transport = trip.entities.find((entity) => entity.type === 'transport');
   assert.equal(transport.segments.length, 2);
   assert.equal(transport.segments[0].price.text, 'TWD 12,000（2 人合計，已付）');
@@ -198,10 +200,12 @@ test('validates optional reservation fields', () => {
   assert.throws(() => parseTrip(reserved.replace('Party：2 人', 'Party：兩人')), /數字 人/);
 });
 
-test('accepts but does not publish reserved image fields until preview rendering is implemented', () => {
+test('resolves explicit entity images and validates their credits', () => {
   assert.doesNotThrow(() => parseTrip(fixture));
-  assert.throws(() => parseTrip(fixture.replace('- ImageCredit：測試來源\n', '')), /必須同時提供 ImageSource 與 ImageCredit/);
-  assert.throws(() => parseTrip(fixture.replace('https://example.com/cafe.jpg', 'http://example.com/cafe.jpg')), /Image 必須是安全的 HTTPS/);
+  assert.throws(() => parseTrip(fixture.replace('- ImageCredit：[測試來源](https://example.com/cafe)\n', '')), /必須同時提供 ImageCredit/);
+  assert.throws(() => parseTrip(fixture.replace('[Image][img-cafe]', 'https://example.com/cafe.jpg')), /必須使用 \[Image\]\[img-key\]/);
+  assert.throws(() => parseTrip(fixture.replace('https://example.com/cafe.jpg', 'http://example.com/cafe.jpg')), /References 的網址不安全|Image reference/);
+  assert.throws(() => parseTrip(fixture.replace('[測試來源](https://example.com/cafe)', '測試來源')), /ImageCredit 必須是安全的 HTTPS markdown link/);
 });
 
 test('requires the exact segment table and required values for transportation', () => {

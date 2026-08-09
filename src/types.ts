@@ -4,10 +4,12 @@ export interface ExternalAction {
   kind: 'map' | 'official' | 'link';
 }
 
-export interface LinkPreview {
-  title: string;
-  description: string;
-  image: string;
+export interface EntityImage {
+  url: string;
+  credit: {
+    label: string;
+    url: string;
+  };
 }
 
 export interface RichText {
@@ -22,7 +24,7 @@ interface BaseEntity {
   summary: RichText;
   actions: ExternalAction[];
   tags?: string[];
-  preview?: LinkPreview | null;
+  image?: EntityImage;
 }
 
 export interface StayEntity extends BaseEntity {

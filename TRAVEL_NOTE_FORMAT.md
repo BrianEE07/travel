@@ -176,10 +176,8 @@ Every public entity should use these common fields when applicable:
 - Summary：One short public summary.
 - Map：[Google Maps][map-key]
 - Official：https://example.com/
-- Image：https://example.com/photo.jpg
-- ImageSource：https://example.com/source-page
-- ImageCredit：官方網站
-- ImageAlt：Short image alt text.
+- Image：[Image][img-key]
+- ImageCredit：[官方網站](https://example.com/source-page)
 - Hours：Open hours or availability.
 - Note：Operational notes, risks, backups, nearby context, or practical reminders.
 
@@ -191,23 +189,25 @@ Rules:
 - Entity fields must be list items in the form `- Field：value`. Do not use bare `Field：value` lines in public entity sections, because Obsidian preview may merge bare consecutive lines into one paragraph.
 - `Area`, `Tags`, `Summary`, `Map`, and `Hours` are required for `Food` and `Places`.
 - `Official` is optional.
-- `Image`, `ImageSource`, `ImageCredit`, and `ImageAlt` are optional image fields.
+- `Image` and `ImageCredit` are optional image fields.
 - `Note` is optional.
 - Entity titles must be globally unique.
 - Unknown public fields must fail the build.
 - Every entity should end with `[Back to top](<#Trip Title>)` for note navigation. The website parser should ignore this navigation link.
 - Google Maps references should prefer a verified Google Maps share URL (`maps.app.goo.gl`) or a full place URL with a place id. If no verified share URL is available, use `https://www.google.com/maps?q=<exact place name + address>` instead of hand-building `/maps/place/<text>` URLs; hand-built place URLs can open as blank `maps/place//@...` pages.
-- If `Image` is present, `ImageSource` and `ImageCredit` are required. `ImageAlt` is optional.
-- `Image` must be a stable HTTPS direct image URL. Do not use Google Images thumbnails, Google Maps photos, social platform CDN links, expiring token URLs, HTML page URLs, or generic logo / no-image placeholders.
-- `ImageSource` should be the human-readable source page, not the image file URL.
-- `ImageCredit` should name the source clearly, for example `官方網站`, `福岡縣觀光連盟`, `Wikimedia Commons`, or `糸島市觀光協會`.
+- If `Image` is present, `ImageCredit` is required.
+- `Image` must use a reference link in the form `Image：[Image][img-key]`; the referenced URL must be a stable HTTPS direct image URL.
+- Put image URLs in `References`, using keys such as `[img-hakoshima-jinja]`.
+- Do not add `ImageSource` or `ImageAlt`; the website should resolve the image URL from `Image`, use `ImageCredit` for attribution, and derive alt text from the entity title or summary.
+- Do not use Google Images thumbnails, Google Maps photos, social platform CDN links, expiring token URLs, HTML page URLs, generic logo images, or no-image placeholders.
+- `ImageCredit` should be a markdown link to the human-readable source page, for example `[官方網站](https://example.com/)`, `[福岡縣觀光連盟](https://example.com/)`, `[Wikimedia Commons](https://example.com/)`, or `[糸島市觀光協會](https://example.com/)`.
 - Website builds should not fail when an image fails to load at runtime; hide the image and keep the text card usable.
 
 ## Accommodation
 
 Allowed fields:
 
-- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`, `Image`, `ImageSource`, `ImageCredit`, `ImageAlt`
+- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`, `Image`, `ImageCredit`
 - Type fields: `CheckIn`, `CheckOut`, `Room`, `Price`, `Access`, `Contact`, `Policy`
 - Private block: `Private：`
 
@@ -251,7 +251,7 @@ Private：
 
 Allowed fields:
 
-- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`, `Image`, `ImageSource`, `ImageCredit`, `ImageAlt`, `Hours`, `Reservation`, `ReservationTime`, `Party`, `Note`
+- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`, `Image`, `ImageCredit`, `Hours`, `Reservation`, `ReservationTime`, `Party`, `Note`
 - Private block: `Private：`
 
 Required fields:
@@ -266,9 +266,7 @@ Optional fields:
 
 - `Official`
 - `Image`
-- `ImageSource`
 - `ImageCredit`
-- `ImageAlt`
 - `Reservation`
 - `ReservationTime`
 - `Party`
@@ -320,7 +318,7 @@ Food tags:
 
 Allowed fields:
 
-- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`, `Image`, `ImageSource`, `ImageCredit`, `ImageAlt`, `Hours`, `Reservation`, `ReservationTime`, `Party`, `Note`
+- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`, `Image`, `ImageCredit`, `Hours`, `Reservation`, `ReservationTime`, `Party`, `Note`
 - Private block: `Private：`
 
 Required fields:
@@ -335,9 +333,7 @@ Optional fields:
 
 - `Official`
 - `Image`
-- `ImageSource`
 - `ImageCredit`
-- `ImageAlt`
 - `Reservation`
 - `ReservationTime`
 - `Party`

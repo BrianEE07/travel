@@ -268,7 +268,10 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
         <div class="dialog-pattern"></div>
       </div>
       <div class="dialog-content">
-        <img id="dialog-preview" class="dialog-preview" alt="" hidden />
+        <figure id="dialog-image" class="dialog-image" hidden>
+          <img id="dialog-preview" class="dialog-preview" alt="" decoding="async" />
+          <figcaption>圖片來源：<a id="dialog-image-credit" target="_blank" rel="noopener noreferrer"></a></figcaption>
+        </figure>
         <p class="section-kicker dialog-kicker">Quick reference</p>
         <h2 id="dialog-title"></h2>
         <div id="dialog-summary" class="dialog-summary"></div>
@@ -486,6 +489,8 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       const details = dialog.querySelector<HTMLElement>('#dialog-details');
       const actions = dialog.querySelector<HTMLElement>('#dialog-actions');
       const preview = dialog.querySelector<HTMLImageElement>('#dialog-preview');
+      const imageFigure = dialog.querySelector<HTMLElement>('#dialog-image');
+      const imageCredit = dialog.querySelector<HTMLAnchorElement>('#dialog-image-credit');
       if (title) title.textContent = entity.title;
       if (type) type.textContent = typeLabels[entity.type] || entity.type;
       if (summary) summary.innerHTML = entity.summary?.html || '';
@@ -582,12 +587,27 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
         renderDetails(entity, detailFields[entity.type] || []);
         renderActions(entity.actions || []);
       }
-      if (preview) {
-        const image = entity.preview?.image;
-        preview.hidden = !image;
-        preview.src = image || '';
-        preview.alt = image ? `${entity.title} 網站預覽` : '';
-        preview.onerror = () => { preview.hidden = true; };
+      if (preview && imageFigure && imageCredit) {
+        const image = entity.image;
+        if (!image) {
+          imageFigure.hidden = true;
+          preview.removeAttribute('src');
+          preview.alt = '';
+          imageCredit.textContent = '';
+          imageCredit.removeAttribute('href');
+        } else {
+          const expectedUrl = image.url;
+          imageFigure.hidden = false;
+          preview.alt = entity.title || entity.summary?.text || '';
+          imageCredit.textContent = image.credit.label;
+          imageCredit.href = image.credit.url;
+          preview.onerror = () => {
+            if (preview.getAttribute('src') !== expectedUrl) return;
+            imageFigure.hidden = true;
+            preview.removeAttribute('src');
+          };
+          preview.src = expectedUrl;
+        }
       }
       dialog.dataset.type = entity.type;
     }

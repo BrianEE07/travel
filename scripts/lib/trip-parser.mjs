@@ -19,7 +19,7 @@ const ENTITY_SECTIONS = new Map([
   ['Transportation', 'transport'],
 ]);
 
-const ENTITY_IMAGE_FIELDS = ['Image', 'ImageSource', 'ImageCredit', 'ImageAlt'];
+const ENTITY_IMAGE_FIELDS = ['Image', 'ImageCredit'];
 
 const ENTITY_FIELDS = {
   stay: {
@@ -485,12 +485,8 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   if (reservationTime && reservation !== 'done') errors.push(`${title} 只有 Reservation 為 done 時可使用 ReservationTime`);
   if (reservationTime && !/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(reservationTime)) errors.push(`${title} 的 ReservationTime 必須是 YYYY-MM-DD HH:mm`);
   if (party && !/^\d+ 人$/.test(party)) errors.push(`${title} 的 Party 必須是「數字 人」`);
-  const image = fields.get('Image');
-  const imageSource = fields.get('ImageSource');
-  const imageCredit = fields.get('ImageCredit');
-  if (image && !isSafePublicUrl(image)) errors.push(`${title} 的 Image 必須是安全的 HTTPS 網址`);
-  if (imageSource && !isSafePublicUrl(imageSource)) errors.push(`${title} 的 ImageSource 必須是安全的 HTTPS 網址`);
-  if (image && (!imageSource || !imageCredit)) errors.push(`${title} 使用 Image 時必須同時提供 ImageSource 與 ImageCredit`);
+  const imageValue = fields.get('Image');
+  const imageCreditValue = fields.get('ImageCredit');
   const tags = (fields.get('Tags') ?? '').split(',').map((tag) => tag.trim()).filter(Boolean);
   if (new Set(tags).size !== tags.length) errors.push(`${title} 的 Tags 不可重複`);
   const allowedTags = type === 'food' ? FOOD_TAGS : type === 'place' ? PLACE_TAGS : null;
@@ -519,6 +515,21 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   if (tags.length) entity.tags = tags;
   for (const [field, property] of Object.entries(config.properties)) {
     if (fields.has(field)) entity[property] = richText(fields.get(field), entityIds, references);
+  }
+  if (imageValue) {
+    const imageMatch = imageValue.match(/^\[Image\]\[([^\]]+)\]$/);
+    const creditMatch = imageCreditValue?.match(/^\[([^\]]+)\]\((https:\/\/[^)]+)\)$/);
+    if (!imageMatch) errors.push(`${title} 的 Image 必須使用 [Image][img-key] reference link`);
+    if (!imageCreditValue) errors.push(`${title} 使用 Image 時必須同時提供 ImageCredit`);
+    else if (!creditMatch || !isSafePublicUrl(creditMatch[2])) errors.push(`${title} 的 ImageCredit 必須是安全的 HTTPS markdown link`);
+    const imageUrl = imageMatch ? references.get(imageMatch[1]) : '';
+    if (imageMatch && (!imageUrl || !isSafePublicUrl(imageUrl))) errors.push(`${title} 的 Image reference 必須指向安全的 HTTPS 圖片網址`);
+    if (imageUrl && creditMatch) {
+      entity.image = {
+        url: imageUrl,
+        credit: { label: creditMatch[1], url: creditMatch[2] },
+      };
+    }
   }
   return entity;
 }
