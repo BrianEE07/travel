@@ -46,7 +46,7 @@ export interface FoodEntity extends BaseEntity {
   reservation?: RichText;
   reservationTime?: RichText;
   party?: RichText;
-  note?: RichText;
+  note?: RichText[];
 }
 
 export interface PlaceEntity extends BaseEntity {
@@ -56,7 +56,7 @@ export interface PlaceEntity extends BaseEntity {
   reservation?: RichText;
   reservationTime?: RichText;
   party?: RichText;
-  note?: RichText;
+  note?: RichText[];
 }
 
 export interface TransportSegment {
@@ -66,7 +66,7 @@ export interface TransportSegment {
   time: RichText;
   route: RichText;
   plan: RichText;
-  note: RichText;
+  note: RichText[];
   operator?: RichText;
   price?: RichText;
   official?: ExternalAction;

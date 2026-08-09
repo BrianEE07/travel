@@ -230,6 +230,11 @@ dialog[data-type="transport"] .dialog-visual { background: #627a87; }
 .dialog-row-plan > span { color: #526d7a; font-weight: 700; }
 .dialog-row-plan > div { color: var(--ink); font-weight: 550; line-height: 1.6; }
 .dialog-row-note > div { color: var(--ink-muted); line-height: 1.6; }
+.dialog-note-list { margin: 0; padding-left: 1.25em; }
+.dialog-note-list li { padding-left: .25em; }
+.dialog-note-list li + li { margin-top: 7px; }
+.dialog-note-list li::marker { color: var(--vermilion); font-size: .72em; }
+dialog[data-type="transport"] .dialog-note-list li::marker { color: #718792; }
 .transport-time-list { display: flex; flex-wrap: wrap; gap: 7px; }
 .transport-time-list span { padding: 5px 9px; border: 1px solid rgba(98,122,135,.3); border-radius: 99px; background: rgba(98,122,135,.07); color: #526d7a; font-size: 11px; line-height: 1.4; }
 .transport-route-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; line-height: 1.55; }

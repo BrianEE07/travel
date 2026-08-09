@@ -535,6 +535,7 @@ const hasChecklists = trip.checklists.packing.length > 0 || trip.checklists.shop
           const nodes = value.text.replace(/[。.]$/, '').split('→').map((node: string) => node.trim()).filter(Boolean);
           return `<div class="transport-route-line">${nodes.map((node: string, index: number) => `${index ? '<i aria-hidden="true">→</i>' : ''}<span>${escapeDialogText(node)}</span>`).join('')}</div>`;
         }
+        if (key === 'note') return `<ul class="dialog-note-list">${value.map((item: any) => `<li>${item.html}</li>`).join('')}</ul>`;
         return value.html;
       };
       const renderDetails = (source: any, fields: Array<[string, string]>, transport = false) => {
@@ -542,10 +543,12 @@ const hasChecklists = trip.checklists.packing.length > 0 || trip.checklists.shop
         details.classList.toggle('is-transport', transport);
         details.innerHTML = fields.map(([key, label]) => {
           const value = source[key];
-          if (!value) return '';
+          if (!value || (Array.isArray(value) && value.length === 0)) return '';
           const html = transport
             ? renderTransportField(key, value)
-            : key === 'reservation' ? (reservationLabels[value.text] || value.html) : value.html;
+            : key === 'note'
+              ? `<ul class="dialog-note-list">${value.map((item: any) => `<li>${item.html}</li>`).join('')}</ul>`
+              : key === 'reservation' ? (reservationLabels[value.text] || value.html) : value.html;
           const rowClass = transport ? ` dialog-row-${key}` : '';
           return `<div class="dialog-row${rowClass}"><span>${label}</span><div>${html}</div></div>`;
         }).join('');

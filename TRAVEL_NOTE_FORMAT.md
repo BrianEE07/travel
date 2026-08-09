@@ -146,11 +146,29 @@ Notes：
 - 這天主軸是輕鬆逛街。
 ```
 
+Use `Publish：summary` when the day has only a public outline and is not ready for a detailed timeline:
+
+```md
+### 2026-09-02 Wed
+
+Publish：summary
+
+Summary：前往糸島走訪海岸景點，預計安排箱島神社、二見浦與海邊咖啡，交通細節仍待確認。
+
+Stay：[CROSS Life](<#CROSS Life 博多天神｜9/1-9/3>)
+
+Notes：
+- 視天氣調整海岸停留時間。
+- 需要再確認糸島當地交通。
+```
+
 Rules:
 
 - `Publish` must be `full` or `summary`.
 - Full days must use timeline tags.
-- Summary days may omit detailed timeline items.
+- Summary days must contain one non-empty `Summary：` line with a short, public-facing description of the day's planned direction.
+- Summary days must not contain detailed timeline items. Use `Notes：` for reminders, risks, and unresolved details.
+- Every summary day must include `Stay：`, using the same format as a full day and matching the corresponding `Itinerary` value and link exactly. `Notes：` is optional.
 - Time must be outside Markdown links.
 - Parser must accept `-` and `–` between time ranges, but notes should prefer `-`.
 - Parser must remove travel tags from visible text.
@@ -183,7 +201,9 @@ Every public entity should use these common fields when applicable:
 - Image：[Image][img-key]
 - ImageCredit：[官方網站](https://example.com/source-page)
 - Hours：Open hours or availability.
-- Note：Operational notes, risks, backups, nearby context, or practical reminders.
+- Note：
+  - Operational notes, risks, backups, nearby context, or practical reminders.
+  - Optional second note item.
 
 [Back to top](<#Trip Title>)
 ```
@@ -206,6 +226,8 @@ Rules:
 - Do not use Google Images thumbnails, Google Maps photos, social platform CDN links, expiring token URLs, HTML page URLs, generic logo images, or no-image placeholders.
 - `ImageCredit` should be a markdown link to the human-readable source page, for example `[官方網站](https://example.com/)`, `[福岡縣觀光連盟](https://example.com/)`, `[Wikimedia Commons](https://example.com/)`, or `[糸島市觀光協會](https://example.com/)`.
 - Website builds should not fail when an image fails to load at runtime; hide the image and keep the text card usable.
+- `Note` may be a single-line field (`- Note：text`) or a nested list. Use a nested list when the note contains multiple distinct reminders.
+- Each note item should be semantically independent. Do not combine unrelated reminders in one item just because they came from the same sentence.
 
 ## Accommodation
 
@@ -281,7 +303,17 @@ Optional fields:
 
 Use `Note` for practical context that should not become separate schema fields: route reason, risks, backup choice, nearby context, ordering reminder, queue risk, or time pressure. Do not use separate `Why`, `Risk`, or `Backup` fields.
 
-`Note` should read like a short human reminder, not a dump of former fields. Prefer one or two smooth sentences. Avoid mechanical list fragments such as `nearby places; best for; risk; backup` when the information is already covered by `Summary`, `Tags`, `Daily Plan`, or `Transportation`.
+`Note` should read like short human reminders, not a dump of former fields. Prefer one or two smooth sentences or a small nested list. Avoid mechanical list fragments such as `nearby places; best for; risk; backup` when the information is already covered by `Summary`, `Tags`, `Daily Plan`, or `Transportation`.
+
+When there are multiple practical notes, prefer:
+
+```md
+- Note：
+  - 博多午餐主選，從川端通商店街接過去順路。
+  - 不可預約；若午餐尖峰排太久就改 FULL FULL 或天神地下街。
+```
+
+Each nested item should stand on its own in the website UI. Split route reason, queue risk, booking risk, backup choice, and time pressure into separate items when they are distinct.
 
 `Hours` format should be concise and consistent:
 
@@ -348,7 +380,17 @@ Optional fields:
 
 Use `Note` for practical context that should not become separate schema fields: route reason, risks, backup choice, nearby context, best use, weather concern, or time pressure. Do not use separate `Why`, `BestFor`, `Nearby`, or `Risk` fields.
 
-`Note` should read like a short human reminder, not a dump of former fields. Prefer one or two smooth sentences. Avoid mechanical list fragments such as `nearby places; best for; risk; backup` when the information is already covered by `Summary`, `Tags`, `Daily Plan`, or `Transportation`.
+`Note` should read like short human reminders, not a dump of former fields. Prefer one or two smooth sentences or a small nested list. Avoid mechanical list fragments such as `nearby places; best for; risk; backup` when the information is already covered by `Summary`, `Tags`, `Daily Plan`, or `Transportation`.
+
+When there are multiple practical notes, prefer:
+
+```md
+- Note：
+  - 太宰府主軸景點，重點是參拜、太鼓橋與御本殿周邊。
+  - 下午要移動到 LaLaport，不要在這裡排太久。
+```
+
+Each nested item should stand on its own in the website UI. Split best use, access warning, weather risk, backup choice, and time pressure into separate items when they are distinct.
 
 `Hours` format should be concise and consistent:
 
@@ -406,6 +448,8 @@ Rules:
 - `Operator` is the operator for that row's main plan only. Put backup operators or optional alternatives in `Note`, not in `Operator`.
 - `Price`, `Operator`, and `Official` are segment-level too. Leave the table cell empty when not applicable.
 - Put confirmed or useful prices in `Price` using currency prefixes, for example `JPY 47,040（4 人來回，已付）` or `TWD 1,433（1 人，已付）`.
+- Because transportation notes live inside a Markdown table cell, do not use nested lists in `Note`. Use `<br>` to separate multiple public reminders inside the same cell, and let the website render them as note bullets.
+- Each `<br>`-separated transportation note item must be semantically independent. For example, split baggage allowance, backup route, fixed meetup time, booking warning, and time pressure into separate items.
 - Keep booking references, ticket numbers, voucher numbers, verification codes, and management URLs in `Private：`.
 
 ## Public Checklists

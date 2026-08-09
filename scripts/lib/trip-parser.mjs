@@ -34,12 +34,12 @@ const ENTITY_FIELDS = {
   food: {
     allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', ...ENTITY_IMAGE_FIELDS, 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Note'],
     required: ['Area', 'Tags', 'Summary', 'Map', 'Hours'],
-    properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party', Note: 'note' },
+    properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party' },
   },
   place: {
     allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', ...ENTITY_IMAGE_FIELDS, 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Note'],
     required: ['Area', 'Tags', 'Summary', 'Map', 'Hours'],
-    properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party', Note: 'note' },
+    properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party' },
   },
   transport: {
     allowed: ['Summary'],
@@ -332,6 +332,10 @@ function tableCells(line) {
   return trimmed.slice(1, -1).split('|').map((cell) => cell.trim());
 }
 
+function splitTableBreakItems(value = '') {
+  return value.split(/<br\s*\/?\s*>/i).map((item) => item.trim()).filter(Boolean);
+}
+
 function parseTransportEntity(title, publicContent, entityIds, references, hasPrivate, errors) {
   const contentLines = [];
   let navigationSeen = false;
@@ -404,7 +408,7 @@ function parseTransportEntity(title, publicContent, entityIds, references, hasPr
       time: richText(values.Time, entityIds, references),
       route: richText(values.Route, entityIds, references),
       plan: richText(values.Plan, entityIds, references),
-      note: richText(values.Note, entityIds, references),
+      note: splitTableBreakItems(values.Note).map((item) => richText(item, entityIds, references)),
     };
     if (values.Operator) segment.operator = richText(values.Operator, entityIds, references);
     if (values.Price) segment.price = richText(values.Price, entityIds, references);
@@ -452,6 +456,8 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   }
 
   const fields = new Map();
+  const noteItems = [];
+  let nestedField = '';
   let publicNavigationSeen = false;
   for (const rawLine of publicContent.split('\n')) {
     const line = rawLine.trim();
@@ -460,22 +466,37 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
       if (publicNavigationSeen) errors.push(`${title} 的 Back to top 不可重複`);
       if (privateMarker >= 0) errors.push(`${title} 的 Back to top 必須放在 Private block 之後`);
       publicNavigationSeen = true;
+      nestedField = '';
       continue;
     }
     if (publicNavigationSeen) {
       errors.push(`${title} 的 Back to top 必須是最後一行`);
       continue;
     }
-    const match = line.match(/^- ([A-Za-z]+)：\s*(.+)$/);
+    const nestedItem = rawLine.match(/^(?: {2,}|\t+)-\s+(.+)$/);
+    if (nestedItem) {
+      if (nestedField !== 'Note') errors.push(`${title} 只有 Note 可以使用 nested list：${line}`);
+      else noteItems.push(nestedItem[1].trim());
+      continue;
+    }
+    nestedField = '';
+    const match = rawLine.match(/^- ([A-Za-z]+)：\s*(.*)$/);
     if (!match) {
       errors.push(`${title} 含無法辨識的公開內容：${line}`);
       continue;
     }
-    const [, label, value] = match;
+    const [, label, rawValue] = match;
+    const value = rawValue.trim();
     if (!config.allowed.includes(label)) errors.push(`${title} 使用未知欄位：${label}`);
     if (fields.has(label)) errors.push(`${title} 有重複欄位：${label}`);
-    fields.set(label, value.trim());
+    if (!value && label !== 'Note') errors.push(`${title} 的 ${label} 不可留空`);
+    fields.set(label, value);
+    if (label === 'Note' && (type === 'food' || type === 'place')) {
+      if (value) noteItems.push(value);
+      else nestedField = 'Note';
+    }
   }
+  if (fields.has('Note') && noteItems.length === 0) errors.push(`${title} 的 Note 至少需要一個項目`);
   for (const field of config.required) {
     if (!fields.get(field)) errors.push(`${title} 缺少必要欄位：${field}`);
   }
@@ -520,6 +541,7 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   for (const [field, property] of Object.entries(config.properties)) {
     if (fields.has(field)) entity[property] = richText(fields.get(field), entityIds, references);
   }
+  if (noteItems.length) entity.note = noteItems.map((item) => richText(item, entityIds, references));
   if (imageValue) {
     const imageMatch = imageValue.match(/^\[Image\]\[([^\]]+)\]$/);
     const creditMatch = imageCreditValue?.match(/^\[([^\]]+)\]\((https:\/\/.+)\)$/);

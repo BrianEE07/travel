@@ -99,7 +99,9 @@ Private：
 - Image：[Image][img-cafe]
 - ImageCredit：[測試來源](https://example.com/cafe)
 - Hours：08:00-18:00
-- Note：適合早上短暫停留，若客滿就直接前往下一站。
+- Note：
+  - 適合早上短暫停留。
+  - 若客滿就直接前往下一站。
 
 [Back to top](<#測試之旅>)
 
@@ -111,7 +113,7 @@ Private：
 
 | Segment | Area | Time | Route | Plan | Note | Operator | Price | Official |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 去程 | TPE / FUK | BR102 15:10-18:20 | TPE → FUK | 12:00 前往桃園機場 T2，搭 BR102 前往福岡。 | 提早 3 小時抵達 | EVA Air | TWD 12,000（2 人合計，已付） | |
+| 去程 | TPE / FUK | BR102 15:10-18:20 | TPE → FUK | 12:00 前往桃園機場 T2，搭 BR102 前往福岡。 | 提早 3 小時抵達<br>第二航廈報到 | EVA Air | TWD 12,000（2 人合計，已付） | |
 | 回程 | FUK / TPE | BR105 12:20-13:45 | FUK → TPE | 09:00 從飯店出發，搭 BR105 返回台北。 | 預留報到時間 | EVA Air | | https://www.evaair.com/ |
 
 Private：
@@ -169,7 +171,7 @@ test('parses schema 2 into structured public trip data', () => {
   assert.equal(stay.price.text, 'JPY 8,800（2 人 / 1 晚，已付）');
   const place = trip.entities.find((entity) => entity.type === 'place');
   assert.deepEqual(place.tags, ['shopping', 'backup']);
-  assert.equal(place.note.text, '適合早上短暫停留，若客滿就直接前往下一站。');
+  assert.deepEqual(place.note.map((item) => item.text), ['適合早上短暫停留。', '若客滿就直接前往下一站。']);
   assert.equal(place.reservation, undefined);
   assert.deepEqual(place.image, {
     url: 'https://example.com/cafe.jpg',
@@ -180,6 +182,8 @@ test('parses schema 2 into structured public trip data', () => {
   assert.equal(transport.segments[0].price.text, 'TWD 12,000（2 人合計，已付）');
   assert.equal(transport.segments[0].time.text, 'BR102 15:10-18:20');
   assert.equal(transport.segments[0].plan.text, '12:00 前往桃園機場 T2，搭 BR102 前往福岡。');
+  assert.deepEqual(transport.segments[0].note.map((item) => item.text), ['提早 3 小時抵達', '第二航廈報到']);
+  assert.deepEqual(transport.segments[1].note.map((item) => item.text), ['預留報到時間']);
   assert.equal(transport.segments[1].official.url, 'https://www.evaair.com/');
   assert.equal(transport.price, undefined);
   assert.match(trip.overview.transports[0].html, /data-segment="回程"/);
@@ -208,7 +212,7 @@ test('rejects full timeline entries without a canonical tag', () => {
 });
 
 test('rejects unknown entity fields and broken public links', () => {
-  assert.throws(() => parseTrip(fixture.replace('- Note：適合早上短暫停留，若客滿就直接前往下一站。', '- Why：適合早上短暫停留')), /未知欄位：Why/);
+  assert.throws(() => parseTrip(fixture.replace('- Note：\n  - 適合早上短暫停留。', '- Why：適合早上短暫停留\n  - 適合早上短暫停留。')), /未知欄位：Why/);
   assert.throws(() => parseTrip(fixture.replace('shopping, backup', 'shopping, unknown')), /未知 tag：unknown/);
   assert.throws(() => parseTrip(fixture.replace('<#測試咖啡｜8\/27>', '<#不存在的咖啡>')), /找不到標題/);
 });
@@ -219,6 +223,13 @@ test('validates optional reservation fields', () => {
   assert.throws(() => parseTrip(reserved.replace('2026-08-27 09:00', '8/27 09:00')), /YYYY-MM-DD HH:mm/);
   assert.throws(() => parseTrip(reserved.replace('Reservation：done', 'Reservation：none')), /不可使用 ReservationTime 或 Party/);
   assert.throws(() => parseTrip(reserved.replace('Party：2 人', 'Party：兩人')), /數字 人/);
+});
+
+test('accepts both single-line and nested Food / Places notes', () => {
+  const singleLine = fixture.replace('- Note：\n  - 適合早上短暫停留。\n  - 若客滿就直接前往下一站。', '- Note：適合早上短暫停留。');
+  const { trip } = parseTrip(singleLine);
+  const place = trip.entities.find((entity) => entity.type === 'place');
+  assert.deepEqual(place.note.map((item) => item.text), ['適合早上短暫停留。']);
 });
 
 test('resolves explicit entity images and validates their credits', () => {

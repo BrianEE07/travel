@@ -41,7 +41,6 @@ const groupLabel = (group: ChecklistGroup) => categoryLabels[group.title] ?? gro
     <Brand />
     <div class="header-actions">
       <span>更新於 {updated}</span>
-      <a href={`/${trip.slug}/`}><i aria-hidden="true">←</i> 返回行程</a>
     </div>
   </header>
 
@@ -50,7 +49,8 @@ const groupLabel = (group: ChecklistGroup) => categoryLabels[group.title] ?? gro
       <div>
         <p class="checklist-kicker">Preparation notes · {trip.code}</p>
         <h1 id="checklist-title">出發前清單</h1>
-        <p>行李與採買收在同一頁。勾選狀態只保存在這台裝置，不會改動原始筆記。</p>
+        <p class="checklist-intro">行李與採買收在同一頁。勾選狀態只保存在這台裝置，不會改動原始筆記。</p>
+        <a class="checklist-return" href={`/${trip.slug}/`}><span aria-hidden="true">←</span> 返回行程</a>
       </div>
       <div class="overall-progress" aria-live="polite">
         <strong><span data-overall-done>{sourceCompleted}</span><i>/ {allItems.length}</i></strong>
