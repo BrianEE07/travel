@@ -272,7 +272,8 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
         <p class="section-kicker dialog-kicker">Quick reference</p>
         <h2 id="dialog-title"></h2>
         <div id="dialog-summary" class="dialog-summary"></div>
-        <div id="dialog-details" class="dialog-details"></div>
+        <div id="dialog-segments" class="dialog-segment-tabs" role="tablist" aria-label="交通分段" hidden></div>
+        <div id="dialog-details" class="dialog-details" role="tabpanel"></div>
         <div id="dialog-actions" class="dialog-actions"></div>
         <p class="dialog-hint">點選視窗外、按 Esc 或瀏覽器返回鍵即可回到行程。</p>
       </div>
@@ -292,8 +293,16 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       stay: [['area', '區域'], ['checkIn', '入住'], ['checkOut', '退房'], ['room', '房型'], ['price', '價格'], ['access', '交通'], ['contact', '聯絡'], ['policy', '取消政策']],
       food: [['area', '區域'], ['hours', '營業'], ['reservation', '訂位'], ['reservationTime', '時間'], ['party', '人數'], ['why', '安排原因'], ['risk', '留意'], ['backup', '備案']],
       place: [['area', '區域'], ['hours', '開放'], ['why', '安排原因'], ['bestFor', '適合'], ['nearby', '附近'], ['risk', '留意']],
-      transport: [['time', '時間'], ['plan', '現場行動'], ['route', '路線'], ['price', '價格'], ['decision', '判斷'], ['buffer', '緩衝'], ['duration', '所需時間'], ['operator', '營運'], ['area', '區域']],
     };
+    const transportSegmentFields: Array<[string, string]> = [
+      ['area', '區域'],
+      ['operator', '營運'],
+      ['time', '時間'],
+      ['plan', '現場行動'],
+      ['route', '路線'],
+      ['price', '價格'],
+      ['note', '備註'],
+    ];
     const reservationLabels: Record<string, string> = { done: '已完成', none: '免訂位', needed: '需要訂位', tbd: '待確認' };
     const shareButton = document.querySelector<HTMLButtonElement>('#copy-trip-link');
     const quickNavToggle = document.querySelector<HTMLButtonElement>('#quick-nav-toggle');
@@ -465,59 +474,102 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
 
     shareButton?.addEventListener('click', copyTripLink);
 
-    function fillDialog(entity: any) {
+    function fillDialog(entity: any, requestedSegmentId = '') {
       if (!dialog) return;
       const title = dialog.querySelector<HTMLElement>('#dialog-title');
       const type = dialog.querySelector<HTMLElement>('.dialog-type');
       const summary = dialog.querySelector<HTMLElement>('#dialog-summary');
+      const segmentTabs = dialog.querySelector<HTMLElement>('#dialog-segments');
       const details = dialog.querySelector<HTMLElement>('#dialog-details');
       const actions = dialog.querySelector<HTMLElement>('#dialog-actions');
       const preview = dialog.querySelector<HTMLImageElement>('#dialog-preview');
       if (title) title.textContent = entity.title;
       if (type) type.textContent = typeLabels[entity.type] || entity.type;
       if (summary) summary.innerHTML = entity.summary?.html || '';
-      if (details) {
-        const escapeDialogText = (text: string) => text
-          .replaceAll('&', '&amp;')
-          .replaceAll('<', '&lt;')
-          .replaceAll('>', '&gt;')
-          .replaceAll('"', '&quot;')
-          .replaceAll("'", '&#039;');
-        const renderTransportField = (key: string, value: any) => {
-          if (key === 'time') {
-            const segments = value.text.split('；').map((part: string) => part.trim().replace(/[。.]$/, '')).filter(Boolean);
-            return `<div class="transport-time-list">${segments.map((part: string) => `<span>${escapeDialogText(part)}</span>`).join('')}</div>`;
-          }
-          if (key === 'route') {
-            const routes = value.text.split('；').map((part: string) => part.trim().replace(/[。.]$/, '')).filter(Boolean);
-            return `<div class="transport-route-list">${routes.map((route: string) => {
-              const nodes = route.split('→').map((node: string) => node.trim()).filter(Boolean);
-              return `<div class="transport-route-line">${nodes.map((node: string, index: number) => `${index ? '<i aria-hidden="true">→</i>' : ''}<span>${escapeDialogText(node)}</span>`).join('')}</div>`;
-            }).join('')}</div>`;
-          }
-          return value.html;
-        };
-        details.innerHTML = (detailFields[entity.type] || []).map(([key, label]) => {
-          const value = entity[key];
+      const escapeDialogText = (text: string) => text
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+      const renderTransportField = (key: string, value: any) => {
+        if (key === 'time') return `<div class="transport-time-list"><span>${escapeDialogText(value.text)}</span></div>`;
+        if (key === 'route') {
+          const nodes = value.text.replace(/[。.]$/, '').split('→').map((node: string) => node.trim()).filter(Boolean);
+          return `<div class="transport-route-line">${nodes.map((node: string, index: number) => `${index ? '<i aria-hidden="true">→</i>' : ''}<span>${escapeDialogText(node)}</span>`).join('')}</div>`;
+        }
+        return value.html;
+      };
+      const renderDetails = (source: any, fields: Array<[string, string]>, transport = false) => {
+        if (!details) return;
+        details.classList.toggle('is-transport', transport);
+        details.innerHTML = fields.map(([key, label]) => {
+          const value = source[key];
           if (!value) return '';
-          const html = entity.type === 'transport'
+          const html = transport
             ? renderTransportField(key, value)
             : key === 'reservation' ? (reservationLabels[value.text] || value.html) : value.html;
-          const rowClass = entity.type === 'transport'
-            ? ` dialog-row-${key}${['decision', 'buffer', 'duration', 'operator', 'area'].includes(key) ? ' dialog-row-secondary' : ''}`
-            : '';
-          return `
-          <div class="dialog-row${rowClass}">
-            <span>${label}</span>
-            <div>${html}</div>
-          </div>`;
+          const rowClass = transport ? ` dialog-row-${key}` : '';
+          return `<div class="dialog-row${rowClass}"><span>${label}</span><div>${html}</div></div>`;
         }).join('');
-      }
-      if (actions) {
-        actions.innerHTML = entity.actions.map((action: any) => `
+      };
+      const renderActions = (dialogActions: any[]) => {
+        if (!actions) return;
+        actions.innerHTML = dialogActions.map((action: any) => `
           <a href="${action.url}" target="_blank" rel="noopener noreferrer">
             ${action.label}<i class="external-arrow" aria-hidden="true"></i>
           </a>`).join('');
+      };
+
+      if (entity.type === 'transport') {
+        const segments = entity.segments || [];
+        const selected = segments.find((segment: any) => segment.id === requestedSegmentId) || segments[0];
+        const selectSegment = (segment: any, updateHistory = false) => {
+          if (!segment) return;
+          renderDetails(segment, transportSegmentFields, true);
+          renderActions(segment.official ? [segment.official] : []);
+          dialog.dataset.segment = segment.id;
+          segmentTabs?.querySelectorAll<HTMLButtonElement>('[data-dialog-segment]').forEach((button) => {
+            const active = button.dataset.dialogSegment === segment.id;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-selected', String(active));
+            button.tabIndex = active ? 0 : -1;
+            if (active && details) details.setAttribute('aria-labelledby', button.id);
+          });
+          if (updateHistory && history.state?.dialogEntry) {
+            history.replaceState({ ...history.state, segment: segment.id }, '', location.href);
+          }
+        };
+        if (segmentTabs) {
+          segmentTabs.hidden = segments.length <= 1;
+          if (segments.length <= 1) details?.removeAttribute('aria-labelledby');
+          segmentTabs.innerHTML = segments.length > 1 ? segments.map((segment: any, index: number) => `
+            <button id="dialog-segment-${index}" type="button" role="tab" data-dialog-segment="${escapeDialogText(segment.id)}" aria-controls="dialog-details">
+              ${escapeDialogText(segment.label)}
+            </button>`).join('') : '';
+          const buttons = [...segmentTabs.querySelectorAll<HTMLButtonElement>('[data-dialog-segment]')];
+          buttons.forEach((button, index) => {
+            button.addEventListener('click', () => selectSegment(segments[index], true));
+            button.addEventListener('keydown', (event) => {
+              if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+              event.preventDefault();
+              const direction = event.key === 'ArrowRight' ? 1 : -1;
+              const nextIndex = (index + direction + buttons.length) % buttons.length;
+              selectSegment(segments[nextIndex], true);
+              buttons[nextIndex].focus();
+            });
+          });
+        }
+        selectSegment(selected);
+      } else {
+        if (segmentTabs) {
+          segmentTabs.hidden = true;
+          segmentTabs.innerHTML = '';
+        }
+        details?.removeAttribute('aria-labelledby');
+        delete dialog.dataset.segment;
+        renderDetails(entity, detailFields[entity.type] || []);
+        renderActions(entity.actions || []);
       }
       if (preview) {
         const image = entity.preview?.image;
@@ -560,17 +612,17 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       unlockPageScroll(returnScrollY);
     }
 
-    function openEntity(id: string, push = true, returnScrollY?: number) {
+    function openEntity(id: string, segmentId = '', push = true, returnScrollY?: number) {
       const entity = entityMap.get(id);
       if (!entity || !dialog) return;
-      fillDialog(entity);
+      fillDialog(entity, segmentId);
       if (!dialog.open) {
         lockPageScroll(returnScrollY);
         dialog.showModal();
       }
       if (push) {
         history.replaceState({ ...history.state, tripScrollY: dialogReturnScrollY }, '', location.href);
-        history.pushState({ detail: id, dialogEntry: true, tripScrollY: dialogReturnScrollY }, '', location.href);
+        history.pushState({ detail: id, segment: dialog.dataset.segment || '', dialogEntry: true, tripScrollY: dialogReturnScrollY }, '', location.href);
       }
     }
 
@@ -588,7 +640,7 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
 
     document.addEventListener('click', (event) => {
       const trigger = (event.target as HTMLElement).closest<HTMLElement>('[data-entity]');
-      if (trigger?.dataset.entity) openEntity(trigger.dataset.entity);
+      if (trigger?.dataset.entity) openEntity(trigger.dataset.entity, trigger.dataset.segment || '');
     });
     dialog?.querySelector('.dialog-close')?.addEventListener('click', () => closeDialog());
     dialog?.addEventListener('cancel', (event) => {
@@ -602,11 +654,11 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       const legacyDetail = location.hash.startsWith('#detail=') ? decodeURIComponent(location.hash.slice(8)) : '';
       const id = event.state?.dialogEntry ? event.state.detail : legacyDetail;
       const returnScrollY = Number.isFinite(event.state?.tripScrollY) ? event.state.tripScrollY : dialogReturnScrollY;
-      if (id) openEntity(id, false, returnScrollY);
+      if (id) openEntity(id, event.state?.segment || '', false, returnScrollY);
       else if (dialog?.open) finishDialogClose(returnScrollY);
     });
     const initialDetail = location.hash.startsWith('#detail=') ? decodeURIComponent(location.hash.slice(8)) : '';
-    if (initialDetail) openEntity(initialDetail, false);
+    if (initialDetail) openEntity(initialDetail, '', false);
 
     document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach((button) => {
       button.addEventListener('click', () => {

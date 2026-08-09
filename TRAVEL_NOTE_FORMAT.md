@@ -261,8 +261,8 @@ Allowed fields:
 
 Allowed fields:
 
-- Common fields: `Area`, `Summary`, `Official`
-- Type fields: `Operator`, `Price`, `Time`, `Route`, `Plan`, `Duration`, `Decision`, `Buffer`
+- Common fields: `Summary`
+- Segment table columns: `Segment`, `Area`, `Time`, `Route`, `Plan`, `Note`, `Operator`, `Price`, `Official`
 - Private block: `Private：`
 
 Map is optional for transportation.
@@ -271,11 +271,18 @@ Rules:
 
 - Title format: `### Transport Name｜Date` or `### Transport Name｜Date Range`.
 - Keep a round-trip transportation entity together when both legs share the same booking, ticket pickup, baggage rules, or operational notes. Split into outbound / inbound entities only when the ticket, decision, risk, or user action is materially different.
+- `Summary` is a card-level field.
+- All route-specific public data must live in a Markdown table immediately after `Summary`.
+- The table header must be exactly: `| Segment | Area | Time | Route | Plan | Note | Operator | Price | Official |`.
+- Each row is one segment / leg. Do not use `；` to encode multiple segments inside a single table cell.
+- `Segment` should be a short human-readable label such as `去程`, `回程`, `主線`, or `9/3 BR101`.
+- `Area` is segment-level and should describe the relevant origin / destination area for that row.
+- `Time` is for confirmed schedules, planned movement windows, and identifying service names such as flight numbers or train names.
+- `Route` is path only. Keep alternatives, backup routes, candidate times, last departures, meetup details, and operational warnings in `Note`, not in `Route`.
+- `Plan` is the main on-site action in one short instruction. It should answer "what should I do now?" without analysis.
+- `Operator` is the operator for that row's main plan only. Put backup operators or optional alternatives in `Note`, not in `Operator`.
+- `Price`, `Operator`, and `Official` are segment-level too. Leave the table cell empty when not applicable.
 - Put confirmed or useful prices in `Price` using currency prefixes, for example `JPY 47,040（4 人來回，已付）` or `TWD 1,433（1 人，已付）`.
-- Use `Time` for confirmed schedules, planned movement windows, and identifying service names such as flight numbers or train names. Keep time outside Markdown links in Daily Plan, but use plain text in transportation entities.
-- Keep `Route` focused on the path only. Do not repeat dates, times, or service names in `Route` when they already appear in `Time`.
-- Keep alternatives, backup routes, candidate times, last departures, and meetup details in `Decision` or `Buffer`, not in `Route`.
-- Use `Plan` for the main on-site action in one short instruction. It should answer "what should I do now?" without analysis.
 - Keep booking references, ticket numbers, voucher numbers, verification codes, and management URLs in `Private：`.
 
 ## Private Blocks

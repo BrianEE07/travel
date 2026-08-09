@@ -12,7 +12,10 @@ for (const entry of await fs.readdir(path.join(projectRoot, 'src/data/trips'))) 
   if (!entry.endsWith('.json')) continue;
   const trip = JSON.parse(await fs.readFile(path.join(projectRoot, 'src/data/trips', entry), 'utf8'));
   for (const entity of trip.entities ?? []) {
-    if ((entity.type === 'stay' || entity.type === 'transport') && entity.price?.text) allowedPrices.push(entity.price.text);
+    if (entity.type === 'stay' && entity.price?.text) allowedPrices.push(entity.price.text);
+    if (entity.type === 'transport') {
+      for (const segment of entity.segments ?? []) if (segment.price?.text) allowedPrices.push(segment.price.text);
+    }
   }
 }
 

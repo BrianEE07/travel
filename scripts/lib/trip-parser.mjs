@@ -36,11 +36,14 @@ const ENTITY_FIELDS = {
     properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Why: 'why', BestFor: 'bestFor', Nearby: 'nearby', Risk: 'risk' },
   },
   transport: {
-    allowed: ['Area', 'Summary', 'Official', 'Operator', 'Price', 'Time', 'Route', 'Plan', 'Duration', 'Decision', 'Buffer'],
-    required: ['Area', 'Summary', 'Operator', 'Time', 'Route', 'Plan', 'Duration', 'Decision', 'Buffer'],
-    properties: { Area: 'area', Summary: 'summary', Operator: 'operator', Price: 'price', Time: 'time', Route: 'route', Plan: 'plan', Duration: 'duration', Decision: 'decision', Buffer: 'buffer' },
+    allowed: ['Summary'],
+    required: ['Summary'],
+    properties: { Summary: 'summary' },
   },
 };
+
+const TRANSPORT_SEGMENT_COLUMNS = ['Segment', 'Area', 'Time', 'Route', 'Plan', 'Note', 'Operator', 'Price', 'Official'];
+const TRANSPORT_SEGMENT_REQUIRED = ['Segment', 'Area', 'Time', 'Route', 'Plan', 'Note'];
 
 const FRONTMATTER_REQUIRED = [
   'travel_schema', 'trip_slug', 'trip_title', 'trip_kicker', 'trip_summary', 'trip_intro',
@@ -129,7 +132,79 @@ function isSafePublicUrl(value) {
   }
 }
 
-function inlineHtml(value, entityIds, references) {
+function normalizedMatchText(value = '') {
+  return stripLinks(value)
+    .normalize('NFKC')
+    .toLowerCase()
+    .replace(/^(?:前往|前去|回到|搭乘|搭)/, '')
+    .replace(/[^\p{Letter}\p{Number}]+/gu, '');
+}
+
+function matchParts(value = '') {
+  return stripLinks(value)
+    .normalize('NFKC')
+    .toLowerCase()
+    .replace(/^(?:前往|前去|回到|搭乘|搭)/, '')
+    .split(/\s*(?:→|／|\/|；|;)\s*/)
+    .map((part) => part.replace(/[^\p{Letter}\p{Number}]+/gu, ''))
+    .filter((part) => part.length >= 3);
+}
+
+function longestCommonRun(left = '', right = '') {
+  if (!left || !right) return 0;
+  const previous = new Array(right.length + 1).fill(0);
+  let longest = 0;
+  for (let leftIndex = 1; leftIndex <= left.length; leftIndex += 1) {
+    for (let rightIndex = right.length; rightIndex >= 1; rightIndex -= 1) {
+      previous[rightIndex] = left[leftIndex - 1] === right[rightIndex - 1] ? previous[rightIndex - 1] + 1 : 0;
+      longest = Math.max(longest, previous[rightIndex]);
+    }
+  }
+  return longest;
+}
+
+function inferSegmentId(label, segments = []) {
+  if (!segments.length) return '';
+  const plainLabel = stripLinks(label).normalize('NFKC').toLowerCase();
+  const normalizedLabel = normalizedMatchText(label);
+  const asciiTokens = stripLinks(label).normalize('NFKC').toLowerCase().match(/[a-z]{2,}\d+|[a-z]{3,}/g) ?? [];
+  const serviceTokens = plainLabel.match(/[a-z][a-z-]*\s*\d+/g)?.map(normalizedMatchText) ?? [];
+  const labelParts = matchParts(label);
+  let best = { id: segments[0].id, score: 0 };
+  for (const segment of segments) {
+    const segmentLabel = normalizedMatchText(segment.label);
+    const segmentRoute = normalizedMatchText(segment.route?.text);
+    const combined = normalizedMatchText([
+      segment.label,
+      segment.area?.text,
+      segment.time?.text,
+      segment.route?.text,
+      segment.plan?.text,
+    ].filter(Boolean).join(' '));
+    let score = 0;
+    if (segmentLabel && normalizedLabel && (normalizedLabel.includes(segmentLabel) || segmentLabel.includes(normalizedLabel))) score += 100;
+    if (segmentRoute.length >= 4 && normalizedLabel.includes(segmentRoute)) score += 80;
+    if (normalizedLabel.length >= 2 && combined.includes(normalizedLabel)) score += 60;
+    for (const token of serviceTokens) if (combined.includes(token)) score += 120 + token.length;
+    for (const token of asciiTokens) {
+      const normalizedToken = normalizedMatchText(token);
+      if (normalizedToken.length >= 2 && combined.includes(normalizedToken)) score += 20 + normalizedToken.length;
+    }
+    const candidateParts = [segment.label, segment.route?.text, segment.plan?.text]
+      .flatMap((value) => matchParts(value));
+    for (const part of labelParts) {
+      const closest = candidateParts.reduce((length, candidate) => {
+        if (part.includes(candidate) || candidate.includes(part)) return Math.max(length, Math.min(part.length, candidate.length));
+        return Math.max(length, longestCommonRun(part, candidate));
+      }, 0);
+      if (closest >= 3) score += closest * 12;
+    }
+    if (score > best.score) best = { id: segment.id, score };
+  }
+  return best.id;
+}
+
+function inlineHtml(value, entityIds, references, entitySegments = new Map()) {
   const pattern = /\[([^\]]+)\]\((<#[^)]+>|https?:\/\/[^)]+)\)|\[([^\]]+)\]\[([^\]]+)\]/g;
   let html = '';
   let cursor = 0;
@@ -141,7 +216,11 @@ function inlineHtml(value, entityIds, references) {
       const title = normalizeFragment(rawTarget);
       const entityId = entityIds.get(title);
       const date = title.match(/^(\d{4}-\d{2}-\d{2})/)?.[1];
-      if (entityId) html += `<button class="inline-detail" type="button" data-entity="${escapeHtml(entityId)}">${escapeHtml(label)}</button>`;
+      if (entityId) {
+        const segmentId = inferSegmentId(label, entitySegments.get(title) ?? []);
+        const segmentAttribute = segmentId ? ` data-segment="${escapeHtml(segmentId)}"` : '';
+        html += `<button class="inline-detail" type="button" data-entity="${escapeHtml(entityId)}"${segmentAttribute}>${escapeHtml(label)}</button>`;
+      }
       else if (date) html += `<a href="#day-${date}">${escapeHtml(label)}</a>`;
       else html += escapeHtml(label);
     } else if (rawTarget && isSafePublicUrl(rawTarget)) {
@@ -155,8 +234,8 @@ function inlineHtml(value, entityIds, references) {
   return html.replace(/`([^`]+)`/g, '<code>$1</code>');
 }
 
-function richText(value, entityIds, references) {
-  return { text: stripLinks(value), html: inlineHtml(value, entityIds, references) };
+function richText(value, entityIds, references, entitySegments = new Map()) {
+  return { text: stripLinks(value), html: inlineHtml(value, entityIds, references, entitySegments) };
 }
 
 function isBackToTop(line) {
@@ -239,6 +318,104 @@ function validatePublicLinks(publicSections, headings, references, entitySection
   }
 }
 
+function tableCells(line) {
+  const trimmed = line.trim();
+  if (!trimmed.startsWith('|') || !trimmed.endsWith('|')) return null;
+  return trimmed.slice(1, -1).split('|').map((cell) => cell.trim());
+}
+
+function parseTransportEntity(title, publicContent, entityIds, references, hasPrivate, errors) {
+  const contentLines = [];
+  let navigationSeen = false;
+  for (const rawLine of publicContent.split('\n')) {
+    const line = rawLine.trim();
+    if (!line) continue;
+    if (isBackToTop(line)) {
+      if (navigationSeen) errors.push(`${title} 的 Back to top 不可重複`);
+      if (hasPrivate) errors.push(`${title} 的 Back to top 必須放在 Private block 之後`);
+      navigationSeen = true;
+      continue;
+    }
+    if (navigationSeen) {
+      errors.push(`${title} 的 Back to top 必須是最後一行`);
+      continue;
+    }
+    contentLines.push(line);
+  }
+
+  const summaryMatch = contentLines[0]?.match(/^- Summary：\s*(.+)$/);
+  if (!summaryMatch) errors.push(`${title} 的第一個公開欄位必須是 Summary`);
+  const header = tableCells(contentLines[1] ?? '');
+  if (!header || header.join('|') !== TRANSPORT_SEGMENT_COLUMNS.join('|')) {
+    errors.push(`${title} 的交通分段表頭必須完全等於 ${TRANSPORT_SEGMENT_COLUMNS.join(' / ')}`);
+  }
+  const separator = tableCells(contentLines[2] ?? '');
+  if (!separator || separator.length !== TRANSPORT_SEGMENT_COLUMNS.length || !separator.every((cell) => /^:?-{3,}:?$/.test(cell.replace(/\s/g, '')))) {
+    errors.push(`${title} 的交通分段表缺少合法分隔列`);
+  }
+
+  const entityId = entityIds.get(title);
+  const segments = [];
+  const segmentLabels = new Set();
+  const segmentIds = new Set();
+  const actions = [];
+  const actionUrls = new Set();
+  for (const [index, line] of contentLines.slice(3).entries()) {
+    const cells = tableCells(line);
+    if (!cells || cells.length !== TRANSPORT_SEGMENT_COLUMNS.length) {
+      errors.push(`${title} 的交通分段第 ${index + 1} 列必須有 ${TRANSPORT_SEGMENT_COLUMNS.length} 欄`);
+      continue;
+    }
+    const values = Object.fromEntries(TRANSPORT_SEGMENT_COLUMNS.map((column, cellIndex) => [column, cells[cellIndex]]));
+    for (const field of TRANSPORT_SEGMENT_REQUIRED) {
+      if (!values[field]) errors.push(`${title} 的交通分段第 ${index + 1} 列缺少 ${field}`);
+    }
+    if (!values.Segment) continue;
+    if (segmentLabels.has(values.Segment)) errors.push(`${title} 有重複交通分段：${values.Segment}`);
+    segmentLabels.add(values.Segment);
+    const baseSegmentId = slugify(values.Segment) || `segment-${index + 1}`;
+    if (segmentIds.has(baseSegmentId)) errors.push(`${title} 的交通分段 id 重複：${baseSegmentId}`);
+    segmentIds.add(baseSegmentId);
+
+    let official;
+    if (values.Official) {
+      if (!isSafePublicUrl(values.Official)) errors.push(`${title} 的 ${values.Segment} Official 必須是安全的 HTTPS 網址`);
+      else {
+        official = { label: '官方網站', url: values.Official, kind: 'official' };
+        if (!actionUrls.has(values.Official)) {
+          actions.push({ label: `官方網站 · ${values.Segment}`, url: values.Official, kind: 'official' });
+          actionUrls.add(values.Official);
+        }
+      }
+    }
+
+    const segment = {
+      id: baseSegmentId,
+      label: values.Segment,
+      area: richText(values.Area, entityIds, references),
+      time: richText(values.Time, entityIds, references),
+      route: richText(values.Route, entityIds, references),
+      plan: richText(values.Plan, entityIds, references),
+      note: richText(values.Note, entityIds, references),
+    };
+    if (values.Operator) segment.operator = richText(values.Operator, entityIds, references);
+    if (values.Price) segment.price = richText(values.Price, entityIds, references);
+    if (official) segment.official = official;
+    segments.push(segment);
+  }
+  if (!segments.length) errors.push(`${title} 至少需要一個交通分段`);
+  if (contentLines.length > 3 + segments.length) errors.push(`${title} 的交通分段表後不可有其他公開內容`);
+
+  return {
+    id: entityId,
+    title,
+    type: 'transport',
+    actions,
+    summary: richText(summaryMatch?.[1] ?? '', entityIds, references),
+    segments,
+  };
+}
+
 function parseEntity(title, content, type, entityIds, references, secrets, errors) {
   const config = ENTITY_FIELDS[type];
   const contentLines = content.split('\n');
@@ -260,6 +437,10 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
       continue;
     }
     rememberPrivateLine(line, secrets);
+  }
+
+  if (type === 'transport') {
+    return parseTransportEntity(title, publicContent, entityIds, references, privateMarker >= 0, errors);
   }
 
   const fields = new Map();
@@ -318,7 +499,7 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   return entity;
 }
 
-function parseOverview(section, entityIds, references, frontmatter, errors) {
+function parseOverview(section, entityIds, references, entitySegments, frontmatter, errors) {
   const allowed = new Set(['Date', 'Places', 'People', 'Transport', 'Stay', 'Status']);
   const scalarFields = new Set(['Date', 'Places', 'People', 'Status']);
   const blockFields = new Set(['Transport', 'Stay']);
@@ -359,8 +540,8 @@ function parseOverview(section, entityIds, references, frontmatter, errors) {
     date: displayDate,
     places: placesText.split(/[、,]/).map((item) => item.trim()).filter(Boolean),
     people: fields.get('People')?.[0] ?? '',
-    transports: (fields.get('Transport') ?? []).map((value) => richText(value, entityIds, references)),
-    stays: (fields.get('Stay') ?? []).map((value) => richText(value, entityIds, references)),
+    transports: (fields.get('Transport') ?? []).map((value) => richText(value, entityIds, references, entitySegments)),
+    stays: (fields.get('Stay') ?? []).map((value) => richText(value, entityIds, references, entitySegments)),
     status: fields.get('Status')?.[0] ?? '',
   };
 }
@@ -409,7 +590,7 @@ function weekdayFor(date) {
   return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(`${date}T12:00:00Z`).getUTCDay()];
 }
 
-function parseDays(section, itinerary, entityIds, references, errors) {
+function parseDays(section, itinerary, entityIds, references, entitySegments, errors) {
   const itineraryByDate = new Map(itinerary.map((row) => [row.date, row]));
   return sectionList(section, 3).map(({ title, content }) => {
     const titleMatch = title.match(/^(\d{4}-\d{2}-\d{2})\s+(Sun|Mon|Tue|Wed|Thu|Fri|Sat)$/);
@@ -446,7 +627,7 @@ function parseDays(section, itinerary, entityIds, references, errors) {
       }
       if (line.startsWith('- ') && mode === 'notes') {
         const value = line.slice(2).trim();
-        notes.push(richText(value, entityIds, references));
+        notes.push(richText(value, entityIds, references, entitySegments));
         continue;
       }
       if (line.startsWith('- ') && mode === 'timeline') {
@@ -461,7 +642,7 @@ function parseDays(section, itinerary, entityIds, references, errors) {
         const kind = tags[0] ?? '';
         if (kind && !TIMELINE_TAGS.has(kind)) errors.push(`${title} 使用未知 timeline tag：#travel/${kind}`);
         const visible = timeMatch[2].replace(/\s*#travel\/[a-z]+\s*/g, ' ').replace(/\s{2,}/g, ' ').trim();
-        timeline.push({ time: timeMatch[1].replace('–', '-'), kind, text: stripLinks(visible), textHtml: inlineHtml(visible, entityIds, references) });
+        timeline.push({ time: timeMatch[1].replace('–', '-'), kind, text: stripLinks(visible), textHtml: inlineHtml(visible, entityIds, references, entitySegments) });
         continue;
       }
       errors.push(`${title} 含無法辨識的公開內容：${line}`);
@@ -575,9 +756,10 @@ export function parseTrip(markdown) {
       rememberPrivateLine(line, secrets);
     }
   }
-  const overview = parseOverview(sections.get('Overview') ?? '', entityIds, references, data, errors);
+  const entitySegments = new Map(entities.filter((entity) => entity.type === 'transport').map((entity) => [entity.title, entity.segments]));
+  const overview = parseOverview(sections.get('Overview') ?? '', entityIds, references, entitySegments, data, errors);
   const itinerary = parseItinerary(sections.get('Itinerary') ?? '', entityIds, entityTypes, errors);
-  const days = parseDays(sections.get('Daily Plan') ?? '', itinerary, entityIds, references, errors);
+  const days = parseDays(sections.get('Daily Plan') ?? '', itinerary, entityIds, references, entitySegments, errors);
   const start = String(data.trip_start ?? '');
   const end = String(data.trip_end ?? '');
   validateDateSets(inclusiveDates(start, end, errors), itinerary, days, errors);
@@ -610,7 +792,11 @@ export function parseTrip(markdown) {
     entities,
   };
 
-  const allowedPrices = trip.entities.filter((entity) => entity.type === 'stay' || entity.type === 'transport').map((entity) => entity.price?.text).filter(Boolean);
+  const allowedPrices = trip.entities.flatMap((entity) => {
+    if (entity.type === 'stay') return [entity.price?.text];
+    if (entity.type === 'transport') return entity.segments.map((segment) => segment.price?.text);
+    return [];
+  }).filter(Boolean);
   const findings = scanPublicPayload(trip, secrets, allowedPrices);
   for (const finding of findings) errors.push(`公開資料安全檢查：${finding}`);
   if (errors.length) throw new Error(`Travel schema 2 validation failed:\n- ${[...new Set(errors)].join('\n- ')}`);

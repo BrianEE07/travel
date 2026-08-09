@@ -26,7 +26,7 @@ noindex: true
 - People：2 人同行
 
 Transport：
-- [BR102 TPE → FUK](<#測試航班>)
+- [BR105 FUK → TPE](<#測試航班>)
 
 Stay：
 - 2026-08-27 ～ 2026-08-28：[紙屋](<#紙屋｜8/27>)
@@ -47,6 +47,7 @@ Stay：
 Publish：full
 
 - 09:00 [測試咖啡](<#測試咖啡｜8/27>) #travel/food
+- 15:10-18:20 [TPE → FUK（BR102）](<#測試航班>) #travel/move
 
 Stay：[紙屋](<#紙屋｜8/27>)
 
@@ -106,16 +107,12 @@ Private：
 
 ### 測試航班
 
-- Area：TPE / FUK
-- Summary：測試去程航班。
-- Operator：EVA Air
-- Route：2026-08-27 BR102 TPE → FUK
-- Time：BR102 15:10-18:20
-- Plan：12:00 前往桃園機場 T2，搭 BR102 前往福岡。
-- Duration：2 小時
-- Price：TWD 12,000（2 人合計，已付）
-- Decision：託運 1PC
-- Buffer：提早 3 小時抵達
+- Summary：測試來回航班。
+
+| Segment | Area | Time | Route | Plan | Note | Operator | Price | Official |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 去程 | TPE / FUK | BR102 15:10-18:20 | TPE → FUK | 12:00 前往桃園機場 T2，搭 BR102 前往福岡。 | 提早 3 小時抵達 | EVA Air | TWD 12,000（2 人合計，已付） | |
+| 回程 | FUK / TPE | BR105 12:20-13:45 | FUK → TPE | 09:00 從飯店出發，搭 BR105 返回台北。 | 預留報到時間 | EVA Air | | https://www.evaair.com/ |
 
 Private：
 - Fan Yung Wei：BOOK99，票號 695 1234567890，總額 TWD 20,000
@@ -145,6 +142,7 @@ test('parses schema 2 into structured public trip data', () => {
   assert.equal(trip.days[0].publish, 'full');
   assert.equal(trip.days[0].timeline[0].kind, 'food');
   assert.match(trip.days[0].timeline[0].textHtml, /data-entity="place-/);
+  assert.match(trip.days[0].timeline[1].textHtml, /data-segment="去程"/);
   assert.match(trip.days[0].stayEntityId, /^stay-/);
   assert.equal(trip.days[1].publish, 'summary');
   assert.equal(trip.days[1].summary, '前往太宰府散步。');
@@ -152,9 +150,13 @@ test('parses schema 2 into structured public trip data', () => {
   assert.equal(stay.checkIn.text, '2026-08-27 15:00');
   assert.equal(stay.price.text, 'JPY 8,800（2 人 / 1 晚，已付）');
   const transport = trip.entities.find((entity) => entity.type === 'transport');
-  assert.equal(transport.price.text, 'TWD 12,000（2 人合計，已付）');
-  assert.equal(transport.time.text, 'BR102 15:10-18:20');
-  assert.equal(transport.plan.text, '12:00 前往桃園機場 T2，搭 BR102 前往福岡。');
+  assert.equal(transport.segments.length, 2);
+  assert.equal(transport.segments[0].price.text, 'TWD 12,000（2 人合計，已付）');
+  assert.equal(transport.segments[0].time.text, 'BR102 15:10-18:20');
+  assert.equal(transport.segments[0].plan.text, '12:00 前往桃園機場 T2，搭 BR102 前往福岡。');
+  assert.equal(transport.segments[1].official.url, 'https://www.evaair.com/');
+  assert.equal(transport.price, undefined);
+  assert.match(trip.overview.transports[0].html, /data-segment="回程"/);
   assert.equal('details' in stay, false);
 });
 
@@ -164,7 +166,7 @@ test('omits private blocks and all non-allowlist sections', () => {
   for (const forbidden of ['Private Person', 'AB12345678', 'SECRET9988', 'never-public', '1234567890', '12,345', '20,000', 'Booking & Tasks', 'Candidates', 'Back to top']) {
     assert.equal(output.includes(forbidden), false, forbidden);
   }
-  assert.match(output, /測試去程航班/);
+  assert.match(output, /測試來回航班/);
 });
 
 test('rejects date drift between frontmatter, itinerary and daily plan', () => {
@@ -180,9 +182,16 @@ test('rejects unknown entity fields and broken public links', () => {
   assert.throws(() => parseTrip(fixture.replace('<#測試咖啡｜8\/27>', '<#不存在的咖啡>')), /找不到標題/);
 });
 
-test('requires Time and Plan for every transportation entity', () => {
-  assert.throws(() => parseTrip(fixture.replace('- Plan：12:00 前往桃園機場 T2，搭 BR102 前往福岡。\n', '')), /缺少必要欄位：Plan/);
-  assert.throws(() => parseTrip(fixture.replace('- Time：BR102 15:10-18:20\n', '')), /缺少必要欄位：Time/);
+test('requires the exact segment table and required values for transportation', () => {
+  assert.throws(() => parseTrip(fixture.replace('BR102 15:10-18:20 | TPE → FUK', ' | TPE → FUK')), /交通分段第 1 列缺少 Time/);
+  assert.throws(() => parseTrip(fixture.replace('12:00 前往桃園機場 T2，搭 BR102 前往福岡。 | 提早', ' | 提早')), /交通分段第 1 列缺少 Plan/);
+  assert.throws(() => parseTrip(fixture.replace('| Segment | Area | Time | Route | Plan | Note | Operator | Price | Official |', '| Segment | Time | Area | Route | Plan | Note | Operator | Price | Official |')), /表頭必須完全等於/);
+  assert.throws(() => parseTrip(fixture.replace('| 回程 | FUK / TPE', '| 去程 | FUK / TPE')), /重複交通分段/);
+});
+
+test('accepts empty optional segment fields and rejects old transport list fields', () => {
+  assert.doesNotThrow(() => parseTrip(fixture));
+  assert.throws(() => parseTrip(fixture.replace('- Summary：測試來回航班。', '- Summary：測試來回航班。\n- Area：TPE / FUK')), /交通分段表頭/);
 });
 
 test('requires list-style entity fields and only allows navigation after Private', () => {
@@ -200,7 +209,7 @@ test('rejects private fingerprints reintroduced into public output', () => {
 });
 
 test('keeps explicitly public prices readable without exposing a private payment value', () => {
-  assert.doesNotThrow(() => parseTrip(fixture.replace('- Buffer：提早 3 小時抵達', '- Buffer：機場巴士單程約 1,150 日圓')));
+  assert.doesNotThrow(() => parseTrip(fixture));
   assert.doesNotThrow(() => parseTrip(fixture.replace('JPY 8,800（2 人 / 1 晚，已付）', 'JPY 9,600（2 人 / 1 晚，現場付款）')));
   assert.throws(() => parseTrip(fixture.replace('JPY 8,800（2 人 / 1 晚，已付）', 'JPY 12,345（2 人 / 1 晚，已付）')), /source secret fingerprint/);
 });

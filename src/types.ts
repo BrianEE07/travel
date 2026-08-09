@@ -19,7 +19,6 @@ interface BaseEntity {
   id: string;
   title: string;
   type: 'stay' | 'food' | 'place' | 'transport';
-  area: RichText;
   summary: RichText;
   actions: ExternalAction[];
   preview?: LinkPreview | null;
@@ -27,6 +26,7 @@ interface BaseEntity {
 
 export interface StayEntity extends BaseEntity {
   type: 'stay';
+  area: RichText;
   checkIn: RichText;
   checkOut: RichText;
   room: RichText;
@@ -38,6 +38,7 @@ export interface StayEntity extends BaseEntity {
 
 export interface FoodEntity extends BaseEntity {
   type: 'food';
+  area: RichText;
   hours: RichText;
   reservation: RichText;
   reservationTime: RichText;
@@ -49,6 +50,7 @@ export interface FoodEntity extends BaseEntity {
 
 export interface PlaceEntity extends BaseEntity {
   type: 'place';
+  area: RichText;
   hours: RichText;
   why: RichText;
   bestFor: RichText;
@@ -56,16 +58,22 @@ export interface PlaceEntity extends BaseEntity {
   risk: RichText;
 }
 
-export interface TransportEntity extends BaseEntity {
-  type: 'transport';
-  operator: RichText;
+export interface TransportSegment {
+  id: string;
+  label: string;
+  area: RichText;
   time: RichText;
   route: RichText;
   plan: RichText;
-  duration: RichText;
-  decision: RichText;
-  buffer: RichText;
+  note: RichText;
+  operator?: RichText;
   price?: RichText;
+  official?: ExternalAction;
+}
+
+export interface TransportEntity extends BaseEntity {
+  type: 'transport';
+  segments: TransportSegment[];
 }
 
 export type Entity = StayEntity | FoodEntity | PlaceEntity | TransportEntity;

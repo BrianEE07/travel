@@ -167,12 +167,13 @@ footer {
 .entity-summary { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin: 12px 0 28px; color: var(--ink-muted); font-size: 12px; }
 .entity-card-facts { width: 100%; display: grid; gap: 6px; margin: 0 0 24px; }
 .entity-stay .entity-card-facts { margin-top: 22px; }
-.entity-transport-facts { gap: 12px; margin-top: 22px; }
+.entity-transport .entity-summary { margin-bottom: 22px; font-size: 11px; line-height: 1.6; }
+.entity-transport-facts { gap: 7px; margin-top: 0; }
 .entity-fact { display: grid; grid-template-columns: 44px 1fr; gap: 10px; min-width: 0; }
 .entity-fact i { color: var(--vermilion); font-size: 10px; font-weight: 700; font-style: normal; letter-spacing: .08em; }
 .entity-fact b { min-width: 0; overflow: hidden; color: var(--ink-muted); font-size: 11px; font-weight: 400; line-height: 1.5; text-overflow: ellipsis; white-space: nowrap; }
 .entity-transport-facts .entity-fact b { white-space: normal; }
-.entity-plan-fact b { display: -webkit-box; color: var(--ink); font-size: 12px; font-weight: 650; line-height: 1.65; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.entity-plan-fact b { display: -webkit-box; color: var(--ink); font-size: 11px; font-weight: 500; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
 .entity-open { margin-top: auto; font-size: 11px; font-weight: 700; }
 .entity-open i { margin-left: 6px; color: var(--vermilion); }
 
@@ -197,17 +198,22 @@ dialog[data-type="transport"] .dialog-visual { background: #627a87; }
 .dialog-preview { display: block; width: calc(100% + var(--dialog-pad-x) + var(--dialog-pad-x)); max-width: none; max-height: 230px; margin: calc(-1 * var(--dialog-pad-top)) calc(-1 * var(--dialog-pad-x)) 34px; object-fit: cover; border-bottom: 1px solid var(--line); }
 .dialog-content h2 { margin: 0 0 36px; padding-right: 30px; font: 600 clamp(28px, 4vw, 44px)/1.3 var(--serif); }
 .dialog-summary { margin: -18px 0 32px; color: var(--ink-muted); font: 500 14px/1.75 var(--serif); }
+.dialog-segment-tabs[hidden] { display: none; }
+.dialog-segment-tabs { position: relative; z-index: 1; max-width: 100%; display: flex; align-items: flex-end; gap: 4px; margin: 0 0 -1px; overflow-x: auto; scrollbar-width: none; }
+.dialog-segment-tabs::-webkit-scrollbar { display: none; }
+.dialog-segment-tabs button { flex: 0 0 auto; max-width: min(230px, 72vw); overflow: hidden; padding: 9px 14px 8px; color: var(--ink-muted); border: 1px solid var(--line); border-radius: 7px 7px 0 0; background: rgba(98,122,135,.06); cursor: pointer; font: 600 11px/1.35 var(--sans); text-overflow: ellipsis; white-space: nowrap; }
+.dialog-segment-tabs button:hover { color: var(--ink); background: rgba(98,122,135,.1); }
+.dialog-segment-tabs button.is-active { z-index: 1; padding-top: 11px; color: var(--ink); border-bottom-color: var(--paper-raised); background: var(--paper-raised); }
 .dialog-details { border-top: 1px solid var(--line); }
 .dialog-row { display: grid; grid-template-columns: 104px 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
 .dialog-row > span { color: var(--ink-muted); font-size: 11px; }
 .dialog-row:has(> div:only-child) { grid-template-columns: 1fr; }
-.dialog-row-plan { margin: 0 -12px; padding: 17px 12px; background: rgba(98,122,135,.09); }
+.dialog-row-plan { margin: 0; padding: 16px 12px; background: rgba(98,122,135,.08); box-shadow: inset 3px 0 rgba(98,122,135,.34); }
 .dialog-row-plan > span { color: #526d7a; font-weight: 700; }
-.dialog-row-plan > div { color: var(--ink); font-weight: 650; line-height: 1.65; }
-.dialog-row-secondary > div { color: var(--ink-muted); font-size: 12px; line-height: 1.65; }
+.dialog-row-plan > div { color: var(--ink); font-weight: 550; line-height: 1.6; }
+.dialog-row-note > div { color: var(--ink-muted); line-height: 1.6; }
 .transport-time-list { display: flex; flex-wrap: wrap; gap: 7px; }
 .transport-time-list span { padding: 5px 9px; border: 1px solid rgba(98,122,135,.3); border-radius: 99px; background: rgba(98,122,135,.07); color: #526d7a; font-size: 11px; line-height: 1.4; }
-.transport-route-list { display: grid; gap: 10px; }
 .transport-route-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; line-height: 1.55; }
 .transport-route-line i { color: #718792; font-style: normal; }
 .dialog-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
