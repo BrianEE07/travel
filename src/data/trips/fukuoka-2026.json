@@ -13,8 +13,8 @@
   "end": "2026-09-03",
   "status": "active",
   "noindex": true,
-  "updatedAt": "2026-08-09T03:02:45.211Z",
-  "sourceHash": "5d973cb29c5bd50f",
+  "updatedAt": "2026-08-09T03:26:06.480Z",
+  "sourceHash": "3c56570143f40f21",
   "locations": [
     "福岡",
     "太宰府",
@@ -449,8 +449,8 @@
         {
           "time": "13:45",
           "kind": "food",
-          "text": "BEAR FRUITS / 伽哩本舖 / Princess Phi Phi 三選一",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-bear-fruits-8-31\">BEAR FRUITS</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"food-伽哩本舖-門司港復古店-8-31\">伽哩本舖</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"food-princess-phi-phi-門司港-8-31\">Princess Phi Phi</button> 三選一"
+          "text": "伽哩本舖；BEAR FRUITS / Princess Phi Phi 備案",
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-伽哩本舖-門司港復古店-8-31\">伽哩本舖</button>；<button class=\"inline-detail\" type=\"button\" data-entity=\"food-bear-fruits-8-31\">BEAR FRUITS</button> / <button class=\"inline-detail\" type=\"button\" data-entity=\"food-princess-phi-phi-門司港-8-31\">Princess Phi Phi</button> 備案"
         },
         {
           "time": "14:45",
@@ -1044,6 +1044,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "dinner"
+      ],
       "area": {
         "text": "博多 / 川端",
         "html": "博多 / 川端"
@@ -1092,6 +1095,10 @@
           "url": "https://www.google.com/maps?q=%E3%83%91%E3%83%B3%E3%81%A8%E3%82%A8%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%82%BD%E3%81%A8%E5%8D%9A%E5%A4%9A%E3%81%A3%E3%81%A8%202-8-12%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "breakfast",
+        "cafe"
       ],
       "area": {
         "text": "博多",
@@ -1142,6 +1149,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "lunch"
+      ],
       "area": {
         "text": "太宰府",
         "html": "太宰府"
@@ -1190,6 +1200,9 @@
           "url": "https://www.google.com/maps?q=%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BA%80%E5%AE%AE%20%E8%A1%A8%E5%8F%82%E9%81%93%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "snack"
       ],
       "area": {
         "text": "太宰府",
@@ -1240,6 +1253,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "dinner"
+      ],
       "area": {
         "text": "博多站前",
         "html": "博多站前"
@@ -1288,6 +1304,9 @@
           "url": "https://www.google.com/maps?q=%E8%8A%B1%E9%87%8E%E3%81%9D%E3%81%B0%202715-4%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "lunch"
       ],
       "area": {
         "text": "由布院",
@@ -1338,6 +1357,10 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "dinner",
+        "backup"
+      ],
       "area": {
         "text": "博多 / 中洲",
         "html": "博多 / 中洲"
@@ -1386,6 +1409,9 @@
           "url": "https://www.google.com/maps?q=FUK%20COFFEE%206-22%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "cafe"
       ],
       "area": {
         "text": "博多 / 祇園",
@@ -1436,6 +1462,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "lunch"
+      ],
       "area": {
         "text": "博多 / 祇園",
         "html": "博多 / 祇園"
@@ -1484,6 +1513,9 @@
           "url": "https://www.google.com/maps?q=The%20Full%20Full%20Hakata%209-3%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "snack"
       ],
       "area": {
         "text": "博多 / 祇園",
@@ -1534,6 +1566,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "cafe"
+      ],
       "area": {
         "text": "天神",
         "html": "天神"
@@ -1582,6 +1617,9 @@
           "url": "https://www.google.com/maps?q=%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%20%E3%81%A8%E3%82%8A%E7%94%B0%20%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97%2010-5%20Shimokawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "dinner"
       ],
       "area": {
         "text": "博多 / 中洲川端",
@@ -1632,13 +1670,17 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "lunch",
+        "backup"
+      ],
       "area": {
         "text": "門司港",
         "html": "門司港"
       },
       "summary": {
-        "text": "門司港燒咖喱名店，門司港站步行約 2 分鐘。",
-        "html": "門司港燒咖喱名店，門司港站步行約 2 分鐘。"
+        "text": "門司港燒咖喱名店，門司港站步行約 2 分鐘，作為咖哩本舖排隊時的備案。",
+        "html": "門司港燒咖喱名店，門司港站步行約 2 分鐘，作為咖哩本舖排隊時的備案。"
       },
       "hours": {
         "text": "8/31 Mon 可；11:00-21:00，LO 20:30。",
@@ -1657,16 +1699,16 @@
         "html": "1 人"
       },
       "why": {
-        "text": "名氣高、位置最順，適合小倉後移動到門司港時當主餐。",
-        "html": "名氣高、位置最順，適合小倉後移動到門司港時當主餐。"
+        "text": "名氣高、位置很順，若咖哩本舖排隊太久可改這家。",
+        "html": "名氣高、位置很順，若咖哩本舖排隊太久可改這家。"
       },
       "risk": {
         "text": "不可預約，熱門時段可能排隊；一人行程可接受排隊但不要拖過 14:30。",
         "html": "不可預約，熱門時段可能排隊；一人行程可接受排隊但不要拖過 14:30。"
       },
       "backup": {
-        "text": "海峽廣場內也有多家燒咖喱店，若排隊太久就改附近店。",
-        "html": "海峽廣場內也有多家燒咖喱店，若排隊太久就改附近店。"
+        "text": "海峽廣場內也有多家燒咖喱店，若這裡也排太久就改附近店。",
+        "html": "海峽廣場內也有多家燒咖喱店，若這裡也排太久就改附近店。"
       },
       "preview": null
     },
@@ -1686,13 +1728,16 @@
           "kind": "official"
         }
       ],
+      "tags": [
+        "lunch"
+      ],
       "area": {
         "text": "門司港",
         "html": "門司港"
       },
       "summary": {
-        "text": "門司港站前的燒咖喱專門店，海景座位和車站距離都很順。",
-        "html": "門司港站前的燒咖喱專門店，海景座位和車站距離都很順。"
+        "text": "8/31 門司港午餐主選，燒咖喱專門店，海景座位和車站距離都很順。",
+        "html": "8/31 門司港午餐主選，燒咖喱專門店，海景座位和車站距離都很順。"
       },
       "hours": {
         "text": "8/31 Mon 可；約 11:00-20:00，OS 19:30；不定休。",
@@ -1711,8 +1756,8 @@
         "html": "1 人"
       },
       "why": {
-        "text": "比 BEAR FRUITS 更像純燒咖喱專門店，離門司港站很近。",
-        "html": "比 BEAR FRUITS 更像純燒咖喱專門店，離門司港站很近。"
+        "text": "比 BEAR FRUITS 更像純燒咖喱專門店，離門司港站很近，作為門司港午餐主選。",
+        "html": "比 BEAR FRUITS 更像純燒咖喱專門店，離門司港站很近，作為門司港午餐主選。"
       },
       "risk": {
         "text": "不可預約，熱門時段可能排隊；部分平台時間寫法不同，以當日店頭 / 官方為準。",
@@ -1743,6 +1788,10 @@
           "url": "https://mojiko-phiphi.favy.jp/",
           "kind": "official"
         }
+      ],
+      "tags": [
+        "lunch",
+        "backup"
       ],
       "area": {
         "text": "門司港",
@@ -1777,8 +1826,8 @@
         "html": "週一營業較短；不接受只訂席，若走這家要 14:00 前抵達比較穩。"
       },
       "backup": {
-        "text": "若時間壓線，改 BEAR FRUITS 或 伽哩本舗。",
-        "html": "若時間壓線，改 BEAR FRUITS 或 伽哩本舗。"
+        "text": "若時間壓線，優先回到伽哩本舖或 BEAR FRUITS。",
+        "html": "若時間壓線，優先回到伽哩本舖或 BEAR FRUITS。"
       },
       "preview": {
         "title": "世界にひとつだけの焼きカレー プリンセスピピ門司港｜その他エスニック料理",
@@ -1801,6 +1850,9 @@
           "url": "https://chihonoie.jp/",
           "kind": "official"
         }
+      ],
+      "tags": [
+        "lunch"
       ],
       "area": {
         "text": "高千穗峽",
@@ -1860,6 +1912,9 @@
           "kind": "official"
         }
       ],
+      "tags": [
+        "dinner"
+      ],
       "area": {
         "text": "博多站",
         "html": "博多站"
@@ -1917,6 +1972,9 @@
           "url": "https://tsukamoto-sengyo.co.jp/store",
           "kind": "official"
         }
+      ],
+      "tags": [
+        "lunch"
       ],
       "area": {
         "text": "糸島 / 加布里",
@@ -1976,6 +2034,9 @@
           "kind": "official"
         }
       ],
+      "tags": [
+        "cafe"
+      ],
       "area": {
         "text": "薬院",
         "html": "薬院"
@@ -2033,6 +2094,9 @@
           "url": "https://coffeecounty.cc/shop/fukuoka/",
           "kind": "official"
         }
+      ],
+      "tags": [
+        "cafe"
       ],
       "area": {
         "text": "高砂 / 薬院",
@@ -2092,6 +2156,9 @@
           "kind": "official"
         }
       ],
+      "tags": [
+        "lunch"
+      ],
       "area": {
         "text": "西中洲 / 天神",
         "html": "西中洲 / 天神"
@@ -2150,6 +2217,9 @@
           "kind": "official"
         }
       ],
+      "tags": [
+        "cafe"
+      ],
       "area": {
         "text": "博多站東",
         "html": "博多站東"
@@ -2203,6 +2273,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "souvenir"
+      ],
       "area": {
         "text": "博多站 / Ming",
         "html": "博多站 / Ming"
@@ -2252,6 +2325,10 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "shopping",
+        "backup"
+      ],
       "area": {
         "text": "博多",
         "html": "博多"
@@ -2292,6 +2369,9 @@
           "url": "https://www.google.com/maps?q=Kyushu%20National%20Museum%204-7-2%20Ishizaka%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "museum"
       ],
       "area": {
         "text": "太宰府",
@@ -2334,6 +2414,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "shrine"
+      ],
       "area": {
         "text": "太宰府",
         "html": "太宰府"
@@ -2374,6 +2457,9 @@
           "url": "https://www.google.com/maps?q=Starbucks%20Coffee%20Dazaifutenmangu%20Omotesando%203-2-43%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "cafe"
       ],
       "area": {
         "text": "太宰府",
@@ -2416,6 +2502,10 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "shrine",
+        "backup"
+      ],
       "area": {
         "text": "太宰府",
         "html": "太宰府"
@@ -2456,6 +2546,9 @@
           "url": "https://www.google.com/maps?q=Mitsui%20Shopping%20Park%20LaLaport%20Fukuoka%206-23-1%20Naka%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "shopping"
       ],
       "area": {
         "text": "福岡 / 竹下",
@@ -2498,6 +2591,10 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "nature",
+        "shopping"
+      ],
       "area": {
         "text": "由布院",
         "html": "由布院"
@@ -2538,6 +2635,9 @@
           "url": "https://www.google.com/maps?q=Yunotsubo%20Kaido%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "shopping"
       ],
       "area": {
         "text": "由布院",
@@ -2580,6 +2680,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "nature"
+      ],
       "area": {
         "text": "由布院",
         "html": "由布院"
@@ -2620,6 +2723,9 @@
           "url": "https://www.google.com/maps?q=YUFUIN%20FLORAL%20VILLAGE%201503-3%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "shopping"
       ],
       "area": {
         "text": "由布院",
@@ -2662,6 +2768,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "shrine"
+      ],
       "area": {
         "text": "博多 / 祇園",
         "html": "博多 / 祇園"
@@ -2702,6 +2811,9 @@
           "url": "https://www.google.com/maps?q=Kawabata%20Shopping%20Arcade%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "shopping"
       ],
       "area": {
         "text": "博多 / 川端",
@@ -2744,6 +2856,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "shopping"
+      ],
       "area": {
         "text": "天神",
         "html": "天神"
@@ -2784,6 +2899,9 @@
           "url": "https://www.google.com/maps?q=Kego%20Shrine%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "shrine"
       ],
       "area": {
         "text": "天神",
@@ -2826,6 +2944,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "museum"
+      ],
       "area": {
         "text": "小倉",
         "html": "小倉"
@@ -2866,6 +2987,10 @@
           "url": "https://www.google.com/maps?q=Mojiko%20Retro%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "view",
+        "shopping"
       ],
       "area": {
         "text": "門司港",
@@ -2908,6 +3033,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "museum"
+      ],
       "area": {
         "text": "門司港",
         "html": "門司港"
@@ -2948,6 +3076,9 @@
           "url": "https://www.google.com/maps?q=Blue%20Wing%20Moji%204-1%20Minatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "view"
       ],
       "area": {
         "text": "門司港",
@@ -2990,6 +3121,10 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "view",
+        "backup"
+      ],
       "area": {
         "text": "門司港",
         "html": "門司港"
@@ -3030,6 +3165,10 @@
           "url": "https://www.google.com/maps?q=Sarakurayama%20Observatory%20Kitakyushu%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "view",
+        "nature"
       ],
       "area": {
         "text": "北九州 / 八幡",
@@ -3072,6 +3211,10 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "service",
+        "station"
+      ],
       "area": {
         "text": "博多站",
         "html": "博多站"
@@ -3112,6 +3255,10 @@
           "url": "https://www.google.com/maps?q=Kamishikimi%20Kumanoimasu%20Shrine%202611%20Kamishikimi%20Takamori%20Kumamoto",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "shrine",
+        "nature"
       ],
       "area": {
         "text": "熊本 / 高森",
@@ -3154,6 +3301,9 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "nature"
+      ],
       "area": {
         "text": "高千穗",
         "html": "高千穗"
@@ -3195,6 +3345,10 @@
           "kind": "map"
         }
       ],
+      "tags": [
+        "shrine",
+        "nature"
+      ],
       "area": {
         "text": "高千穗",
         "html": "高千穗"
@@ -3235,6 +3389,9 @@
           "url": "https://www.google.com/maps?q=Iki%20Shrine%201-9-3%20Ikinomatsubara%20Nishi%20Ward%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "shrine"
       ],
       "area": {
         "text": "福岡 / 下山門",
@@ -3282,6 +3439,10 @@
           "kind": "official"
         }
       ],
+      "tags": [
+        "shrine",
+        "nature"
+      ],
       "area": {
         "text": "糸島 / 加布里",
         "html": "糸島 / 加布里"
@@ -3326,6 +3487,10 @@
           "url": "https://www.google.com/maps?q=Sakurai%20Futamigaura%20Meotoiwa%20Shima%20Sakurai%20Itoshima%20Fukuoka",
           "kind": "map"
         }
+      ],
+      "tags": [
+        "nature",
+        "view"
       ],
       "area": {
         "text": "糸島 / 二見浦",
@@ -3372,6 +3537,10 @@
           "url": "https://pb-gardens.com/",
           "kind": "official"
         }
+      ],
+      "tags": [
+        "nature",
+        "view"
       ],
       "area": {
         "text": "糸島 / 二見浦",
@@ -3423,6 +3592,9 @@
           "kind": "official"
         }
       ],
+      "tags": [
+        "shopping"
+      ],
       "area": {
         "text": "天神",
         "html": "天神"
@@ -3472,6 +3644,10 @@
           "url": "https://www.ming.or.jp/",
           "kind": "official"
         }
+      ],
+      "tags": [
+        "shopping",
+        "station"
       ],
       "area": {
         "text": "博多站",
@@ -3523,6 +3699,10 @@
           "kind": "official"
         }
       ],
+      "tags": [
+        "shopping",
+        "station"
+      ],
       "area": {
         "text": "博多站",
         "html": "博多站"
@@ -3572,6 +3752,10 @@
           "url": "https://dfree.fukuoka-airport.jp/",
           "kind": "official"
         }
+      ],
+      "tags": [
+        "shopping",
+        "service"
       ],
       "area": {
         "text": "福岡機場國際線",
@@ -3828,12 +4012,12 @@
             "html": "下午搭西鐵轉 JR 去 LaLaport。"
           },
           "note": {
-            "text": "竹下站步行約 9 分鐘到 LaLaport。",
-            "html": "竹下站步行約 9 分鐘到 LaLaport。"
+            "text": "西鉄二日市到 JR 二日市需步行轉站；竹下站步行約 9 分鐘到 LaLaport。",
+            "html": "西鉄二日市到 JR 二日市需步行轉站；竹下站步行約 9 分鐘到 LaLaport。"
           },
           "operator": {
-            "text": "西鐵 / JR 九州 / 步行",
-            "html": "西鐵 / JR 九州 / 步行"
+            "text": "西鐵 / 步行 / JR 九州 / 步行",
+            "html": "西鐵 / 步行 / JR 九州 / 步行"
           }
         },
         {
@@ -3860,8 +4044,8 @@
             "html": "18:00 鋼彈立像演出是晚餐前最後一場比較穩的收尾點；18:35 前離開可避免壓到 19:30 前田屋訂位。"
           },
           "operator": {
-            "text": "JR 九州 / 步行",
-            "html": "JR 九州 / 步行"
+            "text": "步行 / JR 九州 / 步行",
+            "html": "步行 / JR 九州 / 步行"
           }
         }
       ],
@@ -4027,8 +4211,8 @@
             "html": "13:00-13:20"
           },
           "route": {
-            "text": "櫛田神社前 → 天神南",
-            "html": "櫛田神社前 → 天神南"
+            "text": "西鐵 CROOM → 櫛田神社前 → 天神南",
+            "html": "西鐵 CROOM → 櫛田神社前 → 天神南"
           },
           "plan": {
             "text": "博多飯店周邊用走的，下午搭地下鐵去天神。",
@@ -4039,8 +4223,8 @@
             "html": "市區移動彈性高，依當天疲勞度微調。"
           },
           "operator": {
-            "text": "福岡市地下鐵 / 步行",
-            "html": "福岡市地下鐵 / 步行"
+            "text": "步行 / 福岡市地下鐵",
+            "html": "步行 / 福岡市地下鐵"
           }
         },
         {
@@ -4055,20 +4239,20 @@
             "html": "18:30-19:10"
           },
           "route": {
-            "text": "天神 → 中洲川端 / 鳥田",
-            "html": "天神 → 中洲川端 / 鳥田"
+            "text": "天神 → 中洲川端 → 鳥田",
+            "html": "天神 → 中洲川端 → 鳥田"
           },
           "plan": {
             "text": "18:30 左右從天神往鳥田。",
             "html": "18:30 左右從天神往鳥田。"
           },
           "note": {
-            "text": "天神到鳥田地鐵或計程車都可，19:10 前到鳥田附近。",
-            "html": "天神到鳥田地鐵或計程車都可，19:10 前到鳥田附近。"
+            "text": "主線用地鐵加步行；若當天累或下雨，計程車也可。19:10 前到鳥田附近。",
+            "html": "主線用地鐵加步行；若當天累或下雨，計程車也可。19:10 前到鳥田附近。"
           },
           "operator": {
-            "text": "福岡市地下鐵 / 計程車 / 步行",
-            "html": "福岡市地下鐵 / 計程車 / 步行"
+            "text": "福岡市地下鐵 / 步行",
+            "html": "福岡市地下鐵 / 步行"
           }
         }
       ],
@@ -4108,8 +4292,8 @@
             "html": "若想省錢可改搭 JR 九州在來線，但會少約 1 小時可用時間。10:30 離開飯店，11:15 前後到小倉城。"
           },
           "operator": {
-            "text": "JR 西日本",
-            "html": "JR 西日本"
+            "text": "福岡市地下鐵 / JR 西日本",
+            "html": "福岡市地下鐵 / JR 西日本"
           },
           "price": {
             "text": "JPY 2,160（博多 → 小倉新幹線自由席，成人單程）",
@@ -4209,8 +4393,8 @@
             "html": "若錯過 17:05 接駁，改搭 17:25。"
           },
           "operator": {
-            "text": "皿倉登山鐵道 / 免費接駁巴士",
-            "html": "皿倉登山鐵道 / 免費接駁巴士"
+            "text": "免費接駁巴士 / 皿倉登山鐵道",
+            "html": "免費接駁巴士 / 皿倉登山鐵道"
           },
           "price": {
             "text": "JPY 1,230（纜車 + 坡道車往復通票，成人）",

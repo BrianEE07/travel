@@ -194,7 +194,7 @@ Rules:
 
 Allowed fields:
 
-- Common fields: `Area`, `Summary`, `Map`, `Official`
+- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`
 - Type fields: `CheckIn`, `CheckOut`, `Room`, `Price`, `Access`, `Contact`, `Policy`
 - Private block: `Private：`
 
@@ -249,13 +249,35 @@ Use explicit values for reservations:
 - `Reservation：needed`
 - `Reservation：tbd`
 
+Food tags:
+
+- `breakfast`: breakfast or morning food stop.
+- `lunch`: lunch option.
+- `dinner`: dinner option.
+- `cafe`: coffee shop or cafe stop.
+- `snack`: small bite, dessert, or non-meal food stop.
+- `souvenir`: food souvenir or packaged food purchase.
+- `backup`: backup option, not the main choice.
+
 ## Places
 
 Allowed fields:
 
-- Common fields: `Area`, `Summary`, `Map`, `Official`
+- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`
 - Type fields: `Hours`, `Why`, `BestFor`, `Nearby`, `Risk`
 - Private block: `Private：`
+
+Place tags:
+
+- `shrine`: shrine, temple, or worship site.
+- `museum`: museum, exhibition, or cultural facility.
+- `cafe`: cafe with place, architecture, or route value.
+- `shopping`: shopping area, mall, department store, electronics store, or souvenir shopping area.
+- `nature`: outdoor natural place such as coast, mountain, lake, gorge, or forest.
+- `view`: lookout, night view, sunset, or scenic viewpoint.
+- `station`: station-centered place or station operation.
+- `service`: practical travel service rather than sightseeing.
+- `backup`: backup place, not the main choice.
 
 ## Transportation
 

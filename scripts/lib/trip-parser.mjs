@@ -21,17 +21,17 @@ const ENTITY_SECTIONS = new Map([
 
 const ENTITY_FIELDS = {
   stay: {
-    allowed: ['Area', 'Summary', 'Map', 'Official', 'CheckIn', 'CheckOut', 'Room', 'Price', 'Access', 'Contact', 'Policy'],
+    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', 'CheckIn', 'CheckOut', 'Room', 'Price', 'Access', 'Contact', 'Policy'],
     required: ['Area', 'Summary', 'Map', 'CheckIn', 'CheckOut', 'Room', 'Price', 'Access', 'Contact', 'Policy'],
     properties: { Area: 'area', Summary: 'summary', CheckIn: 'checkIn', CheckOut: 'checkOut', Room: 'room', Price: 'price', Access: 'access', Contact: 'contact', Policy: 'policy' },
   },
   food: {
-    allowed: ['Area', 'Summary', 'Map', 'Official', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Why', 'Risk', 'Backup'],
+    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Why', 'Risk', 'Backup'],
     required: ['Area', 'Summary', 'Map', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Why', 'Risk', 'Backup'],
     properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party', Why: 'why', Risk: 'risk', Backup: 'backup' },
   },
   place: {
-    allowed: ['Area', 'Summary', 'Map', 'Official', 'Hours', 'Why', 'BestFor', 'Nearby', 'Risk'],
+    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', 'Hours', 'Why', 'BestFor', 'Nearby', 'Risk'],
     required: ['Area', 'Summary', 'Map', 'Hours', 'Why', 'BestFor', 'Nearby', 'Risk'],
     properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Why: 'why', BestFor: 'bestFor', Nearby: 'nearby', Risk: 'risk' },
   },
@@ -52,6 +52,8 @@ const FRONTMATTER_REQUIRED = [
 const TRIP_STATUSES = new Set(['draft', 'active', 'archived']);
 const TIMELINE_TAGS = new Set(['move', 'food', 'place', 'shopping', 'activity', 'rest', 'buffer']);
 const RESERVATION_VALUES = new Set(['done', 'none', 'needed', 'tbd']);
+const FOOD_TAGS = new Set(['breakfast', 'lunch', 'dinner', 'cafe', 'snack', 'souvenir', 'backup']);
+const PLACE_TAGS = new Set(['shrine', 'museum', 'cafe', 'shopping', 'nature', 'view', 'station', 'service', 'backup']);
 const MANAGEMENT_PARAM = /[?&](?:auth(?:_key)?|token|code|bok|booking|reservation|login|transaction)(?:=|%3D)/i;
 const SENSITIVE_LABEL = /(?:訂房編號|訂位編號|預訂編號|認證碼|認證編號|Login ID|交易編號|票號)/i;
 const PRIVATE_VALUE_LABEL = /(?:訂房人|訂位人|預訂人|旅客姓名|乘客姓名|姓名|訂房編號|訂位編號|預訂編號|認證碼|認證編號|Login ID|交易編號|票號|付款|支付|總額|金額|價格|費用|確認|取消|管理|登入|auth)/i;
@@ -474,6 +476,12 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   if (type === 'food' && fields.has('Reservation') && !RESERVATION_VALUES.has(fields.get('Reservation'))) {
     errors.push(`${title} 的 Reservation 必須是 done / none / needed / tbd`);
   }
+  const tags = (fields.get('Tags') ?? '').split(',').map((tag) => tag.trim()).filter(Boolean);
+  if (new Set(tags).size !== tags.length) errors.push(`${title} 的 Tags 不可重複`);
+  const allowedTags = type === 'food' ? FOOD_TAGS : type === 'place' ? PLACE_TAGS : null;
+  for (const tag of tags) {
+    if (!/^[a-z0-9-]+$/.test(tag) || (allowedTags && !allowedTags.has(tag))) errors.push(`${title} 使用未知 tag：${tag}`);
+  }
 
   const actions = [];
   const mapValue = fields.get('Map');
@@ -493,6 +501,7 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   }
 
   const entity = { id: entityIds.get(title), title, type, actions };
+  if (tags.length) entity.tags = tags;
   for (const [field, property] of Object.entries(config.properties)) {
     if (fields.has(field)) entity[property] = richText(fields.get(field), entityIds, references);
   }

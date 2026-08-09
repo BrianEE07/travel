@@ -21,6 +21,7 @@ interface BaseEntity {
   type: 'stay' | 'food' | 'place' | 'transport';
   summary: RichText;
   actions: ExternalAction[];
+  tags?: string[];
   preview?: LinkPreview | null;
 }
 

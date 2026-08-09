@@ -208,7 +208,7 @@ dialog[data-type="transport"] .dialog-visual { background: #627a87; }
 .dialog-row { display: grid; grid-template-columns: 104px 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
 .dialog-row > span { color: var(--ink-muted); font-size: 11px; }
 .dialog-row:has(> div:only-child) { grid-template-columns: 1fr; }
-.dialog-row-plan { margin: 0; padding: 16px 12px; background: rgba(98,122,135,.08); box-shadow: inset 3px 0 rgba(98,122,135,.34); }
+.dialog-row-plan { margin: 0; padding: 16px 0; background: rgba(98,122,135,.08); }
 .dialog-row-plan > span { color: #526d7a; font-weight: 700; }
 .dialog-row-plan > div { color: var(--ink); font-weight: 550; line-height: 1.6; }
 .dialog-row-note > div { color: var(--ink-muted); line-height: 1.6; }

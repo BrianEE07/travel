@@ -93,6 +93,7 @@ Private：
 ### 測試咖啡｜8/27
 
 - Area：博多
+- Tags：shopping, backup
 - Summary：安靜的早晨咖啡店。
 - Map：[Google Maps][cafe]
 - Hours：08:00-18:00
@@ -149,6 +150,8 @@ test('parses schema 2 into structured public trip data', () => {
   const stay = trip.entities.find((entity) => entity.type === 'stay');
   assert.equal(stay.checkIn.text, '2026-08-27 15:00');
   assert.equal(stay.price.text, 'JPY 8,800（2 人 / 1 晚，已付）');
+  const place = trip.entities.find((entity) => entity.type === 'place');
+  assert.deepEqual(place.tags, ['shopping', 'backup']);
   const transport = trip.entities.find((entity) => entity.type === 'transport');
   assert.equal(transport.segments.length, 2);
   assert.equal(transport.segments[0].price.text, 'TWD 12,000（2 人合計，已付）');
@@ -179,6 +182,7 @@ test('rejects full timeline entries without a canonical tag', () => {
 
 test('rejects unknown entity fields and broken public links', () => {
   assert.throws(() => parseTrip(fixture.replace('- Risk：可能客滿', '- Mood：安靜')), /未知欄位：Mood/);
+  assert.throws(() => parseTrip(fixture.replace('shopping, backup', 'shopping, unknown')), /未知 tag：unknown/);
   assert.throws(() => parseTrip(fixture.replace('<#測試咖啡｜8\/27>', '<#不存在的咖啡>')), /找不到標題/);
 });
 

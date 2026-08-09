@@ -295,11 +295,10 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       place: [['area', '區域'], ['hours', '開放'], ['why', '安排原因'], ['bestFor', '適合'], ['nearby', '附近'], ['risk', '留意']],
     };
     const transportSegmentFields: Array<[string, string]> = [
-      ['area', '區域'],
-      ['operator', '營運'],
+      ['route', '路線'],
       ['time', '時間'],
       ['plan', '現場行動'],
-      ['route', '路線'],
+      ['operator', '營運'],
       ['price', '價格'],
       ['note', '備註'],
     ];
