@@ -123,7 +123,7 @@ Private：
 
 ## Packing List
 
-### Documents & Money
+### Documents & Money｜證件與金錢
 
 - [ ] 護照
 - [x] 旅遊保險資訊
@@ -132,7 +132,7 @@ Private：
 
 ## To Buy
 
-### Souvenir
+### Souvenir｜伴手禮
 
 - [ ] 博多通りもん
 
@@ -149,6 +149,12 @@ Private：
 
 ## Candidates
 - 不應公開的候選
+
+## Website Preview
+- 不應公開的預覽設定
+
+## Related Notes
+- 不應公開的相關筆記
 `;
 
 test('parses schema 2 into structured public trip data', () => {
@@ -188,7 +194,7 @@ test('parses schema 2 into structured public trip data', () => {
   assert.equal(transport.price, undefined);
   assert.match(trip.overview.transports[0].html, /data-segment="回程"/);
   assert.equal('details' in stay, false);
-  assert.equal(trip.checklists.packing[0].title, 'Documents & Money');
+  assert.equal(trip.checklists.packing[0].title, 'Documents & Money｜證件與金錢');
   assert.equal(trip.checklists.packing[0].items.length, 2);
   assert.equal(trip.checklists.packing[0].items[1].checked, true);
   assert.equal(trip.checklists.shopping[0].items[0].content.text, '博多通りもん');
@@ -197,7 +203,7 @@ test('parses schema 2 into structured public trip data', () => {
 test('omits private blocks and all non-allowlist sections', () => {
   const { trip } = parseTrip(fixture);
   const output = JSON.stringify(trip);
-  for (const forbidden of ['Private Person', 'AB12345678', 'SECRET9988', 'never-public', '1234567890', '12,345', '20,000', 'Booking & Tasks', 'Candidates', 'Back to top']) {
+  for (const forbidden of ['Private Person', 'AB12345678', 'SECRET9988', 'never-public', '1234567890', '12,345', '20,000', 'Booking & Tasks', 'Candidates', 'Website Preview', 'Related Notes', 'Back to top']) {
     assert.equal(output.includes(forbidden), false, forbidden);
   }
   assert.match(output, /測試來回航班/);
@@ -273,6 +279,10 @@ test('parses only checkbox rows in optional public checklists', () => {
   assert.throws(() => parseTrip(fixture.replace('- [x] 旅遊保險資訊', '- [x] 護照')), /有重複項目：護照/);
   const withoutLists = fixture.replace(/\n## Packing List[\s\S]*?(?=\n## References)/, '');
   assert.deepEqual(parseTrip(withoutLists).trip.checklists, { packing: [], shopping: [] });
+  const withoutPacking = fixture.replace(/\n## Packing List[\s\S]*?(?=\n## To Buy)/, '');
+  assert.equal(parseTrip(withoutPacking).trip.checklists.shopping.length, 1);
+  const withoutShopping = fixture.replace(/\n## To Buy[\s\S]*?(?=\n## References)/, '');
+  assert.equal(parseTrip(withoutShopping).trip.checklists.packing.length, 1);
 });
 
 test('rejects private fingerprints reintroduced into public output', () => {

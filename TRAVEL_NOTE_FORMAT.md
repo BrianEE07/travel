@@ -461,7 +461,7 @@ Use third-level headings for groups and standard Markdown checkboxes for items:
 ```md
 ## Packing List
 
-### Documents & Money
+### Documents & Money｜證件與金錢
 
 - [ ] 護照
 - [x] 旅遊保險資訊
@@ -470,7 +470,7 @@ Use third-level headings for groups and standard Markdown checkboxes for items:
 
 ## To Buy
 
-### Souvenir
+### Souvenir｜伴手禮
 
 - [ ] 博多通りもん
 
@@ -480,11 +480,16 @@ Use third-level headings for groups and standard Markdown checkboxes for items:
 Rules:
 
 - Each group must be a unique third-level heading.
+- Group headings should use `### English｜中文` when both labels are useful, for example `### Documents & Money｜證件與金錢`.
+- Group names and group count are free-form. Do not use a category allowlist.
+- The website must dynamically split bilingual group headings on `｜`: render the English side as the small label and the Chinese side as the main label. If the heading has only one language, render that text as-is.
 - Each public item must use `- [ ] Item` or `- [x] Item`.
 - Blank lines and one `[Back to top](<#Trip Title>)` link per group are allowed.
 - Other prose, nested metadata, task tags, scheduled dates, and private values are not allowed inside these public sections.
 - Checklist item text may use the same safe public links supported elsewhere.
 - The Markdown checkbox is the source default. Website interaction is device-local and must not write completion state back to the note.
+- Do not add checklist-specific YAML fields such as `checklist_title`, `checklist_kicker`, or `checklist_categories`.
+- The website checklist page title should be generated from existing trip data, for example `Preparation notes · {trip_code}`.
 - Keep booking tasks, personal purchases, document numbers, medication details, and other private items in non-public sections.
 
 ## Private Blocks

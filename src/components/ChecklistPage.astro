@@ -8,27 +8,23 @@ import type { ChecklistGroup, Trip } from '../types';
 interface Props { trip: Trip; }
 const { trip } = Astro.props;
 
-const categoryLabels: Record<string, string> = {
-  'Documents & Money': '證件與金錢',
-  Clothing: '衣物',
-  Tech: '電子用品',
-  Health: '健康與藥品',
-  Souvenir: '伴手禮',
-  Coffee: '咖啡',
-  Clothes: '服飾',
-  Electronics: '3C／電子',
-  Maybe: '備選',
-};
-const lists = [
+const lists = ([
   { key: 'packing', label: '行李清單', kicker: 'Packing list', groups: trip.checklists.packing },
   { key: 'shopping', label: '採買清單', kicker: 'To buy', groups: trip.checklists.shopping },
-] as const;
+] as const).filter((list) => list.groups.length > 0);
 const allItems = lists.flatMap((list) => list.groups.flatMap((group) => group.items));
 const sourceCompleted = allItems.filter((item) => item.checked).length;
 const updated = new Intl.DateTimeFormat('zh-TW', {
   month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone: 'Asia/Taipei',
 }).format(new Date(trip.updatedAt));
-const groupLabel = (group: ChecklistGroup) => categoryLabels[group.title] ?? group.title;
+const groupHeading = (group: ChecklistGroup) => {
+  const separator = group.title.indexOf('｜');
+  if (separator < 1 || separator === group.title.length - 1) return { label: group.title, kicker: '' };
+  return {
+    kicker: group.title.slice(0, separator).trim(),
+    label: group.title.slice(separator + 1).trim(),
+  };
+};
 ---
 
 <BaseLayout
@@ -102,33 +98,36 @@ const groupLabel = (group: ChecklistGroup) => categoryLabels[group.title] ?? gro
             <h2>{list.label}</h2>
           </header>
           <div class="checklist-groups">
-            {list.groups.map((group) => (
-              <details class="checklist-group" data-checklist-group open>
-                <summary>
-                  <span>
-                    {groupLabel(group) !== group.title && <small>{group.title}</small>}
-                    <strong>{groupLabel(group)}</strong>
-                  </span>
-                  <span class="group-meta"><i data-group-progress>{group.items.filter((item) => item.checked).length} / {group.items.length}</i><b aria-hidden="true"></b></span>
-                </summary>
-                <ul>
-                  {group.items.map((item) => (
-                    <li class:list={['checklist-item', item.checked && 'is-complete']} data-checklist-item>
-                      <label>
-                        <input
-                          type="checkbox"
-                          checked={item.checked}
-                          data-item-id={item.id}
-                          data-default-checked={String(item.checked)}
-                        />
-                        <span class="checkmark" aria-hidden="true"></span>
-                        <span class="item-copy" set:html={item.content.html}></span>
-                      </label>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            ))}
+            {list.groups.map((group) => {
+              const heading = groupHeading(group);
+              return (
+                <details class="checklist-group" data-checklist-group open>
+                  <summary>
+                    <span>
+                      {heading.kicker && <small>{heading.kicker}</small>}
+                      <strong>{heading.label}</strong>
+                    </span>
+                    <span class="group-meta"><i data-group-progress>{group.items.filter((item) => item.checked).length} / {group.items.length}</i><b aria-hidden="true"></b></span>
+                  </summary>
+                  <ul>
+                    {group.items.map((item) => (
+                      <li class:list={['checklist-item', item.checked && 'is-complete']} data-checklist-item>
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={item.checked}
+                            data-item-id={item.id}
+                            data-default-checked={String(item.checked)}
+                          />
+                          <span class="checkmark" aria-hidden="true"></span>
+                          <span class="item-copy" set:html={item.content.html}></span>
+                        </label>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              );
+            })}
           </div>
           <p class="checklist-empty" data-checklist-empty hidden>這一頁都完成了。</p>
         </section>
@@ -152,6 +151,7 @@ const groupLabel = (group: ChecklistGroup) => categoryLabels[group.title] ?? gro
     const panels = [...document.querySelectorAll<HTMLElement>('[data-list-panel]')];
     const filterButton = document.querySelector<HTMLButtonElement>('[data-incomplete-filter]');
     const resetButton = document.querySelector<HTMLButtonElement>('[data-reset-checklists]');
+    const defaultListKey = tabs[0]?.dataset.listTab || '';
     let savedState: Record<string, boolean> = {};
     let incompleteOnly = false;
 
@@ -205,7 +205,8 @@ const groupLabel = (group: ChecklistGroup) => categoryLabels[group.title] ?? gro
     }
 
     function setActiveList(key: string, updateHash = true) {
-      if (!panels.some((panel) => panel.dataset.listPanel === key)) key = 'packing';
+      if (!panels.some((panel) => panel.dataset.listPanel === key)) key = defaultListKey;
+      if (!key) return;
       for (const tab of tabs) {
         const active = tab.dataset.listTab === key;
         tab.classList.toggle('is-active', active);
@@ -260,6 +261,6 @@ const groupLabel = (group: ChecklistGroup) => categoryLabels[group.title] ?? gro
     });
     window.addEventListener('hashchange', () => setActiveList(location.hash.slice(1), false));
     applyState();
-    setActiveList(location.hash.slice(1) || 'packing', false);
+    setActiveList(location.hash.slice(1) || defaultListKey, false);
   </script>
 </BaseLayout>

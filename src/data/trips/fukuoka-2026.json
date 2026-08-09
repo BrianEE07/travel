@@ -13,8 +13,8 @@
   "end": "2026-09-03",
   "status": "active",
   "noindex": true,
-  "updatedAt": "2026-08-09T06:56:42.606Z",
-  "sourceHash": "217aebfc0bf6d513",
+  "updatedAt": "2026-08-09T07:27:48.776Z",
+  "sourceHash": "917367ba0629cbb1",
   "locations": [
     "福岡",
     "太宰府",
@@ -4923,11 +4923,11 @@
   "checklists": {
     "packing": [
       {
-        "id": "documents-money",
-        "title": "Documents & Money",
+        "id": "documents-money-證件與金錢",
+        "title": "Documents & Money｜證件與金錢",
         "items": [
           {
-            "id": "packing-e5656e8a19d2",
+            "id": "packing-eb7086ffe601",
             "checked": false,
             "content": {
               "text": "護照",
@@ -4935,7 +4935,7 @@
             }
           },
           {
-            "id": "packing-dca2a61c7b5a",
+            "id": "packing-874349634070",
             "checked": false,
             "content": {
               "text": "信用卡",
@@ -4943,7 +4943,7 @@
             }
           },
           {
-            "id": "packing-8d3d9eda1852",
+            "id": "packing-b5a4ccff8082",
             "checked": false,
             "content": {
               "text": "日幣現金",
@@ -4951,7 +4951,7 @@
             }
           },
           {
-            "id": "packing-fc5f01536ccd",
+            "id": "packing-896d242ae026",
             "checked": false,
             "content": {
               "text": "交通 IC / Apple Wallet 設定",
@@ -4959,7 +4959,7 @@
             }
           },
           {
-            "id": "packing-49c447662996",
+            "id": "packing-874830fdb26f",
             "checked": false,
             "content": {
               "text": "旅遊保險資訊",
@@ -4967,7 +4967,7 @@
             }
           },
           {
-            "id": "packing-f19430b1d4a9",
+            "id": "packing-f3acae5f1fa2",
             "checked": false,
             "content": {
               "text": "住宿、機票、JR、Klook 憑證離線備份",
@@ -4977,11 +4977,11 @@
         ]
       },
       {
-        "id": "clothing",
-        "title": "Clothing",
+        "id": "clothing-衣物",
+        "title": "Clothing｜衣物",
         "items": [
           {
-            "id": "packing-f9aeaf776190",
+            "id": "packing-d5af9411b38a",
             "checked": false,
             "content": {
               "text": "上衣",
@@ -4989,7 +4989,7 @@
             }
           },
           {
-            "id": "packing-0811731eb890",
+            "id": "packing-d48674fd6b0b",
             "checked": false,
             "content": {
               "text": "褲子",
@@ -4997,7 +4997,7 @@
             }
           },
           {
-            "id": "packing-d0f4c083fc4c",
+            "id": "packing-073cd1ff3c6e",
             "checked": false,
             "content": {
               "text": "內衣褲 / 襪子",
@@ -5005,7 +5005,7 @@
             }
           },
           {
-            "id": "packing-765bf2c38c40",
+            "id": "packing-58435b669614",
             "checked": false,
             "content": {
               "text": "睡衣",
@@ -5013,7 +5013,7 @@
             }
           },
           {
-            "id": "packing-c0983297d6db",
+            "id": "packing-306a63ae5269",
             "checked": false,
             "content": {
               "text": "輕便外套",
@@ -5021,7 +5021,7 @@
             }
           },
           {
-            "id": "packing-c64accac2966",
+            "id": "packing-92e206be1807",
             "checked": false,
             "content": {
               "text": "好走的鞋",
@@ -5029,7 +5029,7 @@
             }
           },
           {
-            "id": "packing-f8f68b877415",
+            "id": "packing-0762173614a1",
             "checked": false,
             "content": {
               "text": "雨具",
@@ -5039,11 +5039,11 @@
         ]
       },
       {
-        "id": "tech",
-        "title": "Tech",
+        "id": "tech-3c-與設備",
+        "title": "Tech｜3C 與設備",
         "items": [
           {
-            "id": "packing-9b1780f8058a",
+            "id": "packing-469b9bd37e3e",
             "checked": false,
             "content": {
               "text": "iPhone / Apple Watch",
@@ -5051,7 +5051,7 @@
             }
           },
           {
-            "id": "packing-2d5ec7ba11d7",
+            "id": "packing-c38862e2c3e8",
             "checked": false,
             "content": {
               "text": "AirPods",
@@ -5059,7 +5059,7 @@
             }
           },
           {
-            "id": "packing-2717cad84e90",
+            "id": "packing-ecf90124db21",
             "checked": false,
             "content": {
               "text": "充電器",
@@ -5067,7 +5067,7 @@
             }
           },
           {
-            "id": "packing-cc3e183f908b",
+            "id": "packing-e61cbd24d1e3",
             "checked": false,
             "content": {
               "text": "行動電源",
@@ -5075,7 +5075,7 @@
             }
           },
           {
-            "id": "packing-a5d4bd515ebb",
+            "id": "packing-2d038dfead85",
             "checked": false,
             "content": {
               "text": "轉接頭",
@@ -5083,7 +5083,7 @@
             }
           },
           {
-            "id": "packing-b47ae8e9ac50",
+            "id": "packing-d074fda99f25",
             "checked": false,
             "content": {
               "text": "eSIM / 網路設定",
@@ -5091,7 +5091,7 @@
             }
           },
           {
-            "id": "packing-f964c68aa233",
+            "id": "packing-fd5207eaf53b",
             "checked": false,
             "content": {
               "text": "DJI Pocket 3 / 相機",
@@ -5099,7 +5099,7 @@
             }
           },
           {
-            "id": "packing-e4243e6cc870",
+            "id": "packing-dba239a1c15f",
             "checked": false,
             "content": {
               "text": "SD 卡 / 讀卡機",
@@ -5109,11 +5109,11 @@
         ]
       },
       {
-        "id": "health",
-        "title": "Health",
+        "id": "health-健康與清潔",
+        "title": "Health｜健康與清潔",
         "items": [
           {
-            "id": "packing-4a9fcb33effd",
+            "id": "packing-367944260486",
             "checked": false,
             "content": {
               "text": "常備藥",
@@ -5121,7 +5121,7 @@
             }
           },
           {
-            "id": "packing-58fadb727cca",
+            "id": "packing-455fed300284",
             "checked": false,
             "content": {
               "text": "腸胃藥",
@@ -5129,7 +5129,7 @@
             }
           },
           {
-            "id": "packing-976e32e200dc",
+            "id": "packing-02d94907d970",
             "checked": false,
             "content": {
               "text": "止痛藥",
@@ -5137,7 +5137,7 @@
             }
           },
           {
-            "id": "packing-bf5bb14f8adc",
+            "id": "packing-9cff25128480",
             "checked": false,
             "content": {
               "text": "防曬",
@@ -5145,7 +5145,7 @@
             }
           },
           {
-            "id": "packing-e7ba68431793",
+            "id": "packing-57358ba3c7c8",
             "checked": false,
             "content": {
               "text": "口罩 / 濕紙巾",
@@ -5157,11 +5157,11 @@
     ],
     "shopping": [
       {
-        "id": "souvenir",
-        "title": "Souvenir",
+        "id": "souvenir-伴手禮",
+        "title": "Souvenir｜伴手禮",
         "items": [
           {
-            "id": "shopping-b8fd53d4c0eb",
+            "id": "shopping-e22bb7ca36ad",
             "checked": false,
             "content": {
               "text": "博多通りもん",
@@ -5169,7 +5169,7 @@
             }
           },
           {
-            "id": "shopping-26cdd6ae8990",
+            "id": "shopping-6b711d2c6129",
             "checked": false,
             "content": {
               "text": "明太子相關",
@@ -5177,7 +5177,7 @@
             }
           },
           {
-            "id": "shopping-5f02295fd473",
+            "id": "shopping-d6926d3546ea",
             "checked": false,
             "content": {
               "text": "努努鶏",
@@ -5185,7 +5185,7 @@
             }
           },
           {
-            "id": "shopping-791fbcebe9df",
+            "id": "shopping-8fea6ee63380",
             "checked": false,
             "content": {
               "text": "福岡限定零食",
@@ -5193,7 +5193,7 @@
             }
           },
           {
-            "id": "shopping-173db06f36bb",
+            "id": "shopping-7ab95f5d5de5",
             "checked": false,
             "content": {
               "text": "機場 / 博多站伴手禮補買",
@@ -5203,11 +5203,11 @@
         ]
       },
       {
-        "id": "coffee",
-        "title": "Coffee",
+        "id": "coffee-咖啡",
+        "title": "Coffee｜咖啡",
         "items": [
           {
-            "id": "shopping-df6c7560f2c4",
+            "id": "shopping-3a01007e4294",
             "checked": false,
             "content": {
               "text": "Blue Bottle 咖啡豆 / 杯子",
@@ -5215,7 +5215,7 @@
             }
           },
           {
-            "id": "shopping-584642805173",
+            "id": "shopping-b6173372f098",
             "checked": false,
             "content": {
               "text": "FUK COFFEE 相關",
@@ -5223,7 +5223,7 @@
             }
           },
           {
-            "id": "shopping-6708979a839e",
+            "id": "shopping-f1843b2e766a",
             "checked": false,
             "content": {
               "text": "COFFEE COUNTY 咖啡豆",
@@ -5231,7 +5231,7 @@
             }
           },
           {
-            "id": "shopping-8f7619456a9b",
+            "id": "shopping-778ee992c58f",
             "checked": false,
             "content": {
               "text": "REC COFFEE 咖啡豆",
@@ -5241,11 +5241,11 @@
         ]
       },
       {
-        "id": "clothes",
-        "title": "Clothes",
+        "id": "clothes-衣物",
+        "title": "Clothes｜衣物",
         "items": [
           {
-            "id": "shopping-f22988b4d27a",
+            "id": "shopping-93f45e8ac24b",
             "checked": false,
             "content": {
               "text": "天神逛街看衣服",
@@ -5253,7 +5253,7 @@
             }
           },
           {
-            "id": "shopping-20d880e5714e",
+            "id": "shopping-e06edde593eb",
             "checked": false,
             "content": {
               "text": "PARCO / 天神地下街",
@@ -5261,7 +5261,7 @@
             }
           },
           {
-            "id": "shopping-9d09625dee8b",
+            "id": "shopping-a572e460231f",
             "checked": false,
             "content": {
               "text": "日本品牌基本款",
@@ -5271,11 +5271,11 @@
         ]
       },
       {
-        "id": "electronics",
-        "title": "Electronics",
+        "id": "electronics-電子產品",
+        "title": "Electronics｜電子產品",
         "items": [
           {
-            "id": "shopping-ce1d96d8a59f",
+            "id": "shopping-b2d78dad4b4f",
             "checked": false,
             "content": {
               "text": "電動刮鬍刀",
@@ -5283,7 +5283,7 @@
             }
           },
           {
-            "id": "shopping-7cf8feee48d1",
+            "id": "shopping-d3fbcebe7f17",
             "checked": false,
             "content": {
               "text": "Yodobashi 看 3C / 配件",
@@ -5291,7 +5291,7 @@
             }
           },
           {
-            "id": "shopping-2862fa91b2ae",
+            "id": "shopping-d2fc242727a0",
             "checked": false,
             "content": {
               "text": "相機或手機配件",
@@ -5301,11 +5301,11 @@
         ]
       },
       {
-        "id": "maybe",
-        "title": "Maybe",
+        "id": "maybe-可再看看",
+        "title": "Maybe｜可再看看",
         "items": [
           {
-            "id": "shopping-0edf5d9387cb",
+            "id": "shopping-6dc39bc4e2f4",
             "checked": false,
             "content": {
               "text": "文具",
@@ -5313,7 +5313,7 @@
             }
           },
           {
-            "id": "shopping-a27c050e0071",
+            "id": "shopping-e5da962c4d91",
             "checked": false,
             "content": {
               "text": "藥妝",
@@ -5321,7 +5321,7 @@
             }
           },
           {
-            "id": "shopping-daa3e45abff5",
+            "id": "shopping-027e58459dd2",
             "checked": false,
             "content": {
               "text": "便利商店零食",
