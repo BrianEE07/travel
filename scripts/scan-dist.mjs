@@ -7,11 +7,13 @@ const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 const roots = [path.join(projectRoot, 'src/data/trips'), path.join(projectRoot, 'dist')];
 const files = [];
 const allowedPrices = [];
+const allowedImageUrls = [];
 
 for (const entry of await fs.readdir(path.join(projectRoot, 'src/data/trips'))) {
   if (!entry.endsWith('.json')) continue;
   const trip = JSON.parse(await fs.readFile(path.join(projectRoot, 'src/data/trips', entry), 'utf8'));
   for (const entity of trip.entities ?? []) {
+    if (entity.image?.url) allowedImageUrls.push(entity.image.url);
     if (entity.type === 'stay' && entity.price?.text) allowedPrices.push(entity.price.text);
     if (entity.type === 'transport') {
       for (const segment of entity.segments ?? []) if (segment.price?.text) allowedPrices.push(segment.price.text);
@@ -32,7 +34,7 @@ for (const root of roots) await walk(root);
 const findings = [];
 for (const file of files) {
   const content = await fs.readFile(file, 'utf8');
-  for (const finding of scanPublicPayload(content, [], allowedPrices)) findings.push(`${path.relative(projectRoot, file)}: ${finding}`);
+  for (const finding of scanPublicPayload(content, [], allowedPrices, allowedImageUrls)) findings.push(`${path.relative(projectRoot, file)}: ${finding}`);
 }
 if (findings.length) throw new Error(`Secret scan failed:\n${findings.join('\n')}`);
 console.log(`Secret scan passed across ${files.length} public files.`);

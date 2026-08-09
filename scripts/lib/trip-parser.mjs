@@ -9,8 +9,12 @@ const PUBLIC_SECTION_NAMES = [
   'Food',
   'Places',
   'Transportation',
+  'Packing List',
+  'To Buy',
   'References',
 ];
+
+const REQUIRED_PUBLIC_SECTION_NAMES = PUBLIC_SECTION_NAMES.filter((name) => name !== 'Packing List' && name !== 'To Buy');
 
 const ENTITY_SECTIONS = new Map([
   ['Accommodation', 'stay'],
@@ -518,7 +522,7 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   }
   if (imageValue) {
     const imageMatch = imageValue.match(/^\[Image\]\[([^\]]+)\]$/);
-    const creditMatch = imageCreditValue?.match(/^\[([^\]]+)\]\((https:\/\/[^)]+)\)$/);
+    const creditMatch = imageCreditValue?.match(/^\[([^\]]+)\]\((https:\/\/.+)\)$/);
     if (!imageMatch) errors.push(`${title} 的 Image 必須使用 [Image][img-key] reference link`);
     if (!imageCreditValue) errors.push(`${title} 使用 Image 時必須同時提供 ImageCredit`);
     else if (!creditMatch || !isSafePublicUrl(creditMatch[2])) errors.push(`${title} 的 ImageCredit 必須是安全的 HTTPS markdown link`);
@@ -579,6 +583,55 @@ function parseOverview(section, entityIds, references, entitySegments, frontmatt
     stays: (fields.get('Stay') ?? []).map((value) => richText(value, entityIds, references, entitySegments)),
     status: fields.get('Status')?.[0] ?? '',
   };
+}
+
+function parseChecklist(section, kind, entityIds, references, errors) {
+  if (!section.trim()) return [];
+  const groups = [];
+  const groupTitles = new Set();
+  for (const { title, content } of sectionList(section, 3)) {
+    if (groupTitles.has(title)) errors.push(`${kind} 有重複分類：${title}`);
+    groupTitles.add(title);
+    const items = [];
+    const itemTexts = new Set();
+    let navigationSeen = false;
+    for (const rawLine of content.split('\n')) {
+      const line = rawLine.trim();
+      if (!line) continue;
+      if (isBackToTop(line)) {
+        if (navigationSeen) errors.push(`${kind} 的 ${title} 不可重複 Back to top`);
+        navigationSeen = true;
+        continue;
+      }
+      if (navigationSeen) {
+        errors.push(`${kind} 的 ${title} 在 Back to top 後不可再放內容`);
+        continue;
+      }
+      const match = line.match(/^- \[([ xX])\]\s+(.+)$/);
+      if (!match) {
+        errors.push(`${kind} 的 ${title} 只允許 Markdown checkbox：${line}`);
+        continue;
+      }
+      const value = match[2].trim();
+      const plainText = stripLinks(value);
+      if (!plainText) {
+        errors.push(`${kind} 的 ${title} 含空白項目`);
+        continue;
+      }
+      if (itemTexts.has(plainText)) errors.push(`${kind} 的 ${title} 有重複項目：${plainText}`);
+      itemTexts.add(plainText);
+      const id = `${kind === 'Packing List' ? 'packing' : 'shopping'}-${crypto.createHash('sha1').update(`${title}\0${plainText}`).digest('hex').slice(0, 12)}`;
+      items.push({
+        id,
+        checked: match[1].toLowerCase() === 'x',
+        content: richText(value, entityIds, references),
+      });
+    }
+    if (!items.length) errors.push(`${kind} 的 ${title} 至少需要一個項目`);
+    groups.push({ id: slugify(title), title, items });
+  }
+  if (!groups.length) errors.push(`${kind} 至少需要一個三級分類`);
+  return groups;
 }
 
 function parseItinerary(section, entityIds, entityTypes, errors) {
@@ -727,11 +780,15 @@ function validateDateSets(expected, itinerary, days, errors) {
   check('Daily Plan', days.map((day) => day.date));
 }
 
-export function scanPublicPayload(payload, secrets = [], allowedPrices = []) {
+export function scanPublicPayload(payload, secrets = [], allowedPrices = [], allowedImageUrls = []) {
   const serialized = typeof payload === 'string' ? payload : JSON.stringify(payload);
   let priceScanPayload = serialized;
   for (const price of allowedPrices) {
     if (price) priceScanPayload = priceScanPayload.split(price).join('');
+  }
+  let ticketScanPayload = serialized;
+  for (const imageUrl of allowedImageUrls) {
+    if (imageUrl) ticketScanPayload = ticketScanPayload.split(imageUrl).join('');
   }
   const findings = [];
   const patterns = [
@@ -741,7 +798,7 @@ export function scanPublicPayload(payload, secrets = [], allowedPrices = []) {
     ['visible price', /\b(?:JPY|TWD|NTD|USD|EUR)\s*[\d,.]+/gi],
   ];
   for (const [name, pattern] of patterns) {
-    const target = name === 'visible price' ? priceScanPayload : serialized;
+    const target = name === 'visible price' ? priceScanPayload : name === 'air ticket number' ? ticketScanPayload : serialized;
     if (pattern.test(target)) findings.push(name);
   }
   for (const secret of secrets) if (secret.length >= 4 && serialized.includes(secret)) findings.push(`source secret fingerprint: ${secret.slice(0, 2)}…`);
@@ -759,7 +816,7 @@ export function parseTrip(markdown) {
 
   const sectionItems = sectionList(body, 2);
   const sections = sectionMap(sectionItems, '二級 section', errors);
-  for (const name of PUBLIC_SECTION_NAMES) if (!sections.has(name)) errors.push(`缺少必要 public section：${name}`);
+  for (const name of REQUIRED_PUBLIC_SECTION_NAMES) if (!sections.has(name)) errors.push(`缺少必要 public section：${name}`);
 
   const references = parseReferences(sections.get('References') ?? '', errors);
   const entityIds = new Map();
@@ -795,6 +852,10 @@ export function parseTrip(markdown) {
   const overview = parseOverview(sections.get('Overview') ?? '', entityIds, references, entitySegments, data, errors);
   const itinerary = parseItinerary(sections.get('Itinerary') ?? '', entityIds, entityTypes, errors);
   const days = parseDays(sections.get('Daily Plan') ?? '', itinerary, entityIds, references, entitySegments, errors);
+  const checklists = {
+    packing: parseChecklist(sections.get('Packing List') ?? '', 'Packing List', entityIds, references, errors),
+    shopping: parseChecklist(sections.get('To Buy') ?? '', 'To Buy', entityIds, references, errors),
+  };
   const start = String(data.trip_start ?? '');
   const end = String(data.trip_end ?? '');
   validateDateSets(inclusiveDates(start, end, errors), itinerary, days, errors);
@@ -825,6 +886,7 @@ export function parseTrip(markdown) {
     overview,
     days,
     entities,
+    checklists,
   };
 
   const allowedPrices = trip.entities.flatMap((entity) => {
@@ -832,7 +894,8 @@ export function parseTrip(markdown) {
     if (entity.type === 'transport') return entity.segments.map((segment) => segment.price?.text);
     return [];
   }).filter(Boolean);
-  const findings = scanPublicPayload(trip, secrets, allowedPrices);
+  const allowedImageUrls = trip.entities.map((entity) => entity.image?.url).filter(Boolean);
+  const findings = scanPublicPayload(trip, secrets, allowedPrices, allowedImageUrls);
   for (const finding of findings) errors.push(`公開資料安全檢查：${finding}`);
   if (errors.length) throw new Error(`Travel schema 2 validation failed:\n- ${[...new Set(errors)].join('\n- ')}`);
   return { trip, secrets: [...secrets] };

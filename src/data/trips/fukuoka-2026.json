@@ -13,8 +13,8 @@
   "end": "2026-09-03",
   "status": "active",
   "noindex": true,
-  "updatedAt": "2026-08-09T05:09:18.766Z",
-  "sourceHash": "0baf5bf5f981764c",
+  "updatedAt": "2026-08-09T06:01:37.654Z",
+  "sourceHash": "6b7ced2d7efa10b2",
   "locations": [
     "福岡",
     "太宰府",
@@ -912,10 +912,10 @@
         "html": "2 天前免費；前日 50%，當日 80%，未入住 100%。"
       },
       "image": {
-        "url": "https://storage.googleapis.com/production-os-assets/assets/47032718-9d60-42fd-bdae-df0c7f247b72",
+        "url": "https://nnr-nx.jp/userfiles/content/65/ea47107634da9f3ab93eb40d06a1e71f.jpg",
         "credit": {
-          "label": "官方網站",
-          "url": "https://croom-hakatagion.nnr-h.com/"
+          "label": "NISHITETSU ONLINE MAGAZINE N×",
+          "url": "https://nnr-nx.jp/article/detail/65"
         }
       }
     },
@@ -972,10 +972,10 @@
         "html": "2 天前免費；前日 50%，當日 80%，未入住 100%。"
       },
       "image": {
-        "url": "https://storage.googleapis.com/production-os-assets/assets/47032718-9d60-42fd-bdae-df0c7f247b72",
+        "url": "https://nnr-nx.jp/userfiles/content/65/ea47107634da9f3ab93eb40d06a1e71f.jpg",
         "credit": {
-          "label": "官方網站",
-          "url": "https://croom-hakatagion.nnr-h.com/"
+          "label": "NISHITETSU ONLINE MAGAZINE N×",
+          "url": "https://nnr-nx.jp/article/detail/65"
         }
       }
     },
@@ -1032,10 +1032,10 @@
         "html": "不可退款方案。"
       },
       "image": {
-        "url": "https://crosslife-hakatatenjin.orixhotelsandresorts.com/uploads/2022/09/68000be6d494f0336139f57070e6839c-scaled.jpg",
+        "url": "https://www.sawatake.com/wp-content/uploads/2023/05/IMG_7966-768x1024.jpeg",
         "credit": {
-          "label": "官方網站",
-          "url": "https://crosslife-hakatatenjin.orixhotelsandresorts.com/facility/adjoiningroom/"
+          "label": "福岡車いすライフ",
+          "url": "https://www.sawatake.com/chosa-crosslife-hakatatenjin/"
         }
       }
     },
@@ -1085,6 +1085,13 @@
       "note": {
         "text": "第一晚時間偏緊，重點是順利 check in 後準時到店；若入境或交通延誤，先聯絡店家，太晚就改超商補給後回飯店休息。",
         "html": "第一晚時間偏緊，重點是順利 check in 後準時到店；若入境或交通延誤，先聯絡店家，太晚就改超商補給後回飯店休息。"
+      },
+      "image": {
+        "url": "https://www.web-soigner.jp/data/shops/1589_3_l.jpg",
+        "credit": {
+          "label": "ソワニエプラス",
+          "url": "https://www.web-soigner.jp/shops/1589.html"
+        }
       }
     },
     {
@@ -1126,6 +1133,13 @@
       "note": {
         "text": "離飯店近，適合作為出發前早餐；若排隊太久就外帶或改便利商店，不要壓縮 08:50 前往太宰府的時間。",
         "html": "離飯店近，適合作為出發前早餐；若排隊太久就外帶或改便利商店，不要壓縮 08:50 前往太宰府的時間。"
+      },
+      "image": {
+        "url": "https://poiend-pctr.c.yimg.jp/RbvIgEqcLh0WnvgGGwVVgTznkURkbN_CqctDurJdF3SRAZnnKUgbNfmS1jw_jhUUUzu3sdliVX2yDxaxugXt8aJGZguMiHif3PqEEcerNomFINZmOkP7OVrBbiTvRicy5Z9oGDEQoYS4Tv2_cxYMOp6V0m3l58KY1XjDdOZJ_CzthPW3RL6_4fMPt8qpFbHexnPzoZRhxdzpT26hB-v29lvfi4o8kpI-Q9sfLL1hxZW33B2se7gUy692BhSKHpUWEJ0FJ2Yrxdsvqeycp-VoYytQc1-KEHMc6TdWnEpHzLM%3D",
+        "credit": {
+          "label": "Yahoo!マップ",
+          "url": "https://map.yahoo.co.jp/v3/place/F2zURvPC0hQ"
+        }
       }
     },
     {
@@ -1166,6 +1180,13 @@
       "note": {
         "text": "重點是隈研吾木構外觀與短暫休息；若人多就拍外觀或外帶，不把它當長時間咖啡停留。",
         "html": "重點是隈研吾木構外觀與短暫休息；若人多就拍外觀或外帶，不把它當長時間咖啡停留。"
+      },
+      "image": {
+        "url": "https://stat.ameba.jp/user_images/20221010/22/sotoshi-911/70/73/j/o2048153615186655348.jpg",
+        "credit": {
+          "label": "美しき建築と旅",
+          "url": "https://ameblo.jp/sotoshi-911/entry-12768744317.html"
+        }
       }
     },
     {
@@ -1206,6 +1227,13 @@
       "note": {
         "text": "太宰府午餐主選，但座位少、午餐可能排隊；若等太久就用梅枝餅或參道小吃補位，13:45 前要離開太宰府。",
         "html": "太宰府午餐主選，但座位少、午餐可能排隊；若等太久就用梅枝餅或參道小吃補位，13:45 前要離開太宰府。"
+      },
+      "image": {
+        "url": "https://prcdn.freetls.fastly.net/release_image/9803/9/9803-9-ca2fcf3693fc2328ccdd6eda31b163b3-3900x2925.jpg?auto=webp&bg-color=fff&fit=bounds&format=jpeg&height=1350&quality=85%2C65&width=1950",
+        "credit": {
+          "label": "PR TIMES",
+          "url": "https://prtimes.jp/main/html/rd/p/000000009.000009803.html"
+        }
       }
     },
     {
@@ -1241,6 +1269,13 @@
       "note": {
         "text": "作為參道小吃或一蘭排隊時的彈性補位；各店營業時間不同，不必綁定單一店家。",
         "html": "作為參道小吃或一蘭排隊時的彈性補位；各店營業時間不同，不必綁定單一店家。"
+      },
+      "image": {
+        "url": "https://www.guidoor.jp/media/wp-content/uploads/2020/01/d4360217e2df72af85f6cdbdd1c494a9-3.jpg",
+        "credit": {
+          "label": "Guidoor Media",
+          "url": "https://www.guidoor.jp/media/dazaifu-fukuoka-gourmet/"
+        }
       }
     },
     {
@@ -1289,6 +1324,13 @@
       "note": {
         "text": "LaLaport 後回博多站前晚餐；18:00 鋼彈演出後要準時收尾，若前段延誤就直接搭計程車，避免遲到 15 分鐘被取消。",
         "html": "LaLaport 後回博多站前晚餐；18:00 鋼彈演出後要準時收尾，若前段延誤就直接搭計程車，避免遲到 15 分鐘被取消。"
+      },
+      "image": {
+        "url": "https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_ebisu/restaurant/100001243264/archive/1204414-5db020675e979.jpeg",
+        "credit": {
+          "label": "Retty",
+          "url": "https://retty.me/area/PRE40/ARE126/SUB12601/100001243264/"
+        }
       }
     },
     {
@@ -1324,6 +1366,13 @@
       "note": {
         "text": "由布院午餐主選，但座位少、售完為止且不定休；很想吃的話前一天或當天電話確認，排太久就改主街午餐。",
         "html": "由布院午餐主選，但座位少、售完為止且不定休；很想吃的話前一天或當天電話確認，排太久就改主街午餐。"
+      },
+      "image": {
+        "url": "https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/2l/01/13190164.jpg",
+        "credit": {
+          "label": "Retty",
+          "url": "https://retty.me/area/PRE44/ARE279/SUB27901/100000669671/"
+        }
       }
     },
     {
@@ -1360,6 +1409,13 @@
       "note": {
         "text": "由布院回博多後可作為輕量宵夜體驗；屋台受天氣和店主狀態影響，太累或下雨就回飯店休息。",
         "html": "由布院回博多後可作為輕量宵夜體驗；屋台受天氣和店主狀態影響，太累或下雨就回飯店休息。"
+      },
+      "image": {
+        "url": "https://pbs.twimg.com/profile_images/1381516091793436675/honDs_b0_400x400.jpg",
+        "credit": {
+          "label": "博多中洲屋台伸龍",
+          "url": "https://x.com/come_on_shinryu"
+        }
       }
     },
     {
@@ -1400,6 +1456,13 @@
       "note": {
         "text": "離飯店很近，不需要特別排交通時間；若滿座就外帶，或直接前往櫛田神社。",
         "html": "離飯店很近，不需要特別排交通時間；若滿座就外帶，或直接前往櫛田神社。"
+      },
+      "image": {
+        "url": "https://fuk-coffee.com/wp-content/uploads/2022/01/DSC07207.jpg",
+        "credit": {
+          "label": "官方網站",
+          "url": "https://fuk-coffee.com/shop/fuk-coffee-2/"
+        }
       }
     },
     {
@@ -1440,6 +1503,13 @@
       "note": {
         "text": "博多午餐主選，從川端通商店街接過去順路；不可預約，若午餐尖峰排太久就改 FULL FULL 或天神地下街。",
         "html": "博多午餐主選，從川端通商店街接過去順路；不可預約，若午餐尖峰排太久就改 FULL FULL 或天神地下街。"
+      },
+      "image": {
+        "url": "https://tblg.k-img.com/restaurant/images/Rvw/305188/640x640_rect_f98d952e415724c6f87e2b376ef52a03.jpg",
+        "credit": {
+          "label": "食べログ",
+          "url": "https://tabelog.com/fukuoka/A4001/A400101/40044110/dtlrvwlst/B508662291/"
+        }
       }
     },
     {
@@ -1480,6 +1550,13 @@
       "note": {
         "text": "更適合點心或外帶，也能在拉麵排太久時補位；熱門品項可能售完，不必排成必吃正餐。",
         "html": "更適合點心或外帶，也能在拉麵排太久時補位；熱門品項可能售完，不必排成必吃正餐。"
+      },
+      "image": {
+        "url": "https://danielfooddiary.com/wp-content/uploads/2025/01/thefullfullhakata12.jpg",
+        "credit": {
+          "label": "DanielFoodDiary",
+          "url": "https://danielfooddiary.com/2025/01/20/thefullfullhakata/"
+        }
       }
     },
     {
@@ -1520,6 +1597,13 @@
       "note": {
         "text": "座位比小店友善，適合作為天神下午固定休息點；若人太多，就改天神地下街或附近咖啡店。",
         "html": "座位比小店友善，適合作為天神下午固定休息點；若人太多，就改天神地下街或附近咖啡店。"
+      },
+      "image": {
+        "url": "https://tblg.k-img.com/restaurant/images/Rvw/238391/640x640_rect_623f1f165ba07531ae54735445e95e93.jpg",
+        "credit": {
+          "label": "食べログ",
+          "url": "https://tabelog.com/fukuoka/A4001/A400103/40066618/"
+        }
       }
     },
     {
@@ -1568,6 +1652,13 @@
       "note": {
         "text": "天神逛街後回中洲川端晚餐，18:30 左右離開天神較穩；24 小時內取消或人數變更收 100%，無聯絡遲到 15 分鐘可能自動取消。",
         "html": "天神逛街後回中洲川端晚餐，18:30 左右離開天神較穩；24 小時內取消或人數變更收 100%，無聯絡遲到 15 分鐘可能自動取消。"
+      },
+      "image": {
+        "url": "https://toriden.com/demo/images/index/slide001.jpg",
+        "credit": {
+          "label": "官方網站",
+          "url": "https://toriden.com/"
+        }
       }
     },
     {
@@ -1604,6 +1695,13 @@
       "note": {
         "text": "門司港燒咖喱備案，位置很順；不可預約，熱門時段可能排隊，一人行程可接受等待但不要拖過 14:30。",
         "html": "門司港燒咖喱備案，位置很順；不可預約，熱門時段可能排隊，一人行程可接受等待但不要拖過 14:30。"
+      },
+      "image": {
+        "url": "https://tblg.k-img.com/restaurant/images/Rvw/187431/640x640_rect_886c8d3b79160b713e011cbf96aa2998.jpg",
+        "credit": {
+          "label": "食べログ",
+          "url": "https://tabelog.com/fukuoka/A4004/A400501/40003315/"
+        }
       }
     },
     {
@@ -1644,6 +1742,13 @@
       "note": {
         "text": "門司港午餐主選，離車站近且更像純燒咖喱專門店；不可預約，若排太久就改 BEAR FRUITS 或 Princess Phi Phi。",
         "html": "門司港午餐主選，離車站近且更像純燒咖喱專門店；不可預約，若排太久就改 BEAR FRUITS 或 Princess Phi Phi。"
+      },
+      "image": {
+        "url": "https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/l/01/30311259.jpg",
+        "credit": {
+          "label": "Retty",
+          "url": "https://retty.me/area/PRE40/ARE134/SUB65209/100001158902/"
+        }
       }
     },
     {
@@ -1779,6 +1884,13 @@
       "note": {
         "text": "高千穗回博多後順路，主打濃厚沾麵；若回程延誤、太累或排太久，就改博多站便當或飯店附近簡單晚餐。",
         "html": "高千穗回博多後順路，主打濃厚沾麵；若回程延誤、太累或排太久，就改博多站便當或飯店附近簡單晚餐。"
+      },
+      "image": {
+        "url": "https://tblg.k-img.com/restaurant/images/Rvw/287436/640x640_rect_0ce05b1e14e5e358c69aaabd40698c8b.jpg",
+        "credit": {
+          "label": "食べログ",
+          "url": "https://tabelog.com/fukuoka/A4001/A400101/40055658/dtlrvwlst/B462170791/"
+        }
       }
     },
     {
@@ -1866,6 +1978,13 @@
       "note": {
         "text": "08:00 就開，適合作為最後一天第一間咖啡店；若 checkout 或寄放行李延誤，就縮短停留或直接跳到天神。",
         "html": "08:00 就開，適合作為最後一天第一間咖啡店；若 checkout 或寄放行李延誤，就縮短停留或直接跳到天神。"
+      },
+      "image": {
+        "url": "https://media.triple.guide/triple-cms/c_limit%2Cf_auto%2Ch_1024%2Cw_1024/df9fc7f8-f772-49b0-b1c4-19304cadb718.jpeg",
+        "credit": {
+          "label": "Triple",
+          "url": "https://triple.guide/restaurants/b1bad745-fca2-4384-8f73-0784159e2eff"
+        }
       }
     },
     {
@@ -1908,10 +2027,10 @@
         "html": "和 REC COFFEE 距離近，適合當第二間咖啡或買豆；若想保留逛街體力，這間可以刪掉。"
       },
       "image": {
-        "url": "https://coffeecounty.cc/coffeecounty/wp-content/uploads/2021/06/cc.jpg",
+        "url": "https://i0.wp.com/www.fukuoka-now.com/wp-content/uploads/2017/06/county-coffee-2017-025.jpg?resize=1024%2C683",
         "credit": {
-          "label": "官方網站",
-          "url": "https://coffeecounty.cc/shop/fukuoka/"
+          "label": "Fukuoka Now",
+          "url": "https://www.fukuoka-now.com/ja/food/coffee-county-fukuoka/"
         }
       }
     },
@@ -2000,6 +2119,13 @@
       "note": {
         "text": "轉到博多站後接伴手禮和 Yodobashi 很順；若上午已喝兩間咖啡，這間改外帶或跳過。",
         "html": "轉到博多站後接伴手禮和 Yodobashi 很順；若上午已喝兩間咖啡，這間改外帶或跳過。"
+      },
+      "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0062/9895/9990/files/IMGL1317_1_600x600.jpg?v=1708861715",
+        "credit": {
+          "label": "官方網站",
+          "url": "https://fuglencoffee.jp/en/pages/fuglen-fukuoka"
+        }
       }
     },
     {
@@ -2040,6 +2166,13 @@
       "note": {
         "text": "可在博多站伴手禮採買時一起處理；冷食保存和托運 / 手提限制要現場確認。",
         "html": "可在博多站伴手禮採買時一起處理；冷食保存和托運 / 手提限制要現場確認。"
+      },
+      "image": {
+        "url": "https://www.fetnet.net/content/dam/fetnet/user_resource/cbu/images/life-circle/on-the-road/2024/10/fukuoka_tasty/fukuoka_tasty-2.jpg",
+        "credit": {
+          "label": "遠傳電信 FETnet",
+          "url": "https://www.fetnet.net/content/cbu/tw/lifecircle/travel/2024/10/fukuoka_tasty.html"
+        }
       }
     },
     {
@@ -2202,6 +2335,13 @@
       "note": {
         "text": "若現場可入內，適合接在天滿宮後安靜散步；目前非固定開放，現場若無法參拜就跳過。",
         "html": "若現場可入內，適合接在天滿宮後安靜散步；目前非固定開放，現場若無法參拜就跳過。"
+      },
+      "image": {
+        "url": "https://360navi.com/wp/wp-content/uploads/2023/01/dazaifu-kou01.webp",
+        "credit": {
+          "label": "360@旅行ナビ",
+          "url": "https://360navi.com/fukuoka/dazaifu/dazaifu-kou/"
+        }
       }
     },
     {
@@ -2238,6 +2378,13 @@
       "note": {
         "text": "這天的鋼彈主目標是立像和 GUNDAM SIDE-F；19:30 前田屋在博多站前，18:00 是晚餐前最後比較穩的立像演出。",
         "html": "這天的鋼彈主目標是立像和 GUNDAM SIDE-F；19:30 前田屋在博多站前，18:00 是晚餐前最後比較穩的立像演出。"
+      },
+      "image": {
+        "url": "https://www.gundampark.net/ogp.png",
+        "credit": {
+          "label": "官方網站",
+          "url": "https://www.gundampark.net/"
+        }
       }
     },
     {
@@ -2270,6 +2417,13 @@
       "note": {
         "text": "以由布岳山景、湯之坪街道和金鱗湖一帶散步為主；回程 17:17 固定，下午後段要往車站方向收斂。",
         "html": "以由布岳山景、湯之坪街道和金鱗湖一帶散步為主；回程 17:17 固定，下午後段要往車站方向收斂。"
+      },
+      "image": {
+        "url": "https://www.city.yufu.oita.jp/uploads/images/2024/07/r_yufuineki.jpg",
+        "credit": {
+          "label": "由布市官方網站",
+          "url": "https://www.city.yufu.oita.jp/kankou/kankou-2/kankou_cate1_1/station"
+        }
       }
     },
     {
@@ -2301,6 +2455,13 @@
       "note": {
         "text": "由布院散步主線，適合伴手禮、小吃和邊走邊看；週六人潮多，不要把單店排死。",
         "html": "由布院散步主線，適合伴手禮、小吃和邊走邊看；週六人潮多，不要把單店排死。"
+      },
+      "image": {
+        "url": "https://d5h8oiuyizk1v.cloudfront.net/medium_05_yokocho_96f56c9c49.jpg",
+        "credit": {
+          "label": "楽天 STAY",
+          "url": "https://stay.rakuten.co.jp/discover/area/yufuin-kid-friendly/"
+        }
       }
     },
     {
@@ -2332,6 +2493,13 @@
       "note": {
         "text": "由布院代表湖景點，天氣好時適合慢慢走；天氣差就縮短停留，把時間留給主街或回程緩衝。",
         "html": "由布院代表湖景點，天氣好時適合慢慢走；天氣差就縮短停留，把時間留給主街或回程緩衝。"
+      },
+      "image": {
+        "url": "https://photohito.k-img.com/uploads/photo99/user98977/2/2/2263c44c2e7882146e5e7c5f96e3f73e/2263c44c2e7882146e5e7c5f96e3f73e_l.jpg",
+        "credit": {
+          "label": "PHOTOHITO",
+          "url": "https://photohito.com/photo/10002543/"
+        }
       }
     },
     {
@@ -2368,6 +2536,13 @@
       "note": {
         "text": "湯之坪街道後段的輕量拍照點，停留 30-45 分鐘即可；不要因此壓縮回程緩衝。",
         "html": "湯之坪街道後段的輕量拍照點，停留 30-45 分鐘即可；不要因此壓縮回程緩衝。"
+      },
+      "image": {
+        "url": "https://cdn.getyourguide.com/image/format%3Dauto%2Cfit%3Dcrop%2Cgravity%3Dauto%2Cquality%3D60%2Cwidth%3D400%2Cheight%3D265%2Cdpr%3D2/tour_img/360ab06336f73fead0c6bc0ea1d0680fc7e26ad0e697d75cac407700a46d92bb.jpg",
+        "credit": {
+          "label": "GetYourGuide",
+          "url": "https://www.getyourguide.com/fr-fr/village-floral-de-yufuin-l221486/"
+        }
       }
     },
     {
@@ -2404,6 +2579,13 @@
       "note": {
         "text": "博多散步的核心點，從飯店周邊出發很順；上午行程彈性高，若前兩天太累可延後。",
         "html": "博多散步的核心點，從飯店周邊出發很順；上午行程彈性高，若前兩天太累可延後。"
+      },
+      "image": {
+        "url": "https://www.crossroadfukuoka.jp/storage/tourism_attractions/12510/responsive_images/4jz3eLXD7vlsC5mkI0SE8kwFzjCjK6tgsbBcPQ1Y__1673_1115.jpg",
+        "credit": {
+          "label": "福岡縣觀光連盟",
+          "url": "https://www.crossroadfukuoka.jp/spot/12510"
+        }
       }
     },
     {
@@ -2440,6 +2622,13 @@
       "note": {
         "text": "接在櫛田神社後散步順路；店家營業時間不同，當作散步和小買主線，不把單店排死。",
         "html": "接在櫛田神社後散步順路；店家營業時間不同，當作散步和小買主線，不把單店排死。"
+      },
+      "image": {
+        "url": "https://evalife.tw/wp-content/uploads/batch_20240731_174122.jpg",
+        "credit": {
+          "label": "依娃旅行小確幸",
+          "url": "https://evalife.tw/kawabatadori/"
+        }
       }
     },
     {
@@ -2476,6 +2665,13 @@
       "note": {
         "text": "下午逛街主線，也適合避暑或雨天；18:30 左右要離開天神，避免鳥田訂位壓線。",
         "html": "下午逛街主線，也適合避暑或雨天；18:30 左右要離開天神，避免鳥田訂位壓線。"
+      },
+      "image": {
+        "url": "https://ak-d.tripcdn.com/images/1mi1x224x98d5d73bD400_Q90.jpg?proc=source%2Ftrip",
+        "credit": {
+          "label": "Trip.com",
+          "url": "https://hk.trip.com/moments/detail/fukuoka-576-141814444?locale=en-HK"
+        }
       }
     },
     {
@@ -2512,6 +2708,13 @@
       "note": {
         "text": "天神逛街中段的安靜停留點；若想拿御朱印或看授與所，要注意時間通常比閉門更早。",
         "html": "天神逛街中段的安靜停留點；若想拿御朱印或看授與所，要注意時間通常比閉門更早。"
+      },
+      "image": {
+        "url": "https://kegojinja.or.jp/assets/images/ogp.jpg",
+        "credit": {
+          "label": "官方網站",
+          "url": "https://kegojinja.or.jp/"
+        }
       }
     },
     {
@@ -2548,6 +2751,13 @@
       "note": {
         "text": "從小倉站步行可到，放在北九州段第一站最穩；夏天中午偏熱，體力不足時只看天守與周邊即可。",
         "html": "從小倉站步行可到，放在北九州段第一站最穩；夏天中午偏熱，體力不足時只看天守與周邊即可。"
+      },
+      "image": {
+        "url": "https://de5c3ya1fcot1.cloudfront.net/uploads/content_image/image/6844/sp_show_%E5%B0%8F%E5%80%89%E5%9F%8E01.jpg",
+        "credit": {
+          "label": "いこーよとりっぷ",
+          "url": "https://trip.iko-yo.net/spots/882"
+        }
       }
     },
     {
@@ -2585,6 +2795,13 @@
       "note": {
         "text": "燒咖喱後用 1.5-2 小時慢慢散步剛好；16:20 後要收束往門司港站，否則會壓到皿倉山日落。",
         "html": "燒咖喱後用 1.5-2 小時慢慢散步剛好；16:20 後要收束往門司港站，否則會壓到皿倉山日落。"
+      },
+      "image": {
+        "url": "https://mojiko-retoro9.jp/wp-content/themes/template/images/info_img_02.jpg",
+        "credit": {
+          "label": "官方網站",
+          "url": "https://mojiko-retoro9.jp/info/"
+        }
       }
     },
     {
@@ -2621,6 +2838,13 @@
       "note": {
         "text": "門司港復古區裡最輕量的室內點，適合短暫避暑和看紅磚建築；17:00 關門，需放在皿倉山前。",
         "html": "門司港復古區裡最輕量的室內點，適合短暫避暑和看紅磚建築；17:00 關門，需放在皿倉山前。"
+      },
+      "image": {
+        "url": "https://assets.st-note.com/img/1653502967646-IveMyOHUpy.jpg?fit=bounds&height=2000&quality=85&width=2000",
+        "credit": {
+          "label": "sanchi",
+          "url": "https://note.com/yasuisanchi/n/n62f1c607a760"
+        }
       }
     },
     {
@@ -2657,6 +2881,13 @@
       "note": {
         "text": "15:50-16:20 剛好看最後一輪開合，之後收束前往皿倉山；錯過 16:00 就不等下一輪。",
         "html": "15:50-16:20 剛好看最後一輪開合，之後收束前往皿倉山；錯過 16:00 就不等下一輪。"
+      },
+      "image": {
+        "url": "https://www.crossroadfukuoka.jp/storage/tourism_attractions/13074/responsive_images/LDsoPCS7T6ltJSGjHxZnDK66bvI3zKo8yC90nHiC__1673_1115.jpg",
+        "credit": {
+          "label": "福岡縣觀光連盟",
+          "url": "https://www.crossroadfukuoka.jp/spot/13074"
+        }
       }
     },
     {
@@ -2694,6 +2925,13 @@
       "note": {
         "text": "皿倉山天氣差時的門司港內備案；若皿倉山能見度好，這裡不必特別上去，避免壓縮上山時間。",
         "html": "皿倉山天氣差時的門司港內備案；若皿倉山能見度好，這裡不必特別上去，避免壓縮上山時間。"
+      },
+      "image": {
+        "url": "https://cdn-mapple.net/Normal/%E7%A6%8F%E5%B2%A1%E7%9C%8C/40002056_20231226-5.jpg",
+        "credit": {
+          "label": "まっぷるウェブ",
+          "url": "https://www.mapple.net/spot/40002056/"
+        }
       }
     },
     {
@@ -2731,6 +2969,13 @@
       "note": {
         "text": "門司港後的主要夜景點；能見度比營業時間更重要，上山前看 live camera / 天氣，差就不要硬上。",
         "html": "門司港後的主要夜景點；能見度比營業時間更重要，上山前看 live camera / 天氣，差就不要硬上。"
+      },
+      "image": {
+        "url": "https://www.sarakurayama-cablecar.co.jp/wp-content/uploads/2022/02/%E7%9A%BF%E5%80%89%E5%B1%B1%E5%90%8D%E6%9C%88-768x511.jpg",
+        "credit": {
+          "label": "官方網站",
+          "url": "https://www.sarakurayama-cablecar.co.jp/nightview/"
+        }
       }
     },
     {
@@ -2763,6 +3008,13 @@
       "note": {
         "text": "集合與回程都在博多站，早上先寄博多站比先繞去 CROSS Life 穩；大型 locker 優先找 AMU Plaza / Deitos 一帶。",
         "html": "集合與回程都在博多站，早上先寄博多站比先繞去 CROSS Life 穩；大型 locker 優先找 AMU Plaza / Deitos 一帶。"
+      },
+      "image": {
+        "url": "https://i0.wp.com/www.fukuokatown.com/wp-content/uploads/2023/06/IMG_9944.jpg?resize=728%2C546&ssl=1",
+        "credit": {
+          "label": "福岡タウン情報",
+          "url": "https://www.fukuokatown.com/hakata-station-coinlocker/"
+        }
       }
     },
     {
@@ -2795,6 +3047,13 @@
       "note": {
         "text": "一日團第一個山林神社點，石燈籠參道很適合開場畫面；階梯與上坡多，穿好走的鞋，下雨時注意濕滑。",
         "html": "一日團第一個山林神社點，石燈籠參道很適合開場畫面；階梯與上坡多，穿好走的鞋，下雨時注意濕滑。"
+      },
+      "image": {
+        "url": "https://www.hokkaidolibrary.com/img/attractions_pic/15.jpg",
+        "credit": {
+          "label": "日本旅遊圖書館",
+          "url": "https://www.hokkaidolibrary.com/attractions_detail.asp?seq=2360"
+        }
       }
     },
     {
@@ -2831,6 +3090,13 @@
       "note": {
         "text": "不划船也值得看，重點是真名井瀑布、遊步道和峽谷地形；不含餐方案沒有接駁車，需自行走回停車場 / 集合點。若步道受天氣或災害限制，以官方公告與導遊指示為準。",
         "html": "不划船也值得看，重點是真名井瀑布、遊步道和峽谷地形；不含餐方案沒有接駁車，需自行走回停車場 / 集合點。若步道受天氣或災害限制，以官方公告與導遊指示為準。"
+      },
+      "image": {
+        "url": "https://takachiho-kanko.info/ogp.jpg",
+        "credit": {
+          "label": "高千穗町觀光協會",
+          "url": "https://takachiho-kanko.info/sightseeing/18/"
+        }
       }
     },
     {
@@ -2868,6 +3134,13 @@
       "note": {
         "text": "高千穗神話線最重要的一組景點；自由時間約 1 小時，天安河原來回要抓腳程，不要停太久。",
         "html": "高千穗神話線最重要的一組景點；自由時間約 1 小時，天安河原來回要抓腳程，不要停太久。"
+      },
+      "image": {
+        "url": "https://amanoiwato-jinja.jp/files/site_config/capture.jpg?1786248217",
+        "credit": {
+          "label": "官方網站",
+          "url": "https://amanoiwato-jinja.jp/"
+        }
       }
     },
     {
@@ -2899,6 +3172,13 @@
       "note": {
         "text": "從天神往糸島方向時順路短停；不排太久，09:43 前要回下山門搭車往筑前前原。",
         "html": "從天神往糸島方向時順路短停；不排太久，09:43 前要回下山門搭車往筑前前原。"
+      },
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/%E5%A3%B1%E5%B2%90%E7%A5%9E%E7%A4%BE_%28%E7%A6%8F%E5%B2%A1%E5%B8%82%29.jpg/1280px-%E5%A3%B1%E5%B2%90%E7%A5%9E%E7%A4%BE_%28%E7%A6%8F%E5%B2%A1%E5%B8%82%29.jpg",
+        "credit": {
+          "label": "Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:%E5%A3%B1%E5%B2%90%E7%A5%9E%E7%A4%BE_(%E7%A6%8F%E5%B2%A1%E5%B8%82).jpg"
+        }
       }
     },
     {
@@ -2980,6 +3260,13 @@
       "note": {
         "text": "糸島下午主景點，重點是夫婦岩、海中鳥居和海岸散步；2026/4 後原「二見ヶ浦・夫婦岩前」巴士站廢止，回程要用新站名。",
         "html": "糸島下午主景點，重點是夫婦岩、海中鳥居和海岸散步；2026/4 後原「二見ヶ浦・夫婦岩前」巴士站廢止，回程要用新站名。"
+      },
+      "image": {
+        "url": "https://kanko-itoshima.jp/app/wp-content/uploads/2024/05/7-6.png",
+        "credit": {
+          "label": "糸島市觀光協會",
+          "url": "https://kanko-itoshima.jp/spot/sakuraihutamigaura/"
+        }
       }
     },
     {
@@ -3017,6 +3304,13 @@
       "note": {
         "text": "接在夫婦岩後作為海岸休息點，不押特定店家；不要錯過 16:32 / 17:32 回程巴士。若想看夕陽，回市區時間會變晚。",
         "html": "接在夫婦岩後作為海岸休息點，不押特定店家；不要錯過 16:32 / 17:32 回程巴士。若想看夕陽，回市區時間會變晚。"
+      },
+      "image": {
+        "url": "https://static.gltjp.com/glt/data/article/22000/21066/20250703_093848_a0a7d5f5_w1920.webp",
+        "credit": {
+          "label": "好運日本行",
+          "url": "https://www.gltjp.com/zh-hant/article/item/21066/"
+        }
       }
     },
     {
@@ -3053,6 +3347,13 @@
       "note": {
         "text": "把購物、午餐和咖啡集中在市區核心，不排遠景點；天神好逛但容易失控，12:20 要收束去午餐或博多站。",
         "html": "把購物、午餐和咖啡集中在市區核心，不排遠景點；天神好逛但容易失控，12:20 要收束去午餐或博多站。"
+      },
+      "image": {
+        "url": "https://poiend-pctr.c.yimg.jp/RbvIgEqcLh0WnvgGGwVVgTznkURkbN_CqctDurJdF3RG3qOiOZCvK33oxIqO41q7xUVmTIO7nmX1ElMYU0piLcHDVeG_vDiIyVt99pqtGoMTQn08WFv5rhwerOm4QDpS0SD92nqPrBASL1bMDf3hkbXAjg9jDH_HZOLpUyxTXmNti14dCiccKBfqwk2QqmtUyhJrAk9SRxbI3wcCw5oeltS3AlCjr3HBalZfH3kVF_i6PCVKxZVQxtaaPhMSlO_-4wqJ_UNF7y8OAGdVzAOJy_AoGtA8f5tv8Wl2G5kiosQ%3D",
+        "credit": {
+          "label": "Yahoo!マップ",
+          "url": "https://map.yahoo.co.jp/v3/place/P12abokuMlU"
+        }
       }
     },
     {
@@ -3090,6 +3391,13 @@
       "note": {
         "text": "比機場選擇多，買完也方便回 CROSS Life 領行李；買太多要考慮行李重量，冷藏 / 冷凍品要確認攜帶方式。",
         "html": "比機場選擇多，買完也方便回 CROSS Life 領行李；買太多要考慮行李重量，冷藏 / 冷凍品要確認攜帶方式。"
+      },
+      "image": {
+        "url": "https://ming.or.jp/ren_2025_common/images/og.png",
+        "credit": {
+          "label": "官方網站",
+          "url": "https://www.ming.or.jp/"
+        }
       }
     },
     {
@@ -3127,6 +3435,13 @@
       "note": {
         "text": "若天神 BicCamera 沒買齊，轉博多站後還能補電子產品；16:10 後要回飯店領行李，不能在退稅或結帳拖太久。",
         "html": "若天神 BicCamera 沒買齊，轉博多站後還能補電子產品；16:10 後要回飯店領行李，不能在退稅或結帳拖太久。"
+      },
+      "image": {
+        "url": "https://img.wongnai.com/p/1920x0/2025/05/24/13ac0fc2a1c043e19c2d5abdae0f6278.jpg",
+        "credit": {
+          "label": "Wongnai",
+          "url": "https://www.wongnai.com/reviews/46b0699cb27f45fb9c1891c77cedf278"
+        }
       }
     },
     {
@@ -3164,6 +3479,13 @@
       "note": {
         "text": "若博多站漏買，機場還能補部分伴手禮與免稅品；店家分布在安檢前後，不要把重要伴手禮全押機場。",
         "html": "若博多站漏買，機場還能補部分伴手禮與免稅品；店家分布在安檢前後，不要把重要伴手禮全押機場。"
+      },
+      "image": {
+        "url": "https://smilecomco.com/wp-content/uploads/2018/03/dfree2.png",
+        "credit": {
+          "label": "Smile Comco",
+          "url": "https://smilecomco.com/tours/4883/"
+        }
       }
     },
     {
@@ -4097,5 +4419,417 @@
         }
       ]
     }
-  ]
+  ],
+  "checklists": {
+    "packing": [
+      {
+        "id": "documents-money",
+        "title": "Documents & Money",
+        "items": [
+          {
+            "id": "packing-e5656e8a19d2",
+            "checked": false,
+            "content": {
+              "text": "護照",
+              "html": "護照"
+            }
+          },
+          {
+            "id": "packing-dca2a61c7b5a",
+            "checked": false,
+            "content": {
+              "text": "信用卡",
+              "html": "信用卡"
+            }
+          },
+          {
+            "id": "packing-8d3d9eda1852",
+            "checked": false,
+            "content": {
+              "text": "日幣現金",
+              "html": "日幣現金"
+            }
+          },
+          {
+            "id": "packing-fc5f01536ccd",
+            "checked": false,
+            "content": {
+              "text": "交通 IC / Apple Wallet 設定",
+              "html": "交通 IC / Apple Wallet 設定"
+            }
+          },
+          {
+            "id": "packing-49c447662996",
+            "checked": false,
+            "content": {
+              "text": "旅遊保險資訊",
+              "html": "旅遊保險資訊"
+            }
+          },
+          {
+            "id": "packing-f19430b1d4a9",
+            "checked": false,
+            "content": {
+              "text": "住宿、機票、JR、Klook 憑證離線備份",
+              "html": "住宿、機票、JR、Klook 憑證離線備份"
+            }
+          }
+        ]
+      },
+      {
+        "id": "clothing",
+        "title": "Clothing",
+        "items": [
+          {
+            "id": "packing-f9aeaf776190",
+            "checked": false,
+            "content": {
+              "text": "上衣",
+              "html": "上衣"
+            }
+          },
+          {
+            "id": "packing-0811731eb890",
+            "checked": false,
+            "content": {
+              "text": "褲子",
+              "html": "褲子"
+            }
+          },
+          {
+            "id": "packing-d0f4c083fc4c",
+            "checked": false,
+            "content": {
+              "text": "內衣褲 / 襪子",
+              "html": "內衣褲 / 襪子"
+            }
+          },
+          {
+            "id": "packing-765bf2c38c40",
+            "checked": false,
+            "content": {
+              "text": "睡衣",
+              "html": "睡衣"
+            }
+          },
+          {
+            "id": "packing-c0983297d6db",
+            "checked": false,
+            "content": {
+              "text": "輕便外套",
+              "html": "輕便外套"
+            }
+          },
+          {
+            "id": "packing-c64accac2966",
+            "checked": false,
+            "content": {
+              "text": "好走的鞋",
+              "html": "好走的鞋"
+            }
+          },
+          {
+            "id": "packing-f8f68b877415",
+            "checked": false,
+            "content": {
+              "text": "雨具",
+              "html": "雨具"
+            }
+          }
+        ]
+      },
+      {
+        "id": "tech",
+        "title": "Tech",
+        "items": [
+          {
+            "id": "packing-9b1780f8058a",
+            "checked": false,
+            "content": {
+              "text": "iPhone / Apple Watch",
+              "html": "iPhone / Apple Watch"
+            }
+          },
+          {
+            "id": "packing-2d5ec7ba11d7",
+            "checked": false,
+            "content": {
+              "text": "AirPods",
+              "html": "AirPods"
+            }
+          },
+          {
+            "id": "packing-2717cad84e90",
+            "checked": false,
+            "content": {
+              "text": "充電器",
+              "html": "充電器"
+            }
+          },
+          {
+            "id": "packing-cc3e183f908b",
+            "checked": false,
+            "content": {
+              "text": "行動電源",
+              "html": "行動電源"
+            }
+          },
+          {
+            "id": "packing-a5d4bd515ebb",
+            "checked": false,
+            "content": {
+              "text": "轉接頭",
+              "html": "轉接頭"
+            }
+          },
+          {
+            "id": "packing-b47ae8e9ac50",
+            "checked": false,
+            "content": {
+              "text": "eSIM / 網路設定",
+              "html": "eSIM / 網路設定"
+            }
+          },
+          {
+            "id": "packing-f964c68aa233",
+            "checked": false,
+            "content": {
+              "text": "DJI Pocket 3 / 相機",
+              "html": "DJI Pocket 3 / 相機"
+            }
+          },
+          {
+            "id": "packing-e4243e6cc870",
+            "checked": false,
+            "content": {
+              "text": "SD 卡 / 讀卡機",
+              "html": "SD 卡 / 讀卡機"
+            }
+          }
+        ]
+      },
+      {
+        "id": "health",
+        "title": "Health",
+        "items": [
+          {
+            "id": "packing-4a9fcb33effd",
+            "checked": false,
+            "content": {
+              "text": "常備藥",
+              "html": "常備藥"
+            }
+          },
+          {
+            "id": "packing-58fadb727cca",
+            "checked": false,
+            "content": {
+              "text": "腸胃藥",
+              "html": "腸胃藥"
+            }
+          },
+          {
+            "id": "packing-976e32e200dc",
+            "checked": false,
+            "content": {
+              "text": "止痛藥",
+              "html": "止痛藥"
+            }
+          },
+          {
+            "id": "packing-bf5bb14f8adc",
+            "checked": false,
+            "content": {
+              "text": "防曬",
+              "html": "防曬"
+            }
+          },
+          {
+            "id": "packing-e7ba68431793",
+            "checked": false,
+            "content": {
+              "text": "口罩 / 濕紙巾",
+              "html": "口罩 / 濕紙巾"
+            }
+          }
+        ]
+      }
+    ],
+    "shopping": [
+      {
+        "id": "souvenir",
+        "title": "Souvenir",
+        "items": [
+          {
+            "id": "shopping-b8fd53d4c0eb",
+            "checked": false,
+            "content": {
+              "text": "博多通りもん",
+              "html": "博多通りもん"
+            }
+          },
+          {
+            "id": "shopping-26cdd6ae8990",
+            "checked": false,
+            "content": {
+              "text": "明太子相關",
+              "html": "明太子相關"
+            }
+          },
+          {
+            "id": "shopping-5f02295fd473",
+            "checked": false,
+            "content": {
+              "text": "努努鶏",
+              "html": "努努鶏"
+            }
+          },
+          {
+            "id": "shopping-791fbcebe9df",
+            "checked": false,
+            "content": {
+              "text": "福岡限定零食",
+              "html": "福岡限定零食"
+            }
+          },
+          {
+            "id": "shopping-173db06f36bb",
+            "checked": false,
+            "content": {
+              "text": "機場 / 博多站伴手禮補買",
+              "html": "機場 / 博多站伴手禮補買"
+            }
+          }
+        ]
+      },
+      {
+        "id": "coffee",
+        "title": "Coffee",
+        "items": [
+          {
+            "id": "shopping-df6c7560f2c4",
+            "checked": false,
+            "content": {
+              "text": "Blue Bottle 咖啡豆 / 杯子",
+              "html": "Blue Bottle 咖啡豆 / 杯子"
+            }
+          },
+          {
+            "id": "shopping-584642805173",
+            "checked": false,
+            "content": {
+              "text": "FUK COFFEE 相關",
+              "html": "FUK COFFEE 相關"
+            }
+          },
+          {
+            "id": "shopping-6708979a839e",
+            "checked": false,
+            "content": {
+              "text": "COFFEE COUNTY 咖啡豆",
+              "html": "COFFEE COUNTY 咖啡豆"
+            }
+          },
+          {
+            "id": "shopping-8f7619456a9b",
+            "checked": false,
+            "content": {
+              "text": "REC COFFEE 咖啡豆",
+              "html": "REC COFFEE 咖啡豆"
+            }
+          }
+        ]
+      },
+      {
+        "id": "clothes",
+        "title": "Clothes",
+        "items": [
+          {
+            "id": "shopping-f22988b4d27a",
+            "checked": false,
+            "content": {
+              "text": "天神逛街看衣服",
+              "html": "天神逛街看衣服"
+            }
+          },
+          {
+            "id": "shopping-20d880e5714e",
+            "checked": false,
+            "content": {
+              "text": "PARCO / 天神地下街",
+              "html": "PARCO / 天神地下街"
+            }
+          },
+          {
+            "id": "shopping-9d09625dee8b",
+            "checked": false,
+            "content": {
+              "text": "日本品牌基本款",
+              "html": "日本品牌基本款"
+            }
+          }
+        ]
+      },
+      {
+        "id": "electronics",
+        "title": "Electronics",
+        "items": [
+          {
+            "id": "shopping-ce1d96d8a59f",
+            "checked": false,
+            "content": {
+              "text": "電動刮鬍刀",
+              "html": "電動刮鬍刀"
+            }
+          },
+          {
+            "id": "shopping-7cf8feee48d1",
+            "checked": false,
+            "content": {
+              "text": "Yodobashi 看 3C / 配件",
+              "html": "Yodobashi 看 3C / 配件"
+            }
+          },
+          {
+            "id": "shopping-2862fa91b2ae",
+            "checked": false,
+            "content": {
+              "text": "相機或手機配件",
+              "html": "相機或手機配件"
+            }
+          }
+        ]
+      },
+      {
+        "id": "maybe",
+        "title": "Maybe",
+        "items": [
+          {
+            "id": "shopping-0edf5d9387cb",
+            "checked": false,
+            "content": {
+              "text": "文具",
+              "html": "文具"
+            }
+          },
+          {
+            "id": "shopping-a27c050e0071",
+            "checked": false,
+            "content": {
+              "text": "藥妝",
+              "html": "藥妝"
+            }
+          },
+          {
+            "id": "shopping-daa3e45abff5",
+            "checked": false,
+            "content": {
+              "text": "便利商店零食",
+              "html": "便利商店零食"
+            }
+          }
+        ]
+      }
+    ]
+  }
 }

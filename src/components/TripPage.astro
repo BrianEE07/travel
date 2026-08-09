@@ -28,6 +28,7 @@ const timelineKindLabel: Record<string, string> = { move: '移動', food: '餐�
 const entityJson = JSON.stringify(trip.entities).replaceAll('<', '\\u003c');
 const description = `${trip.summary} ${formatDate(trip.start, true)}至${formatDate(trip.end)}。`;
 const hasPlanningDays = trip.days.some((day) => !day.detailed);
+const hasChecklists = trip.checklists.packing.length > 0 || trip.checklists.shopping.length > 0;
 ---
 
 <BaseLayout title={`${trip.title}｜Wei 的旅行手帖`} description={description} noindex={trip.noindex} image={trip.coverImage}>
@@ -93,6 +94,12 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
             <span aria-hidden="true">冊</span>
             <small>資料</small>
           </a>
+          {hasChecklists && (
+            <a class="nav-shortcut desktop-nav-shortcut" href={`/${trip.slug}/checklists/`}>
+              <span aria-hidden="true">單</span>
+              <small>清單</small>
+            </a>
+          )}
         </div>
         <button class="nav-shortcut desktop-nav-top" type="button" data-scroll-top aria-label="回到最上方">
           <span aria-hidden="true">⌃</span>
@@ -105,6 +112,7 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
         <div id="quick-nav-menu" class="mobile-nav-menu" hidden>
           <a href="#trip-overview"><span aria-hidden="true">覽</span><small>旅程總覽</small></a>
           <a href="#detail-library" data-open-database><span aria-hidden="true">冊</span><small>旅行資料庫</small></a>
+          {hasChecklists && <a href={`/${trip.slug}/checklists/`}><span aria-hidden="true">單</span><small>準備清單</small></a>}
           <button type="button" data-scroll-top><span aria-hidden="true">⌃</span><small>回到最上方</small></button>
         </div>
       </div>
@@ -325,6 +333,26 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
     let pendingNavigationDay = '';
     let navigationSettleTimer = 0;
 
+    function clearDialogImage() {
+      const preview = dialog?.querySelector<HTMLImageElement>('#dialog-preview');
+      const imageFigure = dialog?.querySelector<HTMLElement>('#dialog-image');
+      const imageCredit = dialog?.querySelector<HTMLAnchorElement>('#dialog-image-credit');
+      if (imageFigure) {
+        imageFigure.hidden = true;
+        imageFigure.classList.remove('is-loading');
+      }
+      if (preview) {
+        preview.onload = null;
+        preview.onerror = null;
+        preview.removeAttribute('src');
+        preview.alt = '';
+      }
+      if (imageCredit) {
+        imageCredit.textContent = '';
+        imageCredit.removeAttribute('href');
+      }
+    }
+
     function scrollToTop() {
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
@@ -481,6 +509,7 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
 
     function fillDialog(entity: any, requestedSegmentId = '') {
       if (!dialog) return;
+      clearDialogImage();
       const title = dialog.querySelector<HTMLElement>('#dialog-title');
       const type = dialog.querySelector<HTMLElement>('.dialog-type');
       const summary = dialog.querySelector<HTMLElement>('#dialog-summary');
@@ -589,22 +618,20 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       }
       if (preview && imageFigure && imageCredit) {
         const image = entity.image;
-        if (!image) {
-          imageFigure.hidden = true;
-          preview.removeAttribute('src');
-          preview.alt = '';
-          imageCredit.textContent = '';
-          imageCredit.removeAttribute('href');
-        } else {
+        if (image) {
           const expectedUrl = image.url;
           imageFigure.hidden = false;
+          imageFigure.classList.add('is-loading');
           preview.alt = entity.title || entity.summary?.text || '';
           imageCredit.textContent = image.credit.label;
           imageCredit.href = image.credit.url;
+          preview.onload = () => {
+            if (preview.getAttribute('src') !== expectedUrl) return;
+            imageFigure.classList.remove('is-loading');
+          };
           preview.onerror = () => {
             if (preview.getAttribute('src') !== expectedUrl) return;
-            imageFigure.hidden = true;
-            preview.removeAttribute('src');
+            clearDialogImage();
           };
           preview.src = expectedUrl;
         }
@@ -640,6 +667,7 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
 
     function finishDialogClose(returnScrollY = dialogReturnScrollY) {
       if (dialog?.open) dialog.close();
+      clearDialogImage();
       unlockPageScroll(returnScrollY);
     }
 

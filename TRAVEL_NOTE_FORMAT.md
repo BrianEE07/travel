@@ -61,6 +61,8 @@ Only these second-level headings are public:
 - `Food`
 - `Places`
 - `Transportation`
+- `Packing List`
+- `To Buy`
 - `References`
 
 All other second-level headings are private by default.
@@ -73,6 +75,8 @@ The four entity sections must always exist, even when empty:
 - `Transportation`
 
 Build must fail if a required public section is renamed, missing, or duplicated.
+
+`Packing List` and `To Buy` are optional. Their absence must not fail the build.
 
 ## Overview
 
@@ -403,6 +407,41 @@ Rules:
 - `Price`, `Operator`, and `Official` are segment-level too. Leave the table cell empty when not applicable.
 - Put confirmed or useful prices in `Price` using currency prefixes, for example `JPY 47,040（4 人來回，已付）` or `TWD 1,433（1 人，已付）`.
 - Keep booking references, ticket numbers, voucher numbers, verification codes, and management URLs in `Private：`.
+
+## Public Checklists
+
+`Packing List` and `To Buy` are optional public sections. When either section contains items, the website may expose a trip-specific checklist page.
+
+Use third-level headings for groups and standard Markdown checkboxes for items:
+
+```md
+## Packing List
+
+### Documents & Money
+
+- [ ] 護照
+- [x] 旅遊保險資訊
+
+[Back to top](<#Trip Title>)
+
+## To Buy
+
+### Souvenir
+
+- [ ] 博多通りもん
+
+[Back to top](<#Trip Title>)
+```
+
+Rules:
+
+- Each group must be a unique third-level heading.
+- Each public item must use `- [ ] Item` or `- [x] Item`.
+- Blank lines and one `[Back to top](<#Trip Title>)` link per group are allowed.
+- Other prose, nested metadata, task tags, scheduled dates, and private values are not allowed inside these public sections.
+- Checklist item text may use the same safe public links supported elsewhere.
+- The Markdown checkbox is the source default. Website interaction is device-local and must not write completion state back to the note.
+- Keep booking tasks, personal purchases, document numbers, medication details, and other private items in non-public sections.
 
 ## Private Blocks
 

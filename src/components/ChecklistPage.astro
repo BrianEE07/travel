@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Brand from './Brand.astro';
+import ServiceWorkerUpdate from './ServiceWorkerUpdate.astro';
+import '../styles/checklists.css';
+import type { ChecklistGroup, Trip } from '../types';
+
+interface Props { trip: Trip; }
+const { trip } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  'Documents & Money': '證件與金錢',
+  Clothing: '衣物',
+  Tech: '電子用品',
+  Health: '健康與藥品',
+  Souvenir: '伴手禮',
+  Coffee: '咖啡',
+  Clothes: '服飾',
+  Electronics: '3C／電子',
+  Maybe: '備選',
+};
+const lists = [
+  { key: 'packing', label: '行李清單', kicker: 'Packing list', groups: trip.checklists.packing },
+  { key: 'shopping', label: '採買清單', kicker: 'To buy', groups: trip.checklists.shopping },
+] as const;
+const allItems = lists.flatMap((list) => list.groups.flatMap((group) => group.items));
+const sourceCompleted = allItems.filter((item) => item.checked).length;
+const updated = new Intl.DateTimeFormat('zh-TW', {
+  month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone: 'Asia/Taipei',
+}).format(new Date(trip.updatedAt));
+const groupLabel = (group: ChecklistGroup) => categoryLabels[group.title] ?? group.title;
+---
+
+<BaseLayout
+  title={`出發前清單｜${trip.title}｜Wei 的旅行手帖`}
+  description={`${trip.title}的行李與採買清單。`}
+  noindex={trip.noindex}
+  image={trip.coverImage}
+>
+  <header class="site-header">
+    <Brand />
+    <div class="header-actions">
+      <span>更新於 {updated}</span>
+      <a href={`/${trip.slug}/`}><i aria-hidden="true">←</i> 返回行程</a>
+    </div>
+  </header>
+
+  <main class="checklist-main" data-trip-slug={trip.slug}>
+    <section class="checklist-hero" aria-labelledby="checklist-title">
+      <div>
+        <p class="checklist-kicker">Preparation notes · {trip.code}</p>
+        <h1 id="checklist-title">出發前清單</h1>
+        <p>行李與採買收在同一頁。勾選狀態只保存在這台裝置，不會改動原始筆記。</p>
+      </div>
+      <div class="overall-progress" aria-live="polite">
+        <strong><span data-overall-done>{sourceCompleted}</span><i>/ {allItems.length}</i></strong>
+        <small>已完成</small>
+        <span class="progress-track" aria-hidden="true"><i data-overall-bar style={`width:${allItems.length ? (sourceCompleted / allItems.length) * 100 : 0}%`}></i></span>
+      </div>
+    </section>
+
+    <nav class="checklist-toolbar" aria-label="清單切換與篩選">
+      <div class="checklist-tabs" role="tablist" aria-label="清單種類">
+        {lists.map((list, index) => {
+          const total = list.groups.reduce((sum, group) => sum + group.items.length, 0);
+          const done = list.groups.reduce((sum, group) => sum + group.items.filter((item) => item.checked).length, 0);
+          return (
+            <button
+              id={`tab-${list.key}`}
+              type="button"
+              role="tab"
+              aria-selected={index === 0 ? 'true' : 'false'}
+              aria-controls={`panel-${list.key}`}
+              tabindex={index === 0 ? 0 : -1}
+              class:list={[index === 0 && 'is-active']}
+              data-list-tab={list.key}
+            >
+              <span>{list.label}</span>
+              <small data-list-progress={list.key}>{done} / {total}</small>
+            </button>
+          );
+        })}
+      </div>
+      <div class="checklist-tools">
+        <button type="button" data-incomplete-filter aria-pressed="false">只看未完成</button>
+        <button type="button" data-reset-checklists>重設勾選</button>
+      </div>
+    </nav>
+
+    <div class="checklist-panels">
+      {lists.map((list, listIndex) => (
+        <section
+          id={`panel-${list.key}`}
+          class="checklist-panel"
+          role="tabpanel"
+          aria-labelledby={`tab-${list.key}`}
+          data-list-panel={list.key}
+          hidden={listIndex !== 0}
+        >
+          <header class="panel-heading">
+            <p>{list.kicker}</p>
+            <h2>{list.label}</h2>
+          </header>
+          <div class="checklist-groups">
+            {list.groups.map((group) => (
+              <details class="checklist-group" data-checklist-group open>
+                <summary>
+                  <span>
+                    {groupLabel(group) !== group.title && <small>{group.title}</small>}
+                    <strong>{groupLabel(group)}</strong>
+                  </span>
+                  <span class="group-meta"><i data-group-progress>{group.items.filter((item) => item.checked).length} / {group.items.length}</i><b aria-hidden="true"></b></span>
+                </summary>
+                <ul>
+                  {group.items.map((item) => (
+                    <li class:list={['checklist-item', item.checked && 'is-complete']} data-checklist-item>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={item.checked}
+                          data-item-id={item.id}
+                          data-default-checked={String(item.checked)}
+                        />
+                        <span class="checkmark" aria-hidden="true"></span>
+                        <span class="item-copy" set:html={item.content.html}></span>
+                      </label>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </div>
+          <p class="checklist-empty" data-checklist-empty hidden>這一頁都完成了。</p>
+        </section>
+      ))}
+    </div>
+  </main>
+
+  <footer class="checklist-footer">
+    <p>出發前再從筆記更新一次，旅途中就可以直接照著清單走。</p>
+    <a href={`/${trip.slug}/`}>回到 {trip.title}</a>
+  </footer>
+
+  <ServiceWorkerUpdate />
+
+  <script>
+    const root = document.querySelector<HTMLElement>('.checklist-main');
+    const tripSlug = root?.dataset.tripSlug || 'trip';
+    const storageKey = `wei-travel:${tripSlug}:checklists:v1`;
+    const checkboxes = [...document.querySelectorAll<HTMLInputElement>('[data-item-id]')];
+    const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-list-tab]')];
+    const panels = [...document.querySelectorAll<HTMLElement>('[data-list-panel]')];
+    const filterButton = document.querySelector<HTMLButtonElement>('[data-incomplete-filter]');
+    const resetButton = document.querySelector<HTMLButtonElement>('[data-reset-checklists]');
+    let savedState: Record<string, boolean> = {};
+    let incompleteOnly = false;
+
+    try {
+      const parsed = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      savedState = parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+    } catch { savedState = {}; }
+
+    function saveState() {
+      try { localStorage.setItem(storageKey, JSON.stringify(savedState)); } catch { /* checklist remains usable for this visit */ }
+    }
+
+    function updateProgress() {
+      let totalDone = 0;
+      for (const panel of panels) {
+        const panelCheckboxes = [...panel.querySelectorAll<HTMLInputElement>('[data-item-id]')];
+        const done = panelCheckboxes.filter((checkbox) => checkbox.checked).length;
+        totalDone += done;
+        const progress = document.querySelector<HTMLElement>(`[data-list-progress="${panel.dataset.listPanel}"]`);
+        if (progress) progress.textContent = `${done} / ${panelCheckboxes.length}`;
+        for (const group of panel.querySelectorAll<HTMLElement>('[data-checklist-group]')) {
+          const groupCheckboxes = [...group.querySelectorAll<HTMLInputElement>('[data-item-id]')];
+          const groupDone = groupCheckboxes.filter((checkbox) => checkbox.checked).length;
+          const groupProgress = group.querySelector<HTMLElement>('[data-group-progress]');
+          if (groupProgress) groupProgress.textContent = `${groupDone} / ${groupCheckboxes.length}`;
+          group.hidden = incompleteOnly && groupDone === groupCheckboxes.length;
+        }
+        const empty = panel.querySelector<HTMLElement>('[data-checklist-empty]');
+        if (empty) empty.hidden = !incompleteOnly || done !== panelCheckboxes.length;
+      }
+      const overallDone = document.querySelector<HTMLElement>('[data-overall-done]');
+      const overallBar = document.querySelector<HTMLElement>('[data-overall-bar]');
+      if (overallDone) overallDone.textContent = String(totalDone);
+      if (overallBar) overallBar.style.width = `${checkboxes.length ? (totalDone / checkboxes.length) * 100 : 0}%`;
+    }
+
+    function updateItem(checkbox: HTMLInputElement) {
+      const item = checkbox.closest<HTMLElement>('[data-checklist-item]');
+      item?.classList.toggle('is-complete', checkbox.checked);
+      if (item) item.hidden = incompleteOnly && checkbox.checked;
+    }
+
+    function applyState() {
+      for (const checkbox of checkboxes) {
+        const id = checkbox.dataset.itemId || '';
+        const sourceDefault = checkbox.dataset.defaultChecked === 'true';
+        checkbox.checked = Object.prototype.hasOwnProperty.call(savedState, id) ? savedState[id] : sourceDefault;
+        updateItem(checkbox);
+      }
+      updateProgress();
+    }
+
+    function setActiveList(key: string, updateHash = true) {
+      if (!panels.some((panel) => panel.dataset.listPanel === key)) key = 'packing';
+      for (const tab of tabs) {
+        const active = tab.dataset.listTab === key;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', String(active));
+        tab.tabIndex = active ? 0 : -1;
+      }
+      for (const panel of panels) panel.hidden = panel.dataset.listPanel !== key;
+      if (updateHash) history.replaceState(history.state, '', `${location.pathname}${location.search}#${key}`);
+    }
+
+    checkboxes.forEach((checkbox) => checkbox.addEventListener('change', () => {
+      savedState[checkbox.dataset.itemId || ''] = checkbox.checked;
+      saveState();
+      updateItem(checkbox);
+      updateProgress();
+    }));
+    document.querySelectorAll<HTMLAnchorElement>('.checklist-item a').forEach((link) => link.addEventListener('click', (event) => event.stopPropagation()));
+    tabs.forEach((tab) => tab.addEventListener('click', () => setActiveList(tab.dataset.listTab || 'packing')));
+    tabs.forEach((tab, index) => tab.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      const direction = event.key === 'ArrowRight' ? 1 : -1;
+      const next = tabs[(index + direction + tabs.length) % tabs.length];
+      setActiveList(next.dataset.listTab || 'packing');
+      next.focus();
+    }));
+    filterButton?.addEventListener('click', () => {
+      incompleteOnly = !incompleteOnly;
+      filterButton.setAttribute('aria-pressed', String(incompleteOnly));
+      filterButton.textContent = incompleteOnly ? '顯示全部' : '只看未完成';
+      checkboxes.forEach(updateItem);
+      updateProgress();
+    });
+    let resetTimer = 0;
+    resetButton?.addEventListener('click', () => {
+      if (resetButton.dataset.confirm !== 'true') {
+        resetButton.dataset.confirm = 'true';
+        resetButton.textContent = '再次點擊確認';
+        window.clearTimeout(resetTimer);
+        resetTimer = window.setTimeout(() => {
+          resetButton.dataset.confirm = '';
+          resetButton.textContent = '重設勾選';
+        }, 3000);
+        return;
+      }
+      window.clearTimeout(resetTimer);
+      resetButton.dataset.confirm = '';
+      resetButton.textContent = '重設勾選';
+      savedState = {};
+      try { localStorage.removeItem(storageKey); } catch { /* no persistent storage */ }
+      applyState();
+    });
+    window.addEventListener('hashchange', () => setActiveList(location.hash.slice(1), false));
+    applyState();
+    setActiveList(location.hash.slice(1) || 'packing', false);
+  </script>
+</BaseLayout>

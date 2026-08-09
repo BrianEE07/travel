@@ -1,0 +1,14 @@
+---
+import ChecklistPage from '../../components/ChecklistPage.astro';
+import { trips } from '../../data/trips';
+
+export function getStaticPaths() {
+  return trips
+    .filter((trip) => trip.checklists.packing.length || trip.checklists.shopping.length)
+    .map((trip) => ({ params: { slug: trip.slug }, props: { trip } }));
+}
+
+const { trip } = Astro.props;
+---
+
+<ChecklistPage trip={trip} />

@@ -109,6 +109,23 @@ export interface TripDay {
   notes: RichText[];
 }
 
+export interface ChecklistItem {
+  id: string;
+  checked: boolean;
+  content: RichText;
+}
+
+export interface ChecklistGroup {
+  id: string;
+  title: string;
+  items: ChecklistItem[];
+}
+
+export interface TripChecklists {
+  packing: ChecklistGroup[];
+  shopping: ChecklistGroup[];
+}
+
 export interface Trip {
   schemaVersion: 2;
   slug: string;
@@ -130,4 +147,5 @@ export interface Trip {
   overview: TripOverview;
   days: TripDay[];
   entities: Entity[];
+  checklists: TripChecklists;
 }

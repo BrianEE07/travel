@@ -119,6 +119,23 @@ Private：
 
 [Back to top](<#測試之旅>)
 
+## Packing List
+
+### Documents & Money
+
+- [ ] 護照
+- [x] 旅遊保險資訊
+
+[Back to top](<#測試之旅>)
+
+## To Buy
+
+### Souvenir
+
+- [ ] 博多通りもん
+
+[Back to top](<#測試之旅>)
+
 ## References
 
 [stay]: https://www.google.com/maps/search/?api=1&query=hotel
@@ -167,6 +184,10 @@ test('parses schema 2 into structured public trip data', () => {
   assert.equal(transport.price, undefined);
   assert.match(trip.overview.transports[0].html, /data-segment="回程"/);
   assert.equal('details' in stay, false);
+  assert.equal(trip.checklists.packing[0].title, 'Documents & Money');
+  assert.equal(trip.checklists.packing[0].items.length, 2);
+  assert.equal(trip.checklists.packing[0].items[1].checked, true);
+  assert.equal(trip.checklists.shopping[0].items[0].content.text, '博多通りもん');
 });
 
 test('omits private blocks and all non-allowlist sections', () => {
@@ -206,6 +227,11 @@ test('resolves explicit entity images and validates their credits', () => {
   assert.throws(() => parseTrip(fixture.replace('[Image][img-cafe]', 'https://example.com/cafe.jpg')), /必須使用 \[Image\]\[img-key\]/);
   assert.throws(() => parseTrip(fixture.replace('https://example.com/cafe.jpg', 'http://example.com/cafe.jpg')), /References 的網址不安全|Image reference/);
   assert.throws(() => parseTrip(fixture.replace('[測試來源](https://example.com/cafe)', '測試來源')), /ImageCredit 必須是安全的 HTTPS markdown link/);
+  const withParenthesesInCredit = fixture.replace(
+    'https://example.com/cafe)',
+    'https://example.com/wiki/File_(Photo))',
+  );
+  assert.doesNotThrow(() => parseTrip(withParenthesesInCredit));
 });
 
 test('requires the exact segment table and required values for transportation', () => {
@@ -228,6 +254,14 @@ test('requires list-style entity fields and only allows navigation after Private
 
 test('requires list-style Overview scalar fields', () => {
   assert.throws(() => parseTrip(fixture.replace('- Date：2026-08-27', 'Date：2026-08-27')), /Overview 含無法辨識的內容/);
+});
+
+test('parses only checkbox rows in optional public checklists', () => {
+  assert.doesNotThrow(() => parseTrip(fixture));
+  assert.throws(() => parseTrip(fixture.replace('- [ ] 護照', '- 護照')), /只允許 Markdown checkbox/);
+  assert.throws(() => parseTrip(fixture.replace('- [x] 旅遊保險資訊', '- [x] 護照')), /有重複項目：護照/);
+  const withoutLists = fixture.replace(/\n## Packing List[\s\S]*?(?=\n## References)/, '');
+  assert.deepEqual(parseTrip(withoutLists).trip.checklists, { packing: [], shopping: [] });
 });
 
 test('rejects private fingerprints reintroduced into public output', () => {
@@ -261,6 +295,13 @@ test('fails a public scan when a secret-shaped value is reintroduced', () => {
   assert.ok(findings.includes('sensitive field label'));
   assert.ok(findings.includes('management URL parameter'));
   assert.ok(findings.includes('visible price'));
+});
+
+test('allows a verified image URL without weakening ticket-number detection', () => {
+  const imageUrl = 'https://assets.example.com/img/1653502967646-photo.jpg';
+  assert.equal(scanPublicPayload(imageUrl, [], [], [imageUrl]).includes('air ticket number'), false);
+  assert.equal(scanPublicPayload('6952465677972').includes('air ticket number'), true);
+  assert.equal(scanPublicPayload('695 2465677972').includes('air ticket number'), true);
 });
 
 test('allows only an explicitly allowlisted entity price through the public scan', () => {
