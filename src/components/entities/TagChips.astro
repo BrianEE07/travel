@@ -1,0 +1,17 @@
+---
+import { entityTagLabel } from '../../lib/entity-tags';
+
+interface Props {
+  type: 'food' | 'place';
+  tags?: string[];
+}
+
+const { type, tags = [] } = Astro.props;
+---
+{tags.length > 0 && (
+  <span class="entity-tags" aria-label={`${type === 'food' ? '餐飲' : '景點'}標籤`}>
+    {tags.map((tag) => (
+      <span class:list={['entity-tag', tag === 'backup' && 'entity-tag-backup']}>{entityTagLabel(type, tag)}</span>
+    ))}
+  </span>
+)}

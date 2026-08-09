@@ -1,5 +1,6 @@
 ---
 import type { PlaceEntity } from '../../types';
+import TagChips from './TagChips.astro';
 interface Props { entity: PlaceEntity; }
 const { entity } = Astro.props;
 ---
@@ -7,6 +8,7 @@ const { entity } = Astro.props;
   <span class="entity-type">景點</span>
   <strong>{entity.title}</strong>
   <span class="entity-summary">{entity.summary.text}</span>
+  <TagChips type="place" tags={entity.tags} />
   <span class="entity-card-facts">
     <span class="entity-fact"><i>適合</i><b>{entity.bestFor.text}</b></span>
     <span class="entity-fact"><i>區域</i><b>{entity.area.text}</b></span>

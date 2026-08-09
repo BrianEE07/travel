@@ -272,6 +272,7 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
         <p class="section-kicker dialog-kicker">Quick reference</p>
         <h2 id="dialog-title"></h2>
         <div id="dialog-summary" class="dialog-summary"></div>
+        <div id="dialog-tags" class="entity-tags dialog-tags" hidden></div>
         <div id="dialog-segments" class="dialog-segment-tabs" role="tablist" aria-label="交通分段" hidden></div>
         <div id="dialog-details" class="dialog-details" role="tabpanel"></div>
         <div id="dialog-actions" class="dialog-actions"></div>
@@ -284,6 +285,8 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
 
   <script id="entity-data" type="application/json" is:inline set:html={entityJson}></script>
   <script>
+    import { entityTagLabel } from '../lib/entity-tags';
+
     const dialog = document.querySelector<HTMLDialogElement>('#detail-dialog');
     const entityData = document.querySelector<HTMLScriptElement>('#entity-data');
     const entities = entityData ? JSON.parse(entityData.textContent || '[]') : [];
@@ -478,6 +481,7 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
       const title = dialog.querySelector<HTMLElement>('#dialog-title');
       const type = dialog.querySelector<HTMLElement>('.dialog-type');
       const summary = dialog.querySelector<HTMLElement>('#dialog-summary');
+      const tagList = dialog.querySelector<HTMLElement>('#dialog-tags');
       const segmentTabs = dialog.querySelector<HTMLElement>('#dialog-segments');
       const details = dialog.querySelector<HTMLElement>('#dialog-details');
       const actions = dialog.querySelector<HTMLElement>('#dialog-actions');
@@ -519,6 +523,14 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
             ${action.label}<i class="external-arrow" aria-hidden="true"></i>
           </a>`).join('');
       };
+      const tags = entity.type === 'food' || entity.type === 'place' ? (entity.tags || []) : [];
+      if (tagList) {
+        tagList.hidden = tags.length === 0;
+        tagList.setAttribute('aria-label', `${typeLabels[entity.type] || ''}標籤`);
+        tagList.innerHTML = tags.map((tag: string) => `
+          <span class="entity-tag${tag === 'backup' ? ' entity-tag-backup' : ''}">${escapeDialogText(entityTagLabel(entity.type, tag))}</span>
+        `).join('');
+      }
 
       if (entity.type === 'transport') {
         const segments = entity.segments || [];

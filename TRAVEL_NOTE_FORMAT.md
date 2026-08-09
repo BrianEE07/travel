@@ -271,7 +271,6 @@ Place tags:
 
 - `shrine`: shrine, temple, or worship site.
 - `museum`: museum, exhibition, or cultural facility.
-- `cafe`: cafe with place, architecture, or route value.
 - `shopping`: shopping area, mall, department store, electronics store, or souvenir shopping area.
 - `nature`: outdoor natural place such as coast, mountain, lake, gorge, or forest.
 - `view`: lookout, night view, sunset, or scenic viewpoint.

@@ -53,7 +53,7 @@ const TRIP_STATUSES = new Set(['draft', 'active', 'archived']);
 const TIMELINE_TAGS = new Set(['move', 'food', 'place', 'shopping', 'activity', 'rest', 'buffer']);
 const RESERVATION_VALUES = new Set(['done', 'none', 'needed', 'tbd']);
 const FOOD_TAGS = new Set(['breakfast', 'lunch', 'dinner', 'cafe', 'snack', 'souvenir', 'backup']);
-const PLACE_TAGS = new Set(['shrine', 'museum', 'cafe', 'shopping', 'nature', 'view', 'station', 'service', 'backup']);
+const PLACE_TAGS = new Set(['shrine', 'museum', 'shopping', 'nature', 'view', 'station', 'service', 'backup']);
 const MANAGEMENT_PARAM = /[?&](?:auth(?:_key)?|token|code|bok|booking|reservation|login|transaction)(?:=|%3D)/i;
 const SENSITIVE_LABEL = /(?:訂房編號|訂位編號|預訂編號|認證碼|認證編號|Login ID|交易編號|票號)/i;
 const PRIVATE_VALUE_LABEL = /(?:訂房人|訂位人|預訂人|旅客姓名|乘客姓名|姓名|訂房編號|訂位編號|預訂編號|認證碼|認證編號|Login ID|交易編號|票號|付款|支付|總額|金額|價格|費用|確認|取消|管理|登入|auth)/i;

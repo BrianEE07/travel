@@ -13,8 +13,8 @@
   "end": "2026-09-03",
   "status": "active",
   "noindex": true,
-  "updatedAt": "2026-08-09T03:26:06.480Z",
-  "sourceHash": "3c56570143f40f21",
+  "updatedAt": "2026-08-09T03:31:31.485Z",
+  "sourceHash": "90fb76bf153ed8f9",
   "locations": [
     "福岡",
     "太宰府",
@@ -157,7 +157,7 @@
           "time": "09:40-10:00",
           "kind": "food",
           "text": "太宰府參道 / 星巴克",
-          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"place-太宰府星巴克-8-28\">太宰府參道 / 星巴克</button>"
+          "textHtml": "<button class=\"inline-detail\" type=\"button\" data-entity=\"food-太宰府星巴克-8-28\">太宰府參道 / 星巴克</button>"
         },
         {
           "time": "10:00-11:45",
@@ -1135,6 +1135,58 @@
       "backup": {
         "text": "外帶或改便利商店，不影響 08:50 出發。",
         "html": "外帶或改便利商店，不影響 08:50 出發。"
+      },
+      "preview": null
+    },
+    {
+      "id": "food-太宰府星巴克-8-28",
+      "title": "太宰府星巴克｜8/28",
+      "type": "food",
+      "actions": [
+        {
+          "label": "Google Maps",
+          "url": "https://www.google.com/maps?q=Starbucks%20Coffee%20Dazaifutenmangu%20Omotesando%203-2-43%20Saifu%20Dazaifu%20Fukuoka",
+          "kind": "map"
+        }
+      ],
+      "tags": [
+        "cafe"
+      ],
+      "area": {
+        "text": "太宰府",
+        "html": "太宰府"
+      },
+      "summary": {
+        "text": "隈研吾設計的太宰府參道星巴克，適合快速拍照或外帶。",
+        "html": "隈研吾設計的太宰府參道星巴克，適合快速拍照或外帶。"
+      },
+      "hours": {
+        "text": "8/28 Fri 可；08:00-20:00。",
+        "html": "8/28 Fri 可；08:00-20:00。"
+      },
+      "reservation": {
+        "text": "none",
+        "html": "none"
+      },
+      "reservationTime": {
+        "text": "none",
+        "html": "none"
+      },
+      "party": {
+        "text": "4 人",
+        "html": "4 人"
+      },
+      "why": {
+        "text": "在太宰府參道上，和上午動線重疊；重點是外觀、木構室內與短暫休息。",
+        "html": "在太宰府參道上，和上午動線重疊；重點是外觀、木構室內與短暫休息。"
+      },
+      "risk": {
+        "text": "人多時以拍外觀 / 快速外帶為主，不當長時間咖啡停留。",
+        "html": "人多時以拍外觀 / 快速外帶為主，不當長時間咖啡停留。"
+      },
+      "backup": {
+        "text": "若人太多就跳過，直接前往九州國立博物館。",
+        "html": "若人太多就跳過，直接前往九州國立博物館。"
       },
       "preview": null
     },
@@ -2444,50 +2496,6 @@
       "risk": {
         "text": "不要排太久，下午要移動到 LaLaport。",
         "html": "不要排太久，下午要移動到 LaLaport。"
-      },
-      "preview": null
-    },
-    {
-      "id": "place-太宰府星巴克-8-28",
-      "title": "太宰府星巴克｜8/28",
-      "type": "place",
-      "actions": [
-        {
-          "label": "Google Maps",
-          "url": "https://www.google.com/maps?q=Starbucks%20Coffee%20Dazaifutenmangu%20Omotesando%203-2-43%20Saifu%20Dazaifu%20Fukuoka",
-          "kind": "map"
-        }
-      ],
-      "tags": [
-        "cafe"
-      ],
-      "area": {
-        "text": "太宰府",
-        "html": "太宰府"
-      },
-      "summary": {
-        "text": "隈研吾設計的太宰府參道星巴克，適合快速拍照或外帶。",
-        "html": "隈研吾設計的太宰府參道星巴克，適合快速拍照或外帶。"
-      },
-      "hours": {
-        "text": "8/28 Fri 可；08:00-20:00。",
-        "html": "8/28 Fri 可；08:00-20:00。"
-      },
-      "why": {
-        "text": "在太宰府參道上，和上午動線重疊。",
-        "html": "在太宰府參道上，和上午動線重疊。"
-      },
-      "bestFor": {
-        "text": "外觀、木構室內、短暫休息。",
-        "html": "外觀、木構室內、短暫休息。"
-      },
-      "nearby": {
-        "text": "太宰府站、太宰府天滿宮。",
-        "html": "太宰府站、太宰府天滿宮。"
-      },
-      "risk": {
-        "text": "人多時以拍外觀 / 快速外帶為主，不當長時間咖啡停留。",
-        "html": "人多時以拍外觀 / 快速外帶為主，不當長時間咖啡停留。"
       },
       "preview": null
     },
