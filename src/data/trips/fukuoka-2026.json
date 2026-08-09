@@ -13,8 +13,8 @@
   "end": "2026-09-03",
   "status": "active",
   "noindex": true,
-  "updatedAt": "2026-08-09T03:31:31.485Z",
-  "sourceHash": "90fb76bf153ed8f9",
+  "updatedAt": "2026-08-09T04:30:02.774Z",
+  "sourceHash": "2a630c8852419e98",
   "locations": [
     "福岡",
     "太宰府",
@@ -1042,6 +1042,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=%E5%A4%A7%E6%9D%B1%E5%9C%92%20%E6%9C%AC%E5%BA%97%201-1-1%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://ssl.daitoen.com/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -1052,8 +1057,8 @@
         "html": "博多 / 川端"
       },
       "summary": {
-        "text": "第一晚晚餐，已訂位的大東園燒肉本店。",
-        "html": "第一晚晚餐，已訂位的大東園燒肉本店。"
+        "text": "博多川端的大型燒肉本店，適合多人聚餐。",
+        "html": "博多川端的大型燒肉本店，適合多人聚餐。"
       },
       "hours": {
         "text": "8/27 Thu 可；平日 16:00-23:00，LO 22:30，無定休。",
@@ -1071,17 +1076,9 @@
         "text": "4 人",
         "html": "4 人"
       },
-      "why": {
-        "text": "抵達福岡後的第一餐，飯店附近且已訂位。",
-        "html": "抵達福岡後的第一餐，飯店附近且已訂位。"
-      },
-      "risk": {
-        "text": "入境和前往飯店時間偏緊，若可能遲到要先聯絡店家。",
-        "html": "入境和前往飯店時間偏緊，若可能遲到要先聯絡店家。"
-      },
-      "backup": {
-        "text": "若太晚抵達，以超商補給、回飯店休息為主。",
-        "html": "若太晚抵達，以超商補給、回飯店休息為主。"
+      "note": {
+        "text": "第一晚時間偏緊，重點是順利 check in 後準時到店；若入境或交通延誤，先聯絡店家，太晚就改超商補給後回飯店休息。",
+        "html": "第一晚時間偏緊，重點是順利 check in 後準時到店；若入境或交通延誤，先聯絡店家，太晚就改超商補給後回飯店休息。"
       },
       "preview": null
     },
@@ -1094,6 +1091,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=%E3%83%91%E3%83%B3%E3%81%A8%E3%82%A8%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%82%BD%E3%81%A8%E5%8D%9A%E5%A4%9A%E3%81%A3%E3%81%A8%202-8-12%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://bread-espresso.jp/shop/hakata.html",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -1105,8 +1107,8 @@
         "html": "博多"
       },
       "summary": {
-        "text": "8/28 早上出發太宰府前的早餐咖啡店。",
-        "html": "8/28 早上出發太宰府前的早餐咖啡店。"
+        "text": "主打吐司、麵包與咖啡的博多早餐店。",
+        "html": "主打吐司、麵包與咖啡的博多早餐店。"
       },
       "hours": {
         "text": "8/28 Fri 可；08:00-19:00，無固定店休。",
@@ -1116,25 +1118,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "4 人",
-        "html": "4 人"
-      },
-      "why": {
-        "text": "離飯店和出發動線近，適合早上快速開始。",
-        "html": "離飯店和出發動線近，適合早上快速開始。"
-      },
-      "risk": {
-        "text": "熱門且不定休，排隊過長會壓縮太宰府時間。",
-        "html": "熱門且不定休，排隊過長會壓縮太宰府時間。"
-      },
-      "backup": {
-        "text": "外帶或改便利商店，不影響 08:50 出發。",
-        "html": "外帶或改便利商店，不影響 08:50 出發。"
+      "note": {
+        "text": "離飯店近，適合作為出發前早餐；若排隊太久就外帶或改便利商店，不要壓縮 08:50 前往太宰府的時間。",
+        "html": "離飯店近，適合作為出發前早餐；若排隊太久就外帶或改便利商店，不要壓縮 08:50 前往太宰府的時間。"
       },
       "preview": null
     },
@@ -1147,6 +1133,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Starbucks%20Coffee%20Dazaifutenmangu%20Omotesando%203-2-43%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://store.starbucks.co.jp/detail-1058/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -1168,25 +1159,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "4 人",
-        "html": "4 人"
-      },
-      "why": {
-        "text": "在太宰府參道上，和上午動線重疊；重點是外觀、木構室內與短暫休息。",
-        "html": "在太宰府參道上，和上午動線重疊；重點是外觀、木構室內與短暫休息。"
-      },
-      "risk": {
-        "text": "人多時以拍外觀 / 快速外帶為主，不當長時間咖啡停留。",
-        "html": "人多時以拍外觀 / 快速外帶為主，不當長時間咖啡停留。"
-      },
-      "backup": {
-        "text": "若人太多就跳過，直接前往九州國立博物館。",
-        "html": "若人太多就跳過，直接前往九州國立博物館。"
+      "note": {
+        "text": "重點是隈研吾木構外觀與短暫休息；若人多就拍外觀或外帶，不把它當長時間咖啡停留。",
+        "html": "重點是隈研吾木構外觀與短暫休息；若人多就拍外觀或外帶，不把它當長時間咖啡停留。"
       },
       "preview": null
     },
@@ -1199,6 +1174,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps/place/%E4%B8%80%E8%98%AD+%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%8F%83%E9%81%93%E5%BA%97/@33.5193161,130.5229165,15z/data=!4m10!1m2!2m1!1z5LiA6JitIOWkquWusOW6nOWPgumBk-W6lyDnpo_lsqHnnIzlpKrlrrDlupzluILlrrDlupwyLTYtMg!3m6!1s0x35419ba2ed157ce9:0x10e3410a156b881b!8m2!3d33.5193161!4d130.5316712!15sCjrkuIDomK0g5aSq5a6w5bqc5Y-C6YGT5bqXIOemj-WyoeecjOWkquWusOW6nOW4guWusOW6nDItNi0yIgOIAQFaRCJC5LiAIOiYrSDlpKrlrrDlupwg5Y-C6YGTIOW6lyDnpo_lsqEg55yMIOWkquWusOW6nCDluIIg5a6w5bqcIDIgNiAykgEQcmFtZW5fcmVzdGF1cmVudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQydEtkRTV1WkZGaE1FWXdVMFpCTW1GR1RYbFBWemw2WkRGT2VtSklZeEFC4AEA-gEECAAQEA!16s%2Fg%2F1ptx_tt47?entry=ttu&g_ep=EgoyMDI2MDcyOS4wIKXMDSoASAFQAw%3D%3D",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://ichiran.com/shop/kyushu/dazaifu-sando/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -1220,25 +1200,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "4 人",
-        "html": "4 人"
-      },
-      "why": {
-        "text": "太宰府參道午餐主選，位置在太宰府站附近。",
-        "html": "太宰府參道午餐主選，位置在太宰府站附近。"
-      },
-      "risk": {
-        "text": "座位 16 席，午餐可能排隊。",
-        "html": "座位 16 席，午餐可能排隊。"
-      },
-      "backup": {
-        "text": "梅枝餅 / 參道小吃，不拖到 13:45 離開太宰府。",
-        "html": "梅枝餅 / 參道小吃，不拖到 13:45 離開太宰府。"
+      "note": {
+        "text": "太宰府午餐主選，但座位少、午餐可能排隊；若等太久就用梅枝餅或參道小吃補位，13:45 前要離開太宰府。",
+        "html": "太宰府午餐主選，但座位少、午餐可能排隊；若等太久就用梅枝餅或參道小吃補位，13:45 前要離開太宰府。"
       },
       "preview": null
     },
@@ -1272,25 +1236,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "4 人",
-        "html": "4 人"
-      },
-      "why": {
-        "text": "午餐或等一蘭排隊的彈性補位。",
-        "html": "午餐或等一蘭排隊的彈性補位。"
-      },
-      "risk": {
-        "text": "店家營業時間各自不同。",
-        "html": "店家營業時間各自不同。"
-      },
-      "backup": {
-        "text": "改一蘭或 LaLaport 後段再吃。",
-        "html": "改一蘭或 LaLaport 後段再吃。"
+      "note": {
+        "text": "作為參道小吃或一蘭排隊時的彈性補位；各店營業時間不同，不必綁定單一店家。",
+        "html": "作為參道小吃或一蘭排隊時的彈性補位；各店營業時間不同，不必綁定單一店家。"
       },
       "preview": null
     },
@@ -1303,6 +1251,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E9%8D%8B%E5%89%8D%E7%94%B0%E5%B1%8B%20%E5%8D%9A%E5%A4%9A%E5%BA%97%203-26-5%20Hakataekimae%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://motsunabe-maedaya.com/store/hakata/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -1313,8 +1266,8 @@
         "html": "博多站前"
       },
       "summary": {
-        "text": "8/28 晚餐，已訂位的博多牛腸鍋。",
-        "html": "8/28 晚餐，已訂位的博多牛腸鍋。"
+        "text": "博多牛腸鍋名店，適合想吃在地鍋物時安排。",
+        "html": "博多牛腸鍋名店，適合想吃在地鍋物時安排。"
       },
       "hours": {
         "text": "8/28 Fri 可；17:00-24:00，食物 LO 23:00。",
@@ -1332,17 +1285,9 @@
         "text": "4 人",
         "html": "4 人"
       },
-      "why": {
-        "text": "LaLaport 後回博多站前晚餐，動線合理。",
-        "html": "LaLaport 後回博多站前晚餐，動線合理。"
-      },
-      "risk": {
-        "text": "LaLaport 18:00 鋼彈演出後要準時收尾；遲到 15 分鐘可能取消。",
-        "html": "LaLaport 18:00 鋼彈演出後要準時收尾；遲到 15 分鐘可能取消。"
-      },
-      "backup": {
-        "text": "若前段延誤，直接計程車前往前田屋。",
-        "html": "若前段延誤，直接計程車前往前田屋。"
+      "note": {
+        "text": "LaLaport 後回博多站前晚餐；18:00 鋼彈演出後要準時收尾，若前段延誤就直接搭計程車，避免遲到 15 分鐘被取消。",
+        "html": "LaLaport 後回博多站前晚餐；18:00 鋼彈演出後要準時收尾，若前段延誤就直接搭計程車，避免遲到 15 分鐘被取消。"
       },
       "preview": null
     },
@@ -1376,25 +1321,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "4 人",
-        "html": "4 人"
-      },
-      "why": {
-        "text": "由布院午餐主選，位置接在金鱗湖後合理。",
-        "html": "由布院午餐主選，位置接在金鱗湖後合理。"
-      },
-      "risk": {
-        "text": "座位少、售完為止、不定休。",
-        "html": "座位少、售完為止、不定休。"
-      },
-      "backup": {
-        "text": "排太久就改由布院主街午餐，不影響回程。",
-        "html": "排太久就改由布院主街午餐，不影響回程。"
+      "note": {
+        "text": "由布院午餐主選，但座位少、售完為止且不定休；很想吃的話前一天或當天電話確認，排太久就改主街午餐。",
+        "html": "由布院午餐主選，但座位少、售完為止且不定休；很想吃的話前一天或當天電話確認，排太久就改主街午餐。"
       },
       "preview": null
     },
@@ -1418,8 +1347,8 @@
         "html": "博多 / 中洲"
       },
       "summary": {
-        "text": "由布院回博多後的宵夜備案。",
-        "html": "由布院回博多後的宵夜備案。"
+        "text": "中洲河畔的夜間屋台文化，適合輕量宵夜體驗。",
+        "html": "中洲河畔的夜間屋台文化，適合輕量宵夜體驗。"
       },
       "hours": {
         "text": "8/29 Sat 可但受天氣 / 店主狀態影響；多數 18:00 後開始，18:30-19:00 後比較穩。",
@@ -1429,25 +1358,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "4 人",
-        "html": "4 人"
-      },
-      "why": {
-        "text": "19:27 到博多後，20:00 去中洲屋台 / 路邊攤可行。",
-        "html": "19:27 到博多後，20:00 去中洲屋台 / 路邊攤可行。"
-      },
-      "risk": {
-        "text": "下雨、天氣差或店主狀態會影響營業。",
-        "html": "下雨、天氣差或店主狀態會影響營業。"
-      },
-      "backup": {
-        "text": "太累或下雨就回飯店休息。",
-        "html": "太累或下雨就回飯店休息。"
+      "note": {
+        "text": "由布院回博多後可作為輕量宵夜體驗；屋台受天氣和店主狀態影響，太累或下雨就回飯店休息。",
+        "html": "由布院回博多後可作為輕量宵夜體驗；屋台受天氣和店主狀態影響，太累或下雨就回飯店休息。"
       },
       "preview": null
     },
@@ -1460,6 +1373,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=FUK%20COFFEE%206-22%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://fuk-coffee.com/shop/fuk-coffee-2/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -1470,8 +1388,8 @@
         "html": "博多 / 祇園"
       },
       "summary": {
-        "text": "飯店旁的咖啡店，適合 8/30 慢慢開始。",
-        "html": "飯店旁的咖啡店，適合 8/30 慢慢開始。"
+        "text": "博多在地咖啡店，店名和旅行感很搭。",
+        "html": "博多在地咖啡店，店名和旅行感很搭。"
       },
       "hours": {
         "text": "8/30 Sun 可；08:00-20:00。",
@@ -1481,25 +1399,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "4 人",
-        "html": "4 人"
-      },
-      "why": {
-        "text": "離飯店很近，不需要特別排交通時間。",
-        "html": "離飯店很近，不需要特別排交通時間。"
-      },
-      "risk": {
-        "text": "小店可能滿座。",
-        "html": "小店可能滿座。"
-      },
-      "backup": {
-        "text": "外帶或直接前往櫛田神社。",
-        "html": "外帶或直接前往櫛田神社。"
+      "note": {
+        "text": "離飯店很近，不需要特別排交通時間；若滿座就外帶，或直接前往櫛田神社。",
+        "html": "離飯店很近，不需要特別排交通時間；若滿座就外帶，或直接前往櫛田神社。"
       },
       "preview": null
     },
@@ -1512,6 +1414,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=%E5%8D%9A%E5%A4%9A%E4%B8%80%E5%8F%8C%20%E7%A5%87%E5%9C%92%E5%BA%97%203-2%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.hakata-issou.com/access/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -1533,25 +1440,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "4 人",
-        "html": "4 人"
-      },
-      "why": {
-        "text": "8/30 午餐主選，從川端通商店街接過去順路。",
-        "html": "8/30 午餐主選，從川端通商店街接過去順路。"
-      },
-      "risk": {
-        "text": "不可預約，午餐尖峰可能排隊。",
-        "html": "不可預約，午餐尖峰可能排隊。"
-      },
-      "backup": {
-        "text": "排太久就改 FULL FULL / 天神地下街午餐。",
-        "html": "排太久就改 FULL FULL / 天神地下街午餐。"
+      "note": {
+        "text": "博多午餐主選，從川端通商店街接過去順路；不可預約，若午餐尖峰排太久就改 FULL FULL 或天神地下街。",
+        "html": "博多午餐主選，從川端通商店街接過去順路；不可預約，若午餐尖峰排太久就改 FULL FULL 或天神地下街。"
       },
       "preview": null
     },
@@ -1564,6 +1455,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=The%20Full%20Full%20Hakata%209-3%20Gionmachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.full-full.jp/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -1585,25 +1481,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "4 人",
-        "html": "4 人"
-      },
-      "why": {
-        "text": "這天已有一双當午餐，FULL FULL 比較適合當點心或外帶。",
-        "html": "這天已有一双當午餐，FULL FULL 比較適合當點心或外帶。"
-      },
-      "risk": {
-        "text": "熱門品項可能售完。",
-        "html": "熱門品項可能售完。"
-      },
-      "backup": {
-        "text": "若午餐排隊太久，可改作午餐備案。",
-        "html": "若午餐排隊太久，可改作午餐備案。"
+      "note": {
+        "text": "更適合點心或外帶，也能在拉麵排太久時補位；熱門品項可能售完，不必排成必吃正餐。",
+        "html": "更適合點心或外帶，也能在拉麵排太久時補位；熱門品項可能售完，不必排成必吃正餐。"
       },
       "preview": null
     },
@@ -1616,6 +1496,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Blue%20Bottle%20Coffee%20Fukuoka%20Tenjin%20Cafe%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://store.bluebottlecoffee.jp/pages/fukuoka_tenjin",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -1626,8 +1511,8 @@
         "html": "天神"
       },
       "summary": {
-        "text": "警固神社社務所大樓 1F，適合作為天神逛街中段休息。",
-        "html": "警固神社社務所大樓 1F，適合作為天神逛街中段休息。"
+        "text": "警固神社社務所大樓 1F 的天神咖啡店，座位相對友善。",
+        "html": "警固神社社務所大樓 1F 的天神咖啡店，座位相對友善。"
       },
       "hours": {
         "text": "8/30 Sun 可；08:00-20:00。",
@@ -1637,25 +1522,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "4 人",
-        "html": "4 人"
-      },
-      "why": {
-        "text": "座位比小店友善，適合當下午固定休息點。",
-        "html": "座位比小店友善，適合當下午固定休息點。"
-      },
-      "risk": {
-        "text": "下午可能人多。",
-        "html": "下午可能人多。"
-      },
-      "backup": {
-        "text": "天神地下街或附近咖啡店。",
-        "html": "天神地下街或附近咖啡店。"
+      "note": {
+        "text": "座位比小店友善，適合作為天神下午固定休息點；若人太多，就改天神地下街或附近咖啡店。",
+        "html": "座位比小店友善，適合作為天神下午固定休息點；若人太多，就改天神地下街或附近咖啡店。"
       },
       "preview": null
     },
@@ -1668,6 +1537,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%20%E3%81%A8%E3%82%8A%E7%94%B0%20%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97%2010-5%20Shimokawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://toriden.com/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -1678,8 +1552,8 @@
         "html": "博多 / 中洲川端"
       },
       "summary": {
-        "text": "8/30 晚餐，已訂位的博多水炊雞鍋。",
-        "html": "8/30 晚餐，已訂位的博多水炊雞鍋。"
+        "text": "博多水炊雞鍋本店，主打雞湯鍋物與套餐。",
+        "html": "博多水炊雞鍋本店，主打雞湯鍋物與套餐。"
       },
       "hours": {
         "text": "8/30 Sun 可；土日祝 11:30-23:00，LO 22:00。",
@@ -1697,17 +1571,9 @@
         "text": "4 人",
         "html": "4 人"
       },
-      "why": {
-        "text": "天神逛街後回中洲川端晚餐，動線穩。",
-        "html": "天神逛街後回中洲川端晚餐，動線穩。"
-      },
-      "risk": {
-        "text": "24 小時內取消 / 人數變更收 100%；無聯絡遲到 15 分鐘可能自動取消。",
-        "html": "24 小時內取消 / 人數變更收 100%；無聯絡遲到 15 分鐘可能自動取消。"
-      },
-      "backup": {
-        "text": "18:30 左右離開天神，19:10 前到鳥田附近避免壓線。",
-        "html": "18:30 左右離開天神，19:10 前到鳥田附近避免壓線。"
+      "note": {
+        "text": "天神逛街後回中洲川端晚餐，18:30 左右離開天神較穩；24 小時內取消或人數變更收 100%，無聯絡遲到 15 分鐘可能自動取消。",
+        "html": "天神逛街後回中洲川端晚餐，18:30 左右離開天神較穩；24 小時內取消或人數變更收 100%，無聯絡遲到 15 分鐘可能自動取消。"
       },
       "preview": null
     },
@@ -1731,8 +1597,8 @@
         "html": "門司港"
       },
       "summary": {
-        "text": "門司港燒咖喱名店，門司港站步行約 2 分鐘，作為咖哩本舖排隊時的備案。",
-        "html": "門司港燒咖喱名店，門司港站步行約 2 分鐘，作為咖哩本舖排隊時的備案。"
+        "text": "門司港燒咖喱名店，離門司港站很近。",
+        "html": "門司港燒咖喱名店，離門司港站很近。"
       },
       "hours": {
         "text": "8/31 Mon 可；11:00-21:00，LO 20:30。",
@@ -1742,25 +1608,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "名氣高、位置很順，若咖哩本舖排隊太久可改這家。",
-        "html": "名氣高、位置很順，若咖哩本舖排隊太久可改這家。"
-      },
-      "risk": {
-        "text": "不可預約，熱門時段可能排隊；一人行程可接受排隊但不要拖過 14:30。",
-        "html": "不可預約，熱門時段可能排隊；一人行程可接受排隊但不要拖過 14:30。"
-      },
-      "backup": {
-        "text": "海峽廣場內也有多家燒咖喱店，若這裡也排太久就改附近店。",
-        "html": "海峽廣場內也有多家燒咖喱店，若這裡也排太久就改附近店。"
+      "note": {
+        "text": "門司港燒咖喱備案，位置很順；不可預約，熱門時段可能排隊，一人行程可接受等待但不要拖過 14:30。",
+        "html": "門司港燒咖喱備案，位置很順；不可預約，熱門時段可能排隊，一人行程可接受等待但不要拖過 14:30。"
       },
       "preview": null
     },
@@ -1788,36 +1638,20 @@
         "html": "門司港"
       },
       "summary": {
-        "text": "8/31 門司港午餐主選，燒咖喱專門店，海景座位和車站距離都很順。",
-        "html": "8/31 門司港午餐主選，燒咖喱專門店，海景座位和車站距離都很順。"
+        "text": "門司港燒咖喱專門店，海景座位和車站距離都很順。",
+        "html": "門司港燒咖喱專門店，海景座位和車站距離都很順。"
       },
       "hours": {
-        "text": "8/31 Mon 可；約 11:00-20:00，OS 19:30；不定休。",
-        "html": "8/31 Mon 可；約 11:00-20:00，OS 19:30；不定休。"
+        "text": "8/31 Mon 可；11:00-19:30；不定休。",
+        "html": "8/31 Mon 可；11:00-19:30；不定休。"
       },
       "reservation": {
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "比 BEAR FRUITS 更像純燒咖喱專門店，離門司港站很近，作為門司港午餐主選。",
-        "html": "比 BEAR FRUITS 更像純燒咖喱專門店，離門司港站很近，作為門司港午餐主選。"
-      },
-      "risk": {
-        "text": "不可預約，熱門時段可能排隊；部分平台時間寫法不同，以當日店頭 / 官方為準。",
-        "html": "不可預約，熱門時段可能排隊；部分平台時間寫法不同，以當日店頭 / 官方為準。"
-      },
-      "backup": {
-        "text": "排太久就改 BEAR FRUITS 或 Princess Phi Phi。",
-        "html": "排太久就改 BEAR FRUITS 或 Princess Phi Phi。"
+      "note": {
+        "text": "門司港午餐主選，離車站近且更像純燒咖喱專門店；不可預約，若排太久就改 BEAR FRUITS 或 Princess Phi Phi。",
+        "html": "門司港午餐主選，離車站近且更像純燒咖喱專門店；不可預約，若排太久就改 BEAR FRUITS 或 Princess Phi Phi。"
       },
       "preview": {
         "title": "��i�`���g���Ă��J���[MAP�@�₫�J���[�@���������Ă��J���[�@�����i�J���C�j�{�� ��i�`���g���X��",
@@ -1861,25 +1695,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "想吃不一樣的燒咖喱時可選；位置仍然貼近門司港站。",
-        "html": "想吃不一樣的燒咖喱時可選；位置仍然貼近門司港站。"
-      },
-      "risk": {
-        "text": "週一營業較短；不接受只訂席，若走這家要 14:00 前抵達比較穩。",
-        "html": "週一營業較短；不接受只訂席，若走這家要 14:00 前抵達比較穩。"
-      },
-      "backup": {
-        "text": "若時間壓線，優先回到伽哩本舖或 BEAR FRUITS。",
-        "html": "若時間壓線，優先回到伽哩本舖或 BEAR FRUITS。"
+      "note": {
+        "text": "想吃不一樣的燒咖喱時可選，位置也貼近門司港站；週一營業較短，若要走這家最好 14:00 前抵達。",
+        "html": "想吃不一樣的燒咖喱時可選，位置也貼近門司港站；週一營業較短，若要走這家最好 14:00 前抵達。"
       },
       "preview": {
         "title": "世界にひとつだけの焼きカレー プリンセスピピ門司港｜その他エスニック料理",
@@ -1911,8 +1729,8 @@
         "html": "高千穗峽"
       },
       "summary": {
-        "text": "高千穗峽內的食事處與賣店，適合不含午餐的一日團快速自理。",
-        "html": "高千穗峽內的食事處與賣店，適合不含午餐的一日團快速自理。"
+        "text": "高千穗峽內的食事處與賣店，可快速處理簡單午餐。",
+        "html": "高千穗峽內的食事處與賣店，可快速處理簡單午餐。"
       },
       "hours": {
         "text": "9/1 Tue 可；食事處約 10:00-16:00，年中無休。",
@@ -1922,25 +1740,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "位置在高千穗峽內，不需要為午餐額外移動。",
-        "html": "位置在高千穗峽內，不需要為午餐額外移動。"
-      },
-      "risk": {
-        "text": "不接受事前預約，且不含餐方案不含高千穗峽接駁車；吃飯時間要包含走回集合點。",
-        "html": "不接受事前預約，且不含餐方案不含高千穗峽接駁車；吃飯時間要包含走回集合點。"
-      },
-      "backup": {
-        "text": "高千穗峽周邊小吃 / 便利補給；重點仍是步道、真名井瀑布與準時回集合點。",
-        "html": "高千穗峽周邊小吃 / 便利補給；重點仍是步道、真名井瀑布與準時回集合點。"
+      "note": {
+        "text": "位置在高千穗峽內，適合不額外移動的簡單午餐；不含餐方案也不含接駁車，吃飯時間要包含走回集合點。",
+        "html": "位置在高千穗峽內，適合不額外移動的簡單午餐；不含餐方案也不含接駁車，吃飯時間要包含走回集合點。"
       },
       "preview": {
         "title": "千穂の家｜高千穂のお食事とお土産",
@@ -1983,25 +1785,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "高千穗回博多後順路，主打濃厚沾麵 / 辛辣沾麵。",
-        "html": "高千穗回博多後順路，主打濃厚沾麵 / 辛辣沾麵。"
-      },
-      "risk": {
-        "text": "人氣店可能排隊；若太累或排太久，直接改站內便當。",
-        "html": "人氣店可能排隊；若太累或排太久，直接改站內便當。"
-      },
-      "backup": {
-        "text": "博多站便當、努努鶏、飯店附近簡單晚餐。",
-        "html": "博多站便當、努努鶏、飯店附近簡單晚餐。"
+      "note": {
+        "text": "高千穗回博多後順路，主打濃厚沾麵；若回程延誤、太累或排太久，就改博多站便當或飯店附近簡單晚餐。",
+        "html": "高千穗回博多後順路，主打濃厚沾麵；若回程延誤、太累或排太久，就改博多站便當或飯店附近簡單晚餐。"
       },
       "preview": {
         "title": "麺や兼虎｜運営店舗のご案内",
@@ -2033,8 +1819,8 @@
         "html": "糸島 / 加布里"
       },
       "summary": {
-        "text": "箱島神社後的午餐主選，海鮮料理、海鮮丼與壽司系名店。",
-        "html": "箱島神社後的午餐主選，海鮮料理、海鮮丼與壽司系名店。"
+        "text": "糸島加布里的海鮮料理名店，主打海鮮丼與壽司。",
+        "html": "糸島加布里的海鮮料理名店，主打海鮮丼與壽司。"
       },
       "hours": {
         "text": "9/2 Wed 可；平日 11:00-15:00，LO 14:15；基本年中無休。",
@@ -2044,25 +1830,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "箱島神社到二見浦中間最順的午餐主選，比先衝海岸線吃午餐更穩。",
-        "html": "箱島神社到二見浦中間最順的午餐主選，比先衝海岸線吃午餐更穩。"
-      },
-      "risk": {
-        "text": "午餐一般只接受 4 人以上會席課程預約；一人一般用餐現場排，11:30 前到比較穩。",
-        "html": "午餐一般只接受 4 人以上會席課程預約；一人一般用餐現場排，11:30 前到比較穩。"
-      },
-      "backup": {
-        "text": "箱島對面的和海 離れ、加布里周邊簡單午餐，或延後到二見浦海岸店家。",
-        "html": "箱島對面的和海 離れ、加布里周邊簡單午餐，或延後到二見浦海岸店家。"
+      "note": {
+        "text": "箱島神社到二見浦中間最順的午餐主選；一人一般用餐以現場排隊為主，11:30 前到比較穩。",
+        "html": "箱島神社到二見浦中間最順的午餐主選；一人一般用餐以現場排隊為主，11:30 前到比較穩。"
       },
       "preview": {
         "title": "店舗紹介｜有限会社塚本鮮魚店",
@@ -2094,8 +1864,8 @@
         "html": "薬院"
       },
       "summary": {
-        "text": "福岡代表精品咖啡之一，最後一天早上從 CROSS Life checkout 後順路。",
-        "html": "福岡代表精品咖啡之一，最後一天早上從 CROSS Life checkout 後順路。"
+        "text": "福岡代表精品咖啡店之一，適合喝咖啡或買豆。",
+        "html": "福岡代表精品咖啡店之一，適合喝咖啡或買豆。"
       },
       "hours": {
         "text": "9/3 Thu 可；週一到週四 08:00-24:00。",
@@ -2105,25 +1875,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "08:00 就開，適合作為最後一天第一間咖啡店，不會卡到天神店家 10:00 開門。",
-        "html": "08:00 就開，適合作為最後一天第一間咖啡店，不會卡到天神店家 10:00 開門。"
-      },
-      "risk": {
-        "text": "若早上 checkout / 寄放行李延誤，這間可以縮短停留。",
-        "html": "若早上 checkout / 寄放行李延誤，這間可以縮短停留。"
-      },
-      "backup": {
-        "text": "直接跳到 COFFEE COUNTY 或天神購物。",
-        "html": "直接跳到 COFFEE COUNTY 或天神購物。"
+      "note": {
+        "text": "08:00 就開，適合作為最後一天第一間咖啡店；若 checkout 或寄放行李延誤，就縮短停留或直接跳到天神。",
+        "html": "08:00 就開，適合作為最後一天第一間咖啡店；若 checkout 或寄放行李延誤，就縮短停留或直接跳到天神。"
       },
       "preview": {
         "title": "レックコーヒー薬院駅前店 | 福岡 | REC COFFEE",
@@ -2166,25 +1920,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "和 REC COFFEE 距離近，適合當第二間；若買豆也比最後衝機場從容。",
-        "html": "和 REC COFFEE 距離近，適合當第二間；若買豆也比最後衝機場從容。"
-      },
-      "risk": {
-        "text": "若想輕鬆逛街，這間可刪掉，避免一天喝太多咖啡。",
-        "html": "若想輕鬆逛街，這間可刪掉，避免一天喝太多咖啡。"
-      },
-      "backup": {
-        "text": "改直接前往天神購物。",
-        "html": "改直接前往天神購物。"
+      "note": {
+        "text": "和 REC COFFEE 距離近，適合當第二間咖啡或買豆；若想保留逛街體力，這間可以刪掉。",
+        "html": "和 REC COFFEE 距離近，適合當第二間咖啡或買豆；若想保留逛街體力，這間可以刪掉。"
       },
       "preview": {
         "title": "Fukuoka | COFFEE COUNTY",
@@ -2216,8 +1954,8 @@
         "html": "西中洲 / 天神"
       },
       "summary": {
-        "text": "福岡明太子名物午餐選項，主打明太重。",
-        "html": "福岡明太子名物午餐選項，主打明太重。"
+        "text": "福岡明太子名物店，主打整盒明太重。",
+        "html": "福岡明太子名物店，主打整盒明太重。"
       },
       "hours": {
         "text": "9/3 Thu 可；西中洲店 07:00-22:30，LO 22:00。",
@@ -2227,25 +1965,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "這趟還沒排到明太子主餐，放在天神購物後很順。",
-        "html": "這趟還沒排到明太子主餐，放在天神購物後很順。"
-      },
-      "risk": {
-        "text": "人氣店可能排隊；午餐尖峰不可硬等，避免壓縮下午伴手禮與返機場。",
-        "html": "人氣店可能排隊；午餐尖峰不可硬等，避免壓縮下午伴手禮與返機場。"
-      },
-      "backup": {
-        "text": "天神地下街、PARCO 餐廳，或回博多站吃。",
-        "html": "天神地下街、PARCO 餐廳，或回博多站吃。"
+      "note": {
+        "text": "天神購物後順路，也能補上福岡明太子名物；人氣店可能排隊，午餐尖峰不可硬等，避免壓縮下午伴手禮與返機場。",
+        "html": "天神購物後順路，也能補上福岡明太子名物；人氣店可能排隊，午餐尖峰不可硬等，避免壓縮下午伴手禮與返機場。"
       },
       "preview": {
         "title": "元祖博多めんたい重 [公式サイト]",
@@ -2277,8 +1999,8 @@
         "html": "博多站東"
       },
       "summary": {
-        "text": "挪威咖啡品牌福岡店，靠近博多站筑紫口，適合下午轉到博多站時順路。",
-        "html": "挪威咖啡品牌福岡店，靠近博多站筑紫口，適合下午轉到博多站時順路。"
+        "text": "挪威咖啡品牌福岡店，靠近博多站筑紫口。",
+        "html": "挪威咖啡品牌福岡店，靠近博多站筑紫口。"
       },
       "hours": {
         "text": "9/3 Thu 可；週一到週四 07:00-20:00，LO 19:30。",
@@ -2288,25 +2010,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "候選清單裡還沒完成的咖啡店，位置接博多站伴手禮 / Yodobashi 很順。",
-        "html": "候選清單裡還沒完成的咖啡店，位置接博多站伴手禮 / Yodobashi 很順。"
-      },
-      "risk": {
-        "text": "若上午已喝兩間，這間改成外帶或跳過。",
-        "html": "若上午已喝兩間，這間改成外帶或跳過。"
-      },
-      "backup": {
-        "text": "直接買伴手禮，或到機場再喝。",
-        "html": "直接買伴手禮，或到機場再喝。"
+      "note": {
+        "text": "轉到博多站後接伴手禮和 Yodobashi 很順；若上午已喝兩間咖啡，這間改外帶或跳過。",
+        "html": "轉到博多站後接伴手禮和 Yodobashi 很順；若上午已喝兩間咖啡，這間改外帶或跳過。"
       },
       "preview": {
         "title": "FUGLEN FUKUOKA",
@@ -2323,6 +2029,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=%E5%8A%AA%E5%8A%AA%E9%B6%8F%20%E5%8D%9A%E5%A4%9A%E3%83%9E%E3%82%A4%E3%83%B3%E3%82%B0%E5%BA%97%201-1%20Hakataekichuogai%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.e-yumeyume.co.jp/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2344,25 +2055,9 @@
         "text": "none",
         "html": "none"
       },
-      "reservationTime": {
-        "text": "none",
-        "html": "none"
-      },
-      "party": {
-        "text": "1 人",
-        "html": "1 人"
-      },
-      "why": {
-        "text": "候選清單裡還沒正式落地的伴手禮，適合和博多通りもん一起買。",
-        "html": "候選清單裡還沒正式落地的伴手禮，適合和博多通りもん一起買。"
-      },
-      "risk": {
-        "text": "冷食保存和托運 / 手提限制要現場確認。",
-        "html": "冷食保存和托運 / 手提限制要現場確認。"
-      },
-      "backup": {
-        "text": "改買博多通りもん、明太子醬、機場免稅伴手禮。",
-        "html": "改買博多通りもん、明太子醬、機場免稅伴手禮。"
+      "note": {
+        "text": "可在博多站伴手禮採買時一起處理；冷食保存和托運 / 手提限制要現場確認。",
+        "html": "可在博多站伴手禮採買時一起處理；冷食保存和托運 / 手提限制要現場確認。"
       },
       "preview": null
     },
@@ -2375,6 +2070,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Canal%20City%20Hakata%201-2%20Sumiyoshi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://canalcity.co.jp/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2386,28 +2086,16 @@
         "html": "博多"
       },
       "summary": {
-        "text": "飯店附近的大型商場，適合第一晚備案。",
-        "html": "飯店附近的大型商場，適合第一晚備案。"
+        "text": "博多大型複合商場，以運河水景、購物與餐飲聞名。",
+        "html": "博多大型複合商場，以運河水景、購物與餐飲聞名。"
       },
       "hours": {
         "text": "8/27 Thu 可；商店約 10:00-21:00，餐廳約 11:00-23:00，無定休。",
         "html": "8/27 Thu 可；商店約 10:00-21:00，餐廳約 11:00-23:00，無定休。"
       },
-      "why": {
-        "text": "第一晚若時間有餘可順路逛。",
-        "html": "第一晚若時間有餘可順路逛。"
-      },
-      "bestFor": {
-        "text": "商場、補給、短暫散步。",
-        "html": "商場、補給、短暫散步。"
-      },
-      "nearby": {
-        "text": "西鐵 CROOM、櫛田神社、川端通商店街。",
-        "html": "西鐵 CROOM、櫛田神社、川端通商店街。"
-      },
-      "risk": {
-        "text": "8/27 吃完大東園後商店大多已關。",
-        "html": "8/27 吃完大東園後商店大多已關。"
+      "note": {
+        "text": "第一晚若時間有餘可順路逛，但吃完大東園後商店大多已關；更適合補給、散步或下雨備案。",
+        "html": "第一晚若時間有餘可順路逛，但吃完大東園後商店大多已關；更適合補給、散步或下雨備案。"
       },
       "preview": null
     },
@@ -2420,6 +2108,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Kyushu%20National%20Museum%204-7-2%20Ishizaka%20Dazaifu%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.kyuhaku.jp/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2430,28 +2123,16 @@
         "html": "太宰府"
       },
       "summary": {
-        "text": "太宰府上午主行程，博物館與太宰府天滿宮步行可串接。",
-        "html": "太宰府上午主行程，博物館與太宰府天滿宮步行可串接。"
+        "text": "以九州和亞洲交流史為主題的大型國立博物館。",
+        "html": "以九州和亞洲交流史為主題的大型國立博物館。"
       },
       "hours": {
         "text": "8/28 Fri 可；09:30-17:00，最晚入館 16:30；週一休館，遇假日順延。",
         "html": "8/28 Fri 可；09:30-17:00，最晚入館 16:30；週一休館，遇假日順延。"
       },
-      "why": {
-        "text": "這天放在上午，避免下午趕去 LaLaport 時壓縮參觀時間。",
-        "html": "這天放在上午，避免下午趕去 LaLaport 時壓縮參觀時間。"
-      },
-      "bestFor": {
-        "text": "展覽、室內行程、避暑。",
-        "html": "展覽、室內行程、避暑。"
-      },
-      "nearby": {
-        "text": "太宰府天滿宮、太宰府站。",
-        "html": "太宰府天滿宮、太宰府站。"
-      },
-      "risk": {
-        "text": "若上午延誤，會壓縮天滿宮與午餐時間。",
-        "html": "若上午延誤，會壓縮天滿宮與午餐時間。"
+      "note": {
+        "text": "排在上午比較穩，避免下午趕去 LaLaport 時壓縮參觀時間；若上午延誤，就縮短天滿宮或午餐停留。",
+        "html": "排在上午比較穩，避免下午趕去 LaLaport 時壓縮參觀時間；若上午延誤，就縮短天滿宮或午餐停留。"
       },
       "preview": null
     },
@@ -2464,6 +2145,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Dazaifu%20Tenmangu%204-7-1%20Saifu%20Dazaifu%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.dazaifutenmangu.or.jp/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2481,21 +2167,9 @@
         "text": "8/28 Fri 可；6-8 月閉門 19:30。",
         "html": "8/28 Fri 可；6-8 月閉門 19:30。"
       },
-      "why": {
-        "text": "太宰府主軸景點。",
-        "html": "太宰府主軸景點。"
-      },
-      "bestFor": {
-        "text": "參拜、太鼓橋、御本殿周邊。",
-        "html": "參拜、太鼓橋、御本殿周邊。"
-      },
-      "nearby": {
-        "text": "太宰府參道、九州國立博物館、光明禪寺。",
-        "html": "太宰府參道、九州國立博物館、光明禪寺。"
-      },
-      "risk": {
-        "text": "不要排太久，下午要移動到 LaLaport。",
-        "html": "不要排太久，下午要移動到 LaLaport。"
+      "note": {
+        "text": "太宰府主軸景點，重點是參拜、太鼓橋與御本殿周邊；下午要移動到 LaLaport，不要在這裡排太久。",
+        "html": "太宰府主軸景點，重點是參拜、太鼓橋與御本殿周邊；下午要移動到 LaLaport，不要在這裡排太久。"
       },
       "preview": null
     },
@@ -2519,28 +2193,16 @@
         "html": "太宰府"
       },
       "summary": {
-        "text": "太宰府天滿宮旁的枯山水與苔庭備案。",
-        "html": "太宰府天滿宮旁的枯山水與苔庭備案。"
+        "text": "太宰府天滿宮旁的禪寺，以枯山水與苔庭聞名。",
+        "html": "太宰府天滿宮旁的禪寺，以枯山水與苔庭聞名。"
       },
       "hours": {
         "text": "8/28 Fri 不確定。",
         "html": "8/28 Fri 不確定。"
       },
-      "why": {
-        "text": "若現場可入內，適合接在天滿宮後。",
-        "html": "若現場可入內，適合接在天滿宮後。"
-      },
-      "bestFor": {
-        "text": "庭園、安靜散步。",
-        "html": "庭園、安靜散步。"
-      },
-      "nearby": {
-        "text": "太宰府天滿宮、太宰府站。",
-        "html": "太宰府天滿宮、太宰府站。"
-      },
-      "risk": {
-        "text": "目前非固定開放，現場若無法參拜就跳過。",
-        "html": "目前非固定開放，現場若無法參拜就跳過。"
+      "note": {
+        "text": "若現場可入內，適合接在天滿宮後安靜散步；目前非固定開放，現場若無法參拜就跳過。",
+        "html": "若現場可入內，適合接在天滿宮後安靜散步；目前非固定開放，現場若無法參拜就跳過。"
       },
       "preview": null
     },
@@ -2553,6 +2215,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Mitsui%20Shopping%20Park%20LaLaport%20Fukuoka%206-23-1%20Naka%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.gundampark.net/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2563,28 +2230,16 @@
         "html": "福岡 / 竹下"
       },
       "summary": {
-        "text": "8/28 下午主行程，目標是 RX-93ff ν Gundam 立像與 GUNDAM SIDE-F。",
-        "html": "8/28 下午主行程，目標是 RX-93ff ν Gundam 立像與 GUNDAM SIDE-F。"
+        "text": "有 RX-93ff ν Gundam 立像與 GUNDAM SIDE-F 的大型商場。",
+        "html": "有 RX-93ff ν Gundam 立像與 GUNDAM SIDE-F 的大型商場。"
       },
       "hours": {
         "text": "8/28 Fri 可；商店 10:00-21:00，餐廳 / 美食街 11:00-22:00。",
         "html": "8/28 Fri 可；商店 10:00-21:00，餐廳 / 美食街 11:00-22:00。"
       },
-      "why": {
-        "text": "鋼彈相關主目標。",
-        "html": "鋼彈相關主目標。"
-      },
-      "bestFor": {
-        "text": "鋼彈立像、GUNDAM SIDE-F、購物。",
-        "html": "鋼彈立像、GUNDAM SIDE-F、購物。"
-      },
-      "nearby": {
-        "text": "竹下站。",
-        "html": "竹下站。"
-      },
-      "risk": {
-        "text": "19:30 前田屋在博多站前，18:00 是晚餐前最後比較穩的立像演出。",
-        "html": "19:30 前田屋在博多站前，18:00 是晚餐前最後比較穩的立像演出。"
+      "note": {
+        "text": "這天的鋼彈主目標是立像和 GUNDAM SIDE-F；19:30 前田屋在博多站前，18:00 是晚餐前最後比較穩的立像演出。",
+        "html": "這天的鋼彈主目標是立像和 GUNDAM SIDE-F；19:30 前田屋在博多站前，18:00 是晚餐前最後比較穩的立像演出。"
       },
       "preview": null
     },
@@ -2600,36 +2255,24 @@
         }
       ],
       "tags": [
-        "nature",
-        "shopping"
+        "station",
+        "nature"
       ],
       "area": {
         "text": "由布院",
         "html": "由布院"
       },
       "summary": {
-        "text": "由布院站與主街起點，作為 8/29 行程中心。",
-        "html": "由布院站與主街起點，作為 8/29 行程中心。"
+        "text": "由布岳山景下的溫泉鄉，車站周邊可接主街散步。",
+        "html": "由布岳山景下的溫泉鄉，車站周邊可接主街散步。"
       },
       "hours": {
         "text": "戶外與車站周邊；店家營業時間各自不同。",
         "html": "戶外與車站周邊；店家營業時間各自不同。"
       },
-      "why": {
-        "text": "由布岳山景、湯之坪街道、金鱗湖一帶散步。",
-        "html": "由布岳山景、湯之坪街道、金鱗湖一帶散步。"
-      },
-      "bestFor": {
-        "text": "散步、拍照、伴手禮。",
-        "html": "散步、拍照、伴手禮。"
-      },
-      "nearby": {
-        "text": "湯之坪街道、金鱗湖。",
-        "html": "湯之坪街道、金鱗湖。"
-      },
-      "risk": {
-        "text": "回程 17:17 固定，下午後段要往車站方向收斂。",
-        "html": "回程 17:17 固定，下午後段要往車站方向收斂。"
+      "note": {
+        "text": "以由布岳山景、湯之坪街道和金鱗湖一帶散步為主；回程 17:17 固定，下午後段要往車站方向收斂。",
+        "html": "以由布岳山景、湯之坪街道和金鱗湖一帶散步為主；回程 17:17 固定，下午後段要往車站方向收斂。"
       },
       "preview": null
     },
@@ -2659,21 +2302,9 @@
         "text": "街道本身開放；店家多約 10:00-17:00 / 18:00，依店家而定。",
         "html": "街道本身開放；店家多約 10:00-17:00 / 18:00，依店家而定。"
       },
-      "why": {
-        "text": "由布院散步主線。",
-        "html": "由布院散步主線。"
-      },
-      "bestFor": {
-        "text": "伴手禮、街道散步、小吃。",
-        "html": "伴手禮、街道散步、小吃。"
-      },
-      "nearby": {
-        "text": "金鱗湖、YUFUIN FLORAL VILLAGE。",
-        "html": "金鱗湖、YUFUIN FLORAL VILLAGE。"
-      },
-      "risk": {
-        "text": "週六人潮多，不要把單店排死。",
-        "html": "週六人潮多，不要把單店排死。"
+      "note": {
+        "text": "由布院散步主線，適合伴手禮、小吃和邊走邊看；週六人潮多，不要把單店排死。",
+        "html": "由布院散步主線，適合伴手禮、小吃和邊走邊看；週六人潮多，不要把單店排死。"
       },
       "preview": null
     },
@@ -2703,21 +2334,9 @@
         "text": "戶外景點，全天；周邊店家另計。",
         "html": "戶外景點，全天；周邊店家另計。"
       },
-      "why": {
-        "text": "由布院代表景點。",
-        "html": "由布院代表景點。"
-      },
-      "bestFor": {
-        "text": "湖景、散步、拍照。",
-        "html": "湖景、散步、拍照。"
-      },
-      "nearby": {
-        "text": "湯之坪街道、花野そば。",
-        "html": "湯之坪街道、花野そば。"
-      },
-      "risk": {
-        "text": "天氣差時停留時間可縮短。",
-        "html": "天氣差時停留時間可縮短。"
+      "note": {
+        "text": "由布院代表湖景點，天氣好時適合慢慢走；天氣差就縮短停留，把時間留給主街或回程緩衝。",
+        "html": "由布院代表湖景點，天氣好時適合慢慢走；天氣差就縮短停留，把時間留給主街或回程緩衝。"
       },
       "preview": null
     },
@@ -2730,6 +2349,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=YUFUIN%20FLORAL%20VILLAGE%201503-3%20Yufuincho%20Kawakami%20Yufu%20Oita",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://floral-village.com/about",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2747,21 +2371,9 @@
         "text": "8/29 Sat 可；09:30-17:30。",
         "html": "8/29 Sat 可；09:30-17:30。"
       },
-      "why": {
-        "text": "湯之坪街道後段的輕量拍照點。",
-        "html": "湯之坪街道後段的輕量拍照點。"
-      },
-      "bestFor": {
-        "text": "拍照、商店、短停留。",
-        "html": "拍照、商店、短停留。"
-      },
-      "nearby": {
-        "text": "湯之坪街道、金鱗湖。",
-        "html": "湯之坪街道、金鱗湖。"
-      },
-      "risk": {
-        "text": "放 30-45 分鐘即可，不要壓縮回程緩衝。",
-        "html": "放 30-45 分鐘即可，不要壓縮回程緩衝。"
+      "note": {
+        "text": "湯之坪街道後段的輕量拍照點，停留 30-45 分鐘即可；不要因此壓縮回程緩衝。",
+        "html": "湯之坪街道後段的輕量拍照點，停留 30-45 分鐘即可；不要因此壓縮回程緩衝。"
       },
       "preview": null
     },
@@ -2774,6 +2386,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Kushida%20Shrine%201-41%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.crossroadfukuoka.jp/spot/12510",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2791,21 +2408,9 @@
         "text": "8/30 Sun 可；開門 04:00-22:00，社務 09:00-17:00。",
         "html": "8/30 Sun 可；開門 04:00-22:00，社務 09:00-17:00。"
       },
-      "why": {
-        "text": "8/30 輕鬆博多散步的核心點。",
-        "html": "8/30 輕鬆博多散步的核心點。"
-      },
-      "bestFor": {
-        "text": "參拜、博多文化、短停留。",
-        "html": "參拜、博多文化、短停留。"
-      },
-      "nearby": {
-        "text": "川端通商店街、西鐵 CROOM、FUK COFFEE。",
-        "html": "川端通商店街、西鐵 CROOM、FUK COFFEE。"
-      },
-      "risk": {
-        "text": "上午行程彈性高，若前兩天太累可延後。",
-        "html": "上午行程彈性高，若前兩天太累可延後。"
+      "note": {
+        "text": "博多散步的核心點，從飯店周邊出發很順；上午行程彈性高，若前兩天太累可延後。",
+        "html": "博多散步的核心點，從飯店周邊出發很順；上午行程彈性高，若前兩天太累可延後。"
       },
       "preview": null
     },
@@ -2818,6 +2423,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Kawabata%20Shopping%20Arcade%20Kamikawabatamachi%20Hakata%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://kawabatadori.com/tw/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2835,21 +2445,9 @@
         "text": "商店街本身可通行；各店營業時間不同，多數接近 10:00 後較穩。",
         "html": "商店街本身可通行；各店營業時間不同，多數接近 10:00 後較穩。"
       },
-      "why": {
-        "text": "接在櫛田神社後散步順路。",
-        "html": "接在櫛田神社後散步順路。"
-      },
-      "bestFor": {
-        "text": "散步、小買、在地商店街。",
-        "html": "散步、小買、在地商店街。"
-      },
-      "nearby": {
-        "text": "櫛田神社、博多一双 祇園店、博多運河城。",
-        "html": "櫛田神社、博多一双 祇園店、博多運河城。"
-      },
-      "risk": {
-        "text": "店家營業時間不同，當作散步 / 小買主線。",
-        "html": "店家營業時間不同，當作散步 / 小買主線。"
+      "note": {
+        "text": "接在櫛田神社後散步順路；店家營業時間不同，當作散步和小買主線，不把單店排死。",
+        "html": "接在櫛田神社後散步順路；店家營業時間不同，當作散步和小買主線，不把單店排死。"
       },
       "preview": null
     },
@@ -2862,6 +2460,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Tenjin%20Underground%20Mall%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.tenchika.com/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2879,21 +2482,9 @@
         "text": "8/30 Sun 可；商店 10:00-20:00，餐廳多到 21:00。",
         "html": "8/30 Sun 可；商店 10:00-20:00，餐廳多到 21:00。"
       },
-      "why": {
-        "text": "下午逛街主線。",
-        "html": "下午逛街主線。"
-      },
-      "bestFor": {
-        "text": "逛街、避暑、雨天備案。",
-        "html": "逛街、避暑、雨天備案。"
-      },
-      "nearby": {
-        "text": "警固神社、Blue Bottle Coffee 福岡天神。",
-        "html": "警固神社、Blue Bottle Coffee 福岡天神。"
-      },
-      "risk": {
-        "text": "18:30 左右要離開天神，避免鳥田訂位壓線。",
-        "html": "18:30 左右要離開天神，避免鳥田訂位壓線。"
+      "note": {
+        "text": "下午逛街主線，也適合避暑或雨天；18:30 左右要離開天神，避免鳥田訂位壓線。",
+        "html": "下午逛街主線，也適合避暑或雨天；18:30 左右要離開天神，避免鳥田訂位壓線。"
       },
       "preview": null
     },
@@ -2906,6 +2497,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Kego%20Shrine%202-2-20%20Tenjin%20Chuo%20Ward%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://kegojinja.or.jp/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2923,21 +2519,9 @@
         "text": "8/30 Sun 可；開門 06:00-18:00，御朱印 / 授與所約 09:00-16:30。",
         "html": "8/30 Sun 可；開門 06:00-18:00，御朱印 / 授與所約 09:00-16:30。"
       },
-      "why": {
-        "text": "天神逛街中段的安靜停留點。",
-        "html": "天神逛街中段的安靜停留點。"
-      },
-      "bestFor": {
-        "text": "參拜、短暫休息、城市神社。",
-        "html": "參拜、短暫休息、城市神社。"
-      },
-      "nearby": {
-        "text": "天神地下街、Blue Bottle Coffee 福岡天神。",
-        "html": "天神地下街、Blue Bottle Coffee 福岡天神。"
-      },
-      "risk": {
-        "text": "御朱印 / 授與所有較早時間限制。",
-        "html": "御朱印 / 授與所有較早時間限制。"
+      "note": {
+        "text": "天神逛街中段的安靜停留點；若想拿御朱印或看授與所，要注意時間通常比閉門更早。",
+        "html": "天神逛街中段的安靜停留點；若想拿御朱印或看授與所，要注意時間通常比閉門更早。"
       },
       "preview": null
     },
@@ -2950,6 +2534,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Kokura%20Castle%202-1%20Jonai%20Kokurakita%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://kokura-castle.jp/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -2967,21 +2556,9 @@
         "text": "8/31 Mon 可；4-10 月 09:00-20:00，年中無休。",
         "html": "8/31 Mon 可；4-10 月 09:00-20:00，年中無休。"
       },
-      "why": {
-        "text": "8/31 北九州行程的第一站，上午抵達後最穩。",
-        "html": "8/31 北九州行程的第一站，上午抵達後最穩。"
-      },
-      "bestFor": {
-        "text": "天守、庭園、城景拍照。",
-        "html": "天守、庭園、城景拍照。"
-      },
-      "nearby": {
-        "text": "小倉城庭園、Riverwalk 北九州、西小倉站。",
-        "html": "小倉城庭園、Riverwalk 北九州、西小倉站。"
-      },
-      "risk": {
-        "text": "夏天中午偏熱；若覺得體力不足，庭園可跳過，只看天守與周邊。",
-        "html": "夏天中午偏熱；若覺得體力不足，庭園可跳過，只看天守與周邊。"
+      "note": {
+        "text": "從小倉站步行可到，放在北九州段第一站最穩；夏天中午偏熱，體力不足時只看天守與周邊即可。",
+        "html": "從小倉站步行可到，放在北九州段第一站最穩；夏天中午偏熱，體力不足時只看天守與周邊即可。"
       },
       "preview": null
     },
@@ -2994,6 +2571,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Mojiko%20Retro%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://mojiko-retoro9.jp/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -3012,21 +2594,9 @@
         "text": "戶外街區全天；海峽廣場物販約 10:00-20:00，餐飲約 11:00-20:00。",
         "html": "戶外街區全天；海峽廣場物販約 10:00-20:00，餐飲約 11:00-20:00。"
       },
-      "why": {
-        "text": "燒咖喱後用 1.5-2 小時慢慢散步，節奏剛好。",
-        "html": "燒咖喱後用 1.5-2 小時慢慢散步，節奏剛好。"
-      },
-      "bestFor": {
-        "text": "港景、洋館、伴手禮、短咖啡休息。",
-        "html": "港景、洋館、伴手禮、短咖啡休息。"
-      },
-      "nearby": {
-        "text": "BEAR FRUITS、舊門司海關、藍翼門司吊橋、門司港復古展望室。",
-        "html": "BEAR FRUITS、舊門司海關、藍翼門司吊橋、門司港復古展望室。"
-      },
-      "risk": {
-        "text": "要在 16:20 後收束往門司港站，否則會壓到皿倉山日落。",
-        "html": "要在 16:20 後收束往門司港站，否則會壓到皿倉山日落。"
+      "note": {
+        "text": "燒咖喱後用 1.5-2 小時慢慢散步剛好；16:20 後要收束往門司港站，否則會壓到皿倉山日落。",
+        "html": "燒咖喱後用 1.5-2 小時慢慢散步剛好；16:20 後要收束往門司港站，否則會壓到皿倉山日落。"
       },
       "preview": null
     },
@@ -3039,6 +2609,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Former%20Moji%20Customs%201-24%20Higashiminatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.customs.go.jp/moji/moji_kmoj/moji_kmoj.html",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -3056,21 +2631,9 @@
         "text": "8/31 Mon 可；09:00-17:00，無休。",
         "html": "8/31 Mon 可；09:00-17:00，無休。"
       },
-      "why": {
-        "text": "門司港復古區裡最輕量、成本低、很適合順路看的室內點。",
-        "html": "門司港復古區裡最輕量、成本低、很適合順路看的室內點。"
-      },
-      "bestFor": {
-        "text": "建築、短暫避暑、關門海峽視角。",
-        "html": "建築、短暫避暑、關門海峽視角。"
-      },
-      "nearby": {
-        "text": "藍翼門司吊橋、海峽廣場、門司港復古展望室。",
-        "html": "藍翼門司吊橋、海峽廣場、門司港復古展望室。"
-      },
-      "risk": {
-        "text": "17:00 關門，需放在皿倉山前。",
-        "html": "17:00 關門，需放在皿倉山前。"
+      "note": {
+        "text": "門司港復古區裡最輕量的室內點，適合短暫避暑和看紅磚建築；17:00 關門，需放在皿倉山前。",
+        "html": "門司港復古區裡最輕量的室內點，適合短暫避暑和看紅磚建築；17:00 關門，需放在皿倉山前。"
       },
       "preview": null
     },
@@ -3083,6 +2646,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Blue%20Wing%20Moji%204-1%20Minatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.crossroadfukuoka.jp/spot/13074",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -3100,21 +2668,9 @@
         "text": "8/31 Mon 可；開橋 10:00、11:00、13:00、14:00、15:00、16:00；閉橋各 20 分後。",
         "html": "8/31 Mon 可；開橋 10:00、11:00、13:00、14:00、15:00、16:00；閉橋各 20 分後。"
       },
-      "why": {
-        "text": "15:50-16:20 剛好看最後一輪開合，之後收束前往皿倉山。",
-        "html": "15:50-16:20 剛好看最後一輪開合，之後收束前往皿倉山。"
-      },
-      "bestFor": {
-        "text": "港景、橋梁開合、短影片素材。",
-        "html": "港景、橋梁開合、短影片素材。"
-      },
-      "nearby": {
-        "text": "門司港復古區、舊門司海關、海峽廣場。",
-        "html": "門司港復古區、舊門司海關、海峽廣場。"
-      },
-      "risk": {
-        "text": "錯過 16:00 就不等下一輪，直接去皿倉山。",
-        "html": "錯過 16:00 就不等下一輪，直接去皿倉山。"
+      "note": {
+        "text": "15:50-16:20 剛好看最後一輪開合，之後收束前往皿倉山；錯過 16:00 就不等下一輪。",
+        "html": "15:50-16:20 剛好看最後一輪開合，之後收束前往皿倉山；錯過 16:00 就不等下一輪。"
       },
       "preview": null
     },
@@ -3127,6 +2683,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Mojiko%20Retro%20Observation%20Room%201-32%20Higashiminatomachi%20Moji%20Ward%20Kitakyushu%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://mojiko-retoro9.jp/notice/mojiko_retro_observation_room/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -3145,21 +2706,9 @@
         "text": "8/31 Mon 可；10:00-22:00，最終入館 21:30；年 4 回不定休。",
         "html": "8/31 Mon 可；10:00-22:00，最終入館 21:30；年 4 回不定休。"
       },
-      "why": {
-        "text": "皿倉山天氣差時的門司港內備案。",
-        "html": "皿倉山天氣差時的門司港內備案。"
-      },
-      "bestFor": {
-        "text": "室內展望、夕景、天氣不好時保底。",
-        "html": "室內展望、夕景、天氣不好時保底。"
-      },
-      "nearby": {
-        "text": "門司港復古區、舊門司海關、藍翼門司吊橋。",
-        "html": "門司港復古區、舊門司海關、藍翼門司吊橋。"
-      },
-      "risk": {
-        "text": "若皿倉山能見度好，這裡不必特別上去，避免壓縮上山時間。",
-        "html": "若皿倉山能見度好，這裡不必特別上去，避免壓縮上山時間。"
+      "note": {
+        "text": "皿倉山天氣差時的門司港內備案；若皿倉山能見度好，這裡不必特別上去，避免壓縮上山時間。",
+        "html": "皿倉山天氣差時的門司港內備案；若皿倉山能見度好，這裡不必特別上去，避免壓縮上山時間。"
       },
       "preview": null
     },
@@ -3172,6 +2721,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Sarakurayama%20Observatory%20Kitakyushu%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://www.sarakurayama-cablecar.co.jp/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -3190,21 +2744,9 @@
         "text": "8/31 Mon 可；4-10 月 10:00-22:00，上山末班 21:20；週二休。",
         "html": "8/31 Mon 可；4-10 月 10:00-22:00，上山末班 21:20；週二休。"
       },
-      "why": {
-        "text": "8/31 的主景，日落後看北九州夜景。",
-        "html": "8/31 的主景，日落後看北九州夜景。"
-      },
-      "bestFor": {
-        "text": "日落、藍調、夜景、Vlog ending。",
-        "html": "日落、藍調、夜景、Vlog ending。"
-      },
-      "nearby": {
-        "text": "JR 八幡站、皿倉山纜車山麓站。",
-        "html": "JR 八幡站、皿倉山纜車山麓站。"
-      },
-      "risk": {
-        "text": "能見度比營業時間更重要；上山前看 live camera / 天氣，差就不要硬上。",
-        "html": "能見度比營業時間更重要；上山前看 live camera / 天氣，差就不要硬上。"
+      "note": {
+        "text": "門司港後的主要夜景點；能見度比營業時間更重要，上山前看 live camera / 天氣，差就不要硬上。",
+        "html": "門司港後的主要夜景點；能見度比營業時間更重要，上山前看 live camera / 天氣，差就不要硬上。"
       },
       "preview": null
     },
@@ -3228,28 +2770,16 @@
         "html": "博多站"
       },
       "summary": {
-        "text": "9/1 高千穗一日團前寄放大行李，回博多後領取再前往 CROSS Life。",
-        "html": "9/1 高千穗一日團前寄放大行李，回博多後領取再前往 CROSS Life。"
+        "text": "博多站置物櫃與寄物操作點，適合處理大行李。",
+        "html": "博多站置物櫃與寄物操作點，適合處理大行李。"
       },
       "hours": {
         "text": "JR 博多 City locker 多數可用到 24:00；地下鐵 locker 為始發到終電。",
         "html": "JR 博多 City locker 多數可用到 24:00；地下鐵 locker 為始發到終電。"
       },
-      "why": {
-        "text": "集合與回程都在博多站，早上先寄博多站比先繞去 CROSS Life 穩。",
-        "html": "集合與回程都在博多站，早上先寄博多站比先繞去 CROSS Life 穩。"
-      },
-      "bestFor": {
-        "text": "大行李寄放、回程領行李、轉往飯店。",
-        "html": "大行李寄放、回程領行李、轉往飯店。"
-      },
-      "nearby": {
-        "text": "博多站筑紫口、Oriental Hotel、地下鐵七隈線 / 機場線。",
-        "html": "博多站筑紫口、Oriental Hotel、地下鐵七隈線 / 機場線。"
-      },
-      "risk": {
-        "text": "大型 locker 可能滿；早上優先找 AMU Plaza B1F / 3F / Deitos B1F / Deitos Annex 1F。JR 臨時寄物櫃台 10:30 才開始，不適合 07:50 集合。",
-        "html": "大型 locker 可能滿；早上優先找 AMU Plaza B1F / 3F / Deitos B1F / Deitos Annex 1F。JR 臨時寄物櫃台 10:30 才開始，不適合 07:50 集合。"
+      "note": {
+        "text": "集合與回程都在博多站，早上先寄博多站比先繞去 CROSS Life 穩；大型 locker 優先找 AMU Plaza / Deitos 一帶。",
+        "html": "集合與回程都在博多站，早上先寄博多站比先繞去 CROSS Life 穩；大型 locker 優先找 AMU Plaza / Deitos 一帶。"
       },
       "preview": null
     },
@@ -3280,21 +2810,9 @@
         "text": "戶外神社，依一日團停留時間為準。",
         "html": "戶外神社，依一日團停留時間為準。"
       },
-      "why": {
-        "text": "高千穗一日團第一個神話 / 山林景點。",
-        "html": "高千穗一日團第一個神話 / 山林景點。"
-      },
-      "bestFor": {
-        "text": "石燈籠參道、森林感、短影片開場。",
-        "html": "石燈籠參道、森林感、短影片開場。"
-      },
-      "nearby": {
-        "text": "高千穗峽、天岩戶神社。",
-        "html": "高千穗峽、天岩戶神社。"
-      },
-      "risk": {
-        "text": "階梯與上坡多，穿好走的鞋；下雨時注意濕滑。",
-        "html": "階梯與上坡多，穿好走的鞋；下雨時注意濕滑。"
+      "note": {
+        "text": "一日團第一個山林神社點，石燈籠參道很適合開場畫面；階梯與上坡多，穿好走的鞋，下雨時注意濕滑。",
+        "html": "一日團第一個山林神社點，石燈籠參道很適合開場畫面；階梯與上坡多，穿好走的鞋，下雨時注意濕滑。"
       },
       "preview": null
     },
@@ -3307,6 +2825,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Takachiho%20Gorge%20Mukoyama%20Takachiho%20Miyazaki",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://takachiho-kanko.info/sightseeing/18/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -3324,21 +2847,9 @@
         "text": "戶外景點，入場免費；船不搭，仍可從遊步道與滝見台看瀑布。",
         "html": "戶外景點，入場免費；船不搭，仍可從遊步道與滝見台看瀑布。"
       },
-      "why": {
-        "text": "9/1 主景，不划船也值得看。",
-        "html": "9/1 主景，不划船也值得看。"
-      },
-      "bestFor": {
-        "text": "真名井瀑布滝見台、約 1km 遊步道、三段橋、峽谷地形；不搭船、不等船。",
-        "html": "真名井瀑布滝見台、約 1km 遊步道、三段橋、峽谷地形；不搭船、不等船。"
-      },
-      "nearby": {
-        "text": "千穂の家、高千穗峽淡水魚水族館。",
-        "html": "千穂の家、高千穗峽淡水魚水族館。"
-      },
-      "risk": {
-        "text": "不含餐方案不含高千穗峽接駁車，需自行走回停車場 / 集合點；若 2026 地震 / 大雨造成步道通行限制，以官方當日公告與導遊指示為準。",
-        "html": "不含餐方案不含高千穗峽接駁車，需自行走回停車場 / 集合點；若 2026 地震 / 大雨造成步道通行限制，以官方當日公告與導遊指示為準。"
+      "note": {
+        "text": "不划船也值得看，重點是真名井瀑布、遊步道和峽谷地形；不含餐方案沒有接駁車，需自行走回停車場 / 集合點。若步道受天氣或災害限制，以官方公告與導遊指示為準。",
+        "html": "不划船也值得看，重點是真名井瀑布、遊步道和峽谷地形；不含餐方案沒有接駁車，需自行走回停車場 / 集合點。若步道受天氣或災害限制，以官方公告與導遊指示為準。"
       },
       "preview": null
     },
@@ -3351,6 +2862,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Amanoiwato%20Shrine%20107%20Iwato%20Takachiho%20Miyazaki",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://amanoiwato-jinja.jp/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -3369,21 +2885,9 @@
         "text": "徴古館 08:30-16:30；境內與天安河原依現場參拜動線為準。",
         "html": "徴古館 08:30-16:30；境內與天安河原依現場參拜動線為準。"
       },
-      "why": {
-        "text": "高千穗神話線最重要的一組景點。",
-        "html": "高千穗神話線最重要的一組景點。"
-      },
-      "bestFor": {
-        "text": "西本宮、天安河原洞窟、堆石景觀、神話氛圍。",
-        "html": "西本宮、天安河原洞窟、堆石景觀、神話氛圍。"
-      },
-      "nearby": {
-        "text": "高千穗峽、上色見熊野座神社。",
-        "html": "高千穗峽、上色見熊野座神社。"
-      },
-      "risk": {
-        "text": "自由時間約 1 小時，天安河原來回要抓腳程，不要停太久。",
-        "html": "自由時間約 1 小時，天安河原來回要抓腳程，不要停太久。"
+      "note": {
+        "text": "高千穗神話線最重要的一組景點；自由時間約 1 小時，天安河原來回要抓腳程，不要停太久。",
+        "html": "高千穗神話線最重要的一組景點；自由時間約 1 小時，天安河原來回要抓腳程，不要停太久。"
       },
       "preview": null
     },
@@ -3413,21 +2917,9 @@
         "text": "戶外神社，短暫參拜即可。",
         "html": "戶外神社，短暫參拜即可。"
       },
-      "why": {
-        "text": "從天神往糸島方向的 JR 筑肥線上，先下山門再繼續往西很順。",
-        "html": "從天神往糸島方向的 JR 筑肥線上，先下山門再繼續往西很順。"
-      },
-      "bestFor": {
-        "text": "鳥居、短暫參拜、早上暖身散步。",
-        "html": "鳥居、短暫參拜、早上暖身散步。"
-      },
-      "nearby": {
-        "text": "下山門站、生の松原。",
-        "html": "下山門站、生の松原。"
-      },
-      "risk": {
-        "text": "不排太久，09:43 前要回下山門搭車往筑前前原。",
-        "html": "不排太久，09:43 前要回下山門搭車往筑前前原。"
+      "note": {
+        "text": "從天神往糸島方向時順路短停；不排太久，09:43 前要回下山門搭車往筑前前原。",
+        "html": "從天神往糸島方向時順路短停；不排太久，09:43 前要回下山門搭車往筑前前原。"
       },
       "preview": null
     },
@@ -3463,21 +2955,9 @@
         "text": "戶外神社；以天氣、潮位與現場安全為準。",
         "html": "戶外神社；以天氣、潮位與現場安全為準。"
       },
-      "why": {
-        "text": "9/2 的海上神社主目標。",
-        "html": "9/2 的海上神社主目標。"
-      },
-      "bestFor": {
-        "text": "鳥居、海邊神社、短影片素材。",
-        "html": "鳥居、海邊神社、短影片素材。"
-      },
-      "nearby": {
-        "text": "加布里、塚本鮮魚店。",
-        "html": "加布里、塚本鮮魚店。"
-      },
-      "risk": {
-        "text": "不要從一貴山硬走；Google Maps 約 46 分鐘且路肩窄。官方建議從筑前前原搭計程車，或從加布里步行約 32 分鐘。",
-        "html": "不要從一貴山硬走；Google Maps 約 46 分鐘且路肩窄。官方建議從筑前前原搭計程車，或從加布里步行約 32 分鐘。"
+      "note": {
+        "text": "糸島海上神社主目標；不要從一貴山硬走，Google Maps 約 46 分鐘且路肩窄。官方建議從筑前前原搭計程車，或從加布里步行約 32 分鐘。",
+        "html": "糸島海上神社主目標；不要從一貴山硬走，Google Maps 約 46 分鐘且路肩窄。官方建議從筑前前原搭計程車，或從加布里步行約 32 分鐘。"
       },
       "preview": {
         "title": "公式【箱島神社】ハート御朱印・駐車場・行き方",
@@ -3494,6 +2974,11 @@
           "label": "Google Maps",
           "url": "https://www.google.com/maps?q=Sakurai%20Futamigaura%20Meotoiwa%20Shima%20Sakurai%20Itoshima%20Fukuoka",
           "kind": "map"
+        },
+        {
+          "label": "官方網站",
+          "url": "https://kanko-itoshima.jp/spot/sakuraihutamigaura/",
+          "kind": "official"
         }
       ],
       "tags": [
@@ -3512,21 +2997,9 @@
         "text": "戶外景點，全天；巴士回程時間比景點開放時間更重要。",
         "html": "戶外景點，全天；巴士回程時間比景點開放時間更重要。"
       },
-      "why": {
-        "text": "9/2 下午主景點。",
-        "html": "9/2 下午主景點。"
-      },
-      "bestFor": {
-        "text": "夫婦岩、海中鳥居、海岸散步、夕景前段。",
-        "html": "夫婦岩、海中鳥居、海岸散步、夕景前段。"
-      },
-      "nearby": {
-        "text": "PALM BEACH THE GARDENS、Beach Cafe SUNSET。",
-        "html": "PALM BEACH THE GARDENS、Beach Cafe SUNSET。"
-      },
-      "risk": {
-        "text": "2026/4 後原「二見ヶ浦・夫婦岩前」巴士站廢止，使用「二見ヶ浦・PALMBEACH前」或「二見ヶ浦・月と太陽糸島茶房前」。",
-        "html": "2026/4 後原「二見ヶ浦・夫婦岩前」巴士站廢止，使用「二見ヶ浦・PALMBEACH前」或「二見ヶ浦・月と太陽糸島茶房前」。"
+      "note": {
+        "text": "糸島下午主景點，重點是夫婦岩、海中鳥居和海岸散步；2026/4 後原「二見ヶ浦・夫婦岩前」巴士站廢止，回程要用新站名。",
+        "html": "糸島下午主景點，重點是夫婦岩、海中鳥居和海岸散步；2026/4 後原「二見ヶ浦・夫婦岩前」巴士站廢止，回程要用新站名。"
       },
       "preview": null
     },
@@ -3555,28 +3028,16 @@
         "html": "糸島 / 二見浦"
       },
       "summary": {
-        "text": "二見浦海岸旁的餐廳、咖啡與拍照區，適合等 West Coast Liner 前休息。",
-        "html": "二見浦海岸旁的餐廳、咖啡與拍照區，適合等 West Coast Liner 前休息。"
+        "text": "二見浦海岸旁的複合餐飲與拍照區，有海景店家與拍照點。",
+        "html": "二見浦海岸旁的複合餐飲與拍照區，有海景店家與拍照點。"
       },
       "hours": {
         "text": "店家各自不同；海岸與拍照區以現場為準。",
         "html": "店家各自不同；海岸與拍照區以現場為準。"
       },
-      "why": {
-        "text": "接在夫婦岩後，不需要再移動到別區。",
-        "html": "接在夫婦岩後，不需要再移動到別區。"
-      },
-      "bestFor": {
-        "text": "咖啡、海景、天使之羽拍照、回程前休息。",
-        "html": "咖啡、海景、天使之羽拍照、回程前休息。"
-      },
-      "nearby": {
-        "text": "櫻井二見浦、二見ヶ浦・PALMBEACH前巴士站。",
-        "html": "櫻井二見浦、二見ヶ浦・PALMBEACH前巴士站。"
-      },
-      "risk": {
-        "text": "不要錯過 16:32 / 17:32 回程巴士；如果想看夕陽，回市區時間會變晚。",
-        "html": "不要錯過 16:32 / 17:32 回程巴士；如果想看夕陽，回市區時間會變晚。"
+      "note": {
+        "text": "接在夫婦岩後作為海岸休息點，不押特定店家；不要錯過 16:32 / 17:32 回程巴士。若想看夕陽，回市區時間會變晚。",
+        "html": "接在夫婦岩後作為海岸休息點，不押特定店家；不要錯過 16:32 / 17:32 回程巴士。若想看夕陽，回市區時間會變晚。"
       },
       "preview": {
         "title": "《公式》糸島・二見ヶ浦のリゾートモール「パームビーチ・ザ・ガーデンズ」",
@@ -3608,28 +3069,16 @@
         "html": "天神"
       },
       "summary": {
-        "text": "最後一天主要逛街區，衣服、雜貨、百貨、地下街與電子產品都集中。",
-        "html": "最後一天主要逛街區，衣服、雜貨、百貨、地下街與電子產品都集中。"
+        "text": "福岡市中心購物區，百貨、地下街、服飾與電器店集中。",
+        "html": "福岡市中心購物區，百貨、地下街、服飾與電器店集中。"
       },
       "hours": {
         "text": "9/3 Thu 可；福岡PARCO 物販 10:00-20:30，天神地下街商店 10:00-20:00，BicCamera 天神 10:00-21:00。",
         "html": "9/3 Thu 可；福岡PARCO 物販 10:00-20:30，天神地下街商店 10:00-20:00，BicCamera 天神 10:00-21:00。"
       },
-      "why": {
-        "text": "最後一天不排遠景點，把購物、午餐和咖啡留在市區核心。",
-        "html": "最後一天不排遠景點，把購物、午餐和咖啡留在市區核心。"
-      },
-      "bestFor": {
-        "text": "衣服、百貨、地下街、BicCamera 電子產品初看。",
-        "html": "衣服、百貨、地下街、BicCamera 電子產品初看。"
-      },
-      "nearby": {
-        "text": "元祖博多明太重、REC COFFEE、COFFEE COUNTY、CROSS Life。",
-        "html": "元祖博多明太重、REC COFFEE、COFFEE COUNTY、CROSS Life。"
-      },
-      "risk": {
-        "text": "天神好逛但容易失控，12:20 要收束去午餐或博多站。",
-        "html": "天神好逛但容易失控，12:20 要收束去午餐或博多站。"
+      "note": {
+        "text": "把購物、午餐和咖啡集中在市區核心，不排遠景點；天神好逛但容易失控，12:20 要收束去午餐或博多站。",
+        "html": "把購物、午餐和咖啡集中在市區核心，不排遠景點；天神好逛但容易失控，12:20 要收束去午餐或博多站。"
       },
       "preview": {
         "title": "アクセス＆施設案内 │ 福岡PARCO-パルコ-",
@@ -3662,28 +3111,16 @@
         "html": "博多站"
       },
       "summary": {
-        "text": "最後採買主力放博多站 Ming / 博多 Deitos，機場只當補買。",
-        "html": "最後採買主力放博多站 Ming / 博多 Deitos，機場只當補買。"
+        "text": "博多站 Ming / 博多 Deitos 集中的伴手禮採買區。",
+        "html": "博多站 Ming / 博多 Deitos 集中的伴手禮採買區。"
       },
       "hours": {
         "text": "9/3 Thu 可；Ming 09:00-21:00，博多通りもん博多 Deitos 店 08:00-21:00。",
         "html": "9/3 Thu 可；Ming 09:00-21:00，博多通りもん博多 Deitos 店 08:00-21:00。"
       },
-      "why": {
-        "text": "比機場選擇多，且買完可以回 CROSS Life 領行李。",
-        "html": "比機場選擇多，且買完可以回 CROSS Life 領行李。"
-      },
-      "bestFor": {
-        "text": "努努鶏、博多通りもん、明太子系、車站伴手禮。",
-        "html": "努努鶏、博多通りもん、明太子系、車站伴手禮。"
-      },
-      "nearby": {
-        "text": "FUGLEN FUKUOKA、Yodobashi 博多、博多站。",
-        "html": "FUGLEN FUKUOKA、Yodobashi 博多、博多站。"
-      },
-      "risk": {
-        "text": "買太多要考慮行李重量；冷藏 / 冷凍品要確認攜帶方式。",
-        "html": "買太多要考慮行李重量；冷藏 / 冷凍品要確認攜帶方式。"
+      "note": {
+        "text": "比機場選擇多，買完也方便回 CROSS Life 領行李；買太多要考慮行李重量，冷藏 / 冷凍品要確認攜帶方式。",
+        "html": "比機場選擇多，買完也方便回 CROSS Life 領行李；買太多要考慮行李重量，冷藏 / 冷凍品要確認攜帶方式。"
       },
       "preview": {
         "title": "マイング -博多・九州のおみやげ処、全92店舗",
@@ -3716,28 +3153,16 @@
         "html": "博多站"
       },
       "summary": {
-        "text": "博多站筑紫口旁大型電器店，下午買電子產品的保底點。",
-        "html": "博多站筑紫口旁大型電器店，下午買電子產品的保底點。"
+        "text": "博多站筑紫口旁的大型電器量販店。",
+        "html": "博多站筑紫口旁的大型電器量販店。"
       },
       "hours": {
         "text": "9/3 Thu 可；Yodobashi Camera 09:30-22:00。",
         "html": "9/3 Thu 可；Yodobashi Camera 09:30-22:00。"
       },
-      "why": {
-        "text": "若天神 BicCamera 沒買齊，轉博多站後還有時間補電子產品。",
-        "html": "若天神 BicCamera 沒買齊，轉博多站後還有時間補電子產品。"
-      },
-      "bestFor": {
-        "text": "電子產品、相機周邊、刮鬍刀、耗材。",
-        "html": "電子產品、相機周邊、刮鬍刀、耗材。"
-      },
-      "nearby": {
-        "text": "博多站、FUGLEN FUKUOKA、Ming。",
-        "html": "博多站、FUGLEN FUKUOKA、Ming。"
-      },
-      "risk": {
-        "text": "16:10 後要回飯店領行李，不能在退稅 / 結帳拖太久。",
-        "html": "16:10 後要回飯店領行李，不能在退稅 / 結帳拖太久。"
+      "note": {
+        "text": "若天神 BicCamera 沒買齊，轉博多站後還能補電子產品；16:10 後要回飯店領行李，不能在退稅或結帳拖太久。",
+        "html": "若天神 BicCamera 沒買齊，轉博多站後還能補電子產品；16:10 後要回飯店領行李，不能在退稅或結帳拖太久。"
       },
       "preview": {
         "title": "ヨドバシ博多｜施設のご案内",
@@ -3770,28 +3195,16 @@
         "html": "福岡機場國際線"
       },
       "summary": {
-        "text": "機場最後補買與免稅保底，不當主力採買。",
-        "html": "機場最後補買與免稅保底，不當主力採買。"
+        "text": "福岡機場國際線的伴手禮與免稅採買區。",
+        "html": "福岡機場國際線的伴手禮與免稅採買區。"
       },
       "hours": {
         "text": "9/3 Thu 可；國際線出境後免稅店約 07:00 到最後航班，JAL PLAZA 國際線出發大廳 06:30-20:30。",
         "html": "9/3 Thu 可；國際線出境後免稅店約 07:00 到最後航班，JAL PLAZA 國際線出發大廳 06:30-20:30。"
       },
-      "why": {
-        "text": "若博多站漏買，機場還能補部分伴手禮與免稅品。",
-        "html": "若博多站漏買，機場還能補部分伴手禮與免稅品。"
-      },
-      "bestFor": {
-        "text": "免稅品、臨時伴手禮、登機前補買。",
-        "html": "免稅品、臨時伴手禮、登機前補買。"
-      },
-      "nearby": {
-        "text": "EVA Air check-in、國際線出境。",
-        "html": "EVA Air check-in、國際線出境。"
-      },
-      "risk": {
-        "text": "國際線航廈部分店在安檢前後位置不同；不要把重要伴手禮全押機場。",
-        "html": "國際線航廈部分店在安檢前後位置不同；不要把重要伴手禮全押機場。"
+      "note": {
+        "text": "若博多站漏買，機場還能補部分伴手禮與免稅品；店家分布在安檢前後，不要把重要伴手禮全押機場。",
+        "html": "若博多站漏買，機場還能補部分伴手禮與免稅品；店家分布在安檢前後，不要把重要伴手禮全押機場。"
       },
       "preview": {
         "title": "福岡空港免税店サイト",

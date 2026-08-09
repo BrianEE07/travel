@@ -176,6 +176,8 @@ Every public entity should use these common fields when applicable:
 - Summary：One short public summary.
 - Map：[Google Maps][map-key]
 - Official：https://example.com/
+- Hours：Open hours or availability.
+- Note：Operational notes, risks, backups, nearby context, or practical reminders.
 
 [Back to top](<#Trip Title>)
 ```
@@ -183,8 +185,9 @@ Every public entity should use these common fields when applicable:
 Rules:
 
 - Entity fields must be list items in the form `- Field：value`. Do not use bare `Field：value` lines in public entity sections, because Obsidian preview may merge bare consecutive lines into one paragraph.
-- `Area`, `Summary`, and `Map` are required unless the entity is a route-only transportation entity.
+- `Area`, `Tags`, `Summary`, `Map`, and `Hours` are required for `Food` and `Places`.
 - `Official` is optional.
+- `Note` is optional.
 - Entity titles must be globally unique.
 - Unknown public fields must fail the build.
 - Every entity should end with `[Back to top](<#Trip Title>)` for note navigation. The website parser should ignore this navigation link.
@@ -238,9 +241,40 @@ Private：
 
 Allowed fields:
 
-- Common fields: `Area`, `Summary`, `Map`, `Official`
-- Type fields: `Hours`, `Reservation`, `ReservationTime`, `Party`, `Why`, `Risk`, `Backup`
+- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`, `Hours`, `Reservation`, `ReservationTime`, `Party`, `Note`
 - Private block: `Private：`
+
+Required fields:
+
+- `Area`
+- `Tags`
+- `Summary`
+- `Map`
+- `Hours`
+
+Optional fields:
+
+- `Official`
+- `Reservation`
+- `ReservationTime`
+- `Party`
+- `Note`
+- `Private：`
+
+`Official` is optional. Add it only when the official / primary site is useful for hours, booking, tickets, notices, store details, or facility details. Do not use blog posts, review platforms, map search pages, or generic social links as `Official`.
+
+Use `Note` for practical context that should not become separate schema fields: route reason, risks, backup choice, nearby context, ordering reminder, queue risk, or time pressure. Do not use separate `Why`, `Risk`, or `Backup` fields.
+
+`Note` should read like a short human reminder, not a dump of former fields. Prefer one or two smooth sentences. Avoid mechanical list fragments such as `nearby places; best for; risk; backup` when the information is already covered by `Summary`, `Tags`, `Daily Plan`, or `Transportation`.
+
+`Hours` format should be concise and consistent:
+
+- Date-specific entity: `Hours：8/30 Sun 可；08:00-20:00。`
+- Date-specific entity with uncertainty: `Hours：8/29 Sat 可但有風險；11:00 開始，售完為止；不定休。`
+- Outdoor / always-open entity: `Hours：戶外景點，全天；周邊店家另計。`
+- Service / flexible entity: `Hours：JR 博多 City locker 多數可用到 24:00；地下鐵 locker 為始發到終電。`
+
+Do not over-normalize `Hours` when a place is outdoor, route-like, or depends on multiple stores. Keep the field useful for the traveler rather than forcing fake opening hours.
 
 Use explicit values for reservations:
 
@@ -248,6 +282,15 @@ Use explicit values for reservations:
 - `Reservation：none`
 - `Reservation：needed`
 - `Reservation：tbd`
+
+Reservation fields:
+
+- `Reservation` is optional, but food entities should usually include it because restaurants differ on whether reservations are done, unavailable, or unnecessary.
+- If `Reservation：none`, do not write `ReservationTime` or `Party`.
+- If `Reservation：done`, write `ReservationTime` when there is a fixed reservation time, using `YYYY-MM-DD HH:mm`.
+- Write `Party` only when the reservation, ticket, course, seat, or visitor count is operationally relevant.
+- `Party` format should be `4 人`, `1 人`, etc.
+- Put booking platform, booking number, cancellation / management URL, verification code, and private contact data in `Private：`.
 
 Food tags:
 
@@ -263,9 +306,50 @@ Food tags:
 
 Allowed fields:
 
-- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`
-- Type fields: `Hours`, `Why`, `BestFor`, `Nearby`, `Risk`
+- Common fields: `Area`, `Tags`, `Summary`, `Map`, `Official`, `Hours`, `Reservation`, `ReservationTime`, `Party`, `Note`
 - Private block: `Private：`
+
+Required fields:
+
+- `Area`
+- `Tags`
+- `Summary`
+- `Map`
+- `Hours`
+
+Optional fields:
+
+- `Official`
+- `Reservation`
+- `ReservationTime`
+- `Party`
+- `Note`
+- `Private：`
+
+`Official` is optional. Add it only when the official / primary site is useful for hours, tickets, access, notices, facility details, or public guidance. Tourism association / government pages are acceptable for public places that do not have their own official site. Do not use blog posts, review platforms, map search pages, or generic social links as `Official`.
+
+Use `Note` for practical context that should not become separate schema fields: route reason, risks, backup choice, nearby context, best use, weather concern, or time pressure. Do not use separate `Why`, `BestFor`, `Nearby`, or `Risk` fields.
+
+`Note` should read like a short human reminder, not a dump of former fields. Prefer one or two smooth sentences. Avoid mechanical list fragments such as `nearby places; best for; risk; backup` when the information is already covered by `Summary`, `Tags`, `Daily Plan`, or `Transportation`.
+
+`Hours` format should be concise and consistent:
+
+- Date-specific entity: `Hours：8/31 Mon 可；09:00-17:00，無休。`
+- Date-specific entity with uncertainty: `Hours：8/28 Fri 不確定。`
+- Outdoor / always-open entity: `Hours：戶外景點，全天；周邊店家另計。`
+- Service / flexible entity: `Hours：店家各自不同；海岸與拍照區以現場為準。`
+
+Do not over-normalize `Hours` when a place is outdoor, route-like, or depends on multiple stores. Keep the field useful for the traveler rather than forcing fake opening hours.
+
+Reservation fields:
+
+- `Reservation`, `ReservationTime`, and `Party` are optional for places.
+- Use them only for places with booking, ticketed timed entry, guided tours, activities, paid seats, or visitor-count-sensitive plans.
+- If `Reservation：none`, do not write `ReservationTime` or `Party`.
+- If `Reservation：done`, write `ReservationTime` when there is a fixed reservation time, using `YYYY-MM-DD HH:mm`.
+- Write `Party` only when the reservation, ticket, seat, or visitor count is operationally relevant.
+- `Party` format should be `4 人`, `1 人`, etc.
+- Put booking platform, booking number, cancellation / management URL, verification code, and private contact data in `Private：`.
 
 Place tags:
 

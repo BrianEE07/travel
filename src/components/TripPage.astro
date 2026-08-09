@@ -294,8 +294,8 @@ const hasPlanningDays = trip.days.some((day) => !day.detailed);
     const typeLabels: Record<string, string> = { stay: '住宿', food: '餐飲', place: '景點', transport: '交通' };
     const detailFields: Record<string, Array<[string, string]>> = {
       stay: [['area', '區域'], ['checkIn', '入住'], ['checkOut', '退房'], ['room', '房型'], ['price', '價格'], ['access', '交通'], ['contact', '聯絡'], ['policy', '取消政策']],
-      food: [['area', '區域'], ['hours', '營業'], ['reservation', '訂位'], ['reservationTime', '時間'], ['party', '人數'], ['why', '安排原因'], ['risk', '留意'], ['backup', '備案']],
-      place: [['area', '區域'], ['hours', '開放'], ['why', '安排原因'], ['bestFor', '適合'], ['nearby', '附近'], ['risk', '留意']],
+      food: [['area', '區域'], ['hours', '營業'], ['reservation', '訂位'], ['reservationTime', '訂位時間'], ['party', '人數'], ['note', '備註']],
+      place: [['area', '區域'], ['hours', '開放'], ['reservation', '預約'], ['reservationTime', '預約時間'], ['party', '人數'], ['note', '備註']],
     };
     const transportSegmentFields: Array<[string, string]> = [
       ['route', '路線'],

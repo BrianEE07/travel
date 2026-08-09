@@ -26,14 +26,14 @@ const ENTITY_FIELDS = {
     properties: { Area: 'area', Summary: 'summary', CheckIn: 'checkIn', CheckOut: 'checkOut', Room: 'room', Price: 'price', Access: 'access', Contact: 'contact', Policy: 'policy' },
   },
   food: {
-    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Why', 'Risk', 'Backup'],
-    required: ['Area', 'Summary', 'Map', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Why', 'Risk', 'Backup'],
-    properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party', Why: 'why', Risk: 'risk', Backup: 'backup' },
+    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Note'],
+    required: ['Area', 'Tags', 'Summary', 'Map', 'Hours'],
+    properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party', Note: 'note' },
   },
   place: {
-    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', 'Hours', 'Why', 'BestFor', 'Nearby', 'Risk'],
-    required: ['Area', 'Summary', 'Map', 'Hours', 'Why', 'BestFor', 'Nearby', 'Risk'],
-    properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Why: 'why', BestFor: 'bestFor', Nearby: 'nearby', Risk: 'risk' },
+    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Note'],
+    required: ['Area', 'Tags', 'Summary', 'Map', 'Hours'],
+    properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party', Note: 'note' },
   },
   transport: {
     allowed: ['Summary'],
@@ -473,9 +473,16 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   for (const field of config.required) {
     if (!fields.get(field)) errors.push(`${title} 缺少必要欄位：${field}`);
   }
-  if (type === 'food' && fields.has('Reservation') && !RESERVATION_VALUES.has(fields.get('Reservation'))) {
+  if ((type === 'food' || type === 'place') && fields.has('Reservation') && !RESERVATION_VALUES.has(fields.get('Reservation'))) {
     errors.push(`${title} 的 Reservation 必須是 done / none / needed / tbd`);
   }
+  const reservation = fields.get('Reservation');
+  const reservationTime = fields.get('ReservationTime');
+  const party = fields.get('Party');
+  if (reservation === 'none' && (reservationTime || party)) errors.push(`${title} 的 Reservation 為 none 時不可使用 ReservationTime 或 Party`);
+  if (reservationTime && reservation !== 'done') errors.push(`${title} 只有 Reservation 為 done 時可使用 ReservationTime`);
+  if (reservationTime && !/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(reservationTime)) errors.push(`${title} 的 ReservationTime 必須是 YYYY-MM-DD HH:mm`);
+  if (party && !/^\d+ 人$/.test(party)) errors.push(`${title} 的 Party 必須是「數字 人」`);
   const tags = (fields.get('Tags') ?? '').split(',').map((tag) => tag.trim()).filter(Boolean);
   if (new Set(tags).size !== tags.length) errors.push(`${title} 的 Tags 不可重複`);
   const allowedTags = type === 'food' ? FOOD_TAGS : type === 'place' ? PLACE_TAGS : null;

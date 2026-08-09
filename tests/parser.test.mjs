@@ -97,10 +97,7 @@ Private：
 - Summary：安靜的早晨咖啡店。
 - Map：[Google Maps][cafe]
 - Hours：08:00-18:00
-- Why：早餐
-- BestFor：咖啡
-- Nearby：紙屋
-- Risk：可能客滿
+- Note：適合早上短暫停留，若客滿就直接前往下一站。
 
 [Back to top](<#測試之旅>)
 
@@ -152,6 +149,8 @@ test('parses schema 2 into structured public trip data', () => {
   assert.equal(stay.price.text, 'JPY 8,800（2 人 / 1 晚，已付）');
   const place = trip.entities.find((entity) => entity.type === 'place');
   assert.deepEqual(place.tags, ['shopping', 'backup']);
+  assert.equal(place.note.text, '適合早上短暫停留，若客滿就直接前往下一站。');
+  assert.equal(place.reservation, undefined);
   const transport = trip.entities.find((entity) => entity.type === 'transport');
   assert.equal(transport.segments.length, 2);
   assert.equal(transport.segments[0].price.text, 'TWD 12,000（2 人合計，已付）');
@@ -181,9 +180,17 @@ test('rejects full timeline entries without a canonical tag', () => {
 });
 
 test('rejects unknown entity fields and broken public links', () => {
-  assert.throws(() => parseTrip(fixture.replace('- Risk：可能客滿', '- Mood：安靜')), /未知欄位：Mood/);
+  assert.throws(() => parseTrip(fixture.replace('- Note：適合早上短暫停留，若客滿就直接前往下一站。', '- Why：適合早上短暫停留')), /未知欄位：Why/);
   assert.throws(() => parseTrip(fixture.replace('shopping, backup', 'shopping, unknown')), /未知 tag：unknown/);
   assert.throws(() => parseTrip(fixture.replace('<#測試咖啡｜8\/27>', '<#不存在的咖啡>')), /找不到標題/);
+});
+
+test('validates optional reservation fields', () => {
+  const reserved = fixture.replace('- Hours：08:00-18:00', '- Hours：08:00-18:00\n- Reservation：done\n- ReservationTime：2026-08-27 09:00\n- Party：2 人');
+  assert.doesNotThrow(() => parseTrip(reserved));
+  assert.throws(() => parseTrip(reserved.replace('2026-08-27 09:00', '8/27 09:00')), /YYYY-MM-DD HH:mm/);
+  assert.throws(() => parseTrip(reserved.replace('Reservation：done', 'Reservation：none')), /不可使用 ReservationTime 或 Party/);
+  assert.throws(() => parseTrip(reserved.replace('Party：2 人', 'Party：兩人')), /數字 人/);
 });
 
 test('requires the exact segment table and required values for transportation', () => {

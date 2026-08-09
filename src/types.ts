@@ -41,22 +41,20 @@ export interface FoodEntity extends BaseEntity {
   type: 'food';
   area: RichText;
   hours: RichText;
-  reservation: RichText;
-  reservationTime: RichText;
-  party: RichText;
-  why: RichText;
-  risk: RichText;
-  backup: RichText;
+  reservation?: RichText;
+  reservationTime?: RichText;
+  party?: RichText;
+  note?: RichText;
 }
 
 export interface PlaceEntity extends BaseEntity {
   type: 'place';
   area: RichText;
   hours: RichText;
-  why: RichText;
-  bestFor: RichText;
-  nearby: RichText;
-  risk: RichText;
+  reservation?: RichText;
+  reservationTime?: RichText;
+  party?: RichText;
+  note?: RichText;
 }
 
 export interface TransportSegment {
