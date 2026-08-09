@@ -13,8 +13,8 @@ const reservation = entity.reservation
   <span class="entity-summary">{entity.summary.text}</span>
   <TagChips type="food" tags={entity.tags} />
   <span class="entity-card-facts">
-    {reservation && <span class="entity-fact"><i>訂位</i><b>{reservation}</b></span>}
     <span class="entity-fact"><i>區域</i><b>{entity.area.text}</b></span>
+    {reservation && <span class="entity-fact"><i>訂位</i><b>{reservation}</b></span>}
   </span>
   <span class="entity-open">查看餐飲資訊 <i class="external-arrow" aria-hidden="true"></i></span>
 </button>

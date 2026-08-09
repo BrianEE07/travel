@@ -19,19 +19,21 @@ const ENTITY_SECTIONS = new Map([
   ['Transportation', 'transport'],
 ]);
 
+const ENTITY_IMAGE_FIELDS = ['Image', 'ImageSource', 'ImageCredit', 'ImageAlt'];
+
 const ENTITY_FIELDS = {
   stay: {
-    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', 'CheckIn', 'CheckOut', 'Room', 'Price', 'Access', 'Contact', 'Policy'],
+    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', ...ENTITY_IMAGE_FIELDS, 'CheckIn', 'CheckOut', 'Room', 'Price', 'Access', 'Contact', 'Policy'],
     required: ['Area', 'Summary', 'Map', 'CheckIn', 'CheckOut', 'Room', 'Price', 'Access', 'Contact', 'Policy'],
     properties: { Area: 'area', Summary: 'summary', CheckIn: 'checkIn', CheckOut: 'checkOut', Room: 'room', Price: 'price', Access: 'access', Contact: 'contact', Policy: 'policy' },
   },
   food: {
-    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Note'],
+    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', ...ENTITY_IMAGE_FIELDS, 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Note'],
     required: ['Area', 'Tags', 'Summary', 'Map', 'Hours'],
     properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party', Note: 'note' },
   },
   place: {
-    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Note'],
+    allowed: ['Area', 'Tags', 'Summary', 'Map', 'Official', ...ENTITY_IMAGE_FIELDS, 'Hours', 'Reservation', 'ReservationTime', 'Party', 'Note'],
     required: ['Area', 'Tags', 'Summary', 'Map', 'Hours'],
     properties: { Area: 'area', Summary: 'summary', Hours: 'hours', Reservation: 'reservation', ReservationTime: 'reservationTime', Party: 'party', Note: 'note' },
   },
@@ -483,6 +485,12 @@ function parseEntity(title, content, type, entityIds, references, secrets, error
   if (reservationTime && reservation !== 'done') errors.push(`${title} 只有 Reservation 為 done 時可使用 ReservationTime`);
   if (reservationTime && !/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(reservationTime)) errors.push(`${title} 的 ReservationTime 必須是 YYYY-MM-DD HH:mm`);
   if (party && !/^\d+ 人$/.test(party)) errors.push(`${title} 的 Party 必須是「數字 人」`);
+  const image = fields.get('Image');
+  const imageSource = fields.get('ImageSource');
+  const imageCredit = fields.get('ImageCredit');
+  if (image && !isSafePublicUrl(image)) errors.push(`${title} 的 Image 必須是安全的 HTTPS 網址`);
+  if (imageSource && !isSafePublicUrl(imageSource)) errors.push(`${title} 的 ImageSource 必須是安全的 HTTPS 網址`);
+  if (image && (!imageSource || !imageCredit)) errors.push(`${title} 使用 Image 時必須同時提供 ImageSource 與 ImageCredit`);
   const tags = (fields.get('Tags') ?? '').split(',').map((tag) => tag.trim()).filter(Boolean);
   if (new Set(tags).size !== tags.length) errors.push(`${title} 的 Tags 不可重複`);
   const allowedTags = type === 'food' ? FOOD_TAGS : type === 'place' ? PLACE_TAGS : null;

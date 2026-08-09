@@ -96,6 +96,10 @@ Private：
 - Tags：shopping, backup
 - Summary：安靜的早晨咖啡店。
 - Map：[Google Maps][cafe]
+- Image：https://example.com/cafe.jpg
+- ImageSource：https://example.com/cafe
+- ImageCredit：測試來源
+- ImageAlt：咖啡店測試圖片
 - Hours：08:00-18:00
 - Note：適合早上短暫停留，若客滿就直接前往下一站。
 
@@ -151,6 +155,7 @@ test('parses schema 2 into structured public trip data', () => {
   assert.deepEqual(place.tags, ['shopping', 'backup']);
   assert.equal(place.note.text, '適合早上短暫停留，若客滿就直接前往下一站。');
   assert.equal(place.reservation, undefined);
+  assert.equal(place.image, undefined);
   const transport = trip.entities.find((entity) => entity.type === 'transport');
   assert.equal(transport.segments.length, 2);
   assert.equal(transport.segments[0].price.text, 'TWD 12,000（2 人合計，已付）');
@@ -191,6 +196,12 @@ test('validates optional reservation fields', () => {
   assert.throws(() => parseTrip(reserved.replace('2026-08-27 09:00', '8/27 09:00')), /YYYY-MM-DD HH:mm/);
   assert.throws(() => parseTrip(reserved.replace('Reservation：done', 'Reservation：none')), /不可使用 ReservationTime 或 Party/);
   assert.throws(() => parseTrip(reserved.replace('Party：2 人', 'Party：兩人')), /數字 人/);
+});
+
+test('accepts but does not publish reserved image fields until preview rendering is implemented', () => {
+  assert.doesNotThrow(() => parseTrip(fixture));
+  assert.throws(() => parseTrip(fixture.replace('- ImageCredit：測試來源\n', '')), /必須同時提供 ImageSource 與 ImageCredit/);
+  assert.throws(() => parseTrip(fixture.replace('https://example.com/cafe.jpg', 'http://example.com/cafe.jpg')), /Image 必須是安全的 HTTPS/);
 });
 
 test('requires the exact segment table and required values for transportation', () => {

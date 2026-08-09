@@ -10,8 +10,8 @@ const { entity } = Astro.props;
   <span class="entity-summary">{entity.summary.text}</span>
   <TagChips type="place" tags={entity.tags} />
   <span class="entity-card-facts">
-    <span class="entity-fact"><i>開放</i><b>{entity.hours.text}</b></span>
     <span class="entity-fact"><i>區域</i><b>{entity.area.text}</b></span>
+    <span class="entity-fact"><i>開放</i><b>{entity.hours.text}</b></span>
   </span>
   <span class="entity-open">查看景點資訊 <i class="external-arrow" aria-hidden="true"></i></span>
 </button>

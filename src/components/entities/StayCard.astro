@@ -6,6 +6,7 @@ const { entity } = Astro.props;
 <button class="entity-card entity-stay" type="button" data-entity={entity.id} data-type="stay">
   <span class="entity-type">住宿</span>
   <strong>{entity.title}</strong>
+  <span class="entity-summary">{entity.summary.text}</span>
   <span class="entity-card-facts">
     <span class="entity-fact"><i>時間</i><b>入住 {entity.checkIn.text} · 退房 {entity.checkOut.text}</b></span>
     <span class="entity-fact"><i>交通</i><b>{entity.access.text}</b></span>
